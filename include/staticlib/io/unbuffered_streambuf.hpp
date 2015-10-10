@@ -11,8 +11,6 @@
 #include <ios>
 #include <streambuf>
 
-#include "staticlib/io/IoException.hpp"
-
 namespace staticlib {
 namespace io {
 
@@ -99,7 +97,7 @@ protected:
  * Should be used directly, must NOT be used wrapped into std::istream.
  */
 // use -1 as std::char_traits<char>::eof() won't work in msvc
-template <typename Source, std::streamsize source_eof = -1 >
+template <typename Source, std::streamsize source_eof = -1>
 class unbuffered_istreambuf : public detail::unbuffered_streambuf_base {
     Source source;
     bool exhausted = false;
@@ -148,8 +146,12 @@ public:
         if (exhausted) {
             return std::char_traits<char>::eof();
         } else {
-            throw IoException("'uflow' operation is not supported by unbuffered streambuf");
+            throw std::ios_base::failure("'uflow' operation is not supported by unbuffered streambuf");
         }
+    }
+    
+    virtual Source& get_source() {
+        return source;
     }
 
 protected:
@@ -214,6 +216,10 @@ public:
     unbuffered_ostreambuf& operator=(unbuffered_ostreambuf&& other) {
         sink = std::move(other.sink);
         return *this;
+    }
+
+    virtual Sink& get_sink() {
+        return sink;
     }
 
 protected:

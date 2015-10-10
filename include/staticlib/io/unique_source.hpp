@@ -37,6 +37,10 @@ public:
     std::streamsize read(char* buffer, std::streamsize length) {
         return src->read(buffer, length);
     }
+
+    Source& get_source() {
+        return *src;
+    }
     
 };
 

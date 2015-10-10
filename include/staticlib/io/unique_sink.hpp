@@ -38,8 +38,12 @@ public:
         return sink->write(buffer, length);
     }
     
-    void flush() {
-        sink->flush();
+    std::streamsize flush() {
+        return sink->flush();
+    }
+
+    Sink& get_sink() {
+        return *sink;
     }
 
 };

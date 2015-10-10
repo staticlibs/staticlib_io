@@ -8,9 +8,9 @@
 #ifndef STATICLIB_IO_OPERATIONS_HPP
 #define	STATICLIB_IO_OPERATIONS_HPP
 
+#include <ios>
+#include <sstream>
 #include <string>
-
-#include "staticlib/io/IoException.hpp"
 
 namespace staticlib {
 namespace io {
@@ -74,15 +74,16 @@ void write_all(Sink& sink, const std::string& str) {
  * @param buflen number of bytes to read from source
  * @return number of bytes read
  */
-template<typename Source>
+template<typename Source, std::streamsize source_eof = -1>
 size_t read_all(Source& src, char* buf, std::streamsize buflen) {
     if (buflen < 0) return 0;
     size_t ulen = static_cast<size_t> (buflen);
     size_t result = 0;
     while (result < ulen) {
         std::streamsize amt = src.read(buf + result, buflen - result);
-        if (0 == amt && std::char_traits<char>::eof() == src.sbumpc()) break;
-        result += static_cast<size_t> (amt);
+        if (source_eof != amt) {
+            result += static_cast<size_t> (amt);
+        } else break;
     }
     return result;
 }

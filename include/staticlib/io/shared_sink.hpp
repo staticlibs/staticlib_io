@@ -12,13 +12,13 @@ namespace staticlib {
 namespace io {
 
 template <typename Sink>
-class shared_sink : public std::enable_shared_from_this<shared_sink> {
+class shared_sink {
     std::shared_ptr<Sink> sink;
 
 public:
 
-    shared_sink(Sink* sink) :
-    sink(sink) { }
+    shared_sink(std::shared_ptr<Sink> sink) :
+    sink(std::move(sink)) { }
 
     shared_sink(const shared_sink& other) :
     sink(other.sink) { }
@@ -40,8 +40,12 @@ public:
         return sink->write(buffer, length);
     }
 
-    void flush() {
-        sink->flush();
+    std::streamsize flush() {
+        return sink->flush();
+    }
+    
+    Sink& get_sink() {
+        return *sink;
     }
     
 };

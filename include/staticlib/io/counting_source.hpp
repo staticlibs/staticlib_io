@@ -45,6 +45,11 @@ public:
     size_t get_count() {
         return count;
     }
+
+    Source& get_source() {
+        return src;
+    }
+
     
 };
 

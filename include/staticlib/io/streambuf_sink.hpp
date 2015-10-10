@@ -37,8 +37,8 @@ public:
         return streambuf->sputn(buffer, length);
     }
 
-    void flush() {
-        streambuf->pubsync();
+    std::streamsize flush() {
+        return streambuf->pubsync();
     }
 
 };

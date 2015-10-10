@@ -29,7 +29,11 @@ public:
     }
 
     std::streamsize read(char* s, std::streamsize n) {
-        std::streamsize len = n >= 2 ? 2 : n;
+        if (ind >= data.size()) return std::char_traits<char>::eof();
+        std::streamsize len = 0;
+        if (1 == data.size() - ind)  {
+            len = 1;
+        } else len = n > 2 ? 2 : n;
         for (std::streamsize i = 0; i < len; i++) {
             s[i] = data[ind++];
         }

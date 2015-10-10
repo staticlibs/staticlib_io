@@ -42,15 +42,22 @@ public:
         return res;
     }
 
-    void flush() {
-        sink.flush();
+    std::streamsize flush() {
+        return sink.flush();
     }
 
     size_t get_count() {
         return count;
     }
 
+    Sink& get_sink() {
+        return sink;
+    }
+
 };
+
+} // namespace
+}
 
 #endif	/* STATICLIB_IO_COUNTING_SINK_HPP */
 

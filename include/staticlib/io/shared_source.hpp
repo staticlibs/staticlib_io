@@ -15,13 +15,13 @@ namespace staticlib {
 namespace io {
 
 template <typename Source>
-class shared_source : public std::enable_shared_from_this<shared_source> {
+class shared_source {
     std::shared_ptr<Source> src;
 
 public:
 
-    shared_source(Source* src) :
-    src(src) { }
+    shared_source(std::shared_ptr<Source> src) :
+    src(std::move(src)) { }
 
     shared_source(const shared_source& other) :
     src(other.src) { }
@@ -41,6 +41,10 @@ public:
 
     std::streamsize read(char* buffer, std::streamsize length) {
         return src->read(buffer, length);
+    }
+    
+    Source& get_source() {
+        return *src;
     }
 
 };

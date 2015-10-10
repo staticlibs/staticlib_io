@@ -27,6 +27,10 @@ public:
     buffered_sink(Sink sink) :
     sink(std::move(sink)) { }
 
+    ~buffered_sink() {
+        flush();
+    }
+    
     buffered_sink(const buffered_sink&) = delete;
 
     buffered_sink& operator=(const buffered_sink&) = delete;
@@ -71,10 +75,16 @@ public:
         return length;
     }
 
-    void flush() {
-        write_to_sink(buffer.data(), 0, pos);
-        pos = 0;
-        avail = buffer.size();
+    std::streamsize flush() {
+        std::streamsize flushed = 0;
+        if (pos > 0) {
+            write_to_sink(buffer.data(), 0, pos);
+            flushed += pos;
+            pos = 0;
+            avail = buffer.size();
+        }
+        flushed += sink.flush();
+        return flushed;
     }
     
     Sink& get_sink() {

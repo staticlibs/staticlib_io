@@ -35,7 +35,9 @@ public:
         return len;
     }
     
-    void flush() { }
+    std::streamsize flush() { 
+        return 0;
+    }
     
     std::string& get_data() {
         return data;

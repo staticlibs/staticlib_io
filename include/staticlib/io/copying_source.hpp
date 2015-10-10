@@ -16,24 +16,24 @@ namespace staticlib {
 namespace io {
 
 template<typename Source, typename Sink>
-class counting_source {
+class copying_source {
     Source src;
     Sink sink;
 
 public:
-    counting_source(Source src, Sink sink) :
+    copying_source(Source src, Sink sink) :
     src(std::move(src)),
     sink(std::move(sink)) { }
 
-    counting_source(const counting_source&) = delete;
+    copying_source(const copying_source&) = delete;
 
-    counting_source& operator=(const counting_source&) = delete;
+    copying_source& operator=(const copying_source&) = delete;
 
-    counting_source(counting_source&& other) :
+    copying_source(copying_source&& other) :
     src(std::move(other.src)),
     sink(std::move(other.sink))  { }
 
-    counting_source& operator=(counting_source&& other) {
+    copying_source& operator=(copying_source&& other) {
         src = std::move(other.src);
         sink = std::move(other.sink);
         sink = std::move(other.sink);
@@ -50,6 +50,14 @@ public:
 
     void flush() {
         sink.flush();
+    }
+
+    Source& get_source() {
+        return src;
+    }
+
+    Sink& get_sink() {
+        return sink;
     }
     
 };
