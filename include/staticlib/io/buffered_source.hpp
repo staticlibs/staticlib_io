@@ -87,6 +87,10 @@ public:
     Source& get_source() {
         return src;
     }
+    
+    std::array<char, buf_size>& get_buffer() {
+        return buffer;
+    }
 
 private:
     // repeatable source read logic

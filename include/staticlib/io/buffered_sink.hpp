@@ -91,6 +91,10 @@ public:
         return sink;
     }
 
+    std::array<char, buf_size>& get_buffer() {
+        return buffer;
+    }
+
 private:
     void write_to_sink(const char* buf, std::streamsize offset, size_t length) {
         size_t result = 0;
