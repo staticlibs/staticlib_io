@@ -83,7 +83,7 @@ public:
         }
         return head == 0 ? std::char_traits<char>::eof() : head;
     }
-
+    
     Source& get_source() {
         return src;
     }
@@ -91,7 +91,7 @@ public:
     std::array<char, buf_size>& get_buffer() {
         return buffer;
     }
-
+    
 private:
     // repeatable source read logic
     size_t read_into_buffer(char* buf, std::streamsize offset, size_t length) {
