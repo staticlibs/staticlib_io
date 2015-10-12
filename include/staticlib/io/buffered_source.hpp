@@ -50,32 +50,34 @@ public:
     }
 
     std::streamsize read(char* buf, std::streamsize length) {
+        size_t ulen = static_cast<size_t>(length);
         // return from buffer
-        if (length <= static_cast<std::streamsize>(avail)) {
-            std::memcpy(buf, buffer.data() + pos, length);
-            pos += length;
-            avail -= length;
+        if (ulen <= avail) {
+            std::memcpy(buf, buffer.data() + pos, ulen);
+            pos += ulen;
+            avail -= ulen;
             return length;
         }
         // copy all data already available
-        std::streamsize head = static_cast<std::streamsize>(avail);
-        if (head > 0) {
-            std::memcpy(buf, buffer.data() + pos, head);
+        size_t uhead = avail;
+        if (uhead > 0) {
+            std::memcpy(buf, buffer.data() + pos, uhead);
         }
         pos = 0;
         avail = 0;
+        std::streamsize head = static_cast<std::streamsize> (uhead);
         // try to guess whether to do direct read, or fill buffer first
-        if (length > static_cast<std::streamsize>(buffer.size())) {
+        if (ulen > buffer.size()) {
             // read directly into the destination
-            size_t result = read_into_buffer(buf, head, length - head);
-            size_t out = result + head;
+            size_t result = read_into_buffer(buf, head, length - uhead);
+            size_t out = result + uhead;
             return out > 0 ? out : std::char_traits<char>::eof();
         }
         // fill buffer
         avail = read_into_buffer(buffer.data(), 0, buffer.size());
         if (avail > 0) {
             // copy tail from buffer
-            std::streamsize to_read = std::min(length - head, static_cast<std::streamsize>(avail));
+            size_t to_read = std::min(ulen - uhead, avail);
             std::memcpy(buf, buffer.data() + head, to_read);
             pos = to_read;
             avail -= to_read;

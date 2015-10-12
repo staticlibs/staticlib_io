@@ -51,16 +51,17 @@ public:
     }
 
     std::streamsize write(const char* b, std::streamsize length) {
-        if (length >= static_cast<std::streamsize>(buffer.size())) {
+        size_t ulen = static_cast<size_t>(length);
+        if (ulen >= buffer.size()) {
             write_to_sink(buffer.data(), 0, pos);
             pos = 0;
             avail = buffer.size();
-            write_to_sink(b, 0, length);
-        } else if (length <= static_cast<std::streamsize>(avail)) {
-            std::memcpy(buffer.data() + pos, b, length);
-            pos += length;
-            if (static_cast<std::streamsize>(avail) > length) {
-                avail -= length;
+            write_to_sink(b, 0, ulen);
+        } else if (ulen <= avail) {
+            std::memcpy(buffer.data() + pos, b, ulen);
+            pos += ulen;
+            if (avail > ulen) {
+                avail -= ulen;
                 return length;
             } else {
                 write_to_sink(buffer.data(), 0, buffer.size());
@@ -69,9 +70,9 @@ public:
             }
         } else {
             write_to_sink(buffer.data(), 0, pos);
-            std::memcpy(buffer.data(), b, length);
-            pos = length;
-            avail = buffer.size() - length;
+            std::memcpy(buffer.data(), b, ulen);
+            pos = ulen;
+            avail = buffer.size() - ulen;
         }
         return length;
     }
