@@ -156,79 +156,79 @@ void skip(Source& src, char* buf, IntTypeLen buflen, IntTypeSkip to_skip) {
 template<typename IntType, typename Source>
 IntType read_16_le(Source& src) {
     uint16_t res = 0;
-    read_exact(src, std::addressof(res), 2);
+    read_exact(src, reinterpret_cast<char*>(std::addressof(res)), 2);
     return static_cast<IntType>(le16toh(res));
 }
 
 template<typename IntType, typename Source>
 IntType read_16_be(Source& src) {
     uint16_t res = 0;
-    read_exact(src, std::addressof(res), 2);
+    read_exact(src, reinterpret_cast<char*>(std::addressof(res)), 2);
     return static_cast<IntType>(be16toh(res));
 }
 
 template<typename IntType, typename Source>
 IntType read_32_le(Source& src) {
     uint32_t res = 0;
-    read_exact(src, std::addressof(res), 4);
+    read_exact(src, reinterpret_cast<char*>(std::addressof(res)), 4);
     return static_cast<IntType>(le32toh(res));
 }
 
 template<typename IntType, typename Source>
 IntType read_32_be(Source& src) {
     uint32_t res = 0;
-    read_exact(src, std::addressof(res), 4);
+    read_exact(src, reinterpret_cast<char*>(std::addressof(res)), 4);
     return static_cast<IntType>(be32toh(res));
 }
 
 template<typename IntType, typename Source>
 IntType read_64_le(Source& src) {
     uint64_t res = 0;
-    read_exact(src, std::addressof(res), 8);
+    read_exact(src, reinterpret_cast<char*>(std::addressof(res)), 8);
     return static_cast<IntType>(le64toh(res));
 }
 
 template<typename IntType, typename Source>
 IntType read_64_be(Source& src) {
     uint64_t res = 0;
-    read_exact(src, std::addressof(res), 8);
+    read_exact(src, reinterpret_cast<char*>(std::addressof(res)), 8);
     return static_cast<IntType>(be64toh(res));
 }
 
 template<typename IntType, typename Sink>
 void write_16_le(Sink& sink, IntType val) {
     uint16_t val16 = le16toh(static_cast<uint16_t>(val));
-    write_all(sink, std::addressof(val16), 2);
+    write_all(sink, reinterpret_cast<char*>(std::addressof(val16)), 2);
 }
 
 template<typename IntType, typename Sink>
 void write_16_be(Sink& sink, IntType val) {
     uint16_t val16 = be16toh(static_cast<uint16_t> (val));
-    write_all(sink, std::addressof(val16), 2);
+    write_all(sink, reinterpret_cast<char*>(std::addressof(val16)), 2);
 }
 
 template<typename IntType, typename Sink>
 void write_32_le(Sink& sink, IntType val) {
     uint32_t val32 = le32toh(static_cast<uint32_t> (val));
-    write_all(sink, std::addressof(val32), 4);
+    write_all(sink, reinterpret_cast<char*>(std::addressof(val32)), 4);
 }
 
 template<typename IntType, typename Sink>
 void write_32_be(Sink& sink, IntType val) {
     uint32_t val32 = be32toh(static_cast<uint32_t> (val));
-    write_all(sink, std::addressof(val32), 4);
+    write_all(sink, reinterpret_cast<char*>(std::addressof(val32)), 4);
 }
 
 template<typename IntType, typename Sink>
 void write_64_le(Sink& sink, IntType val) {
     uint64_t val64 = le64toh(static_cast<uint64_t> (val));
-    write_all(sink, std::addressof(val64), 8);
+    write_all(sink, reinterpret_cast<char*>(std::addressof(val64)), 8);
 }
 
 template<typename IntType, typename Sink>
 void write_64_be(Sink& sink, IntType val) {
     uint64_t val64 = be64toh(static_cast<uint64_t> (val));
-    write_all(sink, std::addressof(val64), 8);
+    write_all(sink, reinterpret_cast<char*>(std::addressof(val64)), 8);
 }
 
 
