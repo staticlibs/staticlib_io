@@ -34,7 +34,15 @@ public:
     }
 
     std::streamsize read(char* buffer, std::streamsize length) {
-        return streambuf->sgetn(buffer, length);
+        std::streamsize res = streambuf->sgetn(buffer, length);
+        if (res > 0) {
+            return res;
+        } else if (0 == res && std::char_traits<char>::eof() == streambuf->sbumpc()) {
+            return std::char_traits<char>::eof();
+        } else {
+            streambuf->sungetc();
+            return res;
+        }
     }
     
 };
