@@ -20,7 +20,7 @@ template <typename Sink, std::size_t buf_size = 8192>
 class buffered_sink {
     Sink sink;
 
-    std::array<char, buf_size> buffer{{}};
+    std::array<char, buf_size> buffer;
     size_t pos = 0;
     size_t avail = 0;
 

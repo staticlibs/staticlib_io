@@ -22,7 +22,7 @@ void test_unbuffered_source() {
     io::unbuffered_istreambuf<TwoBytesAtOnceSource> istreambuf{std::move(src)};
     std::istream stream{std::addressof(istreambuf)};
     // pass it somewhere through std api
-    std::array<char, 3> buf{{}};
+    std::array<char, 3> buf;
     auto read = stream.rdbuf()->sgetn(buf.data(), 3);
     (void) read;
     assert(2 == read);

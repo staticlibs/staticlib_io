@@ -21,7 +21,7 @@ class buffered_source {
     Source src;
     bool exhausted = false;
 
-    std::array<char, buf_size> buffer{{}};
+    std::array<char, buf_size> buffer;
     size_t pos = 0;
     size_t avail = 0;
 

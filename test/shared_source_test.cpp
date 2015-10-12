@@ -20,7 +20,7 @@ void test_copyable() {
     std::shared_ptr<NonCopyableSource> source{new NonCopyableSource{}};
     io::shared_source<NonCopyableSource> shared1{source};
     io::shared_source<NonCopyableSource> shared2{source};
-    std::array<char, 3> buf{{}};
+    std::array<char, 3> buf;
     auto read1 = shared1.read(buf.data(), 3);
     (void) read1;
     assert(3 == read1);

@@ -43,29 +43,29 @@ void test_write_all_str() {
 
 void test_read_not_all() {
     TwoBytesAtOnceSource src{"abc"};
-    std::array<char, 4> buf{{}};
+    std::array<char, 4> buf;
     auto read = src.read(buf.data(), 3);
     (void) read;
     assert(2 == read);
-    std::string res{buf.data()};
+    std::string res{buf.data(), static_cast<size_t>(read)};
     assert(2 == res.length());
     assert("ab" == res);
 }
 
 void test_read_all() {
     TwoBytesAtOnceSource src{"abc"};
-    std::array<char, 4> buf{{}};
+    std::array<char, 4> buf;
     auto read = io::read_all(src, buf.data(), 3);
     (void) read;
     assert(3 == read);
-    std::string res{buf.data()};
+    std::string res{buf.data(), read};
     assert(3 == res.length());
     assert("abc" == res);
 }
 
 void test_read_exact() {
     TwoBytesAtOnceSource src{"abc"};
-    std::array<char, 5> buf{{}};
+    std::array<char, 5> buf;
     bool thrown = false;
     try {
         io::read_exact(src, buf.data(), 4);
@@ -80,7 +80,7 @@ void test_read_exact() {
 void test_copy() {
     TwoBytesAtOnceSink sink{};
     TwoBytesAtOnceSource src{"abc"};
-    std::array<char, 2> buf{{}};
+    std::array<char, 2> buf;
     auto copied = io::copy_all(src, sink, buf.data(), buf.size());
     (void) copied;
     assert(3 == copied);
