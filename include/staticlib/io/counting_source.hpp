@@ -37,7 +37,7 @@ public:
     std::streamsize read(char* buffer, std::streamsize length) {
         std::streamsize res = src.read(buffer, length);
         if (res > 0) {
-            count += res;
+            count += static_cast<size_t>(res);
         }
         return res;
     }

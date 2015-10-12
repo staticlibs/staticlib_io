@@ -69,7 +69,7 @@ public:
         // try to guess whether to do direct read, or fill buffer first
         if (ulen > buffer.size()) {
             // read directly into the destination
-            size_t result = read_into_buffer(buf, head, length - uhead);
+			size_t result = read_into_buffer(buf, head, ulen - uhead);
             size_t out = result + uhead;
             return out > 0 ? out : std::char_traits<char>::eof();
         }

@@ -23,7 +23,7 @@ public:
     NonCopyableSource& operator=(NonCopyableSource&&) = delete;
 
     std::streamsize read(char*, std::streamsize n) {
-        count += n;
+        count += static_cast<size_t>(n);
         return n;
     }
     

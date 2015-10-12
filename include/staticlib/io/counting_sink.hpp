@@ -37,7 +37,7 @@ public:
     std::streamsize write(const char* buffer, std::streamsize length) {
         std::streamsize res = sink.write(buffer, length);
         if (res > 0) {
-            count += res;
+            count += static_cast<size_t>(res);
         }
         return res;
     }

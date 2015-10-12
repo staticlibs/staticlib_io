@@ -24,7 +24,7 @@ public:
     NonCopyableSink& operator=(NonCopyableSink&&) = delete;
 
     std::streamsize write(const char*, std::streamsize n) {
-        count += n;
+        count += static_cast<size_t>(n);
         return n;
     }
 
