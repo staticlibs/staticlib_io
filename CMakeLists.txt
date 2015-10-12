@@ -27,6 +27,10 @@ if ( ${PROJECT_NAME}_ENABLE_DOCS )
     return ( )
 endif ( )
 
+# target
+add_library ( ${PROJECT_NAME} STATIC ${CMAKE_CURRENT_LIST_DIR}/include/staticlib/io.hpp )
+set_target_properties ( ${PROJECT_NAME} PROPERTIES LINKER_LANGUAGE CXX )
+
 # pkg-config
 if ( NOT DEFINED CMAKE_LIBRARY_OUTPUT_DIRECTORY )
     set ( CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR} )
