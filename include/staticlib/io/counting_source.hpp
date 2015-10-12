@@ -49,9 +49,13 @@ public:
     Source& get_source() {
         return src;
     }
-
     
 };
+
+template <typename Source>
+counting_source<Source> make_counting_source(Source&& source) {
+    return counting_source<Source>(std::move(source));
+}
 
 } // namespace
 }

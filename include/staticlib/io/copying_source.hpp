@@ -9,6 +9,7 @@
 #define	STATICLIB_IO_COPYING_SOURCE_HPP
 
 #include <ios>
+#include <utility>
 
 #include "staticlib/io/operations.hpp"
 
@@ -61,6 +62,11 @@ public:
     }
     
 };
+
+template<typename Source, typename Sink>
+copying_source<Source, Sink> make_copying_source(Source&& source, Sink&& sink) {
+    return copying_source<Source, Sink>(std::move(source), std::move(sink));
+}
 
 } // namespace
 }

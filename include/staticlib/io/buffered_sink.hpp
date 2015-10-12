@@ -10,6 +10,7 @@
 
 #include <ios>
 #include <array>
+#include <utility>
 #include <cstring>
 
 namespace staticlib {
@@ -105,6 +106,11 @@ private:
     }
     
 };
+
+template <typename Sink>
+buffered_sink<Sink> make_buffered_sink(Sink&& sink) {
+    return buffered_sink<Sink>(std::move(sink));
+}
 
 } // namespace
 }

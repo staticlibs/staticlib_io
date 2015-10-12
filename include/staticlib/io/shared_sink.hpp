@@ -53,6 +53,11 @@ public:
     
 };
 
+template <typename Sink>
+shared_sink<Sink> make_shared_sink(std::shared_ptr<Sink> sink) {
+    return shared_sink<Sink>(std::move(sink));
+}
+
 } // namespace
 }
 

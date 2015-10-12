@@ -49,6 +49,11 @@ public:
 
 };
 
+template <typename Source>
+shared_source<Source> make_shared_source(std::shared_ptr<Source> source) {
+    return shared_source<Source>(std::move(source));
+}
+
 } // namespace
 }
 

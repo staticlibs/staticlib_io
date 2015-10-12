@@ -48,6 +48,11 @@ public:
 
 };
 
+template <typename Sink>
+unique_sink<Sink> make_unique_sink(Sink* sink) {
+    return unique_sink<Sink>(sink);
+}
+
 } // namespace
 }
 

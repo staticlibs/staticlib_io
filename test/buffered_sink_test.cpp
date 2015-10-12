@@ -50,10 +50,15 @@ void test_overwrite() {
     assert("foo42" == sink.get_sink().get_data());
 }
 
+void test_make() {
+    auto sink = io::make_buffered_sink(TwoBytesAtOnceSink{});
+}
+
 int main() {
     test_buffer_size();
     test_flush();
     test_overwrite();
+    test_make();
 
     return 0;
 }

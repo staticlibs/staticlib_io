@@ -10,6 +10,7 @@
 
 #include <ios>
 #include <array>
+#include <utility>
 #include <cstring>
 
 namespace staticlib {
@@ -111,6 +112,11 @@ private:
         return 0;
     }
 };
+
+template <typename Source>
+buffered_source<Source> make_buffered_source(Source&& source) {
+    return buffered_source<Source>(std::move(source));
+}
 
 } // namespace
 }

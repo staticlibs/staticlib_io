@@ -56,6 +56,11 @@ public:
 
 };
 
+template <typename Sink>
+counting_sink<Sink> make_counting_sink(Sink&& sink) {
+    return counting_sink<Sink>(std::move(sink));
+}
+
 } // namespace
 }
 

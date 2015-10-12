@@ -10,6 +10,7 @@
 
 #include <ios>
 #include <streambuf>
+#include <utility>
 
 namespace staticlib {
 namespace io {
@@ -177,6 +178,11 @@ protected:
     }
 };
 
+template <typename Source>
+unbuffered_istreambuf<Source> make_unbuffered_istreambuf(Source&& source) {
+    return unbuffered_istreambuf<Source>(std::move(source));
+}
+
 /**
  * Unbuffered implementation of output streambuf, wraps Sink reference (in terms of Boost.Iostreams).
  * Should be used directly, must NOT be used wrapped into std::ostream.
@@ -234,6 +240,11 @@ protected:
         return sink.write(s, count);
     }
 };
+
+template <typename Sink>
+unbuffered_ostreambuf<Sink> make_unbuffered_ostreambuf(Sink&& sink) {
+    return unbuffered_ostreambuf<Sink>(std::move(sink));
+}
     
 } // namespace
 }

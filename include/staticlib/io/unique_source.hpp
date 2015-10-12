@@ -44,6 +44,11 @@ public:
     
 };
 
+template <typename Source>
+unique_source<Source> make_unique_source(Source* source) {
+    return unique_source<Source>(source);
+}
+
 } // namespace
 }
 
