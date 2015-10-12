@@ -83,15 +83,14 @@ template<typename Source, typename IntType, std::streamsize source_eof = -1>
 size_t read_all(Source& src, char* buf, IntType buflen) {
     std::streamsize sbuflen = static_cast<std::streamsize>(buflen);
     if (sbuflen < 0) return 0;
-    size_t ulen = static_cast<size_t> (sbuflen);
-    size_t result = 0;
-    while (result < ulen) {
+    std::streamsize result = 0;
+    while (result < sbuflen) {
         std::streamsize amt = src.read(buf + result, sbuflen - result);
         if (source_eof != amt) {
             result += static_cast<size_t> (amt);
         } else break;
     }
-    return result;
+    return static_cast<size_t>(result);
 }
 
 /**
