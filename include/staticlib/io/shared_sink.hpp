@@ -8,6 +8,9 @@
 #ifndef STATICLIB_IO_SHARED_SINK_HPP
 #define	STATICLIB_IO_SHARED_SINK_HPP
 
+#include <ios>
+#include <memory>
+
 namespace staticlib {
 namespace io {
 
