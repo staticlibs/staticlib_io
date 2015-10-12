@@ -142,13 +142,14 @@ size_t copy_all(Source& src, Sink& sink, char* buf, IntType buflen) {
     return result;
 }
 
-template<typename Source, typename IntType>
-void skip(Source& src, char* buf, std::streamsize buflen, std::streamsize to_skip) {
+template<typename Source, typename IntTypeLen, typename IntTypeSkip>
+void skip(Source& src, char* buf, IntTypeLen buflen, IntTypeSkip to_skip) {
     std::streamsize sbuflen = static_cast<std::streamsize>(buflen);
-    while (to_skip > 0) {
-        uint16_t chunklen = std::min(to_skip, sbuflen);
+    std::streamsize sto_skip = static_cast<std::streamsize>(to_skip);
+    while (sto_skip > 0) {
+        uint16_t chunklen = std::min(sto_skip, sbuflen);
         io::read_exact(src, buf, chunklen);
-        to_skip -= chunklen;
+        sto_skip -= chunklen;
     }
 }
 

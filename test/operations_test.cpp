@@ -88,6 +88,12 @@ void test_copy() {
     assert("abc" == sink.get_data());
 }
 
+void test_skip() {
+    // todo
+}
+
+// todo: endianness
+
 
 int main() {
     test_write_not_all();
@@ -97,6 +103,7 @@ int main() {
     test_read_all();
     test_read_exact();
     test_copy();
+    test_skip();
 
     return 0;
 }
