@@ -78,7 +78,7 @@ public:
         if (avail > 0) {
             // copy tail from buffer
             size_t to_read = std::min(ulen - uhead, avail);
-            std::memcpy(buf, buffer.data() + head, to_read);
+            std::memcpy(buf, buffer.data(), to_read);
             pos = to_read;
             avail -= to_read;
             // note that head >= 0, and to_read > 0
