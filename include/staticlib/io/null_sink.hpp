@@ -5,8 +5,8 @@
  * Created on October 10, 2015, 1:14 PM
  */
 
-#ifndef STATICLIB_IONULL_SINK_HPP
-#define	STATICLIB_IONULL_SINK_HPP
+#ifndef STATICLIB_IO_NULL_SINK_HPP
+#define	STATICLIB_IO_NULL_SINK_HPP
 
 #include <ios>
 
@@ -44,5 +44,5 @@ public:
 } // namespace
 }
 
-#endif	/* STATICLIB_IONULL_SINK_HPP */
+#endif	/* STATICLIB_IO_NULL_SINK_HPP */
 

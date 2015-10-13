@@ -14,6 +14,7 @@
 #include "staticlib/io/counting_sink.hpp"
 #include "staticlib/io/counting_source.hpp"
 #include "staticlib/io/endian.hpp"
+#include "staticlib/io/flushable_sink.hpp"
 #include "staticlib/io/null_sink.hpp"
 #include "staticlib/io/operations.hpp"
 #include "staticlib/io/shared_sink.hpp"
