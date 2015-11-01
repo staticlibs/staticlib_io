@@ -1,3 +1,19 @@
+/*
+ * Copyright 2015, alex at staticlibs.net
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 /* 
  * File:   buffered_source.hpp
  * Author: alex
@@ -16,23 +32,62 @@
 namespace staticlib {
 namespace io {
 
+/**
+ * Source wrapper that buffers the input
+ */
 template <typename Source, std::size_t buf_size = 8192, std::streamsize source_eof = -1>
 class buffered_source {
+    /**
+     * Input source
+     */
     Source src;
+    /**
+     * Whether input source was exhausted
+     */
     bool exhausted = false;
 
+    /**
+     * Buffer
+     */
     std::array<char, buf_size> buffer;
+    /**
+     * Current position in buffer
+     */
     size_t pos = 0;
+    /**
+     * Number of bytes available in buffer
+     */
     size_t avail = 0;
 
 public:
+    /**
+     * Constructor
+     * 
+     * @param src input source
+     */
     buffered_source(Source src) :
     src(std::move(src)) { }
 
+    /**
+     * Deleted copy constructor
+     * 
+     * @param other instance
+     */
     buffered_source(const buffered_source&) = delete;
 
+    /**
+     * Deleted copy assignment operator
+     * 
+     * @param other instance
+     * @return this instance 
+     */
     buffered_source& operator=(const buffered_source&) = delete;
 
+    /**
+     * Move constructor
+     * 
+     * @param other other instance
+     */
     buffered_source(buffered_source&& other) :
     src(std::move(other.src)),
     exhausted(other.exhausted),
@@ -40,6 +95,12 @@ public:
     pos(other.pos),
     avail(other.avail) { }
 
+    /**
+     * Move assignment operator
+     * 
+     * @param other other instance
+     * @return this instance
+     */
     buffered_source& operator=(buffered_source&& other) {
         src = std::move(other.src);
         exhausted = other.exhausted;
@@ -49,6 +110,13 @@ public:
         return *this;
     }
 
+    /**
+     * Buffered read implementation
+     * 
+     * @param buf output buffer
+     * @param length number of bytes to process
+     * @return number of bytes processed
+     */
     std::streamsize read(char* buf, std::streamsize length) {
         size_t ulen = static_cast<size_t>(length);
         // return from buffer
@@ -87,10 +155,20 @@ public:
         return head == 0 ? std::char_traits<char>::eof() : head;
     }
     
+    /**
+     * Underlying source accessor
+     * 
+     * @return underlying source reference
+     */
     Source& get_source() {
         return src;
     }
     
+    /**
+     * Buffer accessor
+     * 
+     * @return buffer reference
+     */
     std::array<char, buf_size>& get_buffer() {
         return buffer;
     }
@@ -115,6 +193,12 @@ private:
     }
 };
 
+/**
+ * Factory function for creating buffered sources
+ * 
+ * @param source input source
+ * @return buffered source
+ */
 template <typename Source>
 buffered_source<Source> make_buffered_source(Source&& source) {
     return buffered_source<Source>(std::move(source));

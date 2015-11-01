@@ -1,3 +1,19 @@
+/*
+ * Copyright 2015, alex at staticlibs.net
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 /* 
  * File:   null_sink.hpp
  * Author: alex
@@ -13,27 +29,67 @@
 namespace staticlib {
 namespace io {
 
+/**
+ * Sink implementation with no-op write method
+ */
 class null_sink {
 public:
+    /**
+     * Constructor
+     */
     null_sink() { }
 
+    /**
+     * Copy constructor
+     * 
+     * @param other instance
+     */
     null_sink(const null_sink&) { }
 
+    /**
+     * Copy assignment operator
+     * 
+     * @param other instance
+     * @return this instance
+     */
     null_sink& operator=(const null_sink&) {
         return *this;
     }
 
+    /**
+     * Move constructor
+     * 
+     * @param other other instance
+     */
     null_sink(null_sink&&) { }
 
+    /**
+     * Move assignment operator
+     * 
+     * @param other other instance
+     * @return this instance
+     */
     null_sink& operator=(null_sink&&) {
         return *this;
     }
 
+    /**
+     * No-op write implementation
+     * 
+     * @param unused
+     * @param length number of bytes to process
+     * @return specified length
+     */
     std::streamsize write(const char*, std::streamsize length) {
         // no-op
         return length;
     }
 
+    /**
+     * No-op flush implementation
+     * 
+     * @return 0
+     */
     std::streamsize flush() {
         // no-op
         return 0;

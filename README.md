@@ -1,0 +1,61 @@
+Staticlibs IO library
+=====================
+
+This project is a part of [Staticlibs](http://staticlibs.net/).
+
+This project implements stream-like operations on arbitrary `Source` and `Sink` template implementations.
+
+This library is similar in nature with [Boost.Iostreams](http://www.boost.org/doc/libs/1_59_0/libs/iostreams/doc/index.html)
+library, but much less powerful and much less complex.
+
+This library is header-only.
+
+Link to [API documentation](http://staticlibs.github.io/staticlib_io/docs/html/namespacestaticlib_1_1io.html).
+
+Sources and Sinks
+-----------------
+
+This library is built around the notions of the `Source` (input stream) and the `Sink` (output stream)
+template concepts.
+
+`Source` concept:
+
+    class Source {
+        // move constructor and assignment operator
+        Source(Source&& other);
+        Source& operator=(Source&& other);
+
+        // read method
+        std::streamsize read(char* buffer, std::streamsize length);
+    };
+
+`Sink` concept:
+
+    class Sink {
+        // move constructor and assignment operator
+        Sink(Sink&& other);
+        Sink& operator=(Sink&& other);
+
+        // write method
+        std::streamsize write(const char* buffer, std::streamsize length);
+
+        // flush method
+        std::streamsize flush();
+    };
+
+Library implements a set of generic operations (`read_all`, `copy`) on arbitrary sources
+and sinks and a number of template wrappers like buffered and counting sources and sinks.
+
+See usage examples in [tests](https://github.com/staticlibs/staticlib_io/tree/master/test).
+
+License information
+-------------------
+
+This project is released under the [Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0).
+
+Changelog
+---------
+
+**2015-11-01**
+
+ * version 1.0.0 

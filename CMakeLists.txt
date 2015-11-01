@@ -28,7 +28,8 @@ if ( ${PROJECT_NAME}_ENABLE_DOCS )
 endif ( )
 
 # target
-add_library ( ${PROJECT_NAME} STATIC ${CMAKE_CURRENT_LIST_DIR}/include/staticlib/io.hpp )
+file ( GLOB_RECURSE ${PROJECT_NAME}_HEADERS ${CMAKE_CURRENT_LIST_DIR}/include/*.hpp )
+add_library ( ${PROJECT_NAME} STATIC ${${PROJECT_NAME}_HEADERS} )
 set_target_properties ( ${PROJECT_NAME} PROPERTIES LINKER_LANGUAGE CXX )
 
 # pkg-config
