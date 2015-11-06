@@ -1,0 +1,4 @@
+var searchData=
+[
+  ['array_5fsource',['array_source',['../classstaticlib_1_1io_1_1array__source.html#a901fc1159d57ca4f5ea5df149304ec07',1,'staticlib::io::array_source::array_source(const char *src_buf, size_t src_buf_len)'],['../classstaticlib_1_1io_1_1array__source.html#ae34564254fff4e8191a7b627bc791ca0',1,'staticlib::io::array_source::array_source(const array_source &amp;other)'],['../classstaticlib_1_1io_1_1array__source.html#abc5a10227a1745932ab2283cd9e190be',1,'staticlib::io::array_source::array_source(array_source &amp;&amp;other)']]]
+];

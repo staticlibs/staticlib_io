@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">staticlib_io
-   &#160;<span id="projectnumber">1.0.0</span>
+   &#160;<span id="projectnumber">1.1.0</span>
    </div>
   </td>
  </tr>
@@ -75,6 +75,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   </div>
   <div id="navrow4" class="tabs3">
     <ul class="tablist">
+      <li><a href="#index_a"><span>a</span></a></li>
       <li><a href="#index_b"><span>b</span></a></li>
       <li><a href="#index_c"><span>c</span></a></li>
       <li><a href="#index_f"><span>f</span></a></li>
@@ -107,6 +108,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="contents">
 &#160;
 
+<h3><a class="anchor" id="index_a"></a>- a -</h3><ul>
+<li>array_source()
+: <a class="el" href="classstaticlib_1_1io_1_1array__source.html#a901fc1159d57ca4f5ea5df149304ec07">staticlib::io::array_source</a>
+</li>
+</ul>
+
+
 <h3><a class="anchor" id="index_b"></a>- b -</h3><ul>
 <li>buffered_sink()
 : <a class="el" href="classstaticlib_1_1io_1_1buffered__sink.html#ae6c59606b1e37ffaff31227a40a4f41f">staticlib::io::buffered_sink&lt; Sink, buf_size &gt;</a>
@@ -135,6 +143,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="classstaticlib_1_1io_1_1buffered__sink.html#a6dfbff8035680e0166f0f614438c7409">staticlib::io::buffered_sink&lt; Sink, buf_size &gt;</a>
 , <a class="el" href="classstaticlib_1_1io_1_1copying__source.html#a8875261e1ccdfe30edaa10a292ccec82">staticlib::io::copying_source&lt; Source, Sink &gt;</a>
 , <a class="el" href="classstaticlib_1_1io_1_1flushable__sink.html#a1986b1623bda83f83e2012733319e0b2">staticlib::io::flushable_sink&lt; NonFlushableSink &gt;</a>
+, <a class="el" href="classstaticlib_1_1io_1_1string__sink.html#a7ca8a514dc30258264870d9535260879">staticlib::io::string_sink</a>
 , <a class="el" href="classstaticlib_1_1io_1_1unique__sink.html#adb6e94a98ca0aa9379a8e3fb413176e0">staticlib::io::unique_sink&lt; Sink &gt;</a>
 , <a class="el" href="classstaticlib_1_1io_1_1null__sink.html#ad774b2c4cf7bee893bb22c95d8534318">staticlib::io::null_sink</a>
 , <a class="el" href="classstaticlib_1_1io_1_1streambuf__sink.html#aca3ea1f45cdaa35cdf7f1c07ab22c21c">staticlib::io::streambuf_sink</a>
@@ -142,36 +151,43 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 , <a class="el" href="classstaticlib_1_1io_1_1counting__sink.html#a9660e676d1fa705fd228a65d32898041">staticlib::io::counting_sink&lt; Sink &gt;</a>
 </li>
 <li>flushable_sink()
-: <a class="el" href="classstaticlib_1_1io_1_1flushable__sink.html#a95f6aeac5ad7235be61262772de1503a">staticlib::io::flushable_sink&lt; NonFlushableSink &gt;</a>
+: <a class="el" href="classstaticlib_1_1io_1_1flushable__sink.html#a312d4cc9ad00adef1c44c6e67688475b">staticlib::io::flushable_sink&lt; NonFlushableSink &gt;</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_g"></a>- g -</h3><ul>
+<li>get_array()
+: <a class="el" href="classstaticlib_1_1io_1_1array__source.html#a659ddd2a405d761b218df6cdb1611da3">staticlib::io::array_source</a>
+</li>
 <li>get_buffer()
 : <a class="el" href="classstaticlib_1_1io_1_1buffered__sink.html#a470fa30cc8fab4253425c6d8074f1fc5">staticlib::io::buffered_sink&lt; Sink, buf_size &gt;</a>
 , <a class="el" href="classstaticlib_1_1io_1_1buffered__source.html#a56e2d7902edea517dba2dd6f292482da">staticlib::io::buffered_source&lt; Source, buf_size, source_eof &gt;</a>
 </li>
 <li>get_count()
-: <a class="el" href="classstaticlib_1_1io_1_1counting__source.html#a5dda19491f93ee701cee019601695471">staticlib::io::counting_source&lt; Source &gt;</a>
-, <a class="el" href="classstaticlib_1_1io_1_1counting__sink.html#a5de48d53ec455702fefd9b7aa64f4e1f">staticlib::io::counting_sink&lt; Sink &gt;</a>
+: <a class="el" href="classstaticlib_1_1io_1_1counting__sink.html#a5de48d53ec455702fefd9b7aa64f4e1f">staticlib::io::counting_sink&lt; Sink &gt;</a>
+, <a class="el" href="classstaticlib_1_1io_1_1counting__source.html#a5dda19491f93ee701cee019601695471">staticlib::io::counting_source&lt; Source &gt;</a>
 </li>
 <li>get_sink()
-: <a class="el" href="classstaticlib_1_1io_1_1flushable__sink.html#abced570d2ce6b4eeb45e183eb8352a35">staticlib::io::flushable_sink&lt; NonFlushableSink &gt;</a>
+: <a class="el" href="classstaticlib_1_1io_1_1counting__sink.html#afca186f2e1e85dc266a0dee33c22103b">staticlib::io::counting_sink&lt; Sink &gt;</a>
+, <a class="el" href="classstaticlib_1_1io_1_1flushable__sink.html#abced570d2ce6b4eeb45e183eb8352a35">staticlib::io::flushable_sink&lt; NonFlushableSink &gt;</a>
 , <a class="el" href="classstaticlib_1_1io_1_1shared__sink.html#a757885bb86470994a7620391396d5e81">staticlib::io::shared_sink&lt; Sink &gt;</a>
-, <a class="el" href="classstaticlib_1_1io_1_1buffered__sink.html#ad9b4cdb6de39d9959fc60847ebc1d74b">staticlib::io::buffered_sink&lt; Sink, buf_size &gt;</a>
 , <a class="el" href="classstaticlib_1_1io_1_1unbuffered__ostreambuf.html#a7cdc61ade45fbf45e9c2ea35b05dcd7a">staticlib::io::unbuffered_ostreambuf&lt; Sink &gt;</a>
+, <a class="el" href="classstaticlib_1_1io_1_1buffered__sink.html#ad9b4cdb6de39d9959fc60847ebc1d74b">staticlib::io::buffered_sink&lt; Sink, buf_size &gt;</a>
 , <a class="el" href="classstaticlib_1_1io_1_1unique__sink.html#a26e0d82478f284a6ad7e0c95eb390441">staticlib::io::unique_sink&lt; Sink &gt;</a>
 , <a class="el" href="classstaticlib_1_1io_1_1copying__source.html#aa097658f66e1a848fe0f7ed6903d5be9">staticlib::io::copying_source&lt; Source, Sink &gt;</a>
-, <a class="el" href="classstaticlib_1_1io_1_1counting__sink.html#afca186f2e1e85dc266a0dee33c22103b">staticlib::io::counting_sink&lt; Sink &gt;</a>
 </li>
 <li>get_source()
 : <a class="el" href="classstaticlib_1_1io_1_1unbuffered__istreambuf.html#ae6c9b18389643052babf7456bc28c0d2">staticlib::io::unbuffered_istreambuf&lt; Source, source_eof &gt;</a>
-, <a class="el" href="classstaticlib_1_1io_1_1shared__source.html#aa350156469ffbeb7477cc33cbaf501e6">staticlib::io::shared_source&lt; Source &gt;</a>
 , <a class="el" href="classstaticlib_1_1io_1_1buffered__source.html#a8b4e21c4305b98284d7fcc832bcd059f">staticlib::io::buffered_source&lt; Source, buf_size, source_eof &gt;</a>
 , <a class="el" href="classstaticlib_1_1io_1_1counting__source.html#a4a129f8e0b192d77f0ba74535bb7e44c">staticlib::io::counting_source&lt; Source &gt;</a>
-, <a class="el" href="classstaticlib_1_1io_1_1unique__source.html#aa6b815799e93a8907f1dbe8b080ad93d">staticlib::io::unique_source&lt; Source &gt;</a>
+, <a class="el" href="classstaticlib_1_1io_1_1shared__source.html#aa350156469ffbeb7477cc33cbaf501e6">staticlib::io::shared_source&lt; Source &gt;</a>
 , <a class="el" href="classstaticlib_1_1io_1_1copying__source.html#aeb42429941b70a36e5211e1bbdf68e1d">staticlib::io::copying_source&lt; Source, Sink &gt;</a>
+, <a class="el" href="classstaticlib_1_1io_1_1unique__source.html#aa6b815799e93a8907f1dbe8b080ad93d">staticlib::io::unique_source&lt; Source &gt;</a>
+</li>
+<li>get_string()
+: <a class="el" href="classstaticlib_1_1io_1_1string__source.html#a410407a24d9a81f52bd446a1057bccb3">staticlib::io::string_source</a>
+, <a class="el" href="classstaticlib_1_1io_1_1string__sink.html#a969ed0ef35e803c2ca9b39981a82d588">staticlib::io::string_sink</a>
 </li>
 </ul>
 
@@ -185,23 +201,28 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <h3><a class="anchor" id="index_o"></a>- o -</h3><ul>
 <li>operator=()
-: <a class="el" href="classstaticlib_1_1io_1_1buffered__sink.html#a285f4124a32bbcb1b787328e8960c20e">staticlib::io::buffered_sink&lt; Sink, buf_size &gt;</a>
+: <a class="el" href="classstaticlib_1_1io_1_1array__source.html#a64818c27766d74406bb9e023e8a46100">staticlib::io::array_source</a>
 , <a class="el" href="classstaticlib_1_1io_1_1unique__source.html#ab9e0cdda4663fabf295a5e983faefb6b">staticlib::io::unique_source&lt; Source &gt;</a>
 , <a class="el" href="classstaticlib_1_1io_1_1unique__sink.html#a9156d32d35b06bcc72ecf74bed8cc8ac">staticlib::io::unique_sink&lt; Sink &gt;</a>
-, <a class="el" href="classstaticlib_1_1io_1_1unbuffered__ostreambuf.html#a825d94cc6971fd509b4374738d4dda00">staticlib::io::unbuffered_ostreambuf&lt; Sink &gt;</a>
+, <a class="el" href="classstaticlib_1_1io_1_1buffered__sink.html#a62dce71a0112c3b7e4ee4e97c3de8f47">staticlib::io::buffered_sink&lt; Sink, buf_size &gt;</a>
+, <a class="el" href="classstaticlib_1_1io_1_1unbuffered__ostreambuf.html#ade4e4ab4aaa30b3fd79952ed73ee3a80">staticlib::io::unbuffered_ostreambuf&lt; Sink &gt;</a>
 , <a class="el" href="classstaticlib_1_1io_1_1unbuffered__istreambuf.html#a7a3005433d6ac5fb1611ea9c495df9ef">staticlib::io::unbuffered_istreambuf&lt; Source, source_eof &gt;</a>
+, <a class="el" href="classstaticlib_1_1io_1_1string__source.html#aa31c619d58ed6ad7f1b5468f67d0ba11">staticlib::io::string_source</a>
+, <a class="el" href="classstaticlib_1_1io_1_1string__sink.html#acd23cba9c1cdedc1e592a8b9e35dc32b">staticlib::io::string_sink</a>
 , <a class="el" href="classstaticlib_1_1io_1_1streambuf__source.html#a8db13264fc198844e0c70c2e17ca9be0">staticlib::io::streambuf_source</a>
 , <a class="el" href="classstaticlib_1_1io_1_1streambuf__sink.html#ae00baf2bdd8fdb48e682acbf51ab8006">staticlib::io::streambuf_sink</a>
 , <a class="el" href="classstaticlib_1_1io_1_1shared__source.html#a2a1a3ec931238fbbf8fd7355b153184c">staticlib::io::shared_source&lt; Source &gt;</a>
-, <a class="el" href="classstaticlib_1_1io_1_1buffered__source.html#a84b273f2186be7a527b2bb989aba2f98">staticlib::io::buffered_source&lt; Source, buf_size, source_eof &gt;</a>
-, <a class="el" href="classstaticlib_1_1io_1_1shared__sink.html#ae0770543df963a8b61d84020fbab9b64">staticlib::io::shared_sink&lt; Sink &gt;</a>
-, <a class="el" href="classstaticlib_1_1io_1_1null__sink.html#aa191cbb25563b209e0df4172194f4202">staticlib::io::null_sink</a>
+, <a class="el" href="classstaticlib_1_1io_1_1shared__sink.html#a839d75656d4c3a31d2362fdaa334dc26">staticlib::io::shared_sink&lt; Sink &gt;</a>
+, <a class="el" href="classstaticlib_1_1io_1_1copying__source.html#a328c39ab8dd5232793e3609be7024aec">staticlib::io::copying_source&lt; Source, Sink &gt;</a>
+, <a class="el" href="classstaticlib_1_1io_1_1null__sink.html#a4fa7abc2c16ac9cff076ba236fd6a90a">staticlib::io::null_sink</a>
 , <a class="el" href="classstaticlib_1_1io_1_1flushable__sink.html#a99172ef82a5307e6303ad1cb4b217070">staticlib::io::flushable_sink&lt; NonFlushableSink &gt;</a>
 , <a class="el" href="classstaticlib_1_1io_1_1counting__source.html#adabada697dc7a9cd1dbdac4020e213d2">staticlib::io::counting_source&lt; Source &gt;</a>
 , <a class="el" href="classstaticlib_1_1io_1_1counting__sink.html#a13cf71eb9eb59ca296049c0f348b9985">staticlib::io::counting_sink&lt; Sink &gt;</a>
-, <a class="el" href="classstaticlib_1_1io_1_1copying__source.html#a328c39ab8dd5232793e3609be7024aec">staticlib::io::copying_source&lt; Source, Sink &gt;</a>
-, <a class="el" href="classstaticlib_1_1io_1_1shared__sink.html#a839d75656d4c3a31d2362fdaa334dc26">staticlib::io::shared_sink&lt; Sink &gt;</a>
-, <a class="el" href="classstaticlib_1_1io_1_1buffered__source.html#a6ce38afadbbe1022ba9d9706a81cd5a4">staticlib::io::buffered_source&lt; Source, buf_size, source_eof &gt;</a>
+, <a class="el" href="classstaticlib_1_1io_1_1null__sink.html#aa191cbb25563b209e0df4172194f4202">staticlib::io::null_sink</a>
+, <a class="el" href="classstaticlib_1_1io_1_1copying__source.html#af441f5d4f741d5bbf7cbfae21917f01e">staticlib::io::copying_source&lt; Source, Sink &gt;</a>
+, <a class="el" href="classstaticlib_1_1io_1_1buffered__source.html#a84b273f2186be7a527b2bb989aba2f98">staticlib::io::buffered_source&lt; Source, buf_size, source_eof &gt;</a>
+, <a class="el" href="classstaticlib_1_1io_1_1unbuffered__ostreambuf.html#a825d94cc6971fd509b4374738d4dda00">staticlib::io::unbuffered_ostreambuf&lt; Sink &gt;</a>
+, <a class="el" href="classstaticlib_1_1io_1_1buffered__sink.html#a285f4124a32bbcb1b787328e8960c20e">staticlib::io::buffered_sink&lt; Sink, buf_size &gt;</a>
 </li>
 <li>overflow()
 : <a class="el" href="classstaticlib_1_1io_1_1detail_1_1unbuffered__streambuf__base.html#a4577dadbfea48bf3c79fbd3e89089ded">staticlib::io::detail::unbuffered_streambuf_base</a>
@@ -211,12 +232,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <h3><a class="anchor" id="index_r"></a>- r -</h3><ul>
 <li>read()
-: <a class="el" href="classstaticlib_1_1io_1_1buffered__source.html#a813c2630260c86d4cb5a8ec075aab5c2">staticlib::io::buffered_source&lt; Source, buf_size, source_eof &gt;</a>
+: <a class="el" href="classstaticlib_1_1io_1_1array__source.html#a82e1a94a4f9a88abe9227f124af3e425">staticlib::io::array_source</a>
 , <a class="el" href="classstaticlib_1_1io_1_1unique__source.html#a82094717a74a8871aa072c181345e153">staticlib::io::unique_source&lt; Source &gt;</a>
+, <a class="el" href="classstaticlib_1_1io_1_1string__source.html#a6bf422eaf027d6c0dc837e749c2897f4">staticlib::io::string_source</a>
 , <a class="el" href="classstaticlib_1_1io_1_1streambuf__source.html#a7667f35f352737b233166d7aa2d3f971">staticlib::io::streambuf_source</a>
 , <a class="el" href="classstaticlib_1_1io_1_1shared__source.html#a04bf34f255a28bfbdbbc60e3eed2b3fc">staticlib::io::shared_source&lt; Source &gt;</a>
 , <a class="el" href="classstaticlib_1_1io_1_1counting__source.html#af9cd1f56903f993971fee1b06532bee0">staticlib::io::counting_source&lt; Source &gt;</a>
 , <a class="el" href="classstaticlib_1_1io_1_1copying__source.html#a6661ce3f87df422c1dcea4a916c97e00">staticlib::io::copying_source&lt; Source, Sink &gt;</a>
+, <a class="el" href="classstaticlib_1_1io_1_1buffered__source.html#a813c2630260c86d4cb5a8ec075aab5c2">staticlib::io::buffered_source&lt; Source, buf_size, source_eof &gt;</a>
 </li>
 </ul>
 
@@ -238,10 +261,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="classstaticlib_1_1io_1_1shared__source.html#a4bcbaac1c9442ff4fc73486935a6ebc0">staticlib::io::shared_source&lt; Source &gt;</a>
 </li>
 <li>streambuf_sink()
-: <a class="el" href="classstaticlib_1_1io_1_1streambuf__sink.html#a402eebb521a1c1ba5bf0e6a06bfa0c79">staticlib::io::streambuf_sink</a>
+: <a class="el" href="classstaticlib_1_1io_1_1streambuf__sink.html#a220c8d0147b1a64a91e1e1622c8f81fd">staticlib::io::streambuf_sink</a>
 </li>
 <li>streambuf_source()
-: <a class="el" href="classstaticlib_1_1io_1_1streambuf__source.html#a76d74bd6e1f8135d665635993a0e69eb">staticlib::io::streambuf_source</a>
+: <a class="el" href="classstaticlib_1_1io_1_1streambuf__source.html#a108edea73e488e6b639d763fcfc089cd">staticlib::io::streambuf_source</a>
+</li>
+<li>string_sink()
+: <a class="el" href="classstaticlib_1_1io_1_1string__sink.html#a3f4c1466fcf987ec117d4021c3c7e2f3">staticlib::io::string_sink</a>
+</li>
+<li>string_source()
+: <a class="el" href="classstaticlib_1_1io_1_1string__source.html#af918db58f22d87a01c882c8f016a945b">staticlib::io::string_source</a>
 </li>
 </ul>
 
@@ -273,6 +302,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>write()
 : <a class="el" href="classstaticlib_1_1io_1_1buffered__sink.html#a414aa5d223b60a6373a08ce27838ec89">staticlib::io::buffered_sink&lt; Sink, buf_size &gt;</a>
 , <a class="el" href="classstaticlib_1_1io_1_1unique__sink.html#abef423929186b083214c50f1a379a1e8">staticlib::io::unique_sink&lt; Sink &gt;</a>
+, <a class="el" href="classstaticlib_1_1io_1_1string__sink.html#a5544aff89028fc24b17803b030cac722">staticlib::io::string_sink</a>
 , <a class="el" href="classstaticlib_1_1io_1_1streambuf__sink.html#a7fcba41eb47f85e93d87e50e8f32940d">staticlib::io::streambuf_sink</a>
 , <a class="el" href="classstaticlib_1_1io_1_1shared__sink.html#a249ba5a5c329e4bdd291f9865c9264c7">staticlib::io::shared_sink&lt; Sink &gt;</a>
 , <a class="el" href="classstaticlib_1_1io_1_1null__sink.html#ac9290de1d34c3726b8e687024452ab29">staticlib::io::null_sink</a>
@@ -302,7 +332,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Nov 1 2015 15:10:32 for staticlib_io by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Nov 6 2015 21:23:46 for staticlib_io by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>
