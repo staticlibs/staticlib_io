@@ -15,35 +15,30 @@
  */
 
 /* 
- * File:   streambuf_source_test.cpp
+ * File:   string_sink_test.cpp
  * Author: alex
  *
- * Created on October 10, 2015, 2:40 PM
+ * Created on November 6, 2015, 9:11 PM
  */
 
-#include <iostream>
-#include <sstream>
-#include <string>
+#include <array>
 #include <cassert>
 
-#include "staticlib/io/streambuf_source.hpp"
+#include "staticlib/io/string_sink.hpp"
 
 namespace io = staticlib::io;
 
-void test_read() {
-    std::istringstream stream{"foo"};
-    io::streambuf_source src{stream.rdbuf()};
-    std::string dest{};
-    dest.resize(3);
-    auto read = src.read(std::addressof(dest.front()), 3);
-    (void) read;
-    assert(3 == read);
-    assert("foo" == dest);
+void test_write() {
+    io::string_sink sink{};
+    auto res = sink.write("bar", 3);
+    (void) res;
+    assert(3 == res);
+    assert(sink.get_string() == "bar");
 }
 
 int main() {
-    test_read();
-
+    test_write();
+    
     return 0;
 }
 

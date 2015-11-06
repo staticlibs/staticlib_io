@@ -16,7 +16,7 @@ cmake_minimum_required ( VERSION 2.8.12 )
 
 # project
 project ( staticlib_io CXX )
-set ( ${PROJECT_NAME}_STATICLIB_VERSION 1.0.0 )
+set ( ${PROJECT_NAME}_STATICLIB_VERSION 1.1.0 )
 set ( ${PROJECT_NAME}_DESCRIPTION "Staticlibs IO library" )
 set ( ${PROJECT_NAME}_URL https://github.com/staticlibs/staticlib_io )
 

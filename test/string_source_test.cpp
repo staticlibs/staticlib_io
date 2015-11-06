@@ -15,30 +15,29 @@
  */
 
 /* 
- * File:   streambuf_source_test.cpp
+ * File:   string_source.cpp
  * Author: alex
  *
- * Created on October 10, 2015, 2:40 PM
+ * Created on November 6, 2015, 9:06 PM
  */
 
-#include <iostream>
-#include <sstream>
-#include <string>
+#include <array>
 #include <cassert>
 
-#include "staticlib/io/streambuf_source.hpp"
+#include "staticlib/io/string_source.hpp"
 
 namespace io = staticlib::io;
 
 void test_read() {
-    std::istringstream stream{"foo"};
-    io::streambuf_source src{stream.rdbuf()};
-    std::string dest{};
-    dest.resize(3);
-    auto read = src.read(std::addressof(dest.front()), 3);
-    (void) read;
-    assert(3 == read);
-    assert("foo" == dest);
+    std::string st{"bar"};
+    io::string_source src{std::move(st)};
+    std::array<char, 4> out;
+    auto res = src.read(out.data(), out.size());
+    (void) res;
+    assert(3 == res);
+    assert('b' == out[0]);
+    assert('a' == out[1]);
+    assert('r' == out[2]);
 }
 
 int main() {
