@@ -115,6 +115,7 @@ public:
             size_t ulen = static_cast<size_t> (length);
             size_t len = ulen <= avail ? ulen : avail;
             std::memcpy(buf, src_buf + idx, len);
+            this->idx += len;
             return static_cast<std::streamsize>(len);
         } else return std::char_traits<char>::eof();
     }
