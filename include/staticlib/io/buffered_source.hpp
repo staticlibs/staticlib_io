@@ -35,7 +35,7 @@ namespace io {
 /**
  * Source wrapper that buffers the input
  */
-template <typename Source, std::size_t buf_size = 8192, std::streamsize source_eof = -1>
+template <typename Source, std::size_t buf_size = 8192>
 class buffered_source {
     /**
      * Input source
@@ -180,7 +180,7 @@ private:
             size_t result = 0;
             while (result < length) {
                 auto amt = src.read(buf + offset + result, length - result);
-                if (source_eof != amt) {
+                if (std::char_traits<char>::eof() != amt) {
                     result += static_cast<size_t> (amt);
                 } else {
                     exhausted = true;

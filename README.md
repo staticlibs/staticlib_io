@@ -56,6 +56,11 @@ This project is released under the [Apache License 2.0](http://www.apache.org/li
 Changelog
 ---------
 
+**2015-11-14**
+
+ * version 1.1.2
+ * use `std::char_traits<char>::eof()` instead of configurable template arg
+
 **2015-11-09**
 
  * version 1.1.1 
