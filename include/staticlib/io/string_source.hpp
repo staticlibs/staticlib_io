@@ -94,8 +94,8 @@ public:
      */
     string_source(string_source&& other) :
     str(std::move(other.str)),
-    idx(idx),
-    str_len(str_len) { }
+    idx(other.idx),
+    str_len(other.str_len) { }
     
     /**
      * Move assignment operator
