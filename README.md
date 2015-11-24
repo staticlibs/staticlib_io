@@ -3,14 +3,14 @@ Staticlibs IO library
 
 This project is a part of [Staticlibs](http://staticlibs.net/).
 
-This project implements stream-like operations on arbitrary `Source` and `Sink` template implementations.
+This project implements stream-like operations on the arbitrary `Source` and `Sink` template implementations.
 
 This library is similar in nature with [Boost.Iostreams](http://www.boost.org/doc/libs/1_59_0/libs/iostreams/doc/index.html)
 library, but much less powerful and much less complex.
 
 This library is header-only.
 
-Link to [API documentation](http://staticlibs.github.io/staticlib_io/docs/html/namespacestaticlib_1_1io.html).
+Link to the [API documentation](http://staticlibs.github.io/staticlib_io/docs/html/namespacestaticlib_1_1io.html).
 
 Sources and Sinks
 -----------------
@@ -55,6 +55,13 @@ This project is released under the [Apache License 2.0](http://www.apache.org/li
 
 Changelog
 ---------
+
+**2015-11-24**
+
+ * version 1.1.3
+ * endian utils removed
+ * test cleanup
+ * cmake scripts cleanup
 
 **2015-11-14**
 
