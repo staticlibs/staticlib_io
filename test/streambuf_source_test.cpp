@@ -21,12 +21,13 @@
  * Created on October 10, 2015, 2:40 PM
  */
 
+#include "staticlib/io/streambuf_source.hpp"
+
 #include <iostream>
 #include <sstream>
 #include <string>
-#include <cassert>
 
-#include "staticlib/io/streambuf_source.hpp"
+#include "staticlib/config/assert.hpp"
 
 namespace io = staticlib::io;
 
@@ -36,14 +37,17 @@ void test_read() {
     std::string dest{};
     dest.resize(3);
     auto read = src.read(std::addressof(dest.front()), 3);
-    (void) read;
-    assert(3 == read);
-    assert("foo" == dest);
+    slassert(3 == read);
+    slassert("foo" == dest);
 }
 
 int main() {
-    test_read();
-
+    try {
+        test_read();
+    } catch (const std::exception& e) {
+        std::cout << e.what() << std::endl;
+        return 1;
+    }
     return 0;
 }
 

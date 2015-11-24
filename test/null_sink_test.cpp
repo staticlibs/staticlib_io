@@ -21,23 +21,28 @@
  * Created on October 10, 2015, 1:20 PM
  */
 
-#include <cassert>
-
 #include "staticlib/io/null_sink.hpp"
+
+#include <iostream>
+
+#include "staticlib/config/assert.hpp"
 
 namespace io = staticlib::io;
 
 void test_write_and_flush() {
     io::null_sink sink{};
     auto written = sink.write("foo", 3);
-    (void) written;
-    assert(3 == written);
+    slassert(3 == written);
     sink.flush();
 }
 
 int main() {
-    test_write_and_flush();
-
+    try {
+        test_write_and_flush();
+    } catch (const std::exception& e) {
+        std::cout << e.what() << std::endl;
+        return 1;
+    }
     return 0;
 }
 

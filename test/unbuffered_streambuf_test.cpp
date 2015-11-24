@@ -21,12 +21,13 @@
  * Created on October 10, 2015, 2:47 PM
  */
 
+#include "staticlib/io/unbuffered_streambuf.hpp"
+
+#include <array>
 #include <iostream>
 #include <string>
-#include <array>
-#include <cassert>
 
-#include "staticlib/io/unbuffered_streambuf.hpp"
+#include "staticlib/config/assert.hpp"
 
 #include "TwoBytesAtOnceSource.hpp"
 #include "TwoBytesAtOnceSink.hpp"
@@ -40,10 +41,9 @@ void test_unbuffered_source() {
     // pass it somewhere through std api
     std::array<char, 3> buf;
     auto read = stream.rdbuf()->sgetn(buf.data(), 3);
-    (void) read;
-    assert(2 == read);
+    slassert(2 == read);
     std::string res{buf.data(), static_cast<size_t>(read)};
-    assert("ab" == res);
+    slassert("ab" == res);
 }
 
 void test_unbuffered_sink() {
@@ -52,15 +52,17 @@ void test_unbuffered_sink() {
     std::ostream stream{std::addressof(ostreambuf)};
     // pass it somewhere through std api
     auto written = stream.rdbuf()->sputn("abc", 3);
-    (void) written;
-    assert(2 == written);
-    assert("ab" == ostreambuf.get_sink().get_data());
+    slassert(2 == written);
+    slassert("ab" == ostreambuf.get_sink().get_data());
 }
 
 int main() {
-    test_unbuffered_source();
-    test_unbuffered_sink();
-
+    try {
+        test_unbuffered_source();
+        test_unbuffered_sink();
+    } catch (const std::exception& e) {
+        std::cout << e.what() << std::endl;
+        return 1;
+    }
     return 0;
 }
-

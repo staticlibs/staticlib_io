@@ -21,12 +21,13 @@
  * Created on October 10, 2015, 9:20 AM
  */
 
+#include "staticlib/io/buffered_source.hpp"
+
+#include <array>
 #include <iostream>
 #include <string>
-#include <array>
-#include <cassert>
 
-#include "staticlib/io/buffered_source.hpp"
+#include "staticlib/config/assert.hpp"
 
 #include "TwoBytesAtOnceSource.hpp"
 
@@ -37,10 +38,9 @@ void test_buffered() {
     std::string dest{};
     dest.resize(3);
     auto read = src.read(std::addressof(dest.front()), 3);
-    (void) read;
-    assert(3 == read);
-    assert(3 == dest.size());
-    assert("foo" == dest);
+    slassert(3 == read);
+    slassert(3 == dest.size());
+    slassert("foo" == dest);
 }
 
 void test_overread() {
@@ -48,16 +48,19 @@ void test_overread() {
     std::string dest{};
     dest.resize(5);
     auto read = src.read(std::addressof(dest.front()), 5);
-    (void) read;
-    assert(5 == read);
-    assert(5 == dest.size());
-    assert("foo42" == dest);
+    slassert(5 == read);
+    slassert(5 == dest.size());
+    slassert("foo42" == dest);
 }
 
 int main() {
-//    test_buffered();
-    test_overread();
-
+    try {
+        test_buffered();
+        test_overread();
+    } catch (const std::exception& e) {
+        std::cout << e.what() << std::endl;
+        return 1;
+    }
     return 0;
 }
 

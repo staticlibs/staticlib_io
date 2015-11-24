@@ -21,11 +21,12 @@
  * Created on October 10, 2015, 2:02 PM
  */
 
+#include "staticlib/io/shared_sink.hpp"
+
 #include <iostream>
 #include <memory>
-#include <cassert>
 
-#include "staticlib/io/shared_sink.hpp"
+#include "staticlib/config/assert.hpp"
 
 #include "NonCopyableSink.hpp"
 
@@ -36,22 +37,23 @@ void test_copyable() {
     io::shared_sink<NonCopyableSink> shared1{sink};
     io::shared_sink<NonCopyableSink> shared2{sink};
     auto written1 = shared1.write("foo", 3);
-    (void) written1;
-    assert(3 == written1);
-    assert(3 == sink->get_count());
-    assert(3 == shared1.get_sink().get_count());
-    assert(3 == shared2.get_sink().get_count());
+    slassert(3 == written1);
+    slassert(3 == sink->get_count());
+    slassert(3 == shared1.get_sink().get_count());
+    slassert(3 == shared2.get_sink().get_count());
     auto written2 = shared2.write("42", 2);
-    (void) written2;
-    assert(2 == written2);
-    assert(5 == sink->get_count());
-    assert(5 == shared1.get_sink().get_count());
-    assert(5 == shared2.get_sink().get_count());
+    slassert(2 == written2);
+    slassert(5 == sink->get_count());
+    slassert(5 == shared1.get_sink().get_count());
+    slassert(5 == shared2.get_sink().get_count());
 }
 
 int main() {
-    test_copyable();
-
+    try {
+        test_copyable();
+    } catch (const std::exception& e) {
+        std::cout << e.what() << std::endl;
+        return 1;
+    }
     return 0;
 }
-

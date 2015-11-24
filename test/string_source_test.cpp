@@ -21,10 +21,12 @@
  * Created on November 6, 2015, 9:06 PM
  */
 
-#include <array>
-#include <cassert>
-
 #include "staticlib/io/string_source.hpp"
+
+#include <array>
+#include <iostream>
+
+#include "staticlib/config/assert.hpp"
 
 namespace io = staticlib::io;
 
@@ -33,16 +35,19 @@ void test_read() {
     io::string_source src{std::move(st)};
     std::array<char, 4> out;
     auto res = src.read(out.data(), out.size());
-    (void) res;
-    assert(3 == res);
-    assert('b' == out[0]);
-    assert('a' == out[1]);
-    assert('r' == out[2]);
+    slassert(3 == res);
+    slassert('b' == out[0]);
+    slassert('a' == out[1]);
+    slassert('r' == out[2]);
 }
 
 int main() {
-    test_read();
-
+    try {
+        test_read();
+    } catch (const std::exception& e) {
+        std::cout << e.what() << std::endl;
+        return 1;
+    }
     return 0;
 }
 

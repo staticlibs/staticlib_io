@@ -21,24 +21,28 @@
  * Created on November 6, 2015, 9:11 PM
  */
 
-#include <array>
-#include <cassert>
-
 #include "staticlib/io/string_sink.hpp"
+
+#include <array>
+#include <iostream>
+
+#include "staticlib/config/assert.hpp"
 
 namespace io = staticlib::io;
 
 void test_write() {
     io::string_sink sink{};
     auto res = sink.write("bar", 3);
-    (void) res;
-    assert(3 == res);
-    assert(sink.get_string() == "bar");
+    slassert(3 == res);
+    slassert(sink.get_string() == "bar");
 }
 
 int main() {
-    test_write();
-    
+    try {
+        test_write();
+    } catch (const std::exception& e) {
+        std::cout << e.what() << std::endl;
+        return 1;
+    }
     return 0;
 }
-

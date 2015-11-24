@@ -21,11 +21,13 @@
  * Created on October 13, 2015, 7:57 AM
  */
 
+#include "staticlib/io/flushable_sink.hpp"
+
 #include <iostream>
 #include <memory>
-#include <cassert>
 
-#include "staticlib/io/flushable_sink.hpp"
+#include "staticlib/config/assert.hpp"
+
 #include "staticlib/io/counting_sink.hpp"
 
 #include "NonFlushableSink.hpp"
@@ -36,16 +38,18 @@ void test_flushable() {
     io::flushable_sink<NonFlushableSink> sink{NonFlushableSink{}};
     io::counting_sink<io::flushable_sink<NonFlushableSink>>wrapped{std::move(sink)};
     auto written = wrapped.write("foo", 3);
-    (void) written;
-    assert(3 == written);
-    assert(3 == wrapped.get_count());
-    assert(3 == wrapped.get_sink().get_sink().get_count());
+    slassert(3 == written);
+    slassert(3 == wrapped.get_count());
+    slassert(3 == wrapped.get_sink().get_sink().get_count());
 }
 
 int main() {
-    test_flushable();
-
+    try {
+        test_flushable();
+    } catch (const std::exception& e) {
+        std::cout << e.what() << std::endl;
+        return 1;
+    }
     return 0;
 }
-
 

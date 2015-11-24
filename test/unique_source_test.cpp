@@ -21,12 +21,14 @@
  * Created on October 10, 2015, 3:18 PM
  */
 
+#include "staticlib/io/unique_source.hpp"
+
+#include <array>
 #include <iostream>
 #include <memory>
-#include <array>
-#include <cassert>
 
-#include "staticlib/io/unique_source.hpp"
+#include "staticlib/config/assert.hpp"
+
 #include "staticlib/io/counting_source.hpp"
 
 #include "NonCopyableSource.hpp"
@@ -38,15 +40,18 @@ void test_movable() {
     io::counting_source<io::unique_source<NonCopyableSource>> wrapped{std::move(source)};
     std::array<char, 3> buf;
     auto read = wrapped.read(buf.data(), 3);
-    (void) read;
-    assert(3 == read);
-    assert(3 == wrapped.get_count());
-    assert(3 == wrapped.get_source().get_source().get_count());
+    slassert(3 == read);
+    slassert(3 == wrapped.get_count());
+    slassert(3 == wrapped.get_source().get_source().get_count());
 }
 
 int main() {
-    test_movable();
-
+    try {
+        test_movable();
+    } catch (const std::exception& e) {
+        std::cout << e.what() << std::endl;
+        return 1;
+    }
     return 0;
 }
 

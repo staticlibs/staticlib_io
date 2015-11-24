@@ -21,12 +21,13 @@
  * Created on October 10, 2015, 1:23 PM
  */
 
+#include "staticlib/io/operations.hpp"
+
+#include <array>
 #include <iostream>
 #include <string>
-#include <array>
-#include <cassert>
 
-#include "staticlib/io/operations.hpp"
+#include "staticlib/config/assert.hpp"
 
 #include "TwoBytesAtOnceSource.hpp"
 #include "TwoBytesAtOnceSink.hpp"
@@ -36,47 +37,44 @@ namespace io = staticlib::io;
 void test_write_not_all() {
     TwoBytesAtOnceSink sink{};
     auto written = sink.write("abc", 3);
-    (void) written;
-    assert(2 == written);
-    assert(2 == sink.get_data().length());
-    assert("ab" == sink.get_data());
+    slassert(2 == written);
+    slassert(2 == sink.get_data().length());
+    slassert("ab" == sink.get_data());
 }
 
 void test_write_all_buffer() {
     TwoBytesAtOnceSink sink{};
     io::write_all(sink, "abc", 3);
-    assert(3 == sink.get_data().length());
-    assert("abc" == sink.get_data());
+    slassert(3 == sink.get_data().length());
+    slassert("abc" == sink.get_data());
 }
 
 void test_write_all_str() {
     TwoBytesAtOnceSink sink{};
     std::string data{"abc"};
     io::write_all(sink, data);
-    assert(3 == sink.get_data().length());
-    assert("abc" == sink.get_data());
+    slassert(3 == sink.get_data().length());
+    slassert("abc" == sink.get_data());
 }
 
 void test_read_not_all() {
     TwoBytesAtOnceSource src{"abc"};
     std::array<char, 4> buf;
     auto read = src.read(buf.data(), 3);
-    (void) read;
-    assert(2 == read);
+    slassert(2 == read);
     std::string res{buf.data(), static_cast<size_t>(read)};
-    assert(2 == res.length());
-    assert("ab" == res);
+    slassert(2 == res.length());
+    slassert("ab" == res);
 }
 
 void test_read_all() {
     TwoBytesAtOnceSource src{"abc"};
     std::array<char, 4> buf;
     auto read = io::read_all(src, buf.data(), 3);
-    (void) read;
-    assert(3 == read);
+    slassert(3 == read);
     std::string res{buf.data(), read};
-    assert(3 == res.length());
-    assert("abc" == res);
+    slassert(3 == res.length());
+    slassert("abc" == res);
 }
 
 void test_read_exact() {
@@ -85,12 +83,10 @@ void test_read_exact() {
     bool thrown = false;
     try {
         io::read_exact(src, buf.data(), 4);
-    } catch (const std::ios_base::failure& e) {
-        (void) e;
+    } catch (const std::ios_base::failure&) {
         thrown = true;
     }
-    (void) thrown;
-    assert(thrown);
+    slassert(thrown);
 }
 
 void test_copy() {
@@ -98,29 +94,34 @@ void test_copy() {
     TwoBytesAtOnceSource src{"abc"};
     std::array<char, 2> buf;
     auto copied = io::copy_all(src, sink, buf.data(), buf.size());
-    (void) copied;
-    assert(3 == copied);
-    assert(3 == sink.get_data().length());
-    assert("abc" == sink.get_data());
+    slassert(3 == copied);
+    slassert(3 == sink.get_data().length());
+    slassert("abc" == sink.get_data());
 }
 
 void test_skip() {
-    // todo
+    TwoBytesAtOnceSource src{"abc"};
+    std::array<char, 1> buf;
+    io::skip(src, buf.data(), 1, 2);
+    auto read = src.read(buf.data(), 1);
+    slassert(1 == read);
+    slassert('c' == buf[0]);
 }
 
-// todo: endianness
-
-
 int main() {
-    test_write_not_all();
-    test_write_all_buffer();
-    test_write_all_str();
-    test_read_not_all();
-    test_read_all();
-    test_read_exact();
-    test_copy();
-    test_skip();
-
+    try {
+        test_write_not_all();
+        test_write_all_buffer();
+        test_write_all_str();
+        test_read_not_all();
+        test_read_all();
+        test_read_exact();
+        test_copy();
+        test_skip();
+    } catch (const std::exception& e) {
+        std::cout << e.what() << std::endl;
+        return 1;
+    }
     return 0;
 }
 

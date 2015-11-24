@@ -21,12 +21,13 @@
  * Created on October 10, 2015, 12:48 PM
  */
 
+#include "staticlib/io/copying_source.hpp"
+
+#include <array>
 #include <iostream>
 #include <string>
-#include <array>
-#include <cassert>
 
-#include "staticlib/io/copying_source.hpp"
+#include "staticlib/config/assert.hpp"
 
 #include "TwoBytesAtOnceSource.hpp"
 #include "TwoBytesAtOnceSink.hpp"
@@ -38,12 +39,11 @@ void test_copy() {
     std::string dest{};
     dest.resize(2);
     auto read = src.read(std::addressof(dest.front()), 2);
-    (void) read;
-    assert(2 == read);
-    assert(2 == dest.size());
-    assert("42" == dest);
-    assert(2 == src.get_sink().get_data().size());
-    assert("42" == src.get_sink().get_data());
+    slassert(2 == read);
+    slassert(2 == dest.size());
+    slassert("42" == dest);
+    slassert(2 == src.get_sink().get_data().size());
+    slassert("42" == src.get_sink().get_data());
 }
 
 void test_omit_tail() {
@@ -51,18 +51,21 @@ void test_omit_tail() {
     std::string dest{};
     dest.resize(2);
     auto read = src.read(std::addressof(dest.front()), 2);
-    (void) read;
-    assert(2 == read);
-    assert(2 == dest.size());
-    assert("42" == dest);
-    assert(2 == src.get_sink().get_data().size());
-    assert("42" == src.get_sink().get_data());
+    slassert(2 == read);
+    slassert(2 == dest.size());
+    slassert("42" == dest);
+    slassert(2 == src.get_sink().get_data().size());
+    slassert("42" == src.get_sink().get_data());
 }
 
 int main() {
-    test_copy();
-    test_omit_tail();
-
+    try {
+        test_copy();
+        test_omit_tail();
+    } catch (const std::exception& e) {
+        std::cout << e.what() << std::endl;
+        return 1;
+    }
     return 0;
 }
 

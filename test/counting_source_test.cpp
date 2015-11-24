@@ -21,12 +21,13 @@
  * Created on October 10, 2015, 1:12 PM
  */
 
+#include "staticlib/io/counting_source.hpp"
+
+#include <array>
 #include <iostream>
 #include <string>
-#include <array>
-#include <cassert>
 
-#include "staticlib/io/counting_source.hpp"
+#include "staticlib/config/assert.hpp"
 
 #include "TwoBytesAtOnceSource.hpp"
 
@@ -36,24 +37,26 @@ void test_count() {
     io::counting_source<TwoBytesAtOnceSource> src{TwoBytesAtOnceSource{"42"}};
     std::array<char, 2> arr;
     auto read = src.read(arr.data(), arr.size());
-    (void) read;
-    assert(2 == read);
-    assert(2 == src.get_count());
+    slassert(2 == read);
+    slassert(2 == src.get_count());
 }
 
 void test_count_overflow() {
     io::counting_source<TwoBytesAtOnceSource> src{TwoBytesAtOnceSource{"foo42"}};
     std::array<char, 5> arr;
     auto read = src.read(arr.data(), arr.size());
-    (void) read;
-    assert(2 == read);
-    assert(2 == src.get_count());
+    slassert(2 == read);
+    slassert(2 == src.get_count());
 }
 
 int main() {
-    test_count();
-    test_count_overflow();
-
+    try {
+        test_count();
+        test_count_overflow();
+    } catch (const std::exception& e) {
+        std::cout << e.what() << std::endl;
+        return 1;
+    }
     return 0;
 }
 

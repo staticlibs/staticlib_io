@@ -16,7 +16,7 @@ cmake_minimum_required ( VERSION 2.8.12 )
 
 # project
 project ( staticlib_io CXX )
-set ( ${PROJECT_NAME}_STATICLIB_VERSION 1.1.2 )
+set ( ${PROJECT_NAME}_STATICLIB_VERSION 1.1.3 )
 set ( ${PROJECT_NAME}_DESCRIPTION "Staticlibs IO library" )
 set ( ${PROJECT_NAME}_URL https://github.com/staticlibs/staticlib_io )
 
@@ -29,8 +29,8 @@ endif ( )
 
 # target
 file ( GLOB_RECURSE ${PROJECT_NAME}_HEADERS ${CMAKE_CURRENT_LIST_DIR}/include/*.hpp )
-add_library ( ${PROJECT_NAME} STATIC ${${PROJECT_NAME}_HEADERS} )
-set_target_properties ( ${PROJECT_NAME} PROPERTIES LINKER_LANGUAGE CXX )
+source_group ( "include" FILES ${${PROJECT_NAME}_HEADERS} )
+add_custom_target ( ${PROJECT_NAME} SOURCES ${${PROJECT_NAME}_HEADERS} )
 
 # pkg-config
 if ( NOT DEFINED CMAKE_LIBRARY_OUTPUT_DIRECTORY )

@@ -21,11 +21,12 @@
  * Created on October 10, 2015, 2:29 PM
  */
 
+#include "staticlib/io/streambuf_sink.hpp"
+
 #include <iostream>
 #include <sstream>
-#include <cassert>
 
-#include "staticlib/io/streambuf_sink.hpp"
+#include "staticlib/config/assert.hpp"
 
 namespace io = staticlib::io;
 
@@ -33,14 +34,16 @@ void test_write() {
     std::ostringstream stream{};
     io::streambuf_sink sink{stream.rdbuf()};
     auto written = sink.write("foo", 3);
-    (void) written;
-    assert(3 == written);
-    assert("foo" == stream.str());
+    slassert(3 == written);
+    slassert("foo" == stream.str());
 }
 
 int main() {
-    test_write();
-
+    try {
+        test_write();
+    } catch (const std::exception& e) {
+        std::cout << e.what() << std::endl;
+        return 1;
+    }
     return 0;
 }
-
