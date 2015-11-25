@@ -24,8 +24,8 @@
 #ifndef STATICLIB_IO_BUFFERED_SINK_HPP
 #define	STATICLIB_IO_BUFFERED_SINK_HPP
 
-#include <ios>
 #include <array>
+#include <ios>
 #include <utility>
 #include <cstring>
 

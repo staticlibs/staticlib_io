@@ -24,10 +24,10 @@
 #ifndef STATICLIB_IO_OPERATIONS_HPP
 #define	STATICLIB_IO_OPERATIONS_HPP
 
+#include <algorithm>
 #include <ios>
 #include <sstream>
 #include <string>
-#include <algorithm>
 #include <cstdint>
 
 namespace staticlib {
