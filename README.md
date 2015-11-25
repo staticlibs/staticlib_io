@@ -8,7 +8,7 @@ This project implements stream-like operations on the arbitrary `Source` and `Si
 This library is similar in nature with [Boost.Iostreams](http://www.boost.org/doc/libs/1_59_0/libs/iostreams/doc/index.html)
 library, but much less powerful and much less complex.
 
-This library is header-only.
+This library is header-only and has no dependencies.
 
 Link to the [API documentation](http://staticlibs.github.io/staticlib_io/docs/html/namespacestaticlib_1_1io.html).
 
