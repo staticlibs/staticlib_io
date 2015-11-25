@@ -21,8 +21,8 @@
  * Created on October 10, 2015, 2:03 PM
  */
 
-#ifndef NONCOPYABLESOURCE_HPP
-#define	NONCOPYABLESOURCE_HPP
+#ifndef STATICLIB_IO_TEST_NONCOPYABLESOURCE_HPP
+#define	STATICLIB_IO_TEST_NONCOPYABLESOURCE_HPP
 
 class NonCopyableSource {
     size_t count = 0;
@@ -49,5 +49,5 @@ public:
 
 };
 
-#endif	/* NONCOPYABLESOURCE_HPP */
+#endif	/* STATICLIB_IO_TEST_NONCOPYABLESOURCE_HPP */
 

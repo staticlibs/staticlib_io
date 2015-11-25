@@ -21,8 +21,8 @@
  * Created on October 10, 2015, 2:04 PM
  */
 
-#ifndef NONCOPYABLESINK_HPP
-#define	NONCOPYABLESINK_HPP
+#ifndef STATICLIB_IO_TEST_NONCOPYABLESINK_HPP
+#define	STATICLIB_IO_TEST_NONCOPYABLESINK_HPP
 
 class NonCopyableSink {
     size_t count = 0;
@@ -54,5 +54,5 @@ public:
 
 };
 
-#endif	/* NONCOPYABLESINK_HPP */
+#endif	/* STATICLIB_IO_TEST_NONCOPYABLESINK_HPP */
 

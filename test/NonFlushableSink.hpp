@@ -21,8 +21,8 @@
  * Created on October 13, 2015, 8:01 AM
  */
 
-#ifndef NONFLUSHABLESINK_HPP
-#define	NONFLUSHABLESINK_HPP
+#ifndef STATICLIB_IO_TEST_NONFLUSHABLESINK_HPP
+#define	STATICLIB_IO_TEST_NONFLUSHABLESINK_HPP
 
 class NonFlushableSink {
     size_t count = 0;
@@ -54,5 +54,5 @@ public:
 
 };
 
-#endif	/* NONFLUSHABLESINK_HPP */
+#endif	/* STATICLIB_IO_TEST_NONFLUSHABLESINK_HPP */
 
