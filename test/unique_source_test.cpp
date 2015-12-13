@@ -25,7 +25,6 @@
 
 #include <array>
 #include <iostream>
-#include <memory>
 
 #include "staticlib/config/assert.hpp"
 

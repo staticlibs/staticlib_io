@@ -24,7 +24,6 @@
 #include "staticlib/io/unique_sink.hpp"
 
 #include <iostream>
-#include <memory>
 
 #include "staticlib/config/assert.hpp"
 
