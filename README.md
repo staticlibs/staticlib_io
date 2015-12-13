@@ -56,6 +56,11 @@ This project is released under the [Apache License 2.0](http://www.apache.org/li
 Changelog
 ---------
 
+**2015-12-13**
+
+ * version 1.1.4
+ * `reference_*` source and sink added
+
 **2015-11-24**
 
  * version 1.1.3
