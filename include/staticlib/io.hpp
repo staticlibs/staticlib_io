@@ -33,6 +33,8 @@
 #include "staticlib/io/flushable_sink.hpp"
 #include "staticlib/io/null_sink.hpp"
 #include "staticlib/io/operations.hpp"
+#include "staticlib/io/reference_sink.hpp"
+#include "staticlib/io/reference_source.hpp"
 #include "staticlib/io/shared_sink.hpp"
 #include "staticlib/io/shared_source.hpp"
 #include "staticlib/io/streambuf_sink.hpp"
