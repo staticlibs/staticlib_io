@@ -111,10 +111,10 @@ public:
 };
 
 /**
- * Factory function for creating unique sources
+ * Factory function for creating reference sources
  * 
  * @param source input source
- * @return unique source
+ * @return reference source
  */
 template <typename Source>
 reference_source<Source> make_reference_source(Source& source) {

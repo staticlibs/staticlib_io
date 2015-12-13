@@ -120,10 +120,10 @@ public:
 };
 
 /**
- * Factory function for creating unique sinks
+ * Factory function for creating reference sinks
  * 
  * @param sink destination sink
- * @return unique sink
+ * @return reference sink
  */
 template <typename Sink>
 reference_sink<Sink> make_reference_sink(Sink& sink) {
