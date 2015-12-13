@@ -6,6 +6,8 @@ var searchData=
   ['make_5fcounting_5fsink',['make_counting_sink',['../namespacestaticlib_1_1io.html#a2843c14147d95b16d6fa08752e525250',1,'staticlib::io']]],
   ['make_5fcounting_5fsource',['make_counting_source',['../namespacestaticlib_1_1io.html#a2bad9d62c8c2c7a8886dd26455545abb',1,'staticlib::io']]],
   ['make_5fflushable_5fsink',['make_flushable_sink',['../namespacestaticlib_1_1io.html#a79b12690b78400e8a04ff6aad664c535',1,'staticlib::io']]],
+  ['make_5freference_5fsink',['make_reference_sink',['../namespacestaticlib_1_1io.html#ab5af60f54f2811cf8c5a813d86f2885f',1,'staticlib::io']]],
+  ['make_5freference_5fsource',['make_reference_source',['../namespacestaticlib_1_1io.html#a21acc0691c03d0181781281ded55117a',1,'staticlib::io']]],
   ['make_5fshared_5fsink',['make_shared_sink',['../namespacestaticlib_1_1io.html#a192a4c0e6421e7e6a6e361a9cca21d84',1,'staticlib::io']]],
   ['make_5fshared_5fsource',['make_shared_source',['../namespacestaticlib_1_1io.html#a34ecd93768554fa5730f925550508679',1,'staticlib::io']]],
   ['make_5funbuffered_5fistreambuf',['make_unbuffered_istreambuf',['../namespacestaticlib_1_1io.html#a61793ee16059e78be8789048caff2b50',1,'staticlib::io']]],
