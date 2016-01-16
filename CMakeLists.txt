@@ -16,7 +16,7 @@ cmake_minimum_required ( VERSION 2.8.12 )
 
 # project
 project ( staticlib_io CXX )
-set ( ${PROJECT_NAME}_STATICLIB_VERSION 1.1.4 )
+set ( ${PROJECT_NAME}_STATICLIB_VERSION 1.1.5 )
 set ( ${PROJECT_NAME}_DESCRIPTION "Staticlibs IO library" )
 set ( ${PROJECT_NAME}_URL https://github.com/staticlibs/staticlib_io )
 
@@ -27,15 +27,17 @@ if ( ${PROJECT_NAME}_ENABLE_DOCS )
     return ( )
 endif ( )
 
+# standalone build
+if ( NOT DEFINED CMAKE_LIBRARY_OUTPUT_DIRECTORY )
+    set ( CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR} )
+endif ( )
+
 # target
 file ( GLOB_RECURSE ${PROJECT_NAME}_HEADERS ${CMAKE_CURRENT_LIST_DIR}/include/*.hpp )
 source_group ( "include" FILES ${${PROJECT_NAME}_HEADERS} )
 add_custom_target ( ${PROJECT_NAME} SOURCES ${${PROJECT_NAME}_HEADERS} )
 
 # pkg-config
-if ( NOT DEFINED CMAKE_LIBRARY_OUTPUT_DIRECTORY )
-    set ( CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR} )
-endif ( )
 set ( ${PROJECT_NAME}_PC_CFLAGS "-I${CMAKE_CURRENT_LIST_DIR}/include" )
 configure_file ( ${CMAKE_CURRENT_LIST_DIR}/resources/pkg-config.in 
         ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/pkgconfig/${PROJECT_NAME}.pc )
