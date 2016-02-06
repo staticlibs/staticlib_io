@@ -29,13 +29,15 @@
 #include <utility>
 #include <cstring>
 
+#include "staticlib/io/reference_source.hpp"
+
 namespace staticlib {
 namespace io {
 
 /**
  * Source wrapper that buffers the input
  */
-template <typename Source, std::size_t buf_size = 8192>
+template <typename Source, std::size_t buf_size = 4096>
 class buffered_source {
     /**
      * Input source
@@ -61,11 +63,12 @@ class buffered_source {
 
 public:
     /**
-     * Constructor
+     * Constructor,
+     * created source wrapper will own specified source
      * 
      * @param src input source
      */
-    buffered_source(Source src) :
+    buffered_source(Source&& src) :
     src(std::move(src)) { }
 
     /**
@@ -194,14 +197,28 @@ private:
 };
 
 /**
- * Factory function for creating buffered sources
+ * Factory function for creating buffered sources,
+ * created source wrapper will own specified source
+ * 
+ * @param source input source
+ * @return buffered source
+ */
+template <typename Source,
+        class = typename std::enable_if<!std::is_lvalue_reference<Source>::value>::type>
+buffered_source<Source> make_buffered_source(Source&& source) {
+    return buffered_source<Source>(std::move(source));
+}
+
+/**
+ * Factory function for creating buffered sources,
+ * created source wrapper will NOT own specified source
  * 
  * @param source input source
  * @return buffered source
  */
 template <typename Source>
-buffered_source<Source> make_buffered_source(Source&& source) {
-    return buffered_source<Source>(std::move(source));
+buffered_source<reference_source<Source>> make_buffered_source(Source& source) {
+    return buffered_source<reference_source<Source>>(make_reference_source(source));
 }
 
 } // namespace

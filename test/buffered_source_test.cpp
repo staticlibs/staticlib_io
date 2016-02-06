@@ -53,10 +53,23 @@ void test_overread() {
     slassert("foo42" == dest);
 }
 
+void test_make_rvalue() {
+    auto src = io::make_buffered_source(TwoBytesAtOnceSource{"foo42"});
+    (void) src;
+}
+
+void test_make_lvalue() {
+    TwoBytesAtOnceSource delegate{"foo42"};
+    auto src = io::make_buffered_source(delegate);
+    (void) src;
+}
+
 int main() {
     try {
         test_buffered();
         test_overread();
+        test_make_rvalue();
+        test_make_lvalue();
     } catch (const std::exception& e) {
         std::cout << e.what() << std::endl;
         return 1;

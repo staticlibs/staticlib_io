@@ -29,13 +29,15 @@
 #include <utility>
 #include <cstring>
 
+#include "staticlib/io/reference_sink.hpp"
+
 namespace staticlib {
 namespace io {
 
 /**
  * Sink wrapper that buffers the output
  */
-template <typename Sink, std::size_t buf_size = 8192>
+template <typename Sink, std::size_t buf_size = 4096>
 class buffered_sink {
     /**
      * Destination sink
@@ -57,11 +59,12 @@ class buffered_sink {
 
 public:
     /**
-     * Constructor, wraps specified sink
+     * Constructor,
+     * created sink wrapper will own specified sink
      * 
      * @param sink destination sink to wrap
      */
-    buffered_sink(Sink sink) :
+    buffered_sink(Sink&& sink) :
     sink(std::move(sink)) { }
 
     /**
@@ -192,14 +195,28 @@ private:
 };
 
 /**
- * Factory function for creating buffered sinks
+ * Factory function for creating buffered sinks,
+ * created sink wrapper will own specified sink
+ * 
+ * @param sink destination sink
+ * @return buffered sink
+ */
+template <typename Sink,
+        class = typename std::enable_if<!std::is_lvalue_reference<Sink>::value>::type>
+buffered_sink<Sink> make_buffered_sink(Sink&& sink) {
+    return buffered_sink<Sink>(std::move(sink));
+}
+
+/**
+ * Factory function for creating buffered sinks,
+ * created sink wrapper will NOT own specified sink
  * 
  * @param sink destination sink
  * @return buffered sink
  */
 template <typename Sink>
-buffered_sink<Sink> make_buffered_sink(Sink&& sink) {
-    return buffered_sink<Sink>(std::move(sink));
+buffered_sink<reference_sink<Sink>> make_buffered_sink(Sink& sink) {
+    return buffered_sink<reference_sink<Sink>>(make_reference_sink(sink));
 }
 
 } // namespace

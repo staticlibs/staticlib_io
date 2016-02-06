@@ -26,6 +26,8 @@
 
 #include <ios>
 
+#include "staticlib/io/reference_source.hpp"
+
 namespace staticlib {
 namespace io {
 
@@ -45,11 +47,12 @@ class counting_source {
     
 public:
     /**
-     * Constructor
+     * Constructor,
+     * created source wrapper will own specified source
      * 
      * @param src input source
      */
-    counting_source(Source src) :
+    counting_source(Source&& src) :
     src(std::move(src)) { }
 
     /**
@@ -122,14 +125,28 @@ public:
 };
 
 /**
- * Factory function for creating counting sources
+ * Factory function for creating counting sources,
+ * created source wrapper will own specified source
+ * 
+ * @param source input source
+ * @return counting source
+ */
+template <typename Source,
+        class = typename std::enable_if<!std::is_lvalue_reference<Source>::value>::type>
+counting_source<Source> make_counting_source(Source&& source) {
+    return counting_source<Source>(std::move(source));
+}
+
+/**
+ * Factory function for creating counting sources,
+ * created source wrapper will NOT own specified source
  * 
  * @param source input source
  * @return counting source
  */
 template <typename Source>
-counting_source<Source> make_counting_source(Source&& source) {
-    return counting_source<Source>(std::move(source));
+counting_source<reference_source<Source>> make_counting_source(Source& source) {
+    return counting_source<reference_source<Source>>(make_reference_source(source));
 }
 
 } // namespace

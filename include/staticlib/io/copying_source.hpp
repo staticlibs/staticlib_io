@@ -28,6 +28,8 @@
 #include <utility>
 
 #include "staticlib/io/operations.hpp"
+#include "staticlib/io/reference_sink.hpp"
+#include "staticlib/io/reference_source.hpp"
 
 namespace staticlib {
 namespace io {
@@ -49,12 +51,13 @@ class copying_source {
 
 public:
     /**
-     * Constructor
+     * Constructor,
+     * created source wrapper will own specified source and sink
      * 
      * @param src input source
      * @param sink sink for data copy
      */
-    copying_source(Source src, Sink sink) :
+    copying_source(Source&& src, Sink&& sink) :
     src(std::move(src)),
     sink(std::move(sink)) { }
 
@@ -141,15 +144,33 @@ public:
 };
 
 /**
- * Factory function for creating copying sources
+ * Factory function for creating copying sources,
+ * created source wrapper will own specified source and sink
+ * 
+ * @param source input source
+ * @param sink copy sink
+ * @return copying source
+ */
+template<typename Source, typename Sink,
+        class = typename std::enable_if<!std::is_lvalue_reference<Source>::value>::type,
+        class = typename std::enable_if<!std::is_lvalue_reference<Sink>::value>::type>
+copying_source<Source, Sink> make_copying_source(Source&& source, Sink&& sink) {
+    return copying_source<Source, Sink>(std::move(source), std::move(sink));
+}
+
+/**
+ * Factory function for creating copying sources,
+ * created source wrapper will NOT own specified source and sink
  * 
  * @param source input source
  * @param sink copy sink
  * @return copying source
  */
 template<typename Source, typename Sink>
-copying_source<Source, Sink> make_copying_source(Source&& source, Sink&& sink) {
-    return copying_source<Source, Sink>(std::move(source), std::move(sink));
+copying_source<reference_source<Source>, reference_sink<Sink>> 
+make_copying_source(Source& source, Sink& sink) {
+    return copying_source<reference_source<Source>, reference_sink<Sink>>(
+            make_reference_source(source), make_reference_sink(sink));
 }
 
 } // namespace

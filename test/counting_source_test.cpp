@@ -34,7 +34,7 @@
 namespace io = staticlib::io;
 
 void test_count() {
-    io::counting_source<TwoBytesAtOnceSource> src{TwoBytesAtOnceSource{"42"}};
+    auto src = io::make_counting_source(TwoBytesAtOnceSource{"42"});
     std::array<char, 2> arr;
     auto read = src.read(arr.data(), arr.size());
     slassert(2 == read);
@@ -42,7 +42,8 @@ void test_count() {
 }
 
 void test_count_overflow() {
-    io::counting_source<TwoBytesAtOnceSource> src{TwoBytesAtOnceSource{"foo42"}};
+    TwoBytesAtOnceSource delegate{"foo42"};
+    auto src = io::make_counting_source(delegate);
     std::array<char, 5> arr;
     auto read = src.read(arr.data(), arr.size());
     slassert(2 == read);

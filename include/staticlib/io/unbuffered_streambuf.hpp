@@ -28,6 +28,9 @@
 #include <streambuf>
 #include <utility>
 
+#include "staticlib/io/reference_sink.hpp"
+#include "staticlib/io/reference_source.hpp"
+
 namespace staticlib {
 namespace io {
 
@@ -121,11 +124,12 @@ class unbuffered_istreambuf : public detail::unbuffered_streambuf_base {
 
 public:
     /**
-     * Constructor
+     * Constructor,
+     * created source wrapper will own specified source
      * 
      * @param source Source instance (in terms of Boost.Iostreams)
      */
-    unbuffered_istreambuf(Source source) : 
+    unbuffered_istreambuf(Source&& source) : 
     source(std::move(source)) { }
 
     /**
@@ -194,10 +198,31 @@ protected:
     }
 };
 
-template <typename Source>
+/**
+ * Factory function for creating unbuffered_istreambuf sources,
+ * created source wrapper will own specified source
+ * 
+ * @param source input source
+ * @return unbuffered_istreambuf source
+ */
+template <typename Source,
+        class = typename std::enable_if<!std::is_lvalue_reference<Source>::value>::type>
 unbuffered_istreambuf<Source> make_unbuffered_istreambuf(Source&& source) {
     return unbuffered_istreambuf<Source>(std::move(source));
 }
+
+/**
+ * Factory function for creating unbuffered_istreambuf sources,
+ * created source wrapper will NOT own specified source
+ * 
+ * @param source input source
+ * @return unbuffered_istreambuf source
+ */
+template <typename Source>
+unbuffered_istreambuf<reference_source<Source>> make_unbuffered_istreambuf(Source& source) {
+    return unbuffered_istreambuf<reference_source<Source>>(make_reference_source(source));
+}
+
 
 /**
  * Unbuffered implementation of output streambuf, wraps Sink reference (in terms of Boost.Iostreams).
@@ -209,11 +234,12 @@ class unbuffered_ostreambuf : public detail::unbuffered_streambuf_base {
 
 public:
     /**
-     * Constructor
+     * Constructor,
+     * created sink wrapper will own specified sink
      * 
      * @param sink Sink reference (in terms of Boost.Iostreams)
      */
-    unbuffered_ostreambuf(Sink sink) : 
+    unbuffered_ostreambuf(Sink&& sink) : 
     sink(std::move(sink)) { }
     
     /**
@@ -257,9 +283,29 @@ protected:
     }
 };
 
-template <typename Sink>
+/**
+ * Factory function for creating unbuffered_ostreambuf sinks,
+ * created sink wrapper will own specified sink
+ * 
+ * @param sink destination sink
+ * @return unbuffered_ostreambuf sink
+ */
+template <typename Sink,
+        class = typename std::enable_if<!std::is_lvalue_reference<Sink>::value>::type>
 unbuffered_ostreambuf<Sink> make_unbuffered_ostreambuf(Sink&& sink) {
     return unbuffered_ostreambuf<Sink>(std::move(sink));
+}
+
+/**
+ * Factory function for creating unbuffered_ostreambuf sinks,
+ * created sink wrapper will NOT own specified sink
+ * 
+ * @param sink destination sink
+ * @return unbuffered_ostreambuf sink
+ */
+template <typename Sink>
+unbuffered_ostreambuf<reference_sink<Sink>> make_unbuffered_ostreambuf(Sink& sink) {
+    return unbuffered_ostreambuf<reference_sink<Sink>>(make_reference_sink(sink));
 }
     
 } // namespace

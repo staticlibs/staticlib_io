@@ -26,6 +26,8 @@
 
 #include <ios>
 
+#include "staticlib/io/reference_sink.hpp"
+
 namespace staticlib {
 namespace io {
 
@@ -41,11 +43,12 @@ class flushable_sink {
 
 public:
     /**
-     * Constructor
+     * Constructor,
+     * created sink wrapper will own specified sink
      * 
      * @param sink destination sink
      */
-    flushable_sink(NonFlushableSink sink) :
+    flushable_sink(NonFlushableSink&& sink) :
     sink(std::move(sink)) { }
 
     /**
@@ -114,14 +117,28 @@ public:
 };
 
 /**
- * Factory function for creating flushable sinks
+ * Factory function for creating flushable sinks,
+ * created sink wrapper will own specified sink
+ * 
+ * @param sink destination sink
+ * @return flushable sink
+ */
+template <typename NonFlushableSink,
+        class = typename std::enable_if<!std::is_lvalue_reference<NonFlushableSink>::value>::type>
+flushable_sink<NonFlushableSink> make_flushable_sink(NonFlushableSink&& sink) {
+    return flushable_sink<NonFlushableSink>(std::move(sink));
+}
+
+/**
+ * Factory function for creating flushable sinks,
+ * created sink wrapper will NOT own specified sink
  * 
  * @param sink destination sink
  * @return flushable sink
  */
 template <typename NonFlushableSink>
-flushable_sink<NonFlushableSink> make_flushable_sink(NonFlushableSink&& sink) {
-    return flushable_sink<NonFlushableSink>(std::move(sink));
+flushable_sink<reference_sink<NonFlushableSink>> make_flushable_sink(NonFlushableSink& sink) {
+    return flushable_sink<reference_sink<NonFlushableSink>>(make_reference_sink(sink));
 }
 
 } // namespace

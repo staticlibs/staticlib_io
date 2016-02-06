@@ -35,12 +35,18 @@
 namespace io = staticlib::io;
 
 void test_flushable() {
-    io::flushable_sink<NonFlushableSink> sink{NonFlushableSink{}};
+    auto sink = io::make_flushable_sink(NonFlushableSink{});
     io::counting_sink<io::flushable_sink<NonFlushableSink>>wrapped{std::move(sink)};
     auto written = wrapped.write("foo", 3);
     slassert(3 == written);
     slassert(3 == wrapped.get_count());
     slassert(3 == wrapped.get_sink().get_sink().get_count());
+}
+
+void test_lvalue() {
+    NonFlushableSink dest{};
+    auto sink = io::make_flushable_sink(dest);
+    (void) sink;
 }
 
 int main() {

@@ -26,6 +26,8 @@
 
 #include <ios>
 
+#include "staticlib/io/reference_sink.hpp"
+
 namespace staticlib {
 namespace io {
 
@@ -45,11 +47,12 @@ class counting_sink {
 
 public:
     /**
-     * Constructor
+     * Constructor,
+     * created sink wrapper will own specified sink
      * 
      * @param sink destination sink
      */
-    counting_sink(Sink sink) :
+    counting_sink(Sink&& sink) :
     sink(std::move(sink)) { }
 
     /**
@@ -131,14 +134,28 @@ public:
 };
 
 /**
- * Factory function for creating counting sinks
+ * Factory function for creating counting sinks,
+ * created sink wrapper will own specified sink
+ * 
+ * @param sink destination sink
+ * @return counting sink
+ */
+template <typename Sink,
+        class = typename std::enable_if<!std::is_lvalue_reference<Sink>::value>::type>
+counting_sink<Sink> make_counting_sink(Sink&& sink) {
+    return counting_sink<Sink>(std::move(sink));
+}
+
+/**
+ * Factory function for creating counting sinks,
+ * created sink wrapper will NOT own specified sink
  * 
  * @param sink destination sink
  * @return counting sink
  */
 template <typename Sink>
-counting_sink<Sink> make_counting_sink(Sink&& sink) {
-    return counting_sink<Sink>(std::move(sink));
+counting_sink<reference_sink<Sink>> make_counting_sink(Sink& sink) {
+    return counting_sink<reference_sink<Sink>>(make_reference_sink(sink));
 }
 
 } // namespace

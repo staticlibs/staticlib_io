@@ -62,8 +62,14 @@ void test_overwrite() {
     slassert("foo42" == sink.get_sink().get_data());
 }
 
-void test_make() {
+void test_make_rvalue() {
     auto sink = io::make_buffered_sink(TwoBytesAtOnceSink{});
+    (void) sink;
+}
+
+void test_make_lvalue() {
+    TwoBytesAtOnceSink dest{};
+    auto sink = io::make_buffered_sink(dest);
     (void) sink;
 }
 
@@ -72,7 +78,8 @@ int main() {
         test_buffer_size();
         test_flush();
         test_overwrite();
-        test_make();
+        test_make_rvalue();
+        test_make_lvalue();
     } catch (const std::exception& e) {
         std::cout << e.what() << std::endl;
         return 1;

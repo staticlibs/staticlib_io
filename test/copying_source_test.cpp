@@ -35,7 +35,7 @@
 namespace io = staticlib::io;
 
 void test_copy() {
-    io::copying_source<TwoBytesAtOnceSource, TwoBytesAtOnceSink> src{TwoBytesAtOnceSource{"42"}, TwoBytesAtOnceSink{}};
+    auto src = io::make_copying_source(TwoBytesAtOnceSource{"42"}, TwoBytesAtOnceSink{});
     std::string dest{};
     dest.resize(2);
     auto read = src.read(std::addressof(dest.front()), 2);
@@ -47,7 +47,7 @@ void test_copy() {
 }
 
 void test_omit_tail() {
-    io::copying_source<TwoBytesAtOnceSource, TwoBytesAtOnceSink> src{TwoBytesAtOnceSource{"42foo"}, TwoBytesAtOnceSink{}};
+    auto src = io::make_copying_source(TwoBytesAtOnceSource{"42foo"}, TwoBytesAtOnceSink{});
     std::string dest{};
     dest.resize(2);
     auto read = src.read(std::addressof(dest.front()), 2);
@@ -58,10 +58,18 @@ void test_omit_tail() {
     slassert("42" == src.get_sink().get_data());
 }
 
+void test_lvalue() {
+    TwoBytesAtOnceSource s1{"42foo"};
+    TwoBytesAtOnceSink s2{};
+    auto src = io::make_copying_source(s1, s2);
+    (void) src;
+}
+
 int main() {
     try {
         test_copy();
         test_omit_tail();
+        test_lvalue();
     } catch (const std::exception& e) {
         std::cout << e.what() << std::endl;
         return 1;

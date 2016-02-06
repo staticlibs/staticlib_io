@@ -36,7 +36,7 @@ namespace io = staticlib::io;
 
 void test_unbuffered_source() {
     TwoBytesAtOnceSource src{"abc"};
-    io::unbuffered_istreambuf<TwoBytesAtOnceSource> istreambuf{std::move(src)};
+    auto istreambuf = io::make_unbuffered_istreambuf(std::move(src));
     std::istream stream{std::addressof(istreambuf)};
     // pass it somewhere through std api
     std::array<char, 3> buf;
@@ -46,9 +46,21 @@ void test_unbuffered_source() {
     slassert("ab" == res);
 }
 
+void test_unbuffered_source_lvalue() {
+    TwoBytesAtOnceSource src{"abc"};
+    auto istreambuf = io::make_unbuffered_istreambuf(src);
+    std::istream stream{std::addressof(istreambuf)};
+    // pass it somewhere through std api
+    std::array<char, 3> buf;
+    auto read = stream.rdbuf()->sgetn(buf.data(), 3);
+    slassert(2 == read);
+    std::string res{buf.data(), static_cast<size_t> (read)};
+    slassert("ab" == res);
+}
+
 void test_unbuffered_sink() {
     TwoBytesAtOnceSink sink{};
-    io::unbuffered_ostreambuf<TwoBytesAtOnceSink> ostreambuf{std::move(sink)};
+    auto ostreambuf = io::make_unbuffered_ostreambuf(std::move(sink));
     std::ostream stream{std::addressof(ostreambuf)};
     // pass it somewhere through std api
     auto written = stream.rdbuf()->sputn("abc", 3);
@@ -56,10 +68,22 @@ void test_unbuffered_sink() {
     slassert("ab" == ostreambuf.get_sink().get_data());
 }
 
+void test_unbuffered_sink_lvalue() {
+    TwoBytesAtOnceSink sink{};
+    auto ostreambuf = io::make_unbuffered_ostreambuf(sink);
+    std::ostream stream{std::addressof(ostreambuf)};
+    // pass it somewhere through std api
+    auto written = stream.rdbuf()->sputn("abc", 3);
+    slassert(2 == written);
+    slassert("ab" == ostreambuf.get_sink().get_sink().get_data());
+}
+
 int main() {
     try {
         test_unbuffered_source();
+        test_unbuffered_source_lvalue();
         test_unbuffered_sink();
+        test_unbuffered_sink_lvalue();
     } catch (const std::exception& e) {
         std::cout << e.what() << std::endl;
         return 1;
