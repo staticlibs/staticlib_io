@@ -55,7 +55,7 @@ public:
      * 
      * @param str source string
      */
-    string_source(std::string&& str) :
+    string_source(std::string str) :
     str(std::move(str)),
     idx(0),
     str_len(this->str.length()) { }
@@ -67,7 +67,7 @@ public:
      * @param from start index (inclusive)
      * @param to end index (exclusive)
      */
-    string_source(std::string&& str, size_t from, size_t to) :
+    string_source(std::string str, size_t from, size_t to) :
     str(std::move(str)),
     idx(from),
     str_len(to) { }
