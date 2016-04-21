@@ -37,6 +37,7 @@
 #include "staticlib/io/reference_source.hpp"
 #include "staticlib/io/shared_sink.hpp"
 #include "staticlib/io/shared_source.hpp"
+#include "staticlib/io/source_istream.hpp"
 #include "staticlib/io/streambuf_sink.hpp"
 #include "staticlib/io/streambuf_source.hpp"
 #include "staticlib/io/string_sink.hpp"
