@@ -42,7 +42,7 @@ void test_replace() {
     std::map<std::string, std::string> values = {{"abc", "bar"}};
     std::string res;
     res.resize(4);
-    auto replacer = io::make_replacer_source(src, values, [](const std::string&) {slassert(false);});
+    auto replacer = io::make_replacer_source(src, values, [](const std::string& msg) {slassert(msg.empty()); });
     replacer.read(std::addressof(res.front()), res.length());
     slassert("foxb" == res);
     replacer.read(std::addressof(res.front()), 2);
@@ -58,7 +58,7 @@ void test_multiple() {
         {"bar", ""},
         {"baz", "2345678"}
     };
-    auto replacer = io::make_replacer_source(std::move(src), std::move(values), [](const std::string&) {slassert(false);});
+    auto replacer = io::make_replacer_source(std::move(src), std::move(values), [](const std::string& msg) {slassert(msg.empty()); });
     auto sink = io::string_sink();
     std::array<char, 1024> buf;
     io::copy_all(replacer, sink, buf.data(), buf.size());

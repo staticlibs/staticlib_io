@@ -174,11 +174,9 @@ public:
      */
     std::streamsize read(char* buf, std::streamsize length) {
         // return from buffer
-        {
-            std::streamsize res = copy_buffered(buf, length);
-            if (res > 0) {
-                return res;
-            }
+        std::streamsize read_buffered = copy_buffered(buf, length);
+        if (read_buffered > 0) {
+            return read_buffered;
         }
         // fill buffer
         if (!exhausted) {
@@ -207,19 +205,16 @@ public:
             }
         }
         // return if any
-        {
-            std::streamsize res = copy_buffered(buf, length);
-            if (res > 0) {
-                return res;
-            } else {
-                if (placeholder.length() > 0) {
-                    std::string msg = "Invalid unclosed placeholder: [" + placeholder + "]";
-                    on_error(msg);
-                }
-                return std::char_traits<char>::eof();
-            }
+        std::streamsize read_prepared = copy_buffered(buf, length);
+        if (read_prepared > 0) {
+            return read_prepared;
+        } 
+        // return eof
+        if (placeholder.length() > 0) {
+            std::string msg = "Invalid unclosed placeholder: [" + placeholder + "]";
+            on_error(msg);
         }
-        return 0;
+        return std::char_traits<char>::eof();
     }
 
     /**
@@ -292,8 +287,9 @@ private:
         std::streamsize avail = buffer.size() - pos;
         if (avail > 0) {
             std::streamsize cplen = std::min(avail, length);
-            std::memcpy(buf, buffer.data() + pos, static_cast<size_t> (cplen));
-            pos += cplen;
+            size_t ucplen = static_cast<size_t> (cplen);
+            std::memcpy(buf, buffer.data() + pos, ucplen);
+            pos += ucplen;
             return cplen;
         }
         return 0;
