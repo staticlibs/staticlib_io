@@ -35,6 +35,7 @@
 #include "staticlib/io/operations.hpp"
 #include "staticlib/io/reference_sink.hpp"
 #include "staticlib/io/reference_source.hpp"
+#include "staticlib/io/replacer_source.hpp"
 #include "staticlib/io/shared_sink.hpp"
 #include "staticlib/io/shared_source.hpp"
 #include "staticlib/io/source_istream.hpp"
