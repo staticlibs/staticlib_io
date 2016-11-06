@@ -25,6 +25,7 @@
 #define	STATICLIB_IO_REPLACER_SOURCE_HPP
 
 #include <cstring>
+#include <functional>
 #include <ios>
 #include <map>
 #include <string>
@@ -54,12 +55,14 @@ class replacer_source {
      * Whether input source was exhausted
      */
     bool exhausted = false;
-
     /**
      * Values mapping for replacement
      */
     std::map<std::string, std::string> values;
-
+    /**
+     * Function that will be called on error condition
+     */
+    std::function<void(const std::string&) > on_error;    
     /**
      * Placeholder prefix
      */
@@ -93,9 +96,11 @@ public:
      * @param src input source
      */
     replacer_source(Source&& src, std::map<std::string, std::string> values,
+            std::function<void(const std::string&)> on_error,
             std::string prefix = "{{", std::string postfix = "}}", size_t max_placeholder_len = 255) :
     src(make_buffered_source(std::move(src))),
     values(std::move(values)),
+    on_error(on_error),
     prefix(std::move(prefix)),
     postfix(std::move(postfix)),
     max_placeholder_len(max_placeholder_len) { }
@@ -124,6 +129,7 @@ public:
     src(std::move(other.src)),
     exhausted(other.exhausted),
     values(std::move(other.values)),
+    on_error(other.on_error),
     prefix(std::move(other.prefix)),
     postfix(std::move(other.postfix)),
     max_placeholder_len(other.max_placeholder_len),
@@ -145,6 +151,7 @@ public:
         src = std::move(other.src);
         exhausted = other.exhausted;
         values = std::move(other.values);
+        on_error = other.on_error;        
         prefix = std::move(other.prefix);
         postfix = std::move(other.postfix);
         max_placeholder_len = other.max_placeholder_len;
@@ -159,32 +166,30 @@ public:
     }
 
     /**
-     * Buffered read implementation
+     * Replacing read implementation
      * 
      * @param buf output buffer
      * @param length number of bytes to process
      * @return number of bytes processed
      */
     std::streamsize read(char* buf, std::streamsize length) {
-        size_t ulen = static_cast<size_t> (length);
         // return from buffer
         {
-            std::streamsize avail = buffer.size() - pos;
-            if (avail > 0) {
-                std::streamsize cplen = std::min(avail, length);
-                std::memcpy(buf, buffer.data() + pos, static_cast<size_t>(cplen));
-                pos += cplen;
-                return cplen;
+            std::streamsize res = copy_buffered(buf, length);
+            if (res > 0) {
+                return res;
             }
         }
         // fill buffer
         if (!exhausted) {
             buffer.resize(0);
             pos = 0;
-            size_t limitlen = std::min(ulen, buf_len_limit);
+            size_t limitlen = std::min(static_cast<size_t> (length), buf_len_limit);
             for(;;) {
                 char cur;
-                exhausted = std::char_traits<char>::eof() == src.read(std::addressof(cur), 1);
+                std::streamsize read = 0;
+                while (0 == (read = src.read(std::addressof(cur), 1)));
+                exhausted = std::char_traits<char>::eof() == read;
                 if (exhausted) {
                     break;
                 }
@@ -203,13 +208,14 @@ public:
         }
         // return if any
         {
-            std::streamsize avail = buffer.size() - pos;
-            if (avail > 0) {
-                std::streamsize cplen = std::min(avail, length);
-                std::memcpy(buf, buffer.data() + pos, static_cast<size_t> (cplen));
-                pos += cplen;
-                return cplen;
+            std::streamsize res = copy_buffered(buf, length);
+            if (res > 0) {
+                return res;
             } else {
+                if (placeholder.length() > 0) {
+                    std::string msg = "Invalid unclosed placeholder: [" + placeholder + "]";
+                    on_error(msg);
+                }
                 return std::char_traits<char>::eof();
             }
         }
@@ -258,9 +264,7 @@ private:
         placeholder.push_back(cur);
         if (placeholder.size() == max_placeholder_len) {
             std::string msg = "Parameter name: [" + placeholder + "] is too long";
-            size_t wp = buffer.size();
-            buffer.resize(wp + msg.length());
-            std::memcpy(buffer.data() + wp, msg.c_str(), msg.length());
+            on_error(msg);
         }
         if (cur == postfix[ind_postfix]) {
             ind_postfix += 1;
@@ -274,12 +278,26 @@ private:
                     std::memcpy(buffer.data() + wp, par->second.c_str(), par->second.length());
                     placeholder.clear();
                     state = State::PREFIX;
+                } else {
+                    std::string msg = "Parameter: [" + placeholder + "] not found";
+                    on_error(msg);
                 }
             }
         } else {
             ind_postfix = 0;
         }
     } 
+    
+    std::streamsize copy_buffered(char* buf, std::streamsize length) {
+        std::streamsize avail = buffer.size() - pos;
+        if (avail > 0) {
+            std::streamsize cplen = std::min(avail, length);
+            std::memcpy(buf, buffer.data() + pos, static_cast<size_t> (cplen));
+            pos += cplen;
+            return cplen;
+        }
+        return 0;
+    }
     
 };
 
@@ -292,8 +310,9 @@ private:
  */
 template <typename Source,
 class = typename std::enable_if<!std::is_lvalue_reference<Source>::value>::type>
-replacer_source<Source> make_replacer_source(Source&& source, std::map<std::string, std::string> values) {
-    return replacer_source<Source>(std::move(source), std::move(values));
+replacer_source<Source> make_replacer_source(Source&& source, std::map<std::string, std::string> values,
+        std::function<void(const std::string&)> on_error) {
+    return replacer_source<Source>(std::move(source), std::move(values), on_error);
 }
 
 /**
@@ -304,8 +323,9 @@ replacer_source<Source> make_replacer_source(Source&& source, std::map<std::stri
  * @return replacer source
  */
 template <typename Source>
-replacer_source<reference_source<Source>> make_replacer_source(Source& source, std::map<std::string, std::string> values) {
-    return replacer_source<reference_source<Source>>(make_reference_source(source), std::move(values));
+replacer_source<reference_source<Source>> make_replacer_source(Source& source, std::map<std::string, std::string> values,
+        std::function<void(const std::string&)> on_error) {
+    return replacer_source<reference_source<Source>>(make_reference_source(source), std::move(values), on_error);
 }
 
 } // namespace

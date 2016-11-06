@@ -30,6 +30,9 @@
 
 #include "staticlib/config/assert.hpp"
 
+#include "staticlib/io/operations.hpp"
+#include "staticlib/io/string_sink.hpp"
+
 #include "TwoBytesAtOnceSource.hpp"
 
 namespace io = staticlib::io;
@@ -39,7 +42,7 @@ void test_replace() {
     std::map<std::string, std::string> values = {{"abc", "bar"}};
     std::string res;
     res.resize(4);
-    auto replacer = io::make_replacer_source(src, values);
+    auto replacer = io::make_replacer_source(src, values, [](const std::string&) {slassert(false);});
     replacer.read(std::addressof(res.front()), res.length());
     slassert("foxb" == res);
     replacer.read(std::addressof(res.front()), 2);
@@ -48,9 +51,24 @@ void test_replace() {
     slassert("42xb" == res);
 }
 
+void test_multiple() {
+    auto src = TwoBytesAtOnceSource("{{foo}}{{bar}}{{baz}}");
+    std::map<std::string, std::string> values = {
+        {"foo", "1"},
+        {"bar", ""},
+        {"baz", "2345678"}
+    };
+    auto replacer = io::make_replacer_source(std::move(src), std::move(values), [](const std::string&) {slassert(false);});
+    auto sink = io::string_sink();
+    std::array<char, 1024> buf;
+    io::copy_all(replacer, sink, buf.data(), buf.size());
+    slassert("12345678" == sink.get_string());
+}
+
 int main() {
     try {
         test_replace();
+        test_multiple();
     } catch (const std::exception& e) {
         std::cout << e.what() << std::endl;
         return 1;
