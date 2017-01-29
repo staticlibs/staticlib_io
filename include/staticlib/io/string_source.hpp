@@ -29,6 +29,10 @@
 #include <cstdint>
 #include <cstring>
 
+#include "staticlib/config.hpp"
+
+#include "staticlib/io/IOException.hpp"
+
 namespace staticlib {
 namespace io {
 
@@ -120,9 +124,12 @@ public:
      * @return number of bytes processed
      */
     std::streamsize read(char* buf, std::streamsize length) {
+        namespace sc = staticlib::config;
+        if (!sc::is_sizet(length)) throw IOException(TRACEMSG(
+                "Invalid 'read' parameter specified, length: [" + sc::to_string(length) + "]"));
+        size_t ulen = static_cast<size_t> (length);
         size_t avail = str_len - idx;
-        if (avail > 0) {
-            size_t ulen = static_cast<size_t> (length);
+        if (avail > 0) {            
             size_t len = ulen <= avail ? ulen : avail;
             std::memcpy(buf, std::addressof(str.front()) + idx, len);
             this->idx += len;

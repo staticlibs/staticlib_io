@@ -29,7 +29,9 @@
 
 #include "staticlib/config/assert.hpp"
 
+#include "NegativeReadSource.hpp"
 #include "TwoBytesAtOnceSource.hpp"
+#include "test_utils.hpp"
 
 namespace io = staticlib::io;
 
@@ -64,12 +66,24 @@ void test_make_lvalue() {
     (void) src;
 }
 
+void test_throw() {
+    auto src = io::make_buffered_source(TwoBytesAtOnceSource{"foo42"});
+    slassert(throws_exc([&src] { src.read(nullptr, -1); }));
+    slassert(throws_exc([] {
+        auto ns = io::make_buffered_source(NegativeReadSource());
+        std::array<char, 16> buf;
+        std::memset(buf.data(), '\0', buf.size());
+        ns.read(buf.data(), buf.size());
+    }));
+}
+
 int main() {
     try {
         test_buffered();
         test_overread();
         test_make_rvalue();
         test_make_lvalue();
+        test_throw();
     } catch (const std::exception& e) {
         std::cout << e.what() << std::endl;
         return 1;

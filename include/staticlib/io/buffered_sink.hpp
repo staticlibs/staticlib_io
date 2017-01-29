@@ -24,11 +24,14 @@
 #ifndef STATICLIB_IO_BUFFERED_SINK_HPP
 #define	STATICLIB_IO_BUFFERED_SINK_HPP
 
+#include <cstring>
 #include <array>
 #include <ios>
 #include <utility>
-#include <cstring>
 
+#include "staticlib/config.hpp"
+
+#include "staticlib/io/IOException.hpp"
 #include "staticlib/io/reference_sink.hpp"
 
 namespace staticlib {
@@ -70,8 +73,12 @@ public:
     /**
      * Destructor, flushes the buffer before destroy
      */
-    ~buffered_sink() {
-        flush();
+    ~buffered_sink() STATICLIB_NOEXCEPT {
+        try {
+            flush();
+        } catch(...) {
+            // ignore
+        }
     }
     
     /**
@@ -122,12 +129,15 @@ public:
      * @return number of bytes processed
      */
     std::streamsize write(const char* b, std::streamsize length) {
+        namespace sc = staticlib::config;
+        if (!sc::is_sizet(length)) throw IOException(TRACEMSG(
+                "Invalid 'write' parameter specified, length: [" + sc::to_string(length) + "]"));
         size_t ulen = static_cast<size_t>(length);
         if (ulen >= buffer.size()) {
-            write_to_sink(buffer.data(), 0, pos);
+            write_to_sink(buffer.data(), pos);
             pos = 0;
             avail = buffer.size();
-            write_to_sink(b, 0, ulen);
+            write_to_sink(b, ulen);
         } else if (ulen <= avail) {
             std::memcpy(buffer.data() + pos, b, ulen);
             pos += ulen;
@@ -135,12 +145,12 @@ public:
                 avail -= ulen;
                 return length;
             } else {
-                write_to_sink(buffer.data(), 0, buffer.size());
+                write_to_sink(buffer.data(), buffer.size());
                 pos = 0;
                 avail = buffer.size();
             }
         } else {
-            write_to_sink(buffer.data(), 0, pos);
+            write_to_sink(buffer.data(), pos);
             std::memcpy(buffer.data(), b, ulen);
             pos = ulen;
             avail = buffer.size() - ulen;
@@ -156,7 +166,7 @@ public:
     std::streamsize flush() {
         std::streamsize flushed = 0;
         if (pos > 0) {
-            write_to_sink(buffer.data(), 0, pos);
+            write_to_sink(buffer.data(), pos);
             flushed += pos;
             pos = 0;
             avail = buffer.size();
@@ -184,10 +194,17 @@ public:
     }
 
 private:
-    void write_to_sink(const char* buf, std::streamsize offset, size_t length) {
+    void write_to_sink(const char* buf, size_t length) {
+        namespace sc = staticlib::config;
         size_t result = 0;
         while (result < length) {
-            auto amt = sink.write(buf + offset + result, length - result);
+            size_t ulen = length - result;
+            if (!sc::is_streamsize(ulen)) {
+                ulen = static_cast<size_t> (std::numeric_limits<std::streamsize>::max());
+            }
+            std::streamsize amt = sink.write(buf + result, static_cast<std::streamsize>(ulen));
+            if (!sc::is_sizet(amt)) throw IOException(TRACEMSG(
+                    "Invalid result returned by underlying 'write' operation: [" + sc::to_string(amt) + "]"));
             result += static_cast<size_t> (amt);
         }
     }

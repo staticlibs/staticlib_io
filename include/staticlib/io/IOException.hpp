@@ -15,37 +15,42 @@
  */
 
 /* 
- * File:   string_sink_test.cpp
+ * File:   IOException.hpp
  * Author: alex
  *
- * Created on November 6, 2015, 9:11 PM
+ * Created on January 20, 2017, 10:01 PM
  */
 
-#include "staticlib/io/string_sink.hpp"
+#ifndef STATICLIB_IO_IOEXCEPTION_HPP
+#define	STATICLIB_IO_IOEXCEPTION_HPP
 
-#include <array>
-#include <iostream>
+#include "staticlib/config.hpp"
 
-#include "staticlib/config/assert.hpp"
+namespace staticlib {
+namespace io {
 
-#include "test_utils.hpp"
+/**
+ * Module specific exception
+ */
+class IOException : public staticlib::config::BaseException {
+public:
+    /**
+     * Default constructor
+     */
+    IOException() = default;
 
-namespace io = staticlib::io;
+    /**
+     * Constructor with message
+     * 
+     * @param msg error message
+     */
+    IOException(const std::string& msg) :
+    staticlib::config::BaseException(msg) { }
 
-void test_write() {
-    io::string_sink sink{};
-    auto res = sink.write("bar", 3);
-    slassert(3 == res);
-    slassert(sink.get_string() == "bar");
-    slassert(throws_exc([&sink] { sink.write(nullptr, -1); }))
+};
+
 }
+} //namespace
 
-int main() {
-    try {
-        test_write();
-    } catch (const std::exception& e) {
-        std::cout << e.what() << std::endl;
-        return 1;
-    }
-    return 0;
-}
+#endif	/* STATICLIB_IO_IOEXCEPTION_HPP */
+

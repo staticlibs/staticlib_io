@@ -28,6 +28,8 @@
 
 #include "staticlib/config/assert.hpp"
 
+#include "test_utils.hpp"
+
 namespace io = staticlib::io;
 
 void test_read() {
@@ -39,6 +41,7 @@ void test_read() {
     slassert('b' == out[0]);
     slassert('a' == out[1]);
     slassert('r' == out[2]);
+    slassert(throws_exc([&src] { src.read(nullptr, -1); }))
 }
 
 int main() {

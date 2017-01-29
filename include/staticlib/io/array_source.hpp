@@ -24,9 +24,13 @@
 #ifndef STATICLIB_IO_ARRAY_SOURCE_HPP
 #define	STATICLIB_IO_ARRAY_SOURCE_HPP
 
-#include <ios>
 #include <cstdint>
 #include <cstring>
+#include <ios>
+
+#include "staticlib/config.hpp"
+
+#include "staticlib/io/IOException.hpp"
 
 namespace staticlib {
 namespace io {
@@ -110,9 +114,12 @@ public:
      * @return number of bytes processed
      */
     std::streamsize read(char* buf, std::streamsize length) {
+        namespace sc = staticlib::config;
+        if (!sc::is_sizet(length)) throw IOException(TRACEMSG(
+                "Invalid 'read' parameter specified, length: [" + sc::to_string(length) + "]"));
+        size_t ulen = static_cast<size_t> (length);
         size_t avail = src_buf_len - idx;
         if (avail > 0) {
-            size_t ulen = static_cast<size_t> (length);
             size_t len = ulen <= avail ? ulen : avail;
             std::memcpy(buf, src_buf + idx, len);
             this->idx += len;

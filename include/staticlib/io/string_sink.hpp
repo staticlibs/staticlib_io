@@ -24,10 +24,14 @@
 #ifndef STATICLIB_IO_STRING_SINK_HPP
 #define	STATICLIB_IO_STRING_SINK_HPP
 
-#include <ios>
-#include <string>
 #include <cstdint>
 #include <cstring>
+#include <ios>
+#include <string>
+
+#include "staticlib/config.hpp"
+
+#include "staticlib/io/IOException.hpp"
 
 namespace staticlib {
 namespace io {
@@ -97,9 +101,14 @@ public:
      * @return number of bytes processed
      */
     std::streamsize write(const char* b, std::streamsize length) {
+        namespace sc = staticlib::config;
+        if (!sc::is_sizet(length)) throw IOException(TRACEMSG(
+                "Invalid 'write' parameter specified, length: [" + sc::to_string(length) + "]"));
         size_t ulen = static_cast<size_t> (length);
         size_t size = str.size();
-        str.resize(str.size() + ulen);
+        if (!sc::is_streamsize(size)) throw IOException(TRACEMSG(
+                "Target string size limit exceeded, length: [" + sc::to_string(str.size()) + "]"));
+        str.resize(size + ulen);
         std::memcpy(std::addressof(str.front()) + size, b, ulen);
         return static_cast<std::streamsize> (ulen);
     }

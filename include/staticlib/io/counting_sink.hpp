@@ -26,6 +26,8 @@
 
 #include <ios>
 
+#include "staticlib/config.hpp"
+
 #include "staticlib/io/reference_sink.hpp"
 
 namespace staticlib {
@@ -97,8 +99,9 @@ public:
      * @return number of bytes processed
      */
     std::streamsize write(const char* buffer, std::streamsize length) {
+        namespace sc = staticlib::config;
         std::streamsize res = sink.write(buffer, length);
-        if (res > 0) {
+        if (sc::is_sizet(res)) {
             count += static_cast<size_t>(res);
         }
         return res;

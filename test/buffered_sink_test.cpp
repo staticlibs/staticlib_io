@@ -28,7 +28,9 @@
 
 #include "staticlib/config/assert.hpp"
 
+#include "NegativeWriteSink.hpp"
 #include "TwoBytesAtOnceSink.hpp"
+#include "test_utils.hpp"
 
 namespace io = staticlib::io;
 
@@ -73,6 +75,18 @@ void test_make_lvalue() {
     (void) sink;
 }
 
+void test_throw() {
+    io::buffered_sink<TwoBytesAtOnceSink, 4> sink{TwoBytesAtOnceSink()};
+    slassert(throws_exc([&sink] { sink.write(nullptr, -1); }));
+    slassert(throws_exc([] {
+        auto ns = io::make_buffered_sink(NegativeWriteSink());
+        std::array<char, 16> buf;
+        std::memset(buf.data(), '\0', buf.size());
+        ns.write(buf.data(), buf.size());
+        ns.flush();
+    }));
+}
+
 int main() {
     try {
         test_buffer_size();
@@ -80,6 +94,7 @@ int main() {
         test_overwrite();
         test_make_rvalue();
         test_make_lvalue();
+        test_throw();
     } catch (const std::exception& e) {
         std::cout << e.what() << std::endl;
         return 1;

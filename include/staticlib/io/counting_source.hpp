@@ -26,6 +26,8 @@
 
 #include <ios>
 
+#include "staticlib/config.hpp"
+
 #include "staticlib/io/reference_source.hpp"
 
 namespace staticlib {
@@ -97,8 +99,9 @@ public:
      * @return number of bytes processed
      */
     std::streamsize read(char* buffer, std::streamsize length) {
+        namespace sc = staticlib::config;
         std::streamsize res = src.read(buffer, length);
-        if (res > 0) {
+        if (sc::is_sizet(res)) {
             count += static_cast<size_t>(res);
         }
         return res;

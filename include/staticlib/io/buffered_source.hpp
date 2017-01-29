@@ -24,11 +24,14 @@
 #ifndef STATICLIB_IO_BUFFERED_SOURCE_HPP
 #define	STATICLIB_IO_BUFFERED_SOURCE_HPP
 
+#include <cstring>
 #include <array>
 #include <ios>
 #include <utility>
-#include <cstring>
 
+#include "staticlib/config.hpp"
+
+#include "staticlib/io/IOException.hpp"
 #include "staticlib/io/reference_source.hpp"
 
 namespace staticlib {
@@ -121,6 +124,9 @@ public:
      * @return number of bytes processed
      */
     std::streamsize read(char* buf, std::streamsize length) {
+        namespace sc = staticlib::config;
+        if (!sc::is_sizet(length)) throw IOException(TRACEMSG(
+                "Invalid 'read' parameter specified, length: [" + sc::to_string(length) + "]"));
         size_t ulen = static_cast<size_t>(length);
         // return from buffer
         if (ulen <= avail) {
@@ -131,6 +137,9 @@ public:
         }
         // copy all data already available
         size_t uhead = avail;
+        if (!sc::is_streamsize(uhead)) {
+            uhead = static_cast<size_t> (std::numeric_limits<std::streamsize>::max());
+        }
         if (uhead > 0) {
             std::memcpy(buf, buffer.data() + pos, uhead);
         }
@@ -140,7 +149,7 @@ public:
         // try to guess whether to do direct read, or fill buffer first
         if (ulen > buffer.size()) {
             // read directly into the destination
-            size_t result = read_into_buffer(buf, head, ulen - uhead);
+            size_t result = read_into_buffer(buf, uhead, ulen - uhead);
             size_t out = result + uhead;
             return out > 0 ? out : std::char_traits<char>::eof();
         }
@@ -149,11 +158,14 @@ public:
         if (avail > 0) {
             // copy tail from buffer
             size_t to_read = std::min(ulen - uhead, avail);
-            std::memcpy(buf + head, buffer.data(), to_read);
+            if (!sc::is_streamsize(to_read + uhead)) {
+                to_read = static_cast<size_t> (std::numeric_limits<std::streamsize>::max()) - uhead;
+            }
+            std::memcpy(buf + uhead, buffer.data(), to_read);
             pos = to_read;
             avail -= to_read;
             // note that head >= 0, and to_read > 0
-            return to_read + head;
+            return static_cast<std::streamsize>(to_read + uhead);
         }
         return head == 0 ? std::char_traits<char>::eof() : head;
     }
@@ -178,12 +190,19 @@ public:
     
 private:
     // repeatable source read logic
-    size_t read_into_buffer(char* buf, std::streamsize offset, size_t length) {
+    size_t read_into_buffer(char* buf, size_t offset, size_t length) {
+        namespace sc = staticlib::config;
         if (!exhausted) {
             size_t result = 0;
             while (result < length) {
-                auto amt = src.read(buf + offset + result, length - result);
+                size_t ulen = length - result;
+                if (!sc::is_streamsize(ulen)) {
+                    ulen = static_cast<size_t> (std::numeric_limits<std::streamsize>::max());
+                }
+                std::streamsize amt = src.read(buf + offset + result, static_cast<std::streamsize> (ulen));
                 if (std::char_traits<char>::eof() != amt) {
+                    if (!sc::is_sizet(amt)) throw IOException(TRACEMSG(
+                            "Invalid result returned by underlying 'read' operation: [" + sc::to_string(amt) + "]"));
                     result += static_cast<size_t> (amt);
                 } else {
                     exhausted = true;
