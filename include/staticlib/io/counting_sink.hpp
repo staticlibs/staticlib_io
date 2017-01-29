@@ -78,7 +78,10 @@ public:
      * @param other other instance
      */
     counting_sink(counting_sink&& other) :
-    sink(std::move(other.sink)) { }
+    sink(std::move(other.sink)),
+    count(other.count) { 
+        other.count = 0;
+    }
 
     /**
      * Move assignment operator
@@ -88,6 +91,8 @@ public:
      */
     counting_sink& operator=(counting_sink&& other) {
         sink = std::move(other.sink);
+        count = other.count;
+        other.count = 0;
         return *this;
     }
 

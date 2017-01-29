@@ -94,7 +94,6 @@ public:
     copying_source& operator=(copying_source&& other) {
         src = std::move(other.src);
         sink = std::move(other.sink);
-        sink = std::move(other.sink);
         return *this;
     }
 

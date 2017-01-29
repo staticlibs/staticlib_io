@@ -78,7 +78,10 @@ public:
      * @param other other instance
      */
     counting_source(counting_source&& other) :
-    src(std::move(other.src)) { }
+    src(std::move(other.src)),
+    count(other.count) {
+        other.count = 0;
+    }
 
     /**
      * Move assignment operator
@@ -88,6 +91,8 @@ public:
      */
     counting_source& operator=(counting_source&& other) {
         src = std::move(other.src);
+        count = other.count;
+        other.count = 0;
         return *this;
     }
 

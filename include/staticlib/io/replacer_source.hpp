@@ -47,7 +47,7 @@ template <typename Source>
 class replacer_source {
     // Replace state class
     enum class State {
-        PREFIX, PLACEHOLDER
+        PREFIX, PLACEHOLDER, MOVED_FROM
     };
     
     /**
@@ -132,7 +132,7 @@ public:
     src(std::move(other.src)),
     exhausted(other.exhausted),
     values(std::move(other.values)),
-    on_error(other.on_error),
+    on_error(std::move(other.on_error)),
     prefix(std::move(other.prefix)),
     postfix(std::move(other.postfix)),
     max_placeholder_len(other.max_placeholder_len),
@@ -142,7 +142,15 @@ public:
     placeholder(std::move(other.placeholder)),
     ind_prefix(other.ind_prefix),
     ind_postfix(other.ind_postfix),
-    state(other.state) { }
+    state(other.state) { 
+        other.exhausted = true;
+        other.max_placeholder_len = 0;
+        other.buf_len_limit = 0;
+        other.pos = 0;
+        other.ind_prefix = 0;
+        other.ind_postfix = 0;
+        other.state = State::MOVED_FROM;
+    }
 
     /**
      * Move assignment operator
@@ -153,18 +161,25 @@ public:
     replacer_source& operator=(replacer_source&& other) {
         src = std::move(other.src);
         exhausted = other.exhausted;
+        other.exhausted = true;
         values = std::move(other.values);
-        on_error = other.on_error;        
+        on_error = std::move(other.on_error);
         prefix = std::move(other.prefix);
         postfix = std::move(other.postfix);
         max_placeholder_len = other.max_placeholder_len;
+        other.max_placeholder_len = 0;
         buffer = std::move(other.buffer);
         buf_len_limit = other.buf_len_limit;
+        other.buf_len_limit = 0;
         pos = other.pos;
+        other.pos = 0;
         placeholder = std::move(other.placeholder);
         ind_prefix = other.ind_prefix;
+        other.ind_prefix = 0;
         ind_postfix = other.ind_postfix;
+        other.ind_postfix = 0;
         state = other.state;
+        other.state = State::MOVED_FROM;
         return *this;
     }
 
@@ -205,6 +220,8 @@ public:
                 case State::PLACEHOLDER:
                     do_placeholder(cur);
                     break;
+                case State::MOVED_FROM:
+                    throw IOException(TRACEMSG("Invalid attempt to read from source in 'MOVED_FROM' state"));
                 }
                 if (buffer.size() >= limitlen) {
                     break;

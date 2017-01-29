@@ -105,7 +105,10 @@ public:
     sink(std::move(other.sink)),
     buffer(std::move(other.buffer)),
     pos(other.pos),
-    avail(other.avail) { }
+    avail(other.avail) {
+        other.pos = 0;
+        other.avail = 0;
+    }
 
     /**
      * Move assignment operator
@@ -117,7 +120,9 @@ public:
         sink = std::move(other.sink);
         buffer = std::move(other.buffer);
         pos = other.pos;
+        other.pos = 0;
         avail = other.avail;
+        other.avail = 0;
         return *this;
     }
 

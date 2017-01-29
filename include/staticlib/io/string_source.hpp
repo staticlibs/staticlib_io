@@ -99,7 +99,10 @@ public:
     string_source(string_source&& other) :
     str(std::move(other.str)),
     idx(other.idx),
-    str_len(other.str_len) { }
+    str_len(other.str_len) {
+        other.idx = 0;
+        other.str_len = 0;
+    }
     
     /**
      * Move assignment operator

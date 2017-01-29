@@ -71,7 +71,8 @@ public:
      */
     array_source(const array_source& other) :
     src_buf(other.src_buf),
-    src_buf_len(other.src_buf_len) { }
+    src_buf_len(other.src_buf_len),
+    idx(other.idx) { }
     
     /**
      * Copy assignment operator
@@ -82,6 +83,7 @@ public:
     array_source& operator=(const array_source& other) {
         src_buf = other.src_buf;
         src_buf_len = other.src_buf_len;
+        idx = other.idx;
         return *this;
     }
 
@@ -92,7 +94,12 @@ public:
      */
     array_source(array_source&& other) :
     src_buf(other.src_buf),
-    src_buf_len(other.src_buf_len) { }
+    src_buf_len(other.src_buf_len),
+    idx(other.idx) {
+        other.src_buf = nullptr;
+        other.src_buf_len = 0;
+        other.idx = 0;
+    }
 
     /**
      * Move assignment operator
@@ -102,7 +109,11 @@ public:
      */
     array_source& operator=(array_source&& other) {
         src_buf = other.src_buf;
+        other.src_buf = nullptr;
         src_buf_len = other.src_buf_len;
+        other.src_buf_len = 0;
+        idx = other.idx;
+        other.idx = 0;
         return *this;
     }
     

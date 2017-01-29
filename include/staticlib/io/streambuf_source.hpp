@@ -70,7 +70,9 @@ public:
      * @param other other instance
      */    
     streambuf_source(streambuf_source&& other) :
-    streambuf(other.streambuf) { }
+    streambuf(other.streambuf) {
+        other.streambuf = nullptr;
+    }
 
     /**
      * Move assignment operator
@@ -80,6 +82,7 @@ public:
      */    
     streambuf_source& operator=(streambuf_source&& other) {
         streambuf = other.streambuf;
+        other.streambuf = nullptr;
         return *this;
     }
 

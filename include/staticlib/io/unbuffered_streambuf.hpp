@@ -147,7 +147,9 @@ public:
      */
     unbuffered_istreambuf(unbuffered_istreambuf&& other) :
     source(std::move(other.source)),
-    exhausted(other.exhausted) { }
+    exhausted(other.exhausted) { 
+        other.exhausted = true;
+    }
 
     /**
      * Move assignment operator
@@ -155,6 +157,7 @@ public:
     unbuffered_istreambuf& operator=(unbuffered_istreambuf&& other) {
         source = std::move(other.source);
         exhausted = other.exhausted;
+        other.exhausted = true;
         return *this;
     }
 

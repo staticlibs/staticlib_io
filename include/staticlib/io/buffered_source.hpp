@@ -99,7 +99,11 @@ public:
     exhausted(other.exhausted),
     buffer(std::move(other.buffer)),
     pos(other.pos),
-    avail(other.avail) { }
+    avail(other.avail) { 
+        other.exhausted = true;
+        other.pos = 0;
+        other.avail = 0;
+    }
 
     /**
      * Move assignment operator
@@ -110,9 +114,12 @@ public:
     buffered_source& operator=(buffered_source&& other) {
         src = std::move(other.src);
         exhausted = other.exhausted;
+        other.exhausted = true;
         buffer = std::move(other.buffer);
         pos = other.pos;
+        other.pos = 0;
         avail = other.avail;
+        other.avail = 0;
         return *this;
     }
 

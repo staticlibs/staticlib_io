@@ -69,7 +69,9 @@ public:
      * @param other other instance
      */
     streambuf_sink(streambuf_sink&& other) :
-    streambuf(other.streambuf) { }
+    streambuf(other.streambuf) {
+        other.streambuf = nullptr;
+    }
 
     /**
      * Move assignment operator
@@ -79,6 +81,7 @@ public:
      */
     streambuf_sink& operator=(streambuf_sink&& other) {
         streambuf = other.streambuf;
+        other.streambuf = nullptr;
         return *this;
     }
 
