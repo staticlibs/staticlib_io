@@ -83,7 +83,7 @@ void test_read_exact() {
     bool thrown = false;
     try {
         io::read_exact(src, buf.data(), 4);
-    } catch (const std::ios_base::failure&) {
+    } catch (const io::IOException&) {
         thrown = true;
     }
     slassert(thrown);

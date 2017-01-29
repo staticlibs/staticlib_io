@@ -31,6 +31,9 @@
 #include <string>
 #include <vector>
 
+#include "staticlib/config.hpp"
+
+#include "staticlib/io/IOException.hpp"
 #include "staticlib/io/buffered_source.hpp"
 #include "staticlib/io/reference_source.hpp"
 
@@ -173,8 +176,12 @@ public:
      * @return number of bytes processed
      */
     std::streamsize read(char* buf, std::streamsize length) {
+        namespace sc = staticlib::config;
+        if (!sc::is_sizet(length)) throw IOException(TRACEMSG(
+                "Invalid 'read' parameter specified, length: [" + sc::to_string(length) + "]"));
+        size_t ulen = static_cast<size_t> (length);
         // return from buffer
-        std::streamsize read_buffered = copy_buffered(buf, length);
+        std::streamsize read_buffered = copy_buffered(buf, ulen);
         if (read_buffered > 0) {
             return read_buffered;
         }
@@ -182,7 +189,7 @@ public:
         if (!exhausted) {
             buffer.resize(0);
             pos = 0;
-            size_t limitlen = std::min(static_cast<size_t> (length), buf_len_limit);
+            size_t limitlen = ulen <= buf_len_limit ? ulen : buf_len_limit;
             for(;;) {
                 char cur;
                 std::streamsize read = 0;
@@ -205,7 +212,7 @@ public:
             }
         }
         // return if any
-        std::streamsize read_prepared = copy_buffered(buf, length);
+        std::streamsize read_prepared = copy_buffered(buf, ulen);
         if (read_prepared > 0) {
             return read_prepared;
         } 
@@ -283,14 +290,13 @@ private:
         }
     } 
     
-    std::streamsize copy_buffered(char* buf, std::streamsize length) {
-        std::streamsize avail = buffer.size() - pos;
+    std::streamsize copy_buffered(char* buf, size_t ulen) {
+        size_t avail = buffer.size() - pos;
         if (avail > 0) {
-            std::streamsize cplen = std::min(avail, length);
-            size_t ucplen = static_cast<size_t> (cplen);
+            size_t ucplen = avail <= ulen ? avail : ulen;
             std::memcpy(buf, buffer.data() + pos, ucplen);
             pos += ucplen;
-            return cplen;
+            return static_cast<std::streamsize>(ucplen);
         }
         return 0;
     }

@@ -30,26 +30,12 @@
 #include <string>
 #include <cstdint>
 
+#include "staticlib/config.hpp"
+
+#include "staticlib/io/IOException.hpp"
+
 namespace staticlib {
 namespace io {
-
-namespace detail {
-
-/**
- * Generic `to_string` implementation, already exists as `std::to_string`
- * in most C++11 compilers except GCC 4.8
- * 
- * @param t value to stringify
- * @return string representation of specified value
- */
-template<typename T>
-std::string io_to_string(const T& t) {
-    std::stringstream ss{};
-    ss << t;
-    return ss.str();
-}
-
-} // namespace
 
 /**
  * Writes buffer contents to the specified Sink ensuring that 
@@ -62,11 +48,16 @@ std::string io_to_string(const T& t) {
  */
 template<typename Sink, typename IntType>
 void write_all(Sink& sink, const char* buf, IntType buflen) {
-    std::streamsize sbuflen = static_cast<std::streamsize>(buflen);
-    std::streamsize result = 0;
-    while (result < sbuflen) {
-        std::streamsize amt = sink.write(buf + result, sbuflen - result);
-        result += amt;
+    namespace sc = staticlib::config;
+    if (!(sc::is_sizet(buflen) && sc::is_streamsize(buflen))) throw IOException(TRACEMSG(
+            "Invalid 'write_all' parameter specified, buflen: [" + sc::to_string(buflen) + "]"));
+    size_t ulen = static_cast<size_t>(buflen);
+    size_t result = 0;
+    while (result < ulen) {
+        std::streamsize amt = sink.write(buf + result, static_cast<std::streamsize>(ulen - result));
+        if (!sc::is_sizet(amt)) throw IOException(TRACEMSG(
+                "Invalid result returned by underlying 'write' operation: [" + sc::to_string(amt) + "]"));
+        result += static_cast<size_t>(amt);
     }
 }
 
@@ -95,16 +86,20 @@ void write_all(Sink& sink, const std::string& str) {
  */
 template<typename Source, typename IntType>
 size_t read_all(Source& src, char* buf, IntType buflen) {
-    std::streamsize sbuflen = static_cast<std::streamsize>(buflen);
-    if (sbuflen < 0) return 0;
-    std::streamsize result = 0;
-    while (result < sbuflen) {
-        std::streamsize amt = src.read(buf + result, sbuflen - result);
+    namespace sc = staticlib::config;
+    if (!(sc::is_sizet(buflen) && sc::is_streamsize(buflen))) throw IOException(TRACEMSG(
+            "Invalid 'read_all' parameter specified, buflen: [" + sc::to_string(buflen) + "]"));
+    size_t ulen = static_cast<size_t> (buflen);
+    size_t result = 0;
+    while (result < ulen) {
+        std::streamsize amt = src.read(buf + result, static_cast<std::streamsize> (ulen - result));
         if (std::char_traits<char>::eof() != amt) {
+            if (!sc::is_sizet(amt)) throw IOException(TRACEMSG(
+                    "Invalid result returned by underlying 'read' operation: [" + sc::to_string(amt) + "]"));
             result += static_cast<size_t> (amt);
         } else break;
     }
-    return static_cast<size_t>(result);
+    return result;
 }
 
 /**
@@ -117,13 +112,11 @@ size_t read_all(Source& src, char* buf, IntType buflen) {
  */
 template<typename Source, typename IntType>
 void read_exact(Source& src, char* buf, IntType buflen) {
-    std::streamsize sbuflen = static_cast<std::streamsize>(buflen);
-    if (sbuflen < 0) return;
-    size_t ulen = static_cast<size_t> (sbuflen);
-    auto res = read_all(src, buf, sbuflen);
-    if (res != ulen) throw std::ios_base::failure(std::string{} +
-            "Read amount: [" + detail::io_to_string(res) + "]" +
-            " of expected: [" + detail::io_to_string(sbuflen) + "]");
+    namespace sc = staticlib::config;
+    size_t res = read_all(src, buf, buflen);
+    if (res != static_cast<size_t>(buflen)) throw IOException(TRACEMSG(
+            "Read amount: [" + sc::to_string(res) + "]" +
+            " of expected: [" + sc::to_string(buflen) + "]"));
 }
 
 /**
@@ -138,12 +131,13 @@ void read_exact(Source& src, char* buf, IntType buflen) {
  */
 template<typename Source, typename Sink, typename IntType>
 size_t copy_all(Source& src, Sink& sink, char* buf, IntType buflen) {
-    std::streamsize sbuflen = static_cast<std::streamsize>(buflen);
-    if (sbuflen < 0) return 0;
-    size_t ulen = static_cast<size_t> (sbuflen);
+    namespace sc = staticlib::config;
+    if (!(sc::is_sizet(buflen) && sc::is_streamsize(buflen))) throw IOException(TRACEMSG(
+            "Invalid 'copy_all' parameter specified, buflen: [" + sc::to_string(buflen) + "]"));
+    size_t ulen = static_cast<size_t> (buflen);
     size_t result = 0;
     size_t amt;
-    while (ulen == (amt = read_all(src, buf, sbuflen))) {
+    while (ulen == (amt = read_all(src, buf, ulen))) {
         write_all(sink, buf, amt);
         result += amt;
     }
@@ -166,12 +160,17 @@ size_t copy_all(Source& src, Sink& sink, char* buf, IntType buflen) {
  */
 template<typename Source, typename IntTypeLen, typename IntTypeSkip>
 void skip(Source& src, char* buf, IntTypeLen buflen, IntTypeSkip to_skip) {
-    std::streamsize sbuflen = static_cast<std::streamsize>(buflen);
-    std::streamsize sto_skip = static_cast<std::streamsize>(to_skip);
-    while (sto_skip > 0) {
-        std::streamsize chunklen = std::min(sto_skip, sbuflen);
+    namespace sc = staticlib::config;
+    if (!(sc::is_sizet(buflen) && sc::is_streamsize(buflen))) throw IOException(TRACEMSG(
+            "Invalid 'skip' parameter specified, buflen: [" + sc::to_string(buflen) + "]"));
+    if (!(sc::is_sizet(to_skip) && sc::is_streamsize(to_skip))) throw IOException(TRACEMSG(
+            "Invalid 'skip' parameter specified, to_skip: [" + sc::to_string(to_skip) + "]"));
+    size_t ulen = static_cast<size_t>(buflen);
+    size_t uskip = static_cast<size_t>(to_skip);
+    while (uskip > 0) {
+        size_t chunklen = uskip <= ulen ? uskip : ulen;
         io::read_exact(src, buf, chunklen);
-        sto_skip -= chunklen;
+        uskip -= chunklen;
     }
 }
 

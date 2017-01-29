@@ -157,7 +157,8 @@ public:
         avail = read_into_buffer(buffer.data(), 0, buffer.size());
         if (avail > 0) {
             // copy tail from buffer
-            size_t to_read = std::min(ulen - uhead, avail);
+            size_t to_read_req = ulen - uhead;
+            size_t to_read = to_read_req <= avail ? to_read_req : avail;
             if (!sc::is_streamsize(to_read + uhead)) {
                 to_read = static_cast<size_t> (std::numeric_limits<std::streamsize>::max()) - uhead;
             }
