@@ -28,6 +28,8 @@
 #include <streambuf>
 #include <utility>
 
+#include "staticlib/config/span.hpp"
+
 #include "staticlib/io/reference_sink.hpp"
 #include "staticlib/io/reference_source.hpp"
 
@@ -193,7 +195,7 @@ protected:
      */
     virtual std::streamsize xsgetn(char* s, std::streamsize count) override {
         if (!exhausted) {
-            auto res = source.read(s, count);
+            auto res = source.read({s, count});
             if (source_eof != res) {
                 return res;
             } else {
@@ -316,7 +318,7 @@ protected:
      * @param count number of characters to write
      */
     virtual std::streamsize xsputn(const char* s, std::streamsize count) override {
-        return sink.write(s, count);
+        return sink.write({s, count});
     }
 };
 

@@ -43,9 +43,9 @@ public:
         return *this;
     }
 
-    std::streamsize write(const char*, std::streamsize n) {
-        count += static_cast<size_t> (n);
-        return n;
+    std::streamsize write(staticlib::config::span<const char> span) {
+        count += span.size();
+        return span.size_signed();
     }
 
     size_t get_count() {

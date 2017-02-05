@@ -38,12 +38,12 @@ void test_copyable() {
     io::shared_source<NonCopyableSource> shared1{source};
     io::shared_source<NonCopyableSource> shared2{source};
     std::array<char, 3> buf;
-    auto read1 = shared1.read(buf.data(), 3);
+    auto read1 = shared1.read({buf.data(), 3});
     slassert(3 == read1);
     slassert(3 == source->get_count());
     slassert(3 == shared1.get_source().get_count());
     slassert(3 == shared2.get_source().get_count());
-    auto read2 = shared2.read(buf.data(), 2);
+    auto read2 = shared2.read({buf.data(), 2});
     slassert(2 == read2);
     slassert(5 == source->get_count());
     slassert(5 == shared1.get_source().get_count());

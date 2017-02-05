@@ -43,11 +43,11 @@ void test_replace() {
     std::string res;
     res.resize(4);
     auto replacer = io::make_replacer_source(src, values, [](const std::string& msg) {slassert(msg.empty()); });
-    replacer.read(std::addressof(res.front()), res.length());
+    replacer.read(res);
     slassert("foxb" == res);
-    replacer.read(std::addressof(res.front()), 2);
+    replacer.read({std::addressof(res.front()), 2});
     slassert("arxb" == res);
-    replacer.read(std::addressof(res.front()), 2);
+    replacer.read({std::addressof(res.front()), 2});
     slassert("42xb" == res);
 }
 
@@ -61,7 +61,7 @@ void test_multiple() {
     auto replacer = io::make_replacer_source(std::move(src), std::move(values), [](const std::string& msg) {slassert(msg.empty()); });
     auto sink = io::string_sink();
     std::array<char, 1024> buf;
-    io::copy_all(replacer, sink, buf.data(), buf.size());
+    io::copy_all(replacer, sink, buf);
     slassert("12345678" == sink.get_string());
 }
 

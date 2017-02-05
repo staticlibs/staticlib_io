@@ -43,7 +43,9 @@ public:
         return *this;
     }
 
-    std::streamsize write(const char* s, std::streamsize n) {
+    std::streamsize write(staticlib::config::span<const char> span) {
+        const char* s = span.data();
+        std::streamsize n = span.size_signed();
         std::streamsize len = n >= 2 ? 2 : n;
         for (std::streamsize i = 0; i < len; i++) {
             data.push_back(s[i]);

@@ -35,7 +35,7 @@ namespace io = staticlib::io;
 
 void test_count() {
     auto sink = io::make_counting_sink(TwoBytesAtOnceSink{});
-    auto written = sink.write("42", 2);
+    auto written = sink.write({"42", 2});
     slassert(2 == written);
     slassert(2 == sink.get_count());
 }
@@ -43,7 +43,7 @@ void test_count() {
 void test_count_overflow() {
     TwoBytesAtOnceSink delegate{};
     auto sink = io::make_counting_sink(delegate);
-    auto written = sink.write("foo", 3);
+    auto written = sink.write({"foo", 3});
     slassert(2 == written);
     slassert(2 == sink.get_count());
 }

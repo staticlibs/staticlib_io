@@ -38,9 +38,9 @@ public:
 
     NonCopyableSource& operator=(NonCopyableSource&&) = delete;
 
-    std::streamsize read(char*, std::streamsize n) {
-        count += static_cast<size_t>(n);
-        return n;
+    std::streamsize read(staticlib::config::span<char> span) {
+        count += span.size();
+        return span.size_signed();
     }
     
     size_t get_count() {

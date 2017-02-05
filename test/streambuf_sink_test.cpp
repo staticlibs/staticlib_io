@@ -33,7 +33,7 @@ namespace io = staticlib::io;
 void test_write() {
     std::ostringstream stream{};
     io::streambuf_sink sink{stream.rdbuf()};
-    auto written = sink.write("foo", 3);
+    auto written = sink.write({"foo", 3});
     slassert(3 == written);
     slassert("foo" == stream.str());
 }

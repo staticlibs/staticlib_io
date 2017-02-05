@@ -37,13 +37,13 @@ namespace io = staticlib::io;
 void test_limit() {
     auto src = io::make_limited_source(TwoBytesAtOnceSource{"bar1"}, 3);
     std::array<char, 2> arr;
-    auto read = src.read(arr.data(), arr.size());
-    slassert(throws_exc([&src] { src.read(nullptr, 4); }));
+    auto read = src.read(arr);
+    slassert(throws_exc([&src] { src.read({nullptr, 4}); }));
     slassert(2 == read);
     slassert(2 == src.get_count());
-    slassert(throws_exc([&src] { src.read(nullptr, 2); }));
-    slassert(!throws_exc([&src, &arr] { src.read(arr.data(), 1); }));
-    slassert(throws_exc([&src, &arr] { src.read(arr.data(), 1); }));
+    slassert(throws_exc([&src] { src.read({nullptr, 2}); }));
+    slassert(!throws_exc([&src, &arr] { src.read({arr.data(), 1}); }));
+    slassert(throws_exc([&src, &arr] { src.read({arr.data(), 1}); }));
 }
 
 int main() {

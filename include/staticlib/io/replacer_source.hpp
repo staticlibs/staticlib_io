@@ -31,7 +31,8 @@
 #include <string>
 #include <vector>
 
-#include "staticlib/config.hpp"
+#include "staticlib/config/span.hpp"
+#include "staticlib/config/tracemsg.hpp"
 
 #include "staticlib/io/IOException.hpp"
 #include "staticlib/io/buffered_source.hpp"
@@ -186,17 +187,13 @@ public:
     /**
      * Replacing read implementation
      * 
-     * @param buf output buffer
-     * @param length number of bytes to process
+     * @param span buffer span
      * @return number of bytes processed
      */
-    std::streamsize read(char* buf, std::streamsize length) {
-        namespace sc = staticlib::config;
-        if (!sc::is_sizet(length)) throw IOException(TRACEMSG(
-                "Invalid 'read' parameter specified, length: [" + sc::to_string(length) + "]"));
-        size_t ulen = static_cast<size_t> (length);
+    std::streamsize read(staticlib::config::span<char> span) {
+        size_t ulen = span.size();
         // return from buffer
-        std::streamsize read_buffered = copy_buffered(buf, ulen);
+        std::streamsize read_buffered = copy_buffered(span.data(), ulen);
         if (read_buffered > 0) {
             return read_buffered;
         }
@@ -208,7 +205,7 @@ public:
             for(;;) {
                 char cur;
                 std::streamsize read = 0;
-                while (0 == (read = src.read(std::addressof(cur), 1)));
+                while (0 == (read = src.read({std::addressof(cur), 1})));
                 exhausted = std::char_traits<char>::eof() == read;
                 if (exhausted) {
                     break;
@@ -229,7 +226,7 @@ public:
             }
         }
         // return if any
-        std::streamsize read_prepared = copy_buffered(buf, ulen);
+        std::streamsize read_prepared = copy_buffered(span.data(), ulen);
         if (read_prepared > 0) {
             return read_prepared;
         } 

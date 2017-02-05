@@ -31,6 +31,8 @@
 #include "staticlib/io/reference_sink.hpp"
 #include "staticlib/io/reference_source.hpp"
 
+#include "staticlib/config/span.hpp"
+
 namespace staticlib {
 namespace io {
 
@@ -101,14 +103,13 @@ public:
      * Read implementation with additional copy to 
      * the sink specified on construction
      * 
-     * @param buffer output buffer
-     * @param length number of bytes to process
+     * @param span buffer span
      * @return number of bytes processed
      */
-    std::streamsize read(char* buffer, std::streamsize length) {
-        std::streamsize res = src.read(buffer, length);
+    std::streamsize read(staticlib::config::span<char> span) {
+        std::streamsize res = src.read(span);
         if (std::char_traits<char>::eof() != res) {
-            write_all(sink, buffer, res);
+            write_all(sink, {span.data(), res});
         }
         return res;
     }

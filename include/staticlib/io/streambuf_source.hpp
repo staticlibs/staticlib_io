@@ -27,6 +27,8 @@
 #include <ios>
 #include <streambuf>
 
+#include "staticlib/config/span.hpp"
+
 namespace staticlib {
 namespace io {
 
@@ -89,12 +91,11 @@ public:
     /**
      * Read implementation delegated to the underlying streambuf
      * 
-     * @param buffer output buffer
-     * @param length number of bytes to process
+     * @param span buffer span
      * @return number of bytes processed
      */    
-    std::streamsize read(char* buffer, std::streamsize length) {
-        std::streamsize res = streambuf->sgetn(buffer, length);
+    std::streamsize read(staticlib::config::span<char> span) {
+        std::streamsize res = streambuf->sgetn(span.data(), span.size_signed());
         if (res > 0) {
             return res;
         } else if (0 == res && std::char_traits<char>::eof() == streambuf->sbumpc()) {

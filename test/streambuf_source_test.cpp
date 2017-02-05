@@ -36,7 +36,7 @@ void test_read() {
     io::streambuf_source src{stream.rdbuf()};
     std::string dest{};
     dest.resize(3);
-    auto read = src.read(std::addressof(dest.front()), 3);
+    auto read = src.read({std::addressof(dest.front()), 3});
     slassert(3 == read);
     slassert("foo" == dest);
 }

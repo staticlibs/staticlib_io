@@ -26,7 +26,8 @@
 
 #include <ios>
 
-#include "staticlib/config.hpp"
+#include "staticlib/config/is_integer.hpp"
+#include "staticlib/config/span.hpp"
 
 #include "staticlib/io/reference_source.hpp"
 
@@ -99,13 +100,12 @@ public:
     /**
      * Counting read implementation
      * 
-     * @param buffer output buffer
-     * @param length number of bytes to process
+     * @param span buffer span
      * @return number of bytes processed
      */
-    std::streamsize read(char* buffer, std::streamsize length) {
+    std::streamsize read(staticlib::config::span<char> span) {
         namespace sc = staticlib::config;
-        std::streamsize res = src.read(buffer, length);
+        std::streamsize res = src.read(span);
         if (sc::is_sizet(res)) {
             count += static_cast<size_t>(res);
         }

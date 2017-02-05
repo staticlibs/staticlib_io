@@ -26,7 +26,7 @@
 
 #include <ios>
 
-#include "staticlib/config.hpp"
+#include "staticlib/config/span.hpp"
 
 #include "staticlib/io/reference_sink.hpp"
 
@@ -99,13 +99,12 @@ public:
     /**
      * Counting write implementation
      * 
-     * @param buffer source buffer
-     * @param length number of bytes to process
+     * @param span buffer span
      * @return number of bytes processed
      */
-    std::streamsize write(const char* buffer, std::streamsize length) {
+    std::streamsize write(staticlib::config::span<const char> span) {
         namespace sc = staticlib::config;
-        std::streamsize res = sink.write(buffer, length);
+        std::streamsize res = sink.write(span);
         if (sc::is_sizet(res)) {
             count += static_cast<size_t>(res);
         }

@@ -27,6 +27,8 @@
 #include <ios>
 #include <memory>
 
+#include "staticlib/config/span.hpp"
+
 namespace staticlib {
 namespace io {
 
@@ -86,12 +88,11 @@ public:
     /**
      * Read implementation delegated to the underlying source
      * 
-     * @param buffer output buffer
-     * @param length number of bytes to process
+     * @param span buffer span
      * @return number of bytes processed
      */    
-    std::streamsize read(char* buffer, std::streamsize length) {
-        return src->read(buffer, length);
+    std::streamsize read(staticlib::config::span<char> span) {
+        return src->read(span);
     }
 
     /**

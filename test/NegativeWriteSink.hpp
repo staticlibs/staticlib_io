@@ -29,7 +29,7 @@ public:
 
     NegativeWriteSink() { }
 
-    std::streamsize write(const char*, std::streamsize) {
+    std::streamsize write(staticlib::config::span<const char>) {
         return -2;
     }
 

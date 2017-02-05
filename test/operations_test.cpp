@@ -36,7 +36,7 @@ namespace io = staticlib::io;
 
 void test_write_not_all() {
     TwoBytesAtOnceSink sink{};
-    auto written = sink.write("abc", 3);
+    auto written = sink.write({"abc", 3});
     slassert(2 == written);
     slassert(2 == sink.get_data().length());
     slassert("ab" == sink.get_data());
@@ -44,7 +44,7 @@ void test_write_not_all() {
 
 void test_write_all_buffer() {
     TwoBytesAtOnceSink sink{};
-    io::write_all(sink, "abc", 3);
+    io::write_all(sink, {"abc", 3});
     slassert(3 == sink.get_data().length());
     slassert("abc" == sink.get_data());
 }
@@ -60,7 +60,7 @@ void test_write_all_str() {
 void test_read_not_all() {
     TwoBytesAtOnceSource src{"abc"};
     std::array<char, 4> buf;
-    auto read = src.read(buf.data(), 3);
+    auto read = src.read({buf.data(), 3});
     slassert(2 == read);
     std::string res{buf.data(), static_cast<size_t>(read)};
     slassert(2 == res.length());
@@ -70,7 +70,7 @@ void test_read_not_all() {
 void test_read_all() {
     TwoBytesAtOnceSource src{"abc"};
     std::array<char, 4> buf;
-    auto read = io::read_all(src, buf.data(), 3);
+    auto read = io::read_all(src, {buf.data(), 3});
     slassert(3 == read);
     std::string res{buf.data(), read};
     slassert(3 == res.length());
@@ -82,7 +82,7 @@ void test_read_exact() {
     std::array<char, 5> buf;
     bool thrown = false;
     try {
-        io::read_exact(src, buf.data(), 4);
+        io::read_exact(src, {buf.data(), 4});
     } catch (const io::IOException&) {
         thrown = true;
     }
@@ -93,7 +93,7 @@ void test_copy() {
     TwoBytesAtOnceSink sink{};
     TwoBytesAtOnceSource src{"abc"};
     std::array<char, 2> buf;
-    auto copied = io::copy_all(src, sink, buf.data(), buf.size());
+    auto copied = io::copy_all(src, sink, buf);
     slassert(3 == copied);
     slassert(3 == sink.get_data().length());
     slassert("abc" == sink.get_data());
@@ -102,8 +102,8 @@ void test_copy() {
 void test_skip() {
     TwoBytesAtOnceSource src{"abc"};
     std::array<char, 1> buf;
-    io::skip(src, buf.data(), 1, 2);
-    auto read = src.read(buf.data(), 1);
+    io::skip(src, {buf.data(), 1}, 2);
+    auto read = src.read({buf.data(), 1});
     slassert(1 == read);
     slassert('c' == buf[0]);
 }

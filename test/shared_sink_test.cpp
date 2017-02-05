@@ -36,12 +36,12 @@ void test_copyable() {
     std::shared_ptr<NonCopyableSink> sink{new NonCopyableSink{}};
     io::shared_sink<NonCopyableSink> shared1{sink};
     io::shared_sink<NonCopyableSink> shared2{sink};
-    auto written1 = shared1.write("foo", 3);
+    auto written1 = shared1.write({"foo", 3});
     slassert(3 == written1);
     slassert(3 == sink->get_count());
     slassert(3 == shared1.get_sink().get_count());
     slassert(3 == shared2.get_sink().get_count());
-    auto written2 = shared2.write("42", 2);
+    auto written2 = shared2.write({"42", 2});
     slassert(2 == written2);
     slassert(5 == sink->get_count());
     slassert(5 == shared1.get_sink().get_count());

@@ -37,7 +37,7 @@ void test_ref() {
     NonCopyableSink nc_sink{};
     auto sink = io::make_reference_sink(nc_sink);
     auto wrapped = io::make_counting_sink(std::move(sink));
-    auto written = wrapped.write("foo", 3);
+    auto written = wrapped.write({"foo", 3});
     slassert(3 == written);
     slassert(3 == wrapped.get_count());
     slassert(3 == wrapped.get_sink().get_sink().get_count());

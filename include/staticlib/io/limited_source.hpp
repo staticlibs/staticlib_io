@@ -26,7 +26,9 @@
 
 #include <ios>
 
-#include "staticlib/config.hpp"
+#include "staticlib/config/is_integer.hpp"
+#include "staticlib/config/span.hpp"
+#include "staticlib/config/tracemsg.hpp"
 
 #include "staticlib/io/IOException.hpp"
 #include "staticlib/io/counting_source.hpp"
@@ -106,25 +108,22 @@ public:
     /**
      * Counting read implementation
      * 
-     * @param buffer output buffer
-     * @param length number of bytes to process
+     * @param span buffer span
      * @return number of bytes processed
      */
-    std::streamsize read(char* buffer, std::streamsize length) {
+    std::streamsize read(staticlib::config::span<char> span) {
         namespace sc = staticlib::config;
-        if (!sc::is_sizet(length)) throw IOException(TRACEMSG(
-                "Invalid 'read' parameter specified, length: [" + sc::to_string(length) + "]"));
-        size_t ulen = static_cast<size_t> (length);
+        size_t ulen = span.size();
         if (ulen > limit_bytes) throw IOException(TRACEMSG(
                 "Read limit threshold exceeded, " + 
                 " limit: [" + sc::to_string(limit_bytes) + "]," +
-                " requested length: [" + sc::to_string(length) + "]"));
+                " requested length: [" + sc::to_string(ulen) + "]"));
         if (src.get_count() > limit_bytes - ulen) throw IOException(TRACEMSG(
                 "Read limit threshold exceeded, " +
                 " already read: [" + sc::to_string(src.get_count()) + "]" +
                 " limit: [" + sc::to_string(limit_bytes) + "]," +
-                " requested length: [" + sc::to_string(length) + "]"));
-        return src.read(buffer, length);
+                " requested length: [" + sc::to_string(ulen) + "]"));
+        return src.read(span);
     }
 
     /**

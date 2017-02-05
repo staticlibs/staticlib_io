@@ -36,10 +36,10 @@ namespace io = staticlib::io;
 
 void test_buffer_size() {
     io::buffered_sink<TwoBytesAtOnceSink, 4> sink{TwoBytesAtOnceSink{}};
-    auto written1 = sink.write("foo", 3);
+    auto written1 = sink.write({"foo", 3});
     slassert(3 == written1);
     slassert(0 == sink.get_sink().get_data().size());
-    auto written2 = sink.write("42", 2);
+    auto written2 = sink.write({"42", 2});
     slassert(2 == written2);
     slassert(3 == sink.get_sink().get_data().size());
     slassert("foo" == sink.get_sink().get_data());
@@ -47,7 +47,7 @@ void test_buffer_size() {
 
 void test_flush() {
     io::buffered_sink<TwoBytesAtOnceSink, 4> sink{TwoBytesAtOnceSink{}};
-    auto written = sink.write("foo", 3);
+    auto written = sink.write({"foo", 3});
     slassert(3 == written);
     slassert(0 == sink.get_sink().get_data().size());
     auto flushed = sink.flush();
@@ -58,7 +58,7 @@ void test_flush() {
 
 void test_overwrite() {
     io::buffered_sink<TwoBytesAtOnceSink, 4> sink{TwoBytesAtOnceSink{}};
-    auto written = sink.write("foo42", 5);
+    auto written = sink.write({"foo42", 5});
     slassert(5 == written);
     slassert(5 == sink.get_sink().get_data().size());
     slassert("foo42" == sink.get_sink().get_data());
@@ -77,12 +77,12 @@ void test_make_lvalue() {
 
 void test_throw() {
     io::buffered_sink<TwoBytesAtOnceSink, 4> sink{TwoBytesAtOnceSink()};
-    slassert(throws_exc([&sink] { sink.write(nullptr, -1); }));
+    slassert(throws_exc([&sink] { sink.write({nullptr, -1}); }));
     slassert(throws_exc([] {
         auto ns = io::make_buffered_sink(NegativeWriteSink());
         std::array<char, 16> buf;
         std::memset(buf.data(), '\0', buf.size());
-        ns.write(buf.data(), buf.size());
+        ns.write(buf);
         ns.flush();
     }));
 }

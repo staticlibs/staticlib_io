@@ -36,12 +36,12 @@ void test_read() {
     std::array<char, 3> arr = {{'b', 'a', 'r'}};
     io::array_source src(arr.data(), arr.size());
     std::array<char, 4> out;
-    auto res = src.read(out.data(), out.size());
+    auto res = src.read(out);
     slassert(3 == res);
     slassert('b' == out[0]);
     slassert('a' == out[1]);
     slassert('r' == out[2]);
-    slassert(throws_exc([&src] { src.read(nullptr, -1); }))
+    slassert(throws_exc([&src] { src.read({nullptr, -1}); }))
 }
 
 int main() {

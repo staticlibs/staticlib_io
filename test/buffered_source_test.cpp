@@ -39,7 +39,7 @@ void test_buffered() {
     io::buffered_source<TwoBytesAtOnceSource, 3> src{TwoBytesAtOnceSource{"foo42"}};
     std::string dest{};
     dest.resize(3);
-    auto read = src.read(std::addressof(dest.front()), 3);
+    auto read = src.read({std::addressof(dest.front()), 3});
     slassert(3 == read);
     slassert(3 == dest.size());
     slassert("foo" == dest);
@@ -49,7 +49,7 @@ void test_overread() {
     io::buffered_source<TwoBytesAtOnceSource, 3> src{TwoBytesAtOnceSource{"foo42"}};
     std::string dest{};
     dest.resize(5);
-    auto read = src.read(std::addressof(dest.front()), 5);
+    auto read = src.read({std::addressof(dest.front()), 5});
     slassert(5 == read);
     slassert(5 == dest.size());
     slassert("foo42" == dest);
@@ -68,12 +68,12 @@ void test_make_lvalue() {
 
 void test_throw() {
     auto src = io::make_buffered_source(TwoBytesAtOnceSource{"foo42"});
-    slassert(throws_exc([&src] { src.read(nullptr, -1); }));
+    slassert(throws_exc([&src] { src.read({nullptr, -1}); }));
     slassert(throws_exc([] {
         auto ns = io::make_buffered_source(NegativeReadSource());
         std::array<char, 16> buf;
         std::memset(buf.data(), '\0', buf.size());
-        ns.read(buf.data(), buf.size());
+        ns.read(buf);
     }));
 }
 

@@ -27,6 +27,8 @@
 #include <ios>
 #include <functional>
 
+#include "staticlib/config/span.hpp"
+
 namespace staticlib {
 namespace io {
 
@@ -91,12 +93,11 @@ public:
     /**
      * Write implementation delegated to the underlying sink
      * 
-     * @param buffer source buffer
-     * @param length number of bytes to process
+     * @param span buffer span
      * @return number of bytes processed
      */
-    std::streamsize write(const char* buffer, std::streamsize length) {
-        return sink.get().write(buffer, length);
+    std::streamsize write(staticlib::config::span<const char> span) {
+        return sink.get().write(span);
     }
 
     /**

@@ -26,6 +26,8 @@
 
 #include <ios>
 
+#include "staticlib/config/span.hpp"
+
 namespace staticlib {
 namespace io {
 
@@ -76,13 +78,12 @@ public:
     /**
      * No-op write implementation
      * 
-     * @param unused
-     * @param length number of bytes to process
+     * @param span buffer span
      * @return specified length
      */
-    std::streamsize write(const char*, std::streamsize length) {
+    std::streamsize write(staticlib::config::span<const char> span) {
         // no-op
-        return length;
+        return span.size_signed();
     }
 
     /**

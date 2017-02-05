@@ -36,12 +36,12 @@ void test_read() {
     std::string st{"bar"};
     io::string_source src{std::move(st)};
     std::array<char, 4> out;
-    auto res = src.read(out.data(), out.size());
+    auto res = src.read(out);
     slassert(3 == res);
     slassert('b' == out[0]);
     slassert('a' == out[1]);
     slassert('r' == out[2]);
-    slassert(throws_exc([&src] { src.read(nullptr, -1); }))
+    slassert(throws_exc([&src] { src.read({nullptr, -1}); }))
 }
 
 int main() {

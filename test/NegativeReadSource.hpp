@@ -28,7 +28,7 @@ class NegativeReadSource {
 public:
     NegativeReadSource() { }
 
-    std::streamsize read(char*, std::streamsize) {
+    std::streamsize read(staticlib::config::span<char>) {
         return -2;
     }
 };

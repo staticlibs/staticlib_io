@@ -38,7 +38,7 @@ void test_copy() {
     auto src = io::make_copying_source(TwoBytesAtOnceSource{"42"}, TwoBytesAtOnceSink{});
     std::string dest{};
     dest.resize(2);
-    auto read = src.read(std::addressof(dest.front()), 2);
+    auto read = src.read(dest);
     slassert(2 == read);
     slassert(2 == dest.size());
     slassert("42" == dest);
@@ -50,7 +50,7 @@ void test_omit_tail() {
     auto src = io::make_copying_source(TwoBytesAtOnceSource{"42foo"}, TwoBytesAtOnceSink{});
     std::string dest{};
     dest.resize(2);
-    auto read = src.read(std::addressof(dest.front()), 2);
+    auto read = src.read(dest);
     slassert(2 == read);
     slassert(2 == dest.size());
     slassert("42" == dest);

@@ -38,7 +38,7 @@ void test_movable() {
     io::unique_source<NonCopyableSource> source{new NonCopyableSource{}};
     io::counting_source<io::unique_source<NonCopyableSource>> wrapped{std::move(source)};
     std::array<char, 3> buf;
-    auto read = wrapped.read(buf.data(), 3);
+    auto read = wrapped.read(buf);
     slassert(3 == read);
     slassert(3 == wrapped.get_count());
     slassert(3 == wrapped.get_source().get_source().get_count());

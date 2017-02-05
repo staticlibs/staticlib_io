@@ -32,7 +32,7 @@ bool throws_exc(std::function<void() > fun) {
     namespace si = staticlib::io;
     try {
         fun();
-    } catch (const si::IOException& e) {
+    } catch (const std::exception& e) {
         (void) e;
         return true;
     }

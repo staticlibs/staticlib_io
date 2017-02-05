@@ -29,7 +29,9 @@
 #include <ios>
 #include <string>
 
-#include "staticlib/config.hpp"
+#include "staticlib/config/is_integer.hpp"
+#include "staticlib/config/span.hpp"
+#include "staticlib/config/tracemsg.hpp"
 
 #include "staticlib/io/IOException.hpp"
 
@@ -96,20 +98,17 @@ public:
     /**
      * Buffered write implementation
      * 
-     * @param b source buffer
-     * @param length number of bytes to process
+     * @param span buffer span
      * @return number of bytes processed
      */
-    std::streamsize write(const char* b, std::streamsize length) {
+    std::streamsize write(staticlib::config::span<const char> span) {
         namespace sc = staticlib::config;
-        if (!sc::is_sizet(length)) throw IOException(TRACEMSG(
-                "Invalid 'write' parameter specified, length: [" + sc::to_string(length) + "]"));
-        size_t ulen = static_cast<size_t> (length);
+        size_t ulen = span.size();
         size_t size = str.size();
         if (!sc::is_streamsize(size)) throw IOException(TRACEMSG(
                 "Target string size limit exceeded, length: [" + sc::to_string(str.size()) + "]"));
         str.resize(size + ulen);
-        std::memcpy(std::addressof(str.front()) + size, b, ulen);
+        std::memcpy(std::addressof(str.front()) + size, span.data(), ulen);
         return static_cast<std::streamsize> (ulen);
     }
     

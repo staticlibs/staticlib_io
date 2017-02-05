@@ -31,7 +31,7 @@ namespace io = staticlib::io;
 
 void test_write_and_flush() {
     io::null_sink sink{};
-    auto written = sink.write("foo", 3);
+    auto written = sink.write({"foo", 3});
     slassert(3 == written);
     sink.flush();
 }

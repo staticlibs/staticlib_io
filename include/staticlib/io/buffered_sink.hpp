@@ -29,7 +29,9 @@
 #include <ios>
 #include <utility>
 
-#include "staticlib/config.hpp"
+#include "staticlib/config/is_integer.hpp"
+#include "staticlib/config/span.hpp"
+#include "staticlib/config/tracemsg.hpp"
 
 #include "staticlib/io/IOException.hpp"
 #include "staticlib/io/reference_sink.hpp"
@@ -129,26 +131,22 @@ public:
     /**
      * Buffered write implementation
      * 
-     * @param b source buffer
-     * @param length number of bytes to process
+     * @param span buffer span
      * @return number of bytes processed
      */
-    std::streamsize write(const char* b, std::streamsize length) {
-        namespace sc = staticlib::config;
-        if (!sc::is_sizet(length)) throw IOException(TRACEMSG(
-                "Invalid 'write' parameter specified, length: [" + sc::to_string(length) + "]"));
-        size_t ulen = static_cast<size_t>(length);
+    std::streamsize write(staticlib::config::span<const char> span) {
+        size_t ulen = span.size();
         if (ulen >= buffer.size()) {
             write_to_sink(buffer.data(), pos);
             pos = 0;
             avail = buffer.size();
-            write_to_sink(b, ulen);
+            write_to_sink(span.data(), ulen);
         } else if (ulen <= avail) {
-            std::memcpy(buffer.data() + pos, b, ulen);
+            std::memcpy(buffer.data() + pos, span.data(), ulen);
             pos += ulen;
             if (avail > ulen) {
                 avail -= ulen;
-                return length;
+                return span.size_signed();
             } else {
                 write_to_sink(buffer.data(), buffer.size());
                 pos = 0;
@@ -156,11 +154,11 @@ public:
             }
         } else {
             write_to_sink(buffer.data(), pos);
-            std::memcpy(buffer.data(), b, ulen);
+            std::memcpy(buffer.data(), span.data(), ulen);
             pos = ulen;
             avail = buffer.size() - ulen;
         }
-        return length;
+        return span.size_signed();
     }
 
     /**
@@ -207,7 +205,7 @@ private:
             if (!sc::is_streamsize(ulen)) {
                 ulen = static_cast<size_t> (std::numeric_limits<std::streamsize>::max());
             }
-            std::streamsize amt = sink.write(buf + result, static_cast<std::streamsize>(ulen));
+            std::streamsize amt = sink.write({buf + result, static_cast<std::streamsize>(ulen)});
             if (!sc::is_sizet(amt)) throw IOException(TRACEMSG(
                     "Invalid result returned by underlying 'write' operation: [" + sc::to_string(amt) + "]"));
             result += static_cast<size_t> (amt);

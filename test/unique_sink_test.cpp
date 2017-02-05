@@ -36,7 +36,7 @@ namespace io = staticlib::io;
 void test_movable() {
     io::unique_sink<NonCopyableSink> sink{new NonCopyableSink{}};
     io::counting_sink<io::unique_sink<NonCopyableSink>> wrapped{std::move(sink)};    
-    auto written = wrapped.write("foo", 3);
+    auto written = wrapped.write({"foo", 3});
     slassert(3 == written);
     slassert(3 == wrapped.get_count());
     slassert(3 == wrapped.get_sink().get_sink().get_count());
