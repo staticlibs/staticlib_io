@@ -8,6 +8,10 @@ This project implements stream-like operations on the arbitrary `Source` and `Si
 This library is similar in nature with [Boost.Iostreams](http://www.boost.org/doc/libs/1_59_0/libs/iostreams/doc/index.html)
 library, but much less powerful and much less complex.
 
+Library follows [C++ Core Guidelines](https://github.com/isocpp/CppCoreGuidelines) using `span`
+(its [Staticlibs implementation](https://github.com/staticlibs/staticlib_config/blob/master/include/staticlib/config/span.hpp#L63))
+instead of "buffer pointer + length" pair.
+
 This library is header-only and has no dependencies.
 
 Link to the [API documentation](http://staticlibs.github.io/staticlib_io/docs/html/namespacestaticlib_1_1io.html).
@@ -26,7 +30,7 @@ template concepts.
         Source& operator=(Source&& other);
 
         // read method
-        std::streamsize read(char* buffer, std::streamsize length);
+        std::streamsize read(staticlib::config::span<char> span);
     };
 
 `Sink` concept:
@@ -37,7 +41,7 @@ template concepts.
         Sink& operator=(Sink&& other);
 
         // write method
-        std::streamsize write(const char* buffer, std::streamsize length);
+        std::streamsize write(staticlib::config::span<const char> span);
 
         // flush method
         std::streamsize flush();
@@ -55,6 +59,11 @@ This project is released under the [Apache License 2.0](http://www.apache.org/li
 
 Changelog
 ---------
+
+**2017-02-04**
+
+ * version 1.2.0
+ * use GSL-like `span`
 
 **2016-01-16**
 
