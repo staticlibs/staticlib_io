@@ -50,7 +50,7 @@ public:
      * 
      * @param sink destination sink
      */
-    flushable_sink(NonFlushableSink&& sink) :
+    explicit flushable_sink(NonFlushableSink&& sink) :
     sink(std::move(sink)) { }
 
     /**

@@ -49,7 +49,7 @@ public:
      * 
      * @param src input source
      */
-    reference_source(Source& src) :
+    explicit reference_source(Source& src) :
     src(src) { }
 
     /**

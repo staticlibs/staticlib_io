@@ -48,7 +48,7 @@ public:
      * 
      * @param sink destination sink
      */
-    unique_sink(Sink* sink) :
+    explicit unique_sink(Sink* sink) :
     sink(sink) { }
 
     /**

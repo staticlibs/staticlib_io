@@ -131,7 +131,7 @@ public:
      * 
      * @param source Source instance (in terms of Boost.Iostreams)
      */
-    unbuffered_istreambuf(Source&& source) : 
+    explicit unbuffered_istreambuf(Source&& source) : 
     source(std::move(source)) { }
 
     /**
@@ -273,7 +273,7 @@ public:
      * 
      * @param sink Sink reference (in terms of Boost.Iostreams)
      */
-    unbuffered_ostreambuf(Sink&& sink) : 
+    explicit unbuffered_ostreambuf(Sink&& sink) : 
     sink(std::move(sink)) { }
     
     /**

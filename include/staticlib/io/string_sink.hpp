@@ -58,7 +58,7 @@ public:
      * 
      * @param str string to write to
      */
-    string_sink(std::string&& str) :
+    explicit string_sink(std::string&& str) :
     str(std::move(str)) { }
     
     /**

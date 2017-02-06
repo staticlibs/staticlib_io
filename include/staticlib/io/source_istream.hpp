@@ -53,7 +53,7 @@ public:
      * 
      * @param source arbitrary source
      */
-    source_istream(Source&& source) :
+    explicit source_istream(Source&& source) :
     std::istream(std::addressof(streambuf)),
     streambuf(std::move(source)) { }
 

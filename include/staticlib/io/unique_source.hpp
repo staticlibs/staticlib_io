@@ -48,7 +48,7 @@ public:
      * 
      * @param src input source
      */
-    unique_source(Source* src) : 
+    explicit unique_source(Source* src) : 
     src(src) { }
 
     /**

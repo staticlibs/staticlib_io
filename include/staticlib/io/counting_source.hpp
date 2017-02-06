@@ -55,7 +55,7 @@ public:
      * 
      * @param src input source
      */
-    counting_source(Source&& src) :
+    explicit counting_source(Source&& src) :
     src(std::move(src)) { }
 
     /**

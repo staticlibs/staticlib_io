@@ -47,7 +47,7 @@ public:
      * 
      * @param streambuf input streambuf
      */
-    streambuf_source(std::streambuf* streambuf) :
+    explicit streambuf_source(std::streambuf* streambuf) :
     streambuf(streambuf) { }
 
     /**

@@ -54,7 +54,7 @@ public:
      * 
      * @param sink destination sink
      */
-    counting_sink(Sink&& sink) :
+    explicit counting_sink(Sink&& sink) :
     sink(std::move(sink)) { }
 
     /**

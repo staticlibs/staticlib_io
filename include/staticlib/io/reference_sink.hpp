@@ -49,7 +49,7 @@ public:
      * 
      * @param sink destination sink
      */
-    reference_sink(Sink& sink) :
+    explicit reference_sink(Sink& sink) :
     sink(sink) { }
 
     /**

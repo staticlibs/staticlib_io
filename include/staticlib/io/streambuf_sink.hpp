@@ -47,7 +47,7 @@ public:
      * 
      * @param streambuf destination streambuf
      */
-    streambuf_sink(std::streambuf* streambuf) :
+    explicit streambuf_sink(std::streambuf* streambuf) :
     streambuf(streambuf) { }
 
     /**

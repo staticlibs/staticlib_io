@@ -69,7 +69,7 @@ public:
      * 
      * @param sink destination sink to wrap
      */
-    buffered_sink(Sink&& sink) :
+    explicit buffered_sink(Sink&& sink) :
     sink(std::move(sink)) { }
 
     /**

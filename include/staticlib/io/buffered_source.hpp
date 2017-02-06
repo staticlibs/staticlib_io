@@ -73,7 +73,7 @@ public:
      * 
      * @param src input source
      */
-    buffered_source(Source&& src) :
+    explicit buffered_source(Source&& src) :
     src(std::move(src)) { }
 
     /**
