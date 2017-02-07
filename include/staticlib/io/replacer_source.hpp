@@ -31,6 +31,7 @@
 #include <string>
 #include <vector>
 
+#include "staticlib/config/noexcept.hpp"
 #include "staticlib/config/span.hpp"
 #include "staticlib/config/tracemsg.hpp"
 
@@ -129,7 +130,7 @@ public:
      * 
      * @param other other instance
      */
-    replacer_source(replacer_source&& other) :
+    replacer_source(replacer_source&& other) STATICLIB_NOEXCEPT :
     src(std::move(other.src)),
     exhausted(other.exhausted),
     values(std::move(other.values)),
@@ -159,7 +160,7 @@ public:
      * @param other other instance
      * @return this instance
      */
-    replacer_source& operator=(replacer_source&& other) {
+    replacer_source& operator=(replacer_source&& other) STATICLIB_NOEXCEPT {
         src = std::move(other.src);
         exhausted = other.exhausted;
         other.exhausted = true;

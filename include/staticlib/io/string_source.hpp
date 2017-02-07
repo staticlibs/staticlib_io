@@ -30,6 +30,7 @@
 #include <cstring>
 
 #include "staticlib/config/is_integer.hpp"
+#include "staticlib/config/noexcept.hpp"
 #include "staticlib/config/span.hpp"
 #include "staticlib/config/tracemsg.hpp"
 
@@ -106,7 +107,7 @@ public:
      * 
      * @param other other instance
      */
-    string_source(string_source&& other) :
+    string_source(string_source&& other) STATICLIB_NOEXCEPT :
     str(std::move(other.str)),
     idx(other.idx),
     str_len(other.str_len) {
@@ -120,7 +121,7 @@ public:
      * @param other other instance
      * @return this instance
      */
-    string_source& operator=(string_source&& other) {
+    string_source& operator=(string_source&& other) STATICLIB_NOEXCEPT {
         str = std::move(other.str);
         idx = other.idx;
         other.idx = 0;

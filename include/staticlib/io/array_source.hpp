@@ -28,6 +28,7 @@
 #include <cstring>
 #include <ios>
 
+#include "staticlib/config/noexcept.hpp"
 #include "staticlib/config/span.hpp"
 
 #include "staticlib/io/io_exception.hpp"
@@ -92,7 +93,7 @@ public:
      * 
      * @param other other instance
      */
-    array_source(array_source&& other) :
+    array_source(array_source&& other) STATICLIB_NOEXCEPT :
     src_buf(other.src_buf),
     src_buf_len(other.src_buf_len),
     idx(other.idx) {
@@ -107,7 +108,7 @@ public:
      * @param other other instance
      * @return this instance
      */
-    array_source& operator=(array_source&& other) {
+    array_source& operator=(array_source&& other) STATICLIB_NOEXCEPT {
         src_buf = other.src_buf;
         other.src_buf = nullptr;
         src_buf_len = other.src_buf_len;

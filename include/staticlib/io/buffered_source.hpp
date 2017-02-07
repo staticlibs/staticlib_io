@@ -30,6 +30,7 @@
 #include <utility>
 
 #include "staticlib/config/is_integer.hpp"
+#include "staticlib/config/noexcept.hpp"
 #include "staticlib/config/span.hpp"
 #include "staticlib/config/tracemsg.hpp"
 
@@ -96,7 +97,7 @@ public:
      * 
      * @param other other instance
      */
-    buffered_source(buffered_source&& other) :
+    buffered_source(buffered_source&& other) STATICLIB_NOEXCEPT :
     src(std::move(other.src)),
     exhausted(other.exhausted),
     buffer(std::move(other.buffer)),
@@ -113,7 +114,7 @@ public:
      * @param other other instance
      * @return this instance
      */
-    buffered_source& operator=(buffered_source&& other) {
+    buffered_source& operator=(buffered_source&& other) STATICLIB_NOEXCEPT {
         src = std::move(other.src);
         exhausted = other.exhausted;
         other.exhausted = true;

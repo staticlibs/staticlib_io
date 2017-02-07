@@ -26,6 +26,7 @@
 
 #include <ios>
 
+#include "staticlib/config/noexcept.hpp"
 #include "staticlib/config/span.hpp"
 
 #include "staticlib/io/reference_sink.hpp"
@@ -77,7 +78,7 @@ public:
      * 
      * @param other other instance
      */
-    counting_sink(counting_sink&& other) :
+    counting_sink(counting_sink&& other) STATICLIB_NOEXCEPT :
     sink(std::move(other.sink)),
     count(other.count) { 
         other.count = 0;
@@ -89,7 +90,7 @@ public:
      * @param other other instance
      * @return this instance
      */
-    counting_sink& operator=(counting_sink&& other) {
+    counting_sink& operator=(counting_sink&& other) STATICLIB_NOEXCEPT {
         sink = std::move(other.sink);
         count = other.count;
         other.count = 0;

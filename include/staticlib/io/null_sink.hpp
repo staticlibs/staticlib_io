@@ -26,6 +26,7 @@
 
 #include <ios>
 
+#include "staticlib/config/noexcept.hpp"
 #include "staticlib/config/span.hpp"
 
 namespace staticlib {
@@ -63,7 +64,7 @@ public:
      * 
      * @param other other instance
      */
-    null_sink(null_sink&&) { }
+    null_sink(null_sink&&) STATICLIB_NOEXCEPT { }
 
     /**
      * Move assignment operator
@@ -71,7 +72,7 @@ public:
      * @param other other instance
      * @return this instance
      */
-    null_sink& operator=(null_sink&&) {
+    null_sink& operator=(null_sink&&) STATICLIB_NOEXCEPT {
         return *this;
     }
 

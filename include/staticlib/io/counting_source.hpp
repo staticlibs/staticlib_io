@@ -27,6 +27,7 @@
 #include <ios>
 
 #include "staticlib/config/is_integer.hpp"
+#include "staticlib/config/noexcept.hpp"
 #include "staticlib/config/span.hpp"
 
 #include "staticlib/io/reference_source.hpp"
@@ -78,7 +79,7 @@ public:
      * 
      * @param other other instance
      */
-    counting_source(counting_source&& other) :
+    counting_source(counting_source&& other) STATICLIB_NOEXCEPT :
     src(std::move(other.src)),
     count(other.count) {
         other.count = 0;
@@ -90,7 +91,7 @@ public:
      * @param other other instance
      * @return this instance
      */
-    counting_source& operator=(counting_source&& other) {
+    counting_source& operator=(counting_source&& other) STATICLIB_NOEXCEPT {
         src = std::move(other.src);
         count = other.count;
         other.count = 0;

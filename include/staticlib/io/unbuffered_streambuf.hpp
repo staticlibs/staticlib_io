@@ -28,6 +28,7 @@
 #include <streambuf>
 #include <utility>
 
+#include "staticlib/config/noexcept.hpp"
 #include "staticlib/config/span.hpp"
 
 #include "staticlib/io/reference_sink.hpp"
@@ -147,7 +148,7 @@ public:
     /**
      * Move constructor
      */
-    unbuffered_istreambuf(unbuffered_istreambuf&& other) :
+    unbuffered_istreambuf(unbuffered_istreambuf&& other) STATICLIB_NOEXCEPT :
     source(std::move(other.source)),
     exhausted(other.exhausted) { 
         other.exhausted = true;
@@ -156,7 +157,7 @@ public:
     /**
      * Move assignment operator
      */
-    unbuffered_istreambuf& operator=(unbuffered_istreambuf&& other) {
+    unbuffered_istreambuf& operator=(unbuffered_istreambuf&& other) STATICLIB_NOEXCEPT {
         source = std::move(other.source);
         exhausted = other.exhausted;
         other.exhausted = true;
@@ -289,13 +290,13 @@ public:
     /**
      * Move constructor
      */
-    unbuffered_ostreambuf(unbuffered_ostreambuf&& other) :
+    unbuffered_ostreambuf(unbuffered_ostreambuf&& other) STATICLIB_NOEXCEPT :
     sink(std::move(other.sink)) { }
 
     /**
      * Move assignment operator
      */
-    unbuffered_ostreambuf& operator=(unbuffered_ostreambuf&& other) {
+    unbuffered_ostreambuf& operator=(unbuffered_ostreambuf&& other) STATICLIB_NOEXCEPT {
         sink = std::move(other.sink);
         return *this;
     }

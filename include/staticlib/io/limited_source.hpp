@@ -27,6 +27,7 @@
 #include <ios>
 
 #include "staticlib/config/is_integer.hpp"
+#include "staticlib/config/noexcept.hpp"
 #include "staticlib/config/span.hpp"
 #include "staticlib/config/tracemsg.hpp"
 
@@ -86,7 +87,7 @@ public:
      * 
      * @param other other instance
      */
-    limited_source(limited_source&& other) :
+    limited_source(limited_source&& other) STATICLIB_NOEXCEPT :
     src(std::move(other.src)),
     limit_bytes(other.limit_bytes) {
         other.limit_bytes = 0;
@@ -98,7 +99,7 @@ public:
      * @param other other instance
      * @return this instance
      */
-    limited_source& operator=(limited_source&& other) {
+    limited_source& operator=(limited_source&& other) STATICLIB_NOEXCEPT {
         src = std::move(other.src);
         limit_bytes = other.limit_bytes;
         other.limit_bytes = 0;

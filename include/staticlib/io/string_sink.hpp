@@ -30,6 +30,7 @@
 #include <string>
 
 #include "staticlib/config/is_integer.hpp"
+#include "staticlib/config/noexcept.hpp"
 #include "staticlib/config/span.hpp"
 #include "staticlib/config/tracemsg.hpp"
 
@@ -81,7 +82,7 @@ public:
      * 
      * @param other other instance
      */
-    string_sink(string_sink&& other) :
+    string_sink(string_sink&& other) STATICLIB_NOEXCEPT :
     str(std::move(other.str)) { }
 
     /**
@@ -90,7 +91,7 @@ public:
      * @param other other instance
      * @return this instance
      */
-    string_sink& operator=(string_sink&& other) {
+    string_sink& operator=(string_sink&& other) STATICLIB_NOEXCEPT {
         str = std::move(other.str);
         return *this;
     }

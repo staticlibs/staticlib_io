@@ -27,6 +27,7 @@
 #include <ios>
 #include <streambuf>
 
+#include "staticlib/config/noexcept.hpp"
 #include "staticlib/config/span.hpp"
 
 namespace staticlib {
@@ -71,7 +72,7 @@ public:
      * 
      * @param other other instance
      */    
-    streambuf_source(streambuf_source&& other) :
+    streambuf_source(streambuf_source&& other) STATICLIB_NOEXCEPT :
     streambuf(other.streambuf) {
         other.streambuf = nullptr;
     }
@@ -82,7 +83,7 @@ public:
      * @param other other instance
      * @return this instance
      */    
-    streambuf_source& operator=(streambuf_source&& other) {
+    streambuf_source& operator=(streambuf_source&& other) STATICLIB_NOEXCEPT {
         streambuf = other.streambuf;
         other.streambuf = nullptr;
         return *this;

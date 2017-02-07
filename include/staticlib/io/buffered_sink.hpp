@@ -30,6 +30,7 @@
 #include <utility>
 
 #include "staticlib/config/is_integer.hpp"
+#include "staticlib/config/noexcept.hpp"
 #include "staticlib/config/span.hpp"
 #include "staticlib/config/tracemsg.hpp"
 
@@ -103,7 +104,7 @@ public:
      * 
      * @param other other instance
      */
-    buffered_sink(buffered_sink&& other) :
+    buffered_sink(buffered_sink&& other) STATICLIB_NOEXCEPT :
     sink(std::move(other.sink)),
     buffer(std::move(other.buffer)),
     pos(other.pos),
@@ -118,7 +119,7 @@ public:
      * @param other other instance
      * @return this instance
      */
-    buffered_sink& operator=(buffered_sink&& other) {
+    buffered_sink& operator=(buffered_sink&& other) STATICLIB_NOEXCEPT {
         sink = std::move(other.sink);
         buffer = std::move(other.buffer);
         pos = other.pos;

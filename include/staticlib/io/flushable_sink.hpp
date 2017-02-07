@@ -26,6 +26,7 @@
 
 #include <ios>
 
+#include "staticlib/config/noexcept.hpp"
 #include "staticlib/config/span.hpp"
 
 #include "staticlib/io/reference_sink.hpp"
@@ -73,7 +74,7 @@ public:
      * 
      * @param other other instance
      */
-    flushable_sink(flushable_sink&& other) :
+    flushable_sink(flushable_sink&& other) STATICLIB_NOEXCEPT :
     sink(std::move(other.sink)) { }
 
     /**
@@ -82,7 +83,7 @@ public:
      * @param other other instance
      * @return this instance
      */
-    flushable_sink& operator=(flushable_sink&& other) {
+    flushable_sink& operator=(flushable_sink&& other) STATICLIB_NOEXCEPT {
         sink = std::move(other.sink);
         return *this;
     }

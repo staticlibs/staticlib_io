@@ -27,6 +27,8 @@
 #include <ios>
 #include <utility>
 
+#include "staticlib/config/noexcept.hpp"
+
 #include "staticlib/io/operations.hpp"
 #include "staticlib/io/reference_sink.hpp"
 #include "staticlib/io/reference_source.hpp"
@@ -83,7 +85,7 @@ public:
      * 
      * @param other other instance
      */
-    copying_source(copying_source&& other) :
+    copying_source(copying_source&& other) STATICLIB_NOEXCEPT :
     src(std::move(other.src)),
     sink(std::move(other.sink))  { }
 
@@ -93,7 +95,7 @@ public:
      * @param other other instance
      * @return this instance
      */
-    copying_source& operator=(copying_source&& other) {
+    copying_source& operator=(copying_source&& other) STATICLIB_NOEXCEPT {
         src = std::move(other.src);
         sink = std::move(other.sink);
         return *this;

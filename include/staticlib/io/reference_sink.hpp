@@ -27,6 +27,7 @@
 #include <ios>
 #include <functional>
 
+#include "staticlib/config/noexcept.hpp"
 #include "staticlib/config/span.hpp"
 
 namespace staticlib {
@@ -76,7 +77,7 @@ public:
      * 
      * @param other other instance
      */
-    reference_sink(reference_sink&& other) :
+    reference_sink(reference_sink&& other) STATICLIB_NOEXCEPT :
     sink(std::move(other.sink)) { }
 
     /**
@@ -85,7 +86,7 @@ public:
      * @param other other instance
      * @return this instance
      */
-    reference_sink& operator=(reference_sink&& other) {
+    reference_sink& operator=(reference_sink&& other) STATICLIB_NOEXCEPT {
         sink = std::move(other.sink);
         return *this;
     }
