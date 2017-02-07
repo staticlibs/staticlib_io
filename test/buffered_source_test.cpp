@@ -29,14 +29,14 @@
 
 #include "staticlib/config/assert.hpp"
 
-#include "NegativeReadSource.hpp"
-#include "TwoBytesAtOnceSource.hpp"
+#include "negative_read_source.hpp"
+#include "two_bytes_at_once_source.hpp"
 #include "test_utils.hpp"
 
 namespace io = staticlib::io;
 
 void test_buffered() {
-    io::buffered_source<TwoBytesAtOnceSource, 3> src{TwoBytesAtOnceSource{"foo42"}};
+    io::buffered_source<two_bytes_at_once_source, 3> src{two_bytes_at_once_source{"foo42"}};
     std::string dest{};
     dest.resize(3);
     auto read = src.read({std::addressof(dest.front()), 3});
@@ -46,7 +46,7 @@ void test_buffered() {
 }
 
 void test_overread() {
-    io::buffered_source<TwoBytesAtOnceSource, 3> src{TwoBytesAtOnceSource{"foo42"}};
+    io::buffered_source<two_bytes_at_once_source, 3> src{two_bytes_at_once_source{"foo42"}};
     std::string dest{};
     dest.resize(5);
     auto read = src.read({std::addressof(dest.front()), 5});
@@ -56,21 +56,21 @@ void test_overread() {
 }
 
 void test_make_rvalue() {
-    auto src = io::make_buffered_source(TwoBytesAtOnceSource{"foo42"});
+    auto src = io::make_buffered_source(two_bytes_at_once_source{"foo42"});
     (void) src;
 }
 
 void test_make_lvalue() {
-    TwoBytesAtOnceSource delegate{"foo42"};
+    two_bytes_at_once_source delegate{"foo42"};
     auto src = io::make_buffered_source(delegate);
     (void) src;
 }
 
 void test_throw() {
-    auto src = io::make_buffered_source(TwoBytesAtOnceSource{"foo42"});
+    auto src = io::make_buffered_source(two_bytes_at_once_source{"foo42"});
     slassert(throws_exc([&src] { src.read({nullptr, -1}); }));
     slassert(throws_exc([] {
-        auto ns = io::make_buffered_source(NegativeReadSource());
+        auto ns = io::make_buffered_source(negative_read_source());
         std::array<char, 16> buf;
         std::memset(buf.data(), '\0', buf.size());
         ns.read(buf);

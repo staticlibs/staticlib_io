@@ -30,7 +30,7 @@
 #include "staticlib/config/span.hpp"
 #include "staticlib/config/tracemsg.hpp"
 
-#include "staticlib/io/IOException.hpp"
+#include "staticlib/io/io_exception.hpp"
 #include "staticlib/io/counting_source.hpp"
 #include "staticlib/io/reference_source.hpp"
 
@@ -39,7 +39,7 @@ namespace io {
 
 /**
  * Source wrapper that limits the number of bytes read through it
- * and throws "IOException" on threshold exceed
+ * and throws "io_exception" on threshold exceed
  */
 template<typename Source>
 class limited_source {
@@ -114,11 +114,11 @@ public:
     std::streamsize read(staticlib::config::span<char> span) {
         namespace sc = staticlib::config;
         size_t ulen = span.size();
-        if (ulen > limit_bytes) throw IOException(TRACEMSG(
+        if (ulen > limit_bytes) throw io_exception(TRACEMSG(
                 "Read limit threshold exceeded, " + 
                 " limit: [" + sc::to_string(limit_bytes) + "]," +
                 " requested length: [" + sc::to_string(ulen) + "]"));
-        if (src.get_count() > limit_bytes - ulen) throw IOException(TRACEMSG(
+        if (src.get_count() > limit_bytes - ulen) throw io_exception(TRACEMSG(
                 "Read limit threshold exceeded, " +
                 " already read: [" + sc::to_string(src.get_count()) + "]" +
                 " limit: [" + sc::to_string(limit_bytes) + "]," +

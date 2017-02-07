@@ -34,7 +34,7 @@
 #include "staticlib/config/span.hpp"
 #include "staticlib/config/tracemsg.hpp"
 
-#include "staticlib/io/IOException.hpp"
+#include "staticlib/io/io_exception.hpp"
 #include "staticlib/io/buffered_source.hpp"
 #include "staticlib/io/reference_source.hpp"
 
@@ -218,7 +218,7 @@ public:
                     do_placeholder(cur);
                     break;
                 case State::MOVED_FROM:
-                    throw IOException(TRACEMSG("Invalid attempt to read from source in 'MOVED_FROM' state"));
+                    throw io_exception(TRACEMSG("Invalid attempt to read from source in 'MOVED_FROM' state"));
                 }
                 if (buffer.size() >= limitlen) {
                     break;

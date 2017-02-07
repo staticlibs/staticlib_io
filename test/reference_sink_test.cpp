@@ -29,12 +29,12 @@
 
 #include "staticlib/io/counting_sink.hpp"
 
-#include "NonCopyableSink.hpp"
+#include "non_copyable_sink.hpp"
 
 namespace io = staticlib::io;
 
 void test_ref() {
-    NonCopyableSink nc_sink{};
+    non_copyable_sink nc_sink{};
     auto sink = io::make_reference_sink(nc_sink);
     auto wrapped = io::make_counting_sink(std::move(sink));
     auto written = wrapped.write({"foo", 3});

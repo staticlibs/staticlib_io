@@ -33,7 +33,7 @@
 #include "staticlib/config/span.hpp"
 #include "staticlib/config/tracemsg.hpp"
 
-#include "staticlib/io/IOException.hpp"
+#include "staticlib/io/io_exception.hpp"
 
 namespace staticlib {
 namespace io {

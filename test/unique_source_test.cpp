@@ -30,13 +30,13 @@
 
 #include "staticlib/io/counting_source.hpp"
 
-#include "NonCopyableSource.hpp"
+#include "non_copyable_source.hpp"
 
 namespace io = staticlib::io;
 
 void test_movable() {
-    io::unique_source<NonCopyableSource> source{new NonCopyableSource{}};
-    io::counting_source<io::unique_source<NonCopyableSource>> wrapped{std::move(source)};
+    io::unique_source<non_copyable_source> source{new non_copyable_source{}};
+    io::counting_source<io::unique_source<non_copyable_source>> wrapped{std::move(source)};
     std::array<char, 3> buf;
     auto read = wrapped.read(buf);
     slassert(3 == read);

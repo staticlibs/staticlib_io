@@ -34,7 +34,7 @@
 #include "staticlib/config/span.hpp"
 #include "staticlib/config/tracemsg.hpp"
 
-#include "staticlib/io/IOException.hpp"
+#include "staticlib/io/io_exception.hpp"
 
 namespace staticlib {
 namespace io {
@@ -54,7 +54,7 @@ void write_all(Sink& sink, staticlib::config::span<const char> span) {
     size_t result = 0;
     while (result < ulen) {
         std::streamsize amt = sink.write({span.data() + result, static_cast<std::streamsize>(ulen - result)});
-        if (!sc::is_sizet(amt)) throw IOException(TRACEMSG(
+        if (!sc::is_sizet(amt)) throw io_exception(TRACEMSG(
                 "Invalid result returned by underlying 'write' operation: [" + sc::to_string(amt) + "]"));
         result += static_cast<size_t>(amt);
     }
@@ -76,7 +76,7 @@ size_t read_all(Source& src, staticlib::config::span<char> span) {
     while (result < ulen) {
         std::streamsize amt = src.read({span.data() + result, static_cast<std::streamsize> (ulen - result)});
         if (std::char_traits<char>::eof() != amt) {
-            if (!sc::is_sizet(amt)) throw IOException(TRACEMSG(
+            if (!sc::is_sizet(amt)) throw io_exception(TRACEMSG(
                     "Invalid result returned by underlying 'read' operation: [" + sc::to_string(amt) + "]"));
             result += static_cast<size_t> (amt);
         } else break;
@@ -95,7 +95,7 @@ template<typename Source>
 void read_exact(Source& src, staticlib::config::span<char> span) {
     namespace sc = staticlib::config;
     size_t res = read_all(src, span);
-    if (res != span.size()) throw IOException(TRACEMSG(
+    if (res != span.size()) throw io_exception(TRACEMSG(
             "Read amount: [" + sc::to_string(res) + "]" +
             " of expected: [" + sc::to_string(span.size()) + "]"));
 }
@@ -138,7 +138,7 @@ size_t copy_all(Source& src, Sink& sink, staticlib::config::span<char> span) {
 template<typename Source, typename IntTypeSkip>
 void skip(Source& src, staticlib::config::span<char> span, IntTypeSkip to_skip) {
     namespace sc = staticlib::config;
-    if (!(sc::is_sizet(to_skip) && sc::is_streamsize(to_skip))) throw IOException(TRACEMSG(
+    if (!(sc::is_sizet(to_skip) && sc::is_streamsize(to_skip))) throw io_exception(TRACEMSG(
             "Invalid 'skip' parameter specified, to_skip: [" + sc::to_string(to_skip) + "]"));
     size_t ulen = span.size();
     size_t uskip = static_cast<size_t>(to_skip);

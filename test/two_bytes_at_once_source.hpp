@@ -15,31 +15,31 @@
  */
 
 /* 
- * File:   TwoBytesAtOnceSource.hpp
+ * File:   two_bytes_at_once_source.hpp
  * Author: alex
  *
  * Created on October 10, 2015, 8:44 AM
  */
 
-#ifndef STATICLIB_IO_TEST_TWOBYTESATONCESOURCE_HPP
-#define	STATICLIB_IO_TEST_TWOBYTESATONCESOURCE_HPP
+#ifndef STATICLIB_IO_TEST_TWO_BYTES_AT_ONCE_SOURCE_HPP
+#define	STATICLIB_IO_TEST_TWO_BYTES_AT_ONCE_SOURCE_HPP
 
-class TwoBytesAtOnceSource {
+class two_bytes_at_once_source {
     std::string data;
     size_t ind = 0;
 
 public:
-    TwoBytesAtOnceSource(std::string data) : 
+    two_bytes_at_once_source(std::string data) : 
     data(std::move(data)) { }
     
-    TwoBytesAtOnceSource(const TwoBytesAtOnceSource&) = delete;
+    two_bytes_at_once_source(const two_bytes_at_once_source&) = delete;
 
-    TwoBytesAtOnceSource& operator=(const TwoBytesAtOnceSource&) = delete;
+    two_bytes_at_once_source& operator=(const two_bytes_at_once_source&) = delete;
 
-    TwoBytesAtOnceSource(TwoBytesAtOnceSource&& other) :
+    two_bytes_at_once_source(two_bytes_at_once_source&& other) :
     data(std::move(other.data)) { }
 
-    TwoBytesAtOnceSource& operator=(TwoBytesAtOnceSource&& other) {
+    two_bytes_at_once_source& operator=(two_bytes_at_once_source&& other) {
         data = std::move(other.data);
         return *this;
     }
@@ -60,5 +60,5 @@ public:
     
 };
 
-#endif	/* STATICLIB_IO_TEST_TWOBYTESATONCESOURCE_HPP */
+#endif	/* STATICLIB_IO_TEST_TWO_BYTES_AT_ONCE_SOURCE_HPP */
 

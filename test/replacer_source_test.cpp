@@ -33,12 +33,12 @@
 #include "staticlib/io/operations.hpp"
 #include "staticlib/io/string_sink.hpp"
 
-#include "TwoBytesAtOnceSource.hpp"
+#include "two_bytes_at_once_source.hpp"
 
 namespace io = staticlib::io;
 
 void test_replace() {
-    auto src = TwoBytesAtOnceSource("fox{{abc}}42");
+    auto src = two_bytes_at_once_source("fox{{abc}}42");
     std::map<std::string, std::string> values = {{"abc", "bar"}};
     std::string res;
     res.resize(4);
@@ -52,7 +52,7 @@ void test_replace() {
 }
 
 void test_multiple() {
-    auto src = TwoBytesAtOnceSource("{{foo}}{{bar}}{{baz}}");
+    auto src = two_bytes_at_once_source("{{foo}}{{bar}}{{baz}}");
     std::map<std::string, std::string> values = {
         {"foo", "1"},
         {"bar", ""},

@@ -15,44 +15,44 @@
  */
 
 /* 
- * File:   NonFlushableSink.hpp
+ * File:   non_copyable_sink.hpp
  * Author: alex
  *
- * Created on October 13, 2015, 8:01 AM
+ * Created on October 10, 2015, 2:04 PM
  */
 
-#ifndef STATICLIB_IO_TEST_NONFLUSHABLESINK_HPP
-#define	STATICLIB_IO_TEST_NONFLUSHABLESINK_HPP
+#ifndef STATICLIB_IO_TEST_NON_COPYABLE_SINK_HPP
+#define	STATICLIB_IO_TEST_NON_COPYABLE_SINK_HPP
 
-class NonFlushableSink {
+class non_copyable_sink {
     size_t count = 0;
-
+    
 public:
 
-    NonFlushableSink() { }
+    non_copyable_sink() { }
 
-    NonFlushableSink(const NonFlushableSink&) = delete;
+    non_copyable_sink(const non_copyable_sink&) = delete;
 
-    NonFlushableSink& operator=(const NonFlushableSink&) = delete;
+    non_copyable_sink& operator=(const non_copyable_sink&) = delete;
 
-    NonFlushableSink(NonFlushableSink&& other) :
-    count(other.count) { }
+    non_copyable_sink(non_copyable_sink&&) = delete;
 
-    NonFlushableSink& operator=(NonFlushableSink&& other) { 
-        count = other.count;
-        return *this;
-    }
+    non_copyable_sink& operator=(non_copyable_sink&&) = delete;
 
     std::streamsize write(staticlib::config::span<const char> span) {
         count += span.size();
         return span.size_signed();
     }
 
+    std::streamsize flush() {
+        return 0;
+    }
+    
     size_t get_count() {
         return count;
     }
 
 };
 
-#endif	/* STATICLIB_IO_TEST_NONFLUSHABLESINK_HPP */
+#endif	/* STATICLIB_IO_TEST_NON_COPYABLE_SINK_HPP */
 

@@ -26,7 +26,7 @@
 
 #include <functional>
 
-#include "staticlib/io/IOException.hpp"
+#include "staticlib/io/io_exception.hpp"
 
 bool throws_exc(std::function<void() > fun) {
     namespace si = staticlib::io;

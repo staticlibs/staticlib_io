@@ -15,23 +15,28 @@
  */
 
 /* 
- * File:   NegativeReadSource.hpp
+ * File:   negative_write_sink.hpp
  * Author: alex
  *
- * Created on January 29, 2017, 2:29 PM
+ * Created on January 29, 2017, 2:09 PM
  */
 
-#ifndef STATICLIB_IO_TEST_NEGATIVEREADSOURCE_HPP
-#define	STATICLIB_IO_TEST_NEGATIVEREADSOURCE_HPP
+#ifndef STATICLIB_IO_TEST_NEGATIVE_WRITE_SINK_HPP
+#define	STATICLIB_IO_TEST_NEGATIVE_WRITE_SINK_HPP
 
-class NegativeReadSource {
+class negative_write_sink {
 public:
-    NegativeReadSource() { }
 
-    std::streamsize read(staticlib::config::span<char>) {
+    negative_write_sink() { }
+
+    std::streamsize write(staticlib::config::span<const char>) {
         return -2;
+    }
+
+    std::streamsize flush() {
+        return 0;
     }
 };
 
-#endif	/* STATICLIB_IO_TEST_NEGATIVEREADSOURCE_HPP */
+#endif	/* STATICLIB_IO_TEST_NEGATIVE_WRITE_SINK_HPP */
 

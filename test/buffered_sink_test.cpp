@@ -28,14 +28,14 @@
 
 #include "staticlib/config/assert.hpp"
 
-#include "NegativeWriteSink.hpp"
-#include "TwoBytesAtOnceSink.hpp"
+#include "negative_write_sink.hpp"
+#include "two_bytes_at_once_sink.hpp"
 #include "test_utils.hpp"
 
 namespace io = staticlib::io;
 
 void test_buffer_size() {
-    io::buffered_sink<TwoBytesAtOnceSink, 4> sink{TwoBytesAtOnceSink{}};
+    io::buffered_sink<two_bytes_at_once_sink, 4> sink{two_bytes_at_once_sink{}};
     auto written1 = sink.write({"foo", 3});
     slassert(3 == written1);
     slassert(0 == sink.get_sink().get_data().size());
@@ -46,7 +46,7 @@ void test_buffer_size() {
 }
 
 void test_flush() {
-    io::buffered_sink<TwoBytesAtOnceSink, 4> sink{TwoBytesAtOnceSink{}};
+    io::buffered_sink<two_bytes_at_once_sink, 4> sink{two_bytes_at_once_sink{}};
     auto written = sink.write({"foo", 3});
     slassert(3 == written);
     slassert(0 == sink.get_sink().get_data().size());
@@ -57,7 +57,7 @@ void test_flush() {
 }
 
 void test_overwrite() {
-    io::buffered_sink<TwoBytesAtOnceSink, 4> sink{TwoBytesAtOnceSink{}};
+    io::buffered_sink<two_bytes_at_once_sink, 4> sink{two_bytes_at_once_sink{}};
     auto written = sink.write({"foo42", 5});
     slassert(5 == written);
     slassert(5 == sink.get_sink().get_data().size());
@@ -65,21 +65,21 @@ void test_overwrite() {
 }
 
 void test_make_rvalue() {
-    auto sink = io::make_buffered_sink(TwoBytesAtOnceSink{});
+    auto sink = io::make_buffered_sink(two_bytes_at_once_sink{});
     (void) sink;
 }
 
 void test_make_lvalue() {
-    TwoBytesAtOnceSink dest{};
+    two_bytes_at_once_sink dest{};
     auto sink = io::make_buffered_sink(dest);
     (void) sink;
 }
 
 void test_throw() {
-    io::buffered_sink<TwoBytesAtOnceSink, 4> sink{TwoBytesAtOnceSink()};
+    io::buffered_sink<two_bytes_at_once_sink, 4> sink{two_bytes_at_once_sink()};
     slassert(throws_exc([&sink] { sink.write({nullptr, -1}); }));
     slassert(throws_exc([] {
-        auto ns = io::make_buffered_sink(NegativeWriteSink());
+        auto ns = io::make_buffered_sink(negative_write_sink());
         std::array<char, 16> buf;
         std::memset(buf.data(), '\0', buf.size());
         ns.write(buf);

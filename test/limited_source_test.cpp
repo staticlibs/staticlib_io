@@ -29,13 +29,13 @@
 
 #include "staticlib/config/assert.hpp"
 
-#include "TwoBytesAtOnceSource.hpp"
+#include "two_bytes_at_once_source.hpp"
 #include "test_utils.hpp"
 
 namespace io = staticlib::io;
 
 void test_limit() {
-    auto src = io::make_limited_source(TwoBytesAtOnceSource{"bar1"}, 3);
+    auto src = io::make_limited_source(two_bytes_at_once_source{"bar1"}, 3);
     std::array<char, 2> arr;
     auto read = src.read(arr);
     slassert(throws_exc([&src] { src.read({nullptr, 4}); }));

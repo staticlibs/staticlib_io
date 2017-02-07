@@ -29,14 +29,14 @@
 
 #include "staticlib/config/assert.hpp"
 
-#include "NonCopyableSource.hpp"
+#include "non_copyable_source.hpp"
 
 namespace io = staticlib::io;
 
 void test_copyable() {
-    std::shared_ptr<NonCopyableSource> source{new NonCopyableSource{}};
-    io::shared_source<NonCopyableSource> shared1{source};
-    io::shared_source<NonCopyableSource> shared2{source};
+    std::shared_ptr<non_copyable_source> source{new non_copyable_source{}};
+    io::shared_source<non_copyable_source> shared1{source};
+    io::shared_source<non_copyable_source> shared2{source};
     std::array<char, 3> buf;
     auto read1 = shared1.read({buf.data(), 3});
     slassert(3 == read1);

@@ -29,13 +29,13 @@
 
 #include "staticlib/config/assert.hpp"
 
-#include "TwoBytesAtOnceSource.hpp"
-#include "TwoBytesAtOnceSink.hpp"
+#include "two_bytes_at_once_source.hpp"
+#include "two_bytes_at_once_sink.hpp"
 
 namespace io = staticlib::io;
 
 void test_copy() {
-    auto src = io::make_copying_source(TwoBytesAtOnceSource{"42"}, TwoBytesAtOnceSink{});
+    auto src = io::make_copying_source(two_bytes_at_once_source{"42"}, two_bytes_at_once_sink{});
     std::string dest{};
     dest.resize(2);
     auto read = src.read(dest);
@@ -47,7 +47,7 @@ void test_copy() {
 }
 
 void test_omit_tail() {
-    auto src = io::make_copying_source(TwoBytesAtOnceSource{"42foo"}, TwoBytesAtOnceSink{});
+    auto src = io::make_copying_source(two_bytes_at_once_source{"42foo"}, two_bytes_at_once_sink{});
     std::string dest{};
     dest.resize(2);
     auto read = src.read(dest);
@@ -59,8 +59,8 @@ void test_omit_tail() {
 }
 
 void test_lvalue() {
-    TwoBytesAtOnceSource s1{"42foo"};
-    TwoBytesAtOnceSink s2{};
+    two_bytes_at_once_source s1{"42foo"};
+    two_bytes_at_once_sink s2{};
     auto src = io::make_copying_source(s1, s2);
     (void) src;
 }

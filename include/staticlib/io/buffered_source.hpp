@@ -33,7 +33,7 @@
 #include "staticlib/config/span.hpp"
 #include "staticlib/config/tracemsg.hpp"
 
-#include "staticlib/io/IOException.hpp"
+#include "staticlib/io/io_exception.hpp"
 #include "staticlib/io/reference_source.hpp"
 
 namespace staticlib {
@@ -208,7 +208,7 @@ private:
                 }
                 std::streamsize amt = src.read({buf + offset + result, static_cast<std::streamsize> (ulen)});
                 if (std::char_traits<char>::eof() != amt) {
-                    if (!sc::is_sizet(amt)) throw IOException(TRACEMSG(
+                    if (!sc::is_sizet(amt)) throw io_exception(TRACEMSG(
                             "Invalid result returned by underlying 'read' operation: [" + sc::to_string(amt) + "]"));
                     result += static_cast<size_t> (amt);
                 } else {

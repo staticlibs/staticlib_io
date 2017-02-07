@@ -28,12 +28,12 @@
 
 #include "staticlib/config/assert.hpp"
 
-#include "TwoBytesAtOnceSource.hpp"
+#include "two_bytes_at_once_source.hpp"
 
 namespace io = staticlib::io;
 
 void test_istream() {
-    TwoBytesAtOnceSource src{"abc"};
+    two_bytes_at_once_source src{"abc"};
     auto istream = io::make_source_istream_ptr(src);
     std::streambuf* sb = istream->rdbuf();
     std::array<char, 16> buf;

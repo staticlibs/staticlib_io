@@ -24,7 +24,6 @@
 #ifndef STATICLIB_IO_HPP
 #define	STATICLIB_IO_HPP
 
-#include "staticlib/io/IOException.hpp"
 #include "staticlib/io/array_source.hpp"
 #include "staticlib/io/buffered_sink.hpp"
 #include "staticlib/io/buffered_source.hpp"
@@ -32,6 +31,7 @@
 #include "staticlib/io/counting_sink.hpp"
 #include "staticlib/io/counting_source.hpp"
 #include "staticlib/io/flushable_sink.hpp"
+#include "staticlib/io/io_exception.hpp"
 #include "staticlib/io/null_sink.hpp"
 #include "staticlib/io/operations.hpp"
 #include "staticlib/io/reference_sink.hpp"

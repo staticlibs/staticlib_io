@@ -29,13 +29,13 @@
 
 #include "staticlib/config/assert.hpp"
 
-#include "TwoBytesAtOnceSource.hpp"
-#include "TwoBytesAtOnceSink.hpp"
+#include "two_bytes_at_once_source.hpp"
+#include "two_bytes_at_once_sink.hpp"
 
 namespace io = staticlib::io;
 
 void test_unbuffered_source() {
-    TwoBytesAtOnceSource src{"abc"};
+    two_bytes_at_once_source src{"abc"};
     auto istreambuf = io::make_unbuffered_istreambuf(std::move(src));
     std::istream stream{std::addressof(istreambuf)};
     // pass it somewhere through std api
@@ -47,7 +47,7 @@ void test_unbuffered_source() {
 }
 
 void test_unbuffered_source_lvalue() {
-    TwoBytesAtOnceSource src{"abc"};
+    two_bytes_at_once_source src{"abc"};
     auto istreambuf = io::make_unbuffered_istreambuf(src);
     std::istream stream{std::addressof(istreambuf)};
     // pass it somewhere through std api
@@ -59,7 +59,7 @@ void test_unbuffered_source_lvalue() {
 }
 
 void test_unbuffered_sink() {
-    TwoBytesAtOnceSink sink{};
+    two_bytes_at_once_sink sink{};
     auto ostreambuf = io::make_unbuffered_ostreambuf(std::move(sink));
     std::ostream stream{std::addressof(ostreambuf)};
     // pass it somewhere through std api
@@ -69,7 +69,7 @@ void test_unbuffered_sink() {
 }
 
 void test_unbuffered_sink_lvalue() {
-    TwoBytesAtOnceSink sink{};
+    two_bytes_at_once_sink sink{};
     auto ostreambuf = io::make_unbuffered_ostreambuf(sink);
     std::ostream stream{std::addressof(ostreambuf)};
     // pass it somewhere through std api

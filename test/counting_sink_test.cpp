@@ -29,19 +29,19 @@
 
 #include "staticlib/config/assert.hpp"
 
-#include "TwoBytesAtOnceSink.hpp"
+#include "two_bytes_at_once_sink.hpp"
 
 namespace io = staticlib::io;
 
 void test_count() {
-    auto sink = io::make_counting_sink(TwoBytesAtOnceSink{});
+    auto sink = io::make_counting_sink(two_bytes_at_once_sink{});
     auto written = sink.write({"42", 2});
     slassert(2 == written);
     slassert(2 == sink.get_count());
 }
 
 void test_count_overflow() {
-    TwoBytesAtOnceSink delegate{};
+    two_bytes_at_once_sink delegate{};
     auto sink = io::make_counting_sink(delegate);
     auto written = sink.write({"foo", 3});
     slassert(2 == written);

@@ -15,30 +15,30 @@
  */
 
 /* 
- * File:   TwoBytesAtOnceSink.hpp
+ * File:   two_bytes_at_once_sink.hpp
  * Author: alex
  *
  * Created on October 10, 2015, 8:43 AM
  */
 
-#ifndef STATICLIB_IO_TEST_TWOBYTESATONCESINK_HPP
-#define	STATICLIB_IO_TEST_TWOBYTESATONCESINK_HPP
+#ifndef STATICLIB_IO_TEST_TWO_BYTES_AT_ONCE_SINK_HPP
+#define	STATICLIB_IO_TEST_TWO_BYTES_AT_ONCE_SINK_HPP
 
-class TwoBytesAtOnceSink {
+class two_bytes_at_once_sink {
     std::string data;
 
 public:
 
-    TwoBytesAtOnceSink() { }
+    two_bytes_at_once_sink() { }
     
-    TwoBytesAtOnceSink(const TwoBytesAtOnceSink&) = delete;
+    two_bytes_at_once_sink(const two_bytes_at_once_sink&) = delete;
     
-    TwoBytesAtOnceSink& operator=(const TwoBytesAtOnceSink&) = delete;
+    two_bytes_at_once_sink& operator=(const two_bytes_at_once_sink&) = delete;
     
-    TwoBytesAtOnceSink(TwoBytesAtOnceSink&& other) :
+    two_bytes_at_once_sink(two_bytes_at_once_sink&& other) :
     data(std::move(other.data)) { }
     
-    TwoBytesAtOnceSink& operator=(TwoBytesAtOnceSink&& other) {
+    two_bytes_at_once_sink& operator=(two_bytes_at_once_sink&& other) {
         data = std::move(other.data);
         return *this;
     }
@@ -62,5 +62,5 @@ public:
     }
 };
 
-#endif	/* STATICLIB_IO_TEST_TWOBYTESATONCESINK_HPP */
+#endif	/* STATICLIB_IO_TEST_TWO_BYTES_AT_ONCE_SINK_HPP */
 

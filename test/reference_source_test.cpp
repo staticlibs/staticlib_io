@@ -30,12 +30,12 @@
 
 #include "staticlib/io/counting_source.hpp"
 
-#include "NonCopyableSource.hpp"
+#include "non_copyable_source.hpp"
 
 namespace io = staticlib::io;
 
 void test_ref() {
-    NonCopyableSource nc_src{};
+    non_copyable_source nc_src{};
     auto source = io::make_reference_source(nc_src);
     auto wrapped = io::make_counting_source(std::move(source));
     std::array<char, 3> buf;

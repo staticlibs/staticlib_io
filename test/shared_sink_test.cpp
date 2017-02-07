@@ -28,14 +28,14 @@
 
 #include "staticlib/config/assert.hpp"
 
-#include "NonCopyableSink.hpp"
+#include "non_copyable_sink.hpp"
 
 namespace io = staticlib::io;
 
 void test_copyable() {
-    std::shared_ptr<NonCopyableSink> sink{new NonCopyableSink{}};
-    io::shared_sink<NonCopyableSink> shared1{sink};
-    io::shared_sink<NonCopyableSink> shared2{sink};
+    std::shared_ptr<non_copyable_sink> sink{new non_copyable_sink{}};
+    io::shared_sink<non_copyable_sink> shared1{sink};
+    io::shared_sink<non_copyable_sink> shared2{sink};
     auto written1 = shared1.write({"foo", 3});
     slassert(3 == written1);
     slassert(3 == sink->get_count());

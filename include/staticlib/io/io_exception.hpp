@@ -15,16 +15,16 @@
  */
 
 /* 
- * File:   IOException.hpp
+ * File:   io_exception.hpp
  * Author: alex
  *
  * Created on January 20, 2017, 10:01 PM
  */
 
-#ifndef STATICLIB_IO_IOEXCEPTION_HPP
-#define	STATICLIB_IO_IOEXCEPTION_HPP
+#ifndef STATICLIB_IO_IO_EXCEPTION_HPP
+#define	STATICLIB_IO_IO_EXCEPTION_HPP
 
-#include "staticlib/config.hpp"
+#include "staticlib/config/staticlib_exception.hpp"
 
 namespace staticlib {
 namespace io {
@@ -32,25 +32,25 @@ namespace io {
 /**
  * Module specific exception
  */
-class IOException : public staticlib::config::BaseException {
+class io_exception : public staticlib::config::staticlib_exception {
 public:
     /**
      * Default constructor
      */
-    IOException() = default;
+    io_exception() = default;
 
     /**
      * Constructor with message
      * 
      * @param msg error message
      */
-    IOException(const std::string& msg) :
-    staticlib::config::BaseException(msg) { }
+    io_exception(const std::string& msg) :
+    staticlib::config::staticlib_exception(msg) { }
 
 };
 
 }
 } //namespace
 
-#endif	/* STATICLIB_IO_IOEXCEPTION_HPP */
+#endif	/* STATICLIB_IO_IO_EXCEPTION_HPP */
 

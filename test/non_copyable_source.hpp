@@ -15,28 +15,28 @@
  */
 
 /* 
- * File:   NonCopyableSource.hpp
+ * File:   non_copyable_source.hpp
  * Author: alex
  *
  * Created on October 10, 2015, 2:03 PM
  */
 
-#ifndef STATICLIB_IO_TEST_NONCOPYABLESOURCE_HPP
-#define	STATICLIB_IO_TEST_NONCOPYABLESOURCE_HPP
+#ifndef STATICLIB_IO_TEST_NON_COPYABLE_SOURCE_HPP
+#define	STATICLIB_IO_TEST_NON_COPYABLE_SOURCE_HPP
 
-class NonCopyableSource {
+class non_copyable_source {
     size_t count = 0;
     
 public:
-    NonCopyableSource() { }
+    non_copyable_source() { }
 
-    NonCopyableSource(const NonCopyableSource&) = delete;
+    non_copyable_source(const non_copyable_source&) = delete;
 
-    NonCopyableSource& operator=(const NonCopyableSource&) = delete;
+    non_copyable_source& operator=(const non_copyable_source&) = delete;
 
-    NonCopyableSource(NonCopyableSource&&) = delete;
+    non_copyable_source(non_copyable_source&&) = delete;
 
-    NonCopyableSource& operator=(NonCopyableSource&&) = delete;
+    non_copyable_source& operator=(non_copyable_source&&) = delete;
 
     std::streamsize read(staticlib::config::span<char> span) {
         count += span.size();
@@ -49,5 +49,5 @@ public:
 
 };
 
-#endif	/* STATICLIB_IO_TEST_NONCOPYABLESOURCE_HPP */
+#endif	/* STATICLIB_IO_TEST_NON_COPYABLE_SOURCE_HPP */
 

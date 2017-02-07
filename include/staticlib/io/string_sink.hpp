@@ -33,7 +33,7 @@
 #include "staticlib/config/span.hpp"
 #include "staticlib/config/tracemsg.hpp"
 
-#include "staticlib/io/IOException.hpp"
+#include "staticlib/io/io_exception.hpp"
 
 namespace staticlib {
 namespace io {
@@ -105,7 +105,7 @@ public:
         namespace sc = staticlib::config;
         size_t ulen = span.size();
         size_t size = str.size();
-        if (!sc::is_streamsize(size)) throw IOException(TRACEMSG(
+        if (!sc::is_streamsize(size)) throw io_exception(TRACEMSG(
                 "Target string size limit exceeded, length: [" + sc::to_string(str.size()) + "]"));
         str.resize(size + ulen);
         std::memcpy(std::addressof(str.front()) + size, span.data(), ulen);
