@@ -24,11 +24,12 @@
 #ifndef STATICLIB_IO_OPERATIONS_HPP
 #define	STATICLIB_IO_OPERATIONS_HPP
 
+#include <cstdint>
 #include <algorithm>
+#include <array>
 #include <ios>
 #include <sstream>
 #include <string>
-#include <cstdint>
 
 #include "staticlib/config/is_integer.hpp"
 #include "staticlib/config/span.hpp"
@@ -111,7 +112,6 @@ void read_exact(Source& src, staticlib::config::span<char> span) {
  */
 template<typename Source, typename Sink>
 size_t copy_all(Source& src, Sink& sink, staticlib::config::span<char> span) {
-    namespace sc = staticlib::config;
     size_t ulen = span.size();
     size_t result = 0;
     size_t amt;
@@ -125,6 +125,21 @@ size_t copy_all(Source& src, Sink& sink, staticlib::config::span<char> span) {
         result += amt;
     }
     return result;
+}
+
+/**
+ * Copies data from Source to Sink using on-stack array buffer until
+ * source will be exhausted.
+ *
+ * @param src iostreams source
+ * @param sink iostreams sink
+ * @return number of bytes copied
+ */
+template<typename Source, typename Sink, uint16_t BufferSize = 4096>
+size_t copy_all(Source& src, Sink& sink) {
+    std::array<char, BufferSize> buf;
+    staticlib::config::span<char> span(buf);
+    return copy_all(src, sink, span);
 }
 
 /**

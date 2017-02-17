@@ -99,6 +99,15 @@ void test_copy() {
     slassert("abc" == sink.get_data());
 }
 
+void test_copy_stackbuf() {
+    two_bytes_at_once_sink sink{};
+    two_bytes_at_once_source src{"abc"};
+    auto copied = io::copy_all(src, sink);
+    slassert(3 == copied);
+    slassert(3 == sink.get_data().length());
+    slassert("abc" == sink.get_data());
+}
+
 void test_skip() {
     two_bytes_at_once_source src{"abc"};
     std::array<char, 1> buf;
@@ -117,6 +126,7 @@ int main() {
         test_read_all();
         test_read_exact();
         test_copy();
+        test_copy_stackbuf();
         test_skip();
     } catch (const std::exception& e) {
         std::cout << e.what() << std::endl;
