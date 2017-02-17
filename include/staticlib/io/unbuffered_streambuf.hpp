@@ -25,6 +25,7 @@
 #define	STATICLIB_IO_UNBUFFERED_STREAMBUF_HPP
 
 #include <ios>
+#include <memory>
 #include <streambuf>
 #include <utility>
 
@@ -231,8 +232,9 @@ unbuffered_istreambuf<Source> make_unbuffered_istreambuf(Source&& source) {
  */
 template <typename Source,
 class = typename std::enable_if<!std::is_lvalue_reference<Source>::value>::type>
-unbuffered_istreambuf<Source>* make_unbuffered_istreambuf_ptr(Source&& source) {
-    return new unbuffered_istreambuf<Source>(std::move(source));
+std::unique_ptr<unbuffered_istreambuf<Source>> make_unbuffered_istreambuf_ptr(Source&& source) {
+    return std::unique_ptr<unbuffered_istreambuf<Source>>(
+            new unbuffered_istreambuf<Source>(std::move(source)));
 }
 
 /**
@@ -255,8 +257,9 @@ unbuffered_istreambuf<reference_source<Source>> make_unbuffered_istreambuf(Sourc
  * @return unbuffered_istreambuf source
  */
 template <typename Source>
-unbuffered_istreambuf<reference_source<Source>>* make_unbuffered_istreambuf_ptr(Source& source) {
-    return new unbuffered_istreambuf<reference_source<Source>>(make_reference_source(source));
+std::unique_ptr<unbuffered_istreambuf<reference_source<Source>>> make_unbuffered_istreambuf_ptr(Source& source) {
+    return std::unique_ptr<unbuffered_istreambuf<reference_source<Source>>>(
+            new unbuffered_istreambuf<reference_source<Source>>(make_reference_source(source)));
 }
 
 /**
@@ -345,8 +348,9 @@ unbuffered_ostreambuf<Sink> make_unbuffered_ostreambuf(Sink&& sink) {
  */
 template <typename Sink,
 class = typename std::enable_if<!std::is_lvalue_reference<Sink>::value>::type>
-unbuffered_ostreambuf<Sink> make_unbuffered_ostreambuf_ptr(Sink&& sink) {
-    return new unbuffered_ostreambuf<Sink>(std::move(sink));
+std::unique_ptr<unbuffered_ostreambuf<Sink>> make_unbuffered_ostreambuf_ptr(Sink&& sink) {
+    return std::unique_ptr<unbuffered_ostreambuf<Sink>>(
+            new unbuffered_ostreambuf<Sink>(std::move(sink)));
 }
 
 /**
@@ -369,8 +373,9 @@ unbuffered_ostreambuf<reference_sink<Sink>> make_unbuffered_ostreambuf(Sink& sin
  * @return unbuffered_ostreambuf sink
  */
 template <typename Sink>
-unbuffered_ostreambuf<reference_sink<Sink>> make_unbuffered_ostreambuf_ptr(Sink& sink) {
-    return new unbuffered_ostreambuf<reference_sink<Sink>>(make_reference_sink(sink));
+std::unique_ptr<unbuffered_ostreambuf<reference_sink<Sink>>> make_unbuffered_ostreambuf_ptr(Sink& sink) {
+    return std::unique_ptr<unbuffered_ostreambuf<reference_sink<Sink>>>(
+            new unbuffered_ostreambuf<reference_sink<Sink>>(make_reference_sink(sink)));
 }
     
 } // namespace
