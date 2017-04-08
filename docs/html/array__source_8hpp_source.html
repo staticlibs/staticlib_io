@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">staticlib_io
-   &#160;<span id="projectnumber">1.1.4</span>
+   &#160;<span id="projectnumber">1.2.1</span>
    </div>
   </td>
  </tr>
@@ -114,69 +114,85 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#ifndef STATICLIB_IO_ARRAY_SOURCE_HPP</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define STATICLIB_IO_ARRAY_SOURCE_HPP</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;ios&gt;</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &lt;cstdint&gt;</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &lt;cstring&gt;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;cstdint&gt;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &lt;cstring&gt;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &lt;ios&gt;</span></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="code" href="namespacestaticlib.html">   31</a></span>&#160;<span class="keyword">namespace </span>staticlib {</div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="code" href="namespacestaticlib_1_1io.html">   32</a></span>&#160;<span class="keyword">namespace </span>io {</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="code" href="classstaticlib_1_1io_1_1array__source.html">   38</a></span>&#160;<span class="keyword">class </span><a class="code" href="classstaticlib_1_1io_1_1array__source.html" title="Source implementation that reads data from the specified char buffer.">array_source</a> {</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span>* src_buf;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">size_t</span> src_buf_len;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">size_t</span> idx = 0;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00059"></a><span class="lineno"><a class="code" href="classstaticlib_1_1io_1_1array__source.html#a901fc1159d57ca4f5ea5df149304ec07">   59</a></span>&#160;    <a class="code" href="classstaticlib_1_1io_1_1array__source.html#a901fc1159d57ca4f5ea5df149304ec07" title="Constructor.">array_source</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* src_buf, <span class="keywordtype">size_t</span> src_buf_len) :</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    src_buf(src_buf),</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    src_buf_len(src_buf_len) { }</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    </div>
-<div class="line"><a name="l00068"></a><span class="lineno"><a class="code" href="classstaticlib_1_1io_1_1array__source.html#ae34564254fff4e8191a7b627bc791ca0">   68</a></span>&#160;    <a class="code" href="classstaticlib_1_1io_1_1array__source.html#a901fc1159d57ca4f5ea5df149304ec07" title="Constructor.">array_source</a>(<span class="keyword">const</span> <a class="code" href="classstaticlib_1_1io_1_1array__source.html" title="Source implementation that reads data from the specified char buffer.">array_source</a>&amp; other) :</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    src_buf(other.src_buf),</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    src_buf_len(other.src_buf_len) { }</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    </div>
-<div class="line"><a name="l00078"></a><span class="lineno"><a class="code" href="classstaticlib_1_1io_1_1array__source.html#a64818c27766d74406bb9e023e8a46100">   78</a></span>&#160;    <a class="code" href="classstaticlib_1_1io_1_1array__source.html" title="Source implementation that reads data from the specified char buffer.">array_source</a>&amp; <a class="code" href="classstaticlib_1_1io_1_1array__source.html#a64818c27766d74406bb9e023e8a46100" title="Copy assignment operator.">operator=</a>(<span class="keyword">const</span> <a class="code" href="classstaticlib_1_1io_1_1array__source.html" title="Source implementation that reads data from the specified char buffer.">array_source</a>&amp; other) {</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        src_buf = other.src_buf;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        src_buf_len = other.src_buf_len;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    }</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
-<div class="line"><a name="l00089"></a><span class="lineno"><a class="code" href="classstaticlib_1_1io_1_1array__source.html#abc5a10227a1745932ab2283cd9e190be">   89</a></span>&#160;    <a class="code" href="classstaticlib_1_1io_1_1array__source.html#a901fc1159d57ca4f5ea5df149304ec07" title="Constructor.">array_source</a>(<a class="code" href="classstaticlib_1_1io_1_1array__source.html" title="Source implementation that reads data from the specified char buffer.">array_source</a>&amp;&amp; other) :</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    src_buf(other.src_buf),</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    src_buf_len(other.src_buf_len) { }</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
-<div class="line"><a name="l00099"></a><span class="lineno"><a class="code" href="classstaticlib_1_1io_1_1array__source.html#ae44471014e7a737bbd1c48d898ac2317">   99</a></span>&#160;    <a class="code" href="classstaticlib_1_1io_1_1array__source.html" title="Source implementation that reads data from the specified char buffer.">array_source</a>&amp; <a class="code" href="classstaticlib_1_1io_1_1array__source.html#ae44471014e7a737bbd1c48d898ac2317" title="Move assignment operator.">operator=</a>(<a class="code" href="classstaticlib_1_1io_1_1array__source.html" title="Source implementation that reads data from the specified char buffer.">array_source</a>&amp;&amp; other) {</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        src_buf = other.src_buf;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        src_buf_len = other.src_buf_len;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;staticlib/config.hpp&quot;</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="io__exception_8hpp.html">staticlib/io/io_exception.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="span_8hpp.html">staticlib/io/span.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="code" href="namespacestaticlib.html">   36</a></span>&#160;<span class="keyword">namespace </span>staticlib {</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="code" href="namespacestaticlib_1_1io.html">   37</a></span>&#160;<span class="keyword">namespace </span>io {</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="code" href="classstaticlib_1_1io_1_1array__source.html">   43</a></span>&#160;<span class="keyword">class </span><a class="code" href="classstaticlib_1_1io_1_1array__source.html" title="Source implementation that reads data from the specified char buffer.">array_source</a> {</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span>* src_buf;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">size_t</span> src_buf_len;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">size_t</span> idx = 0;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="code" href="classstaticlib_1_1io_1_1array__source.html#a901fc1159d57ca4f5ea5df149304ec07">   64</a></span>&#160;    <a class="code" href="classstaticlib_1_1io_1_1array__source.html#a901fc1159d57ca4f5ea5df149304ec07" title="Constructor.">array_source</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* src_buf, <span class="keywordtype">size_t</span> src_buf_len) :</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    src_buf(src_buf),</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    src_buf_len(src_buf_len) { }</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    </div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="code" href="classstaticlib_1_1io_1_1array__source.html#ae34564254fff4e8191a7b627bc791ca0">   73</a></span>&#160;    <a class="code" href="classstaticlib_1_1io_1_1array__source.html#a901fc1159d57ca4f5ea5df149304ec07" title="Constructor.">array_source</a>(<span class="keyword">const</span> <a class="code" href="classstaticlib_1_1io_1_1array__source.html" title="Source implementation that reads data from the specified char buffer.">array_source</a>&amp; other) :</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    src_buf(other.src_buf),</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    src_buf_len(other.src_buf_len),</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    idx(other.idx) { }</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    </div>
+<div class="line"><a name="l00084"></a><span class="lineno"><a class="code" href="classstaticlib_1_1io_1_1array__source.html#a64818c27766d74406bb9e023e8a46100">   84</a></span>&#160;    <a class="code" href="classstaticlib_1_1io_1_1array__source.html" title="Source implementation that reads data from the specified char buffer.">array_source</a>&amp; <a class="code" href="classstaticlib_1_1io_1_1array__source.html#a64818c27766d74406bb9e023e8a46100" title="Copy assignment operator.">operator=</a>(<span class="keyword">const</span> <a class="code" href="classstaticlib_1_1io_1_1array__source.html" title="Source implementation that reads data from the specified char buffer.">array_source</a>&amp; other) {</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        src_buf = other.src_buf;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        src_buf_len = other.src_buf_len;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        idx = other.idx;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    }</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
+<div class="line"><a name="l00096"></a><span class="lineno"><a class="code" href="classstaticlib_1_1io_1_1array__source.html#a92701255d38b725a6fb0d94905ebacbc">   96</a></span>&#160;    <a class="code" href="classstaticlib_1_1io_1_1array__source.html#a901fc1159d57ca4f5ea5df149304ec07" title="Constructor.">array_source</a>(<a class="code" href="classstaticlib_1_1io_1_1array__source.html" title="Source implementation that reads data from the specified char buffer.">array_source</a>&amp;&amp; other) STATICLIB_NOEXCEPT :</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    src_buf(other.src_buf),</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    src_buf_len(other.src_buf_len),</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    idx(other.idx) {</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        other.src_buf = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        other.src_buf_len = 0;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        other.idx = 0;</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    }</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    </div>
-<div class="line"><a name="l00112"></a><span class="lineno"><a class="code" href="classstaticlib_1_1io_1_1array__source.html#a82e1a94a4f9a88abe9227f124af3e425">  112</a></span>&#160;    std::streamsize <a class="code" href="classstaticlib_1_1io_1_1array__source.html#a82e1a94a4f9a88abe9227f124af3e425" title="Buffered read implementation.">read</a>(<span class="keywordtype">char</span>* buf, std::streamsize length) {</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        <span class="keywordtype">size_t</span> avail = src_buf_len - idx;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <span class="keywordflow">if</span> (avail &gt; 0) {</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;            <span class="keywordtype">size_t</span> ulen = <span class="keyword">static_cast&lt;</span><span class="keywordtype">size_t</span><span class="keyword">&gt;</span> (length);</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;            <span class="keywordtype">size_t</span> len = ulen &lt;= avail ? ulen : avail;</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;            std::memcpy(buf, src_buf + idx, len);</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;            this-&gt;idx += len;</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>std::streamsize<span class="keyword">&gt;</span>(len);</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        } <span class="keywordflow">else</span> <span class="keywordflow">return</span> std::char_traits&lt;char&gt;::eof();</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    }</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    </div>
-<div class="line"><a name="l00128"></a><span class="lineno"><a class="code" href="classstaticlib_1_1io_1_1array__source.html#a659ddd2a405d761b218df6cdb1611da3">  128</a></span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="classstaticlib_1_1io_1_1array__source.html#a659ddd2a405d761b218df6cdb1611da3" title="Source buffer accessor.">get_array</a>() {</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        <span class="keywordflow">return</span> src_buf;</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    }</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    </div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;};</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;} <span class="comment">// namespace</span></div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;}</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">/* STATICLIB_IO_ARRAY_SOURCE_HPP */</span><span class="preprocessor"></span></div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
+<div class="line"><a name="l00111"></a><span class="lineno"><a class="code" href="classstaticlib_1_1io_1_1array__source.html#ae370cae9a32fcc6d8d3a9e386b2fd3dd">  111</a></span>&#160;    <a class="code" href="classstaticlib_1_1io_1_1array__source.html" title="Source implementation that reads data from the specified char buffer.">array_source</a>&amp; <a class="code" href="classstaticlib_1_1io_1_1array__source.html#ae370cae9a32fcc6d8d3a9e386b2fd3dd" title="Move assignment operator.">operator=</a>(<a class="code" href="classstaticlib_1_1io_1_1array__source.html" title="Source implementation that reads data from the specified char buffer.">array_source</a>&amp;&amp; other) STATICLIB_NOEXCEPT {</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        src_buf = other.src_buf;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        other.src_buf = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        src_buf_len = other.src_buf_len;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        other.src_buf_len = 0;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        idx = other.idx;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        other.idx = 0;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    }</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    </div>
+<div class="line"><a name="l00127"></a><span class="lineno"><a class="code" href="classstaticlib_1_1io_1_1array__source.html#a3562df1a6d85a3e8df3701734e8dbee8">  127</a></span>&#160;    std::streamsize <a class="code" href="classstaticlib_1_1io_1_1array__source.html#a3562df1a6d85a3e8df3701734e8dbee8" title="Buffered read implementation.">read</a>(<a class="code" href="classstaticlib_1_1io_1_1span.html" title="Non-owning range of elements in of contiguous memory.">span&lt;char&gt;</a> <a class="code" href="classstaticlib_1_1io_1_1span.html" title="Non-owning range of elements in of contiguous memory.">span</a>) {</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        <span class="keywordtype">size_t</span> ulen = span.<a class="code" href="classstaticlib_1_1io_1_1span.html#addfb1741a8636bd225554b5dc4762176" title="Size accessor.">size</a>();</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        <span class="keywordtype">size_t</span> avail = src_buf_len - idx;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        <span class="keywordflow">if</span> (avail &gt; 0) {</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;            <span class="keywordtype">size_t</span> len = ulen &lt;= avail ? ulen : avail;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;            std::memcpy(span.<a class="code" href="classstaticlib_1_1io_1_1span.html#a18cad7a438a1938ec670210ee8e3b053" title="Data accessor.">data</a>(), src_buf + idx, len);</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;            this-&gt;idx += len;</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>std::streamsize<span class="keyword">&gt;</span>(len);</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        } <span class="keywordflow">else</span> <span class="keywordflow">return</span> std::char_traits&lt;char&gt;::eof();</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    }</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    </div>
+<div class="line"><a name="l00143"></a><span class="lineno"><a class="code" href="classstaticlib_1_1io_1_1array__source.html#a659ddd2a405d761b218df6cdb1611da3">  143</a></span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="classstaticlib_1_1io_1_1array__source.html#a659ddd2a405d761b218df6cdb1611da3" title="Source buffer accessor.">get_array</a>() {</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;        <span class="keywordflow">return</span> src_buf;</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    }</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    </div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;};</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;} <span class="comment">// namespace</span></div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;}</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">/* STATICLIB_IO_ARRAY_SOURCE_HPP */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;<span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Dec 13 2015 15:00:54 for staticlib_io by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Apr 8 2017 19:05:33 for staticlib_io by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

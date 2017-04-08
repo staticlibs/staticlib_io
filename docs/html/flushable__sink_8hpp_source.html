@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">staticlib_io
-   &#160;<span id="projectnumber">1.1.4</span>
+   &#160;<span id="projectnumber">1.2.1</span>
    </div>
   </td>
  </tr>
@@ -116,57 +116,68 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;ios&gt;</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">namespace </span>staticlib {</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">namespace </span>io {</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> NonFlushableSink&gt;</div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="code" href="classstaticlib_1_1io_1_1flushable__sink.html">   36</a></span>&#160;<span class="keyword">class </span><a class="code" href="classstaticlib_1_1io_1_1flushable__sink.html" title="Sink wrapper that implements no-op flush.">flushable_sink</a> {</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    NonFlushableSink sink;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00048"></a><span class="lineno"><a class="code" href="classstaticlib_1_1io_1_1flushable__sink.html#a312d4cc9ad00adef1c44c6e67688475b">   48</a></span>&#160;    <a class="code" href="classstaticlib_1_1io_1_1flushable__sink.html#a312d4cc9ad00adef1c44c6e67688475b" title="Constructor.">flushable_sink</a>(NonFlushableSink sink) :</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    sink(std::move(sink)) { }</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <a class="code" href="classstaticlib_1_1io_1_1flushable__sink.html#a312d4cc9ad00adef1c44c6e67688475b" title="Constructor.">flushable_sink</a>(<span class="keyword">const</span> <a class="code" href="classstaticlib_1_1io_1_1flushable__sink.html" title="Sink wrapper that implements no-op flush.">flushable_sink</a>&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <a class="code" href="classstaticlib_1_1io_1_1flushable__sink.html" title="Sink wrapper that implements no-op flush.">flushable_sink</a>&amp; <a class="code" href="classstaticlib_1_1io_1_1flushable__sink.html#aba4f2f91d579081c6cee7d38123d7bc4" title="Deleted copy assignment operator.">operator=</a>(<span class="keyword">const</span> <a class="code" href="classstaticlib_1_1io_1_1flushable__sink.html" title="Sink wrapper that implements no-op flush.">flushable_sink</a>&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
-<div class="line"><a name="l00071"></a><span class="lineno"><a class="code" href="classstaticlib_1_1io_1_1flushable__sink.html#abc30c3857a90b8cf7c23020cd775533a">   71</a></span>&#160;    <a class="code" href="classstaticlib_1_1io_1_1flushable__sink.html#a312d4cc9ad00adef1c44c6e67688475b" title="Constructor.">flushable_sink</a>(<a class="code" href="classstaticlib_1_1io_1_1flushable__sink.html" title="Sink wrapper that implements no-op flush.">flushable_sink</a>&amp;&amp; other) :</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    sink(std::move(other.sink)) { }</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
-<div class="line"><a name="l00080"></a><span class="lineno"><a class="code" href="classstaticlib_1_1io_1_1flushable__sink.html#a99172ef82a5307e6303ad1cb4b217070">   80</a></span>&#160;    <a class="code" href="classstaticlib_1_1io_1_1flushable__sink.html" title="Sink wrapper that implements no-op flush.">flushable_sink</a>&amp; <a class="code" href="classstaticlib_1_1io_1_1flushable__sink.html#a99172ef82a5307e6303ad1cb4b217070" title="Move assignment operator.">operator=</a>(<a class="code" href="classstaticlib_1_1io_1_1flushable__sink.html" title="Sink wrapper that implements no-op flush.">flushable_sink</a>&amp;&amp; other) {</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        sink = std::move(other.sink);</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    }</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
-<div class="line"><a name="l00092"></a><span class="lineno"><a class="code" href="classstaticlib_1_1io_1_1flushable__sink.html#ac3849a4a27f8d8bd03b0c0fce8d560af">   92</a></span>&#160;    std::streamsize <a class="code" href="classstaticlib_1_1io_1_1flushable__sink.html#ac3849a4a27f8d8bd03b0c0fce8d560af" title="Write implementation delegated to the underlying sink.">write</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* buffer, std::streamsize length) {</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="keywordflow">return</span> sink.write(buffer, length);</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    }</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
-<div class="line"><a name="l00101"></a><span class="lineno"><a class="code" href="classstaticlib_1_1io_1_1flushable__sink.html#a1986b1623bda83f83e2012733319e0b2">  101</a></span>&#160;    std::streamsize <a class="code" href="classstaticlib_1_1io_1_1flushable__sink.html#a1986b1623bda83f83e2012733319e0b2" title="No-op flush implementation.">flush</a>() {</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    }</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
-<div class="line"><a name="l00110"></a><span class="lineno"><a class="code" href="classstaticlib_1_1io_1_1flushable__sink.html#abced570d2ce6b4eeb45e183eb8352a35">  110</a></span>&#160;    NonFlushableSink&amp; <a class="code" href="classstaticlib_1_1io_1_1flushable__sink.html#abced570d2ce6b4eeb45e183eb8352a35" title="Underlying sink accessor.">get_sink</a>() {</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        <span class="keywordflow">return</span> sink;</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    }</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;};</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> NonFlushableSink&gt;</div>
-<div class="line"><a name="l00123"></a><span class="lineno"><a class="code" href="namespacestaticlib_1_1io.html#a79b12690b78400e8a04ff6aad664c535">  123</a></span>&#160;<a class="code" href="classstaticlib_1_1io_1_1flushable__sink.html" title="Sink wrapper that implements no-op flush.">flushable_sink&lt;NonFlushableSink&gt;</a> <a class="code" href="namespacestaticlib_1_1io.html#a79b12690b78400e8a04ff6aad664c535" title="Factory function for creating flushable sinks.">make_flushable_sink</a>(NonFlushableSink&amp;&amp; sink) {</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classstaticlib_1_1io_1_1flushable__sink.html" title="Sink wrapper that implements no-op flush.">flushable_sink&lt;NonFlushableSink&gt;</a>(std::move(sink));</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;}</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;} <span class="comment">// namespace</span></div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;}</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">/* STATICLIB_IO_FLUSHABLE_SINK_HPP */</span><span class="preprocessor"></span></div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &quot;staticlib/config.hpp&quot;</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="reference__sink_8hpp.html">staticlib/io/reference_sink.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="span_8hpp.html">staticlib/io/span.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">namespace </span>staticlib {</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">namespace </span>io {</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> NonFlushableSink&gt;</div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="code" href="classstaticlib_1_1io_1_1flushable__sink.html">   41</a></span>&#160;<span class="keyword">class </span><a class="code" href="classstaticlib_1_1io_1_1flushable__sink.html" title="Sink wrapper that implements no-op flush.">flushable_sink</a> {</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    NonFlushableSink sink;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="code" href="classstaticlib_1_1io_1_1flushable__sink.html#ab62b776c55532b458e6300ecda08fc7f">   54</a></span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classstaticlib_1_1io_1_1flushable__sink.html#ab62b776c55532b458e6300ecda08fc7f" title="Constructor, created sink wrapper will own specified sink.">flushable_sink</a>(NonFlushableSink&amp;&amp; sink) :</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    sink(std::move(sink)) { }</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <a class="code" href="classstaticlib_1_1io_1_1flushable__sink.html#ab62b776c55532b458e6300ecda08fc7f" title="Constructor, created sink wrapper will own specified sink.">flushable_sink</a>(<span class="keyword">const</span> <a class="code" href="classstaticlib_1_1io_1_1flushable__sink.html" title="Sink wrapper that implements no-op flush.">flushable_sink</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <a class="code" href="classstaticlib_1_1io_1_1flushable__sink.html" title="Sink wrapper that implements no-op flush.">flushable_sink</a>&amp; <a class="code" href="classstaticlib_1_1io_1_1flushable__sink.html#aba4f2f91d579081c6cee7d38123d7bc4" title="Deleted copy assignment operator.">operator=</a>(<span class="keyword">const</span> <a class="code" href="classstaticlib_1_1io_1_1flushable__sink.html" title="Sink wrapper that implements no-op flush.">flushable_sink</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="code" href="classstaticlib_1_1io_1_1flushable__sink.html#a19c20a6e37e537a291e96dc91b14b700">   77</a></span>&#160;    <a class="code" href="classstaticlib_1_1io_1_1flushable__sink.html#ab62b776c55532b458e6300ecda08fc7f" title="Constructor, created sink wrapper will own specified sink.">flushable_sink</a>(<a class="code" href="classstaticlib_1_1io_1_1flushable__sink.html" title="Sink wrapper that implements no-op flush.">flushable_sink</a>&amp;&amp; other) STATICLIB_NOEXCEPT :</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    sink(std::move(other.sink)) { }</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
+<div class="line"><a name="l00086"></a><span class="lineno"><a class="code" href="classstaticlib_1_1io_1_1flushable__sink.html#a92c35e77a8fe012ffc9c9d6d9173eb17">   86</a></span>&#160;    <a class="code" href="classstaticlib_1_1io_1_1flushable__sink.html" title="Sink wrapper that implements no-op flush.">flushable_sink</a>&amp; <a class="code" href="classstaticlib_1_1io_1_1flushable__sink.html#a92c35e77a8fe012ffc9c9d6d9173eb17" title="Move assignment operator.">operator=</a>(<a class="code" href="classstaticlib_1_1io_1_1flushable__sink.html" title="Sink wrapper that implements no-op flush.">flushable_sink</a>&amp;&amp; other) STATICLIB_NOEXCEPT {</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        sink = std::move(other.sink);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    }</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
+<div class="line"><a name="l00097"></a><span class="lineno"><a class="code" href="classstaticlib_1_1io_1_1flushable__sink.html#a0f8970e35d21eafe52b2c292917dfa19">   97</a></span>&#160;    std::streamsize <a class="code" href="classstaticlib_1_1io_1_1flushable__sink.html#a0f8970e35d21eafe52b2c292917dfa19" title="Write implementation delegated to the underlying sink.">write</a>(<a class="code" href="classstaticlib_1_1io_1_1span.html" title="Non-owning range of elements in of contiguous memory.">span&lt;const char&gt;</a> <a class="code" href="classstaticlib_1_1io_1_1span.html" title="Non-owning range of elements in of contiguous memory.">span</a>) {</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <span class="keywordflow">return</span> sink.write(span);</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    }</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
+<div class="line"><a name="l00106"></a><span class="lineno"><a class="code" href="classstaticlib_1_1io_1_1flushable__sink.html#a1986b1623bda83f83e2012733319e0b2">  106</a></span>&#160;    std::streamsize <a class="code" href="classstaticlib_1_1io_1_1flushable__sink.html#a1986b1623bda83f83e2012733319e0b2" title="No-op flush implementation.">flush</a>() {</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    }</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div>
+<div class="line"><a name="l00115"></a><span class="lineno"><a class="code" href="classstaticlib_1_1io_1_1flushable__sink.html#abced570d2ce6b4eeb45e183eb8352a35">  115</a></span>&#160;    NonFlushableSink&amp; <a class="code" href="classstaticlib_1_1io_1_1flushable__sink.html#abced570d2ce6b4eeb45e183eb8352a35" title="Underlying sink accessor.">get_sink</a>() {</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        <span class="keywordflow">return</span> sink;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    }</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;};</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> NonFlushableSink,</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        <span class="keyword">class </span>= <span class="keyword">typename</span> std::enable_if&lt;!std::is_lvalue_reference&lt;NonFlushableSink&gt;::value&gt;::type&gt;</div>
+<div class="line"><a name="l00130"></a><span class="lineno"><a class="code" href="namespacestaticlib_1_1io.html#a0146bd0c334544bdc9463669f17e2f69">  130</a></span>&#160;<a class="code" href="classstaticlib_1_1io_1_1flushable__sink.html" title="Sink wrapper that implements no-op flush.">flushable_sink&lt;NonFlushableSink&gt;</a> <a class="code" href="namespacestaticlib_1_1io.html#a0146bd0c334544bdc9463669f17e2f69" title="Factory function for creating flushable sinks, created sink wrapper will own specified sink...">make_flushable_sink</a>(NonFlushableSink&amp;&amp; sink) {</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classstaticlib_1_1io_1_1flushable__sink.html" title="Sink wrapper that implements no-op flush.">flushable_sink&lt;NonFlushableSink&gt;</a>(std::move(sink));</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;}</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> NonFlushableSink&gt;</div>
+<div class="line"><a name="l00142"></a><span class="lineno"><a class="code" href="namespacestaticlib_1_1io.html#a7bf26849c19f88ac4751e496ad5e044f">  142</a></span>&#160;<a class="code" href="classstaticlib_1_1io_1_1flushable__sink.html" title="Sink wrapper that implements no-op flush.">flushable_sink&lt;reference_sink&lt;NonFlushableSink&gt;</a>&gt; <a class="code" href="namespacestaticlib_1_1io.html#a0146bd0c334544bdc9463669f17e2f69" title="Factory function for creating flushable sinks, created sink wrapper will own specified sink...">make_flushable_sink</a>(NonFlushableSink&amp; sink) {</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classstaticlib_1_1io_1_1flushable__sink.html" title="Sink wrapper that implements no-op flush.">flushable_sink&lt;reference_sink&lt;NonFlushableSink&gt;</a>&gt;(<a class="code" href="namespacestaticlib_1_1io.html#ab5af60f54f2811cf8c5a813d86f2885f" title="Factory function for creating reference sinks.">make_reference_sink</a>(sink));</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;}</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;} <span class="comment">// namespace</span></div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;}</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">/* STATICLIB_IO_FLUSHABLE_SINK_HPP */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;<span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Dec 13 2015 15:00:54 for staticlib_io by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Apr 8 2017 19:05:34 for staticlib_io by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

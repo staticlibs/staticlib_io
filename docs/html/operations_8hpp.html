@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">staticlib_io
-   &#160;<span id="projectnumber">1.1.4</span>
+   &#160;<span id="projectnumber">1.2.1</span>
    </div>
   </td>
  </tr>
@@ -91,11 +91,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">operations.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;algorithm&gt;</code><br/>
+<div class="textblock"><code>#include &lt;cstdint&gt;</code><br/>
+<code>#include &lt;algorithm&gt;</code><br/>
+<code>#include &lt;array&gt;</code><br/>
 <code>#include &lt;ios&gt;</code><br/>
 <code>#include &lt;sstream&gt;</code><br/>
 <code>#include &lt;string&gt;</code><br/>
-<code>#include &lt;cstdint&gt;</code><br/>
+<code>#include &quot;staticlib/config.hpp&quot;</code><br/>
+<code>#include &quot;<a class="el" href="io__exception_8hpp_source.html">staticlib/io/io_exception.hpp</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="span_8hpp_source.html">staticlib/io/span.hpp</a>&quot;</code><br/>
 </div>
 <p><a href="operations_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -103,36 +107,32 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 Namespaces</h2></td></tr>
 <tr class="memitem:namespacestaticlib"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestaticlib.html">staticlib</a></td></tr>
 <tr class="memitem:namespacestaticlib_1_1io"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html">staticlib::io</a></td></tr>
-<tr class="memitem:namespacestaticlib_1_1io_1_1detail"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io_1_1detail.html">staticlib::io::detail</a></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a48560bf119f029c661776d2f0bad0fa7"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a48560bf119f029c661776d2f0bad0fa7"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io_1_1detail.html#a48560bf119f029c661776d2f0bad0fa7">staticlib::io::detail::io_to_string</a> (const T &amp;t)</td></tr>
-<tr class="memdesc:a48560bf119f029c661776d2f0bad0fa7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generic <code>to_string</code> implementation, already exists as <code>std::to_string</code> in most C++11 compilers except GCC 4.8.  <a href="#a48560bf119f029c661776d2f0bad0fa7"></a><br/></td></tr>
-<tr class="memitem:a44bdcf140077608b867bf1e1e4a3634f"><td class="memTemplParams" colspan="2">template&lt;typename Sink , typename IntType &gt; </td></tr>
-<tr class="memitem:a44bdcf140077608b867bf1e1e4a3634f"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a44bdcf140077608b867bf1e1e4a3634f">staticlib::io::write_all</a> (Sink &amp;sink, const char *buf, IntType buflen)</td></tr>
-<tr class="memdesc:a44bdcf140077608b867bf1e1e4a3634f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes buffer contents to the specified Sink ensuring that the specified number of bytes are written to Sink (making multiple write calls to Sink if needed).  <a href="#a44bdcf140077608b867bf1e1e4a3634f"></a><br/></td></tr>
-<tr class="memitem:a7fc69b43c692fedc395b889cd5ee1dc2"><td class="memTemplParams" colspan="2">template&lt;typename Sink &gt; </td></tr>
-<tr class="memitem:a7fc69b43c692fedc395b889cd5ee1dc2"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a7fc69b43c692fedc395b889cd5ee1dc2">staticlib::io::write_all</a> (Sink &amp;sink, const std::string &amp;str)</td></tr>
-<tr class="memdesc:a7fc69b43c692fedc395b889cd5ee1dc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes string contents to the specified Sink ensuring that the specified number of bytes are written to Sink (making multiple write calls to Sink if needed).  <a href="#a7fc69b43c692fedc395b889cd5ee1dc2"></a><br/></td></tr>
-<tr class="memitem:af8657e8dc8169ed15de04331fe301c1d"><td class="memTemplParams" colspan="2">template&lt;typename Source , typename IntType &gt; </td></tr>
-<tr class="memitem:af8657e8dc8169ed15de04331fe301c1d"><td class="memTemplItemLeft" align="right" valign="top">size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#af8657e8dc8169ed15de04331fe301c1d">staticlib::io::read_all</a> (Source &amp;src, char *buf, IntType buflen)</td></tr>
-<tr class="memdesc:af8657e8dc8169ed15de04331fe301c1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads specified number of bytes from the Source into the buffer.  <a href="#af8657e8dc8169ed15de04331fe301c1d"></a><br/></td></tr>
-<tr class="memitem:a34c9647990cfa8f3293f489e7c2c418a"><td class="memTemplParams" colspan="2">template&lt;typename Source , typename IntType &gt; </td></tr>
-<tr class="memitem:a34c9647990cfa8f3293f489e7c2c418a"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a34c9647990cfa8f3293f489e7c2c418a">staticlib::io::read_exact</a> (Source &amp;src, char *buf, IntType buflen)</td></tr>
-<tr class="memdesc:a34c9647990cfa8f3293f489e7c2c418a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads specified number of bytes from the Source into the buffer.  <a href="#a34c9647990cfa8f3293f489e7c2c418a"></a><br/></td></tr>
-<tr class="memitem:a43e8da18e35533ccfc4d62807302ac6c"><td class="memTemplParams" colspan="2">template&lt;typename Source , typename Sink , typename IntType &gt; </td></tr>
-<tr class="memitem:a43e8da18e35533ccfc4d62807302ac6c"><td class="memTemplItemLeft" align="right" valign="top">size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a43e8da18e35533ccfc4d62807302ac6c">staticlib::io::copy_all</a> (Source &amp;src, Sink &amp;sink, char *buf, IntType buflen)</td></tr>
-<tr class="memdesc:a43e8da18e35533ccfc4d62807302ac6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies data from Source to Sink using specified buffer until source will be exhausted.  <a href="#a43e8da18e35533ccfc4d62807302ac6c"></a><br/></td></tr>
-<tr class="memitem:a9b0bcd5080245af93efa2c9d8e5e2d51"><td class="memTemplParams" colspan="2">template&lt;typename Source , typename IntTypeLen , typename IntTypeSkip &gt; </td></tr>
-<tr class="memitem:a9b0bcd5080245af93efa2c9d8e5e2d51"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a9b0bcd5080245af93efa2c9d8e5e2d51">staticlib::io::skip</a> (Source &amp;src, char *buf, IntTypeLen buflen, IntTypeSkip to_skip)</td></tr>
-<tr class="memdesc:a9b0bcd5080245af93efa2c9d8e5e2d51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Skips specified number of bytes reading data repeatedly from specified source into specified buffer.  <a href="#a9b0bcd5080245af93efa2c9d8e5e2d51"></a><br/></td></tr>
+<tr class="memitem:a58297eb0226b50473448f974b177375e"><td class="memTemplParams" colspan="2">template&lt;typename Sink &gt; </td></tr>
+<tr class="memitem:a58297eb0226b50473448f974b177375e"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a58297eb0226b50473448f974b177375e">staticlib::io::write_all</a> (Sink &amp;sink, span&lt; const char &gt; span)</td></tr>
+<tr class="memdesc:a58297eb0226b50473448f974b177375e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes buffer contents to the specified Sink ensuring that the specified number of bytes are written to Sink (making multiple write calls to Sink if needed).  <a href="#a58297eb0226b50473448f974b177375e"></a><br/></td></tr>
+<tr class="memitem:a30ab70a2bb98f44583933566bbda8cbd"><td class="memTemplParams" colspan="2">template&lt;typename Source &gt; </td></tr>
+<tr class="memitem:a30ab70a2bb98f44583933566bbda8cbd"><td class="memTemplItemLeft" align="right" valign="top">size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a30ab70a2bb98f44583933566bbda8cbd">staticlib::io::read_all</a> (Source &amp;src, span&lt; char &gt; span)</td></tr>
+<tr class="memdesc:a30ab70a2bb98f44583933566bbda8cbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads specified number of bytes from the Source into the buffer.  <a href="#a30ab70a2bb98f44583933566bbda8cbd"></a><br/></td></tr>
+<tr class="memitem:aa8155c0d7968037e8f161b331f4bb41c"><td class="memTemplParams" colspan="2">template&lt;typename Source &gt; </td></tr>
+<tr class="memitem:aa8155c0d7968037e8f161b331f4bb41c"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#aa8155c0d7968037e8f161b331f4bb41c">staticlib::io::read_exact</a> (Source &amp;src, span&lt; char &gt; span)</td></tr>
+<tr class="memdesc:aa8155c0d7968037e8f161b331f4bb41c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads specified number of bytes from the Source into the buffer.  <a href="#aa8155c0d7968037e8f161b331f4bb41c"></a><br/></td></tr>
+<tr class="memitem:a4ee96998d8d079f3d0207780851e0323"><td class="memTemplParams" colspan="2">template&lt;typename Source , typename Sink &gt; </td></tr>
+<tr class="memitem:a4ee96998d8d079f3d0207780851e0323"><td class="memTemplItemLeft" align="right" valign="top">size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a4ee96998d8d079f3d0207780851e0323">staticlib::io::copy_all</a> (Source &amp;src, Sink &amp;sink, span&lt; char &gt; span)</td></tr>
+<tr class="memdesc:a4ee96998d8d079f3d0207780851e0323"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies data from Source to Sink using specified buffer until source will be exhausted.  <a href="#a4ee96998d8d079f3d0207780851e0323"></a><br/></td></tr>
+<tr class="memitem:a00e02162a0bc82480417c23047897a97"><td class="memTemplParams" colspan="2">template&lt;typename Source , typename Sink , uint16_t BufferSize = 4096&gt; </td></tr>
+<tr class="memitem:a00e02162a0bc82480417c23047897a97"><td class="memTemplItemLeft" align="right" valign="top">size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a00e02162a0bc82480417c23047897a97">staticlib::io::copy_all</a> (Source &amp;src, Sink &amp;sink)</td></tr>
+<tr class="memdesc:a00e02162a0bc82480417c23047897a97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies data from Source to Sink using on-stack array buffer until source will be exhausted.  <a href="#a00e02162a0bc82480417c23047897a97"></a><br/></td></tr>
+<tr class="memitem:a081c368d37ae2c31fb5a00fed21508c5"><td class="memTemplParams" colspan="2">template&lt;typename Source , typename IntTypeSkip &gt; </td></tr>
+<tr class="memitem:a081c368d37ae2c31fb5a00fed21508c5"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a081c368d37ae2c31fb5a00fed21508c5">staticlib::io::skip</a> (Source &amp;src, span&lt; char &gt; span, IntTypeSkip to_skip)</td></tr>
+<tr class="memdesc:a081c368d37ae2c31fb5a00fed21508c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Skips specified number of bytes reading data repeatedly from specified source into specified buffer.  <a href="#a081c368d37ae2c31fb5a00fed21508c5"></a><br/></td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Dec 13 2015 15:00:54 for staticlib_io by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Apr 8 2017 19:05:34 for staticlib_io by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

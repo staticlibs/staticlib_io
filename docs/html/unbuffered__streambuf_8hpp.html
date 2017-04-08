@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">staticlib_io
-   &#160;<span id="projectnumber">1.1.4</span>
+   &#160;<span id="projectnumber">1.2.1</span>
    </div>
   </td>
  </tr>
@@ -93,8 +93,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;ios&gt;</code><br/>
+<code>#include &lt;memory&gt;</code><br/>
 <code>#include &lt;streambuf&gt;</code><br/>
 <code>#include &lt;utility&gt;</code><br/>
+<code>#include &quot;staticlib/config.hpp&quot;</code><br/>
+<code>#include &quot;<a class="el" href="reference__sink_8hpp_source.html">staticlib/io/reference_sink.hpp</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="reference__source_8hpp_source.html">staticlib/io/reference_source.hpp</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="span_8hpp_source.html">staticlib/io/span.hpp</a>&quot;</code><br/>
 </div>
 <p><a href="unbuffered__streambuf_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -115,15 +120,44 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a61793ee16059e78be8789048caff2b50"><td class="memTemplParams" colspan="2">template&lt;typename Source &gt; </td></tr>
-<tr class="memitem:a61793ee16059e78be8789048caff2b50"><td class="memTemplItemLeft" align="right" valign="top">unbuffered_istreambuf&lt; Source &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a61793ee16059e78be8789048caff2b50">staticlib::io::make_unbuffered_istreambuf</a> (Source &amp;&amp;source)</td></tr>
-<tr class="memitem:a958898a68012adce7dcce612f49cf069"><td class="memTemplParams" colspan="2">template&lt;typename Sink &gt; </td></tr>
-<tr class="memitem:a958898a68012adce7dcce612f49cf069"><td class="memTemplItemLeft" align="right" valign="top">unbuffered_ostreambuf&lt; Sink &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a958898a68012adce7dcce612f49cf069">staticlib::io::make_unbuffered_ostreambuf</a> (Sink &amp;&amp;sink)</td></tr>
+<tr class="memitem:a41dc29b06513c7f4d446c6b29b0ac0ba"><td class="memTemplParams" colspan="2">template&lt;typename Source , class  = typename std::enable_if&lt;!std::is_lvalue_reference&lt;Source&gt;::value&gt;::type&gt; </td></tr>
+<tr class="memitem:a41dc29b06513c7f4d446c6b29b0ac0ba"><td class="memTemplItemLeft" align="right" valign="top">unbuffered_istreambuf&lt; Source &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a41dc29b06513c7f4d446c6b29b0ac0ba">staticlib::io::make_unbuffered_istreambuf</a> (Source &amp;&amp;source)</td></tr>
+<tr class="memdesc:a41dc29b06513c7f4d446c6b29b0ac0ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory function for creating <a class="el" href="classstaticlib_1_1io_1_1unbuffered__istreambuf.html" title="Unbuffered implementation of input streambuf, wraps Source reference (in terms of Boost...">unbuffered_istreambuf</a> sources, created source wrapper will own specified source.  <a href="#a41dc29b06513c7f4d446c6b29b0ac0ba"></a><br/></td></tr>
+<tr class="memitem:a469e52449f10f0a65729d53e40a72ea5"><td class="memTemplParams" colspan="2">template&lt;typename Source , class  = typename std::enable_if&lt;!std::is_lvalue_reference&lt;Source&gt;::value&gt;::type&gt; </td></tr>
+<tr class="memitem:a469e52449f10f0a65729d53e40a72ea5"><td class="memTemplItemLeft" align="right" valign="top">std::unique_ptr<br class="typebreak"/>
+&lt; unbuffered_istreambuf<br class="typebreak"/>
+&lt; Source &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a469e52449f10f0a65729d53e40a72ea5">staticlib::io::make_unbuffered_istreambuf_ptr</a> (Source &amp;&amp;source)</td></tr>
+<tr class="memdesc:a469e52449f10f0a65729d53e40a72ea5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory function for creating <a class="el" href="classstaticlib_1_1io_1_1unbuffered__istreambuf.html" title="Unbuffered implementation of input streambuf, wraps Source reference (in terms of Boost...">unbuffered_istreambuf</a> sources, created source wrapper will own specified source.  <a href="#a469e52449f10f0a65729d53e40a72ea5"></a><br/></td></tr>
+<tr class="memitem:a9bbd95f9bbc3667280e27ed4d6f79974"><td class="memTemplParams" colspan="2">template&lt;typename Source &gt; </td></tr>
+<tr class="memitem:a9bbd95f9bbc3667280e27ed4d6f79974"><td class="memTemplItemLeft" align="right" valign="top">unbuffered_istreambuf<br class="typebreak"/>
+&lt; reference_source&lt; Source &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a9bbd95f9bbc3667280e27ed4d6f79974">staticlib::io::make_unbuffered_istreambuf</a> (Source &amp;source)</td></tr>
+<tr class="memdesc:a9bbd95f9bbc3667280e27ed4d6f79974"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory function for creating <a class="el" href="classstaticlib_1_1io_1_1unbuffered__istreambuf.html" title="Unbuffered implementation of input streambuf, wraps Source reference (in terms of Boost...">unbuffered_istreambuf</a> sources, created source wrapper will NOT own specified source.  <a href="#a9bbd95f9bbc3667280e27ed4d6f79974"></a><br/></td></tr>
+<tr class="memitem:a46a0873a696ffc9f22f23b2eb1d597e5"><td class="memTemplParams" colspan="2">template&lt;typename Source &gt; </td></tr>
+<tr class="memitem:a46a0873a696ffc9f22f23b2eb1d597e5"><td class="memTemplItemLeft" align="right" valign="top">std::unique_ptr<br class="typebreak"/>
+&lt; unbuffered_istreambuf<br class="typebreak"/>
+&lt; reference_source&lt; Source &gt; &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a46a0873a696ffc9f22f23b2eb1d597e5">staticlib::io::make_unbuffered_istreambuf_ptr</a> (Source &amp;source)</td></tr>
+<tr class="memdesc:a46a0873a696ffc9f22f23b2eb1d597e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory function for creating <a class="el" href="classstaticlib_1_1io_1_1unbuffered__istreambuf.html" title="Unbuffered implementation of input streambuf, wraps Source reference (in terms of Boost...">unbuffered_istreambuf</a> sources, created source wrapper will NOT own specified source.  <a href="#a46a0873a696ffc9f22f23b2eb1d597e5"></a><br/></td></tr>
+<tr class="memitem:a9ecd8e6ec3f35fc961f7832f88cc9da3"><td class="memTemplParams" colspan="2">template&lt;typename Sink , class  = typename std::enable_if&lt;!std::is_lvalue_reference&lt;Sink&gt;::value&gt;::type&gt; </td></tr>
+<tr class="memitem:a9ecd8e6ec3f35fc961f7832f88cc9da3"><td class="memTemplItemLeft" align="right" valign="top">unbuffered_ostreambuf&lt; Sink &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a9ecd8e6ec3f35fc961f7832f88cc9da3">staticlib::io::make_unbuffered_ostreambuf</a> (Sink &amp;&amp;sink)</td></tr>
+<tr class="memdesc:a9ecd8e6ec3f35fc961f7832f88cc9da3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory function for creating <a class="el" href="classstaticlib_1_1io_1_1unbuffered__ostreambuf.html" title="Unbuffered implementation of output streambuf, wraps Sink reference (in terms of Boost.Iostreams).">unbuffered_ostreambuf</a> sinks, created sink wrapper will own specified sink.  <a href="#a9ecd8e6ec3f35fc961f7832f88cc9da3"></a><br/></td></tr>
+<tr class="memitem:ac19397690e814c290443a7a421554d60"><td class="memTemplParams" colspan="2">template&lt;typename Sink , class  = typename std::enable_if&lt;!std::is_lvalue_reference&lt;Sink&gt;::value&gt;::type&gt; </td></tr>
+<tr class="memitem:ac19397690e814c290443a7a421554d60"><td class="memTemplItemLeft" align="right" valign="top">std::unique_ptr<br class="typebreak"/>
+&lt; unbuffered_ostreambuf&lt; Sink &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#ac19397690e814c290443a7a421554d60">staticlib::io::make_unbuffered_ostreambuf_ptr</a> (Sink &amp;&amp;sink)</td></tr>
+<tr class="memdesc:ac19397690e814c290443a7a421554d60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory function for creating <a class="el" href="classstaticlib_1_1io_1_1unbuffered__ostreambuf.html" title="Unbuffered implementation of output streambuf, wraps Sink reference (in terms of Boost.Iostreams).">unbuffered_ostreambuf</a> sinks, created sink wrapper will own specified sink.  <a href="#ac19397690e814c290443a7a421554d60"></a><br/></td></tr>
+<tr class="memitem:a91dee8b6e4b9a8b941aff585388beb1f"><td class="memTemplParams" colspan="2">template&lt;typename Sink &gt; </td></tr>
+<tr class="memitem:a91dee8b6e4b9a8b941aff585388beb1f"><td class="memTemplItemLeft" align="right" valign="top">unbuffered_ostreambuf<br class="typebreak"/>
+&lt; reference_sink&lt; Sink &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a91dee8b6e4b9a8b941aff585388beb1f">staticlib::io::make_unbuffered_ostreambuf</a> (Sink &amp;sink)</td></tr>
+<tr class="memdesc:a91dee8b6e4b9a8b941aff585388beb1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory function for creating <a class="el" href="classstaticlib_1_1io_1_1unbuffered__ostreambuf.html" title="Unbuffered implementation of output streambuf, wraps Sink reference (in terms of Boost.Iostreams).">unbuffered_ostreambuf</a> sinks, created sink wrapper will NOT own specified sink.  <a href="#a91dee8b6e4b9a8b941aff585388beb1f"></a><br/></td></tr>
+<tr class="memitem:af0238e1f4111a4beb25def3926c878fb"><td class="memTemplParams" colspan="2">template&lt;typename Sink &gt; </td></tr>
+<tr class="memitem:af0238e1f4111a4beb25def3926c878fb"><td class="memTemplItemLeft" align="right" valign="top">std::unique_ptr<br class="typebreak"/>
+&lt; unbuffered_ostreambuf<br class="typebreak"/>
+&lt; reference_sink&lt; Sink &gt; &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#af0238e1f4111a4beb25def3926c878fb">staticlib::io::make_unbuffered_ostreambuf_ptr</a> (Sink &amp;sink)</td></tr>
+<tr class="memdesc:af0238e1f4111a4beb25def3926c878fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory function for creating <a class="el" href="classstaticlib_1_1io_1_1unbuffered__ostreambuf.html" title="Unbuffered implementation of output streambuf, wraps Sink reference (in terms of Boost.Iostreams).">unbuffered_ostreambuf</a> sinks, created sink wrapper will NOT own specified sink.  <a href="#af0238e1f4111a4beb25def3926c878fb"></a><br/></td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Dec 13 2015 15:00:54 for staticlib_io by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Apr 8 2017 19:05:34 for staticlib_io by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

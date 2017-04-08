@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">staticlib_io
-   &#160;<span id="projectnumber">1.1.4</span>
+   &#160;<span id="projectnumber">1.2.1</span>
    </div>
   </td>
  </tr>
@@ -117,57 +117,61 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;ios&gt;</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">namespace </span>staticlib {</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">namespace </span>io {</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> Source&gt;</div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="code" href="classstaticlib_1_1io_1_1shared__source.html">   37</a></span>&#160;<span class="keyword">class </span><a class="code" href="classstaticlib_1_1io_1_1shared__source.html" title="Source wrapper that holds a &quot;std::shared_ptr&quot; to the underlying source.">shared_source</a> {</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    std::shared_ptr&lt;Source&gt; src;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00049"></a><span class="lineno"><a class="code" href="classstaticlib_1_1io_1_1shared__source.html#a7f6370c5d4e22c899bb0a41b0cb09967">   49</a></span>&#160;    <a class="code" href="classstaticlib_1_1io_1_1shared__source.html#a7f6370c5d4e22c899bb0a41b0cb09967" title="Constructor.">shared_source</a>(std::shared_ptr&lt;Source&gt; src) :</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    src(std::move(src)) { }</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00057"></a><span class="lineno"><a class="code" href="classstaticlib_1_1io_1_1shared__source.html#a4bcbaac1c9442ff4fc73486935a6ebc0">   57</a></span>&#160;    <a class="code" href="classstaticlib_1_1io_1_1shared__source.html#a7f6370c5d4e22c899bb0a41b0cb09967" title="Constructor.">shared_source</a>(<span class="keyword">const</span> <a class="code" href="classstaticlib_1_1io_1_1shared__source.html" title="Source wrapper that holds a &quot;std::shared_ptr&quot; to the underlying source.">shared_source</a>&amp; other) :</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    src(other.src) { }</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
-<div class="line"><a name="l00066"></a><span class="lineno"><a class="code" href="classstaticlib_1_1io_1_1shared__source.html#af45eae458fb8bd3b1accdcc40f74cd5d">   66</a></span>&#160;    <a class="code" href="classstaticlib_1_1io_1_1shared__source.html" title="Source wrapper that holds a &quot;std::shared_ptr&quot; to the underlying source.">shared_source</a>&amp; <a class="code" href="classstaticlib_1_1io_1_1shared__source.html#af45eae458fb8bd3b1accdcc40f74cd5d" title="Copy assignment operator.">operator=</a>(<span class="keyword">const</span> <a class="code" href="classstaticlib_1_1io_1_1shared__source.html" title="Source wrapper that holds a &quot;std::shared_ptr&quot; to the underlying source.">shared_source</a>&amp; other) {</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        src = other.src;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    }</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
-<div class="line"><a name="l00076"></a><span class="lineno"><a class="code" href="classstaticlib_1_1io_1_1shared__source.html#a1830b058b904f69515ea356eaea10c7f">   76</a></span>&#160;    <a class="code" href="classstaticlib_1_1io_1_1shared__source.html#a7f6370c5d4e22c899bb0a41b0cb09967" title="Constructor.">shared_source</a>(<a class="code" href="classstaticlib_1_1io_1_1shared__source.html" title="Source wrapper that holds a &quot;std::shared_ptr&quot; to the underlying source.">shared_source</a>&amp;&amp; other) :</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    src(std::move(other.src)) { }</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
-<div class="line"><a name="l00085"></a><span class="lineno"><a class="code" href="classstaticlib_1_1io_1_1shared__source.html#a2a1a3ec931238fbbf8fd7355b153184c">   85</a></span>&#160;    <a class="code" href="classstaticlib_1_1io_1_1shared__source.html" title="Source wrapper that holds a &quot;std::shared_ptr&quot; to the underlying source.">shared_source</a>&amp; <a class="code" href="classstaticlib_1_1io_1_1shared__source.html#a2a1a3ec931238fbbf8fd7355b153184c" title="Move assignment operator.">operator=</a>(<a class="code" href="classstaticlib_1_1io_1_1shared__source.html" title="Source wrapper that holds a &quot;std::shared_ptr&quot; to the underlying source.">shared_source</a>&amp;&amp; other) {</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        src = std::move(other.src);</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    }</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
-<div class="line"><a name="l00097"></a><span class="lineno"><a class="code" href="classstaticlib_1_1io_1_1shared__source.html#a04bf34f255a28bfbdbbc60e3eed2b3fc">   97</a></span>&#160;    std::streamsize <a class="code" href="classstaticlib_1_1io_1_1shared__source.html#a04bf34f255a28bfbdbbc60e3eed2b3fc" title="Read implementation delegated to the underlying source.">read</a>(<span class="keywordtype">char</span>* buffer, std::streamsize length) {</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <span class="keywordflow">return</span> src-&gt;read(buffer, length);</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    }</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    </div>
-<div class="line"><a name="l00106"></a><span class="lineno"><a class="code" href="classstaticlib_1_1io_1_1shared__source.html#aa350156469ffbeb7477cc33cbaf501e6">  106</a></span>&#160;    Source&amp; <a class="code" href="classstaticlib_1_1io_1_1shared__source.html#aa350156469ffbeb7477cc33cbaf501e6" title="Underlying source accessor.">get_source</a>() {</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <span class="keywordflow">return</span> *src;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    }</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;};</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> Source&gt;</div>
-<div class="line"><a name="l00119"></a><span class="lineno"><a class="code" href="namespacestaticlib_1_1io.html#a34ecd93768554fa5730f925550508679">  119</a></span>&#160;<a class="code" href="classstaticlib_1_1io_1_1shared__source.html" title="Source wrapper that holds a &quot;std::shared_ptr&quot; to the underlying source.">shared_source&lt;Source&gt;</a> <a class="code" href="namespacestaticlib_1_1io.html#a34ecd93768554fa5730f925550508679" title="Factory function for creating shared sources.">make_shared_source</a>(std::shared_ptr&lt;Source&gt; source) {</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classstaticlib_1_1io_1_1shared__source.html" title="Source wrapper that holds a &quot;std::shared_ptr&quot; to the underlying source.">shared_source&lt;Source&gt;</a>(std::move(source));</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;}</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;} <span class="comment">// namespace</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &quot;staticlib/config.hpp&quot;</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="span_8hpp.html">staticlib/io/span.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">namespace </span>staticlib {</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">namespace </span>io {</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> Source&gt;</div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="code" href="classstaticlib_1_1io_1_1shared__source.html">   41</a></span>&#160;<span class="keyword">class </span><a class="code" href="classstaticlib_1_1io_1_1shared__source.html" title="Source wrapper that holds a &quot;std::shared_ptr&quot; to the underlying source.">shared_source</a> {</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    std::shared_ptr&lt;Source&gt; src;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="code" href="classstaticlib_1_1io_1_1shared__source.html#a7f6370c5d4e22c899bb0a41b0cb09967">   53</a></span>&#160;    <a class="code" href="classstaticlib_1_1io_1_1shared__source.html#a7f6370c5d4e22c899bb0a41b0cb09967" title="Constructor.">shared_source</a>(std::shared_ptr&lt;Source&gt; src) :</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    src(std::move(src)) { }</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="code" href="classstaticlib_1_1io_1_1shared__source.html#a4bcbaac1c9442ff4fc73486935a6ebc0">   61</a></span>&#160;    <a class="code" href="classstaticlib_1_1io_1_1shared__source.html#a7f6370c5d4e22c899bb0a41b0cb09967" title="Constructor.">shared_source</a>(<span class="keyword">const</span> <a class="code" href="classstaticlib_1_1io_1_1shared__source.html" title="Source wrapper that holds a &quot;std::shared_ptr&quot; to the underlying source.">shared_source</a>&amp; other) :</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    src(other.src) { }</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="code" href="classstaticlib_1_1io_1_1shared__source.html#af45eae458fb8bd3b1accdcc40f74cd5d">   70</a></span>&#160;    <a class="code" href="classstaticlib_1_1io_1_1shared__source.html" title="Source wrapper that holds a &quot;std::shared_ptr&quot; to the underlying source.">shared_source</a>&amp; <a class="code" href="classstaticlib_1_1io_1_1shared__source.html#af45eae458fb8bd3b1accdcc40f74cd5d" title="Copy assignment operator.">operator=</a>(<span class="keyword">const</span> <a class="code" href="classstaticlib_1_1io_1_1shared__source.html" title="Source wrapper that holds a &quot;std::shared_ptr&quot; to the underlying source.">shared_source</a>&amp; other) {</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        src = other.src;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    }</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
+<div class="line"><a name="l00080"></a><span class="lineno"><a class="code" href="classstaticlib_1_1io_1_1shared__source.html#a8c0883968f0e9c2d1d7c5c335cb8ae0f">   80</a></span>&#160;    <a class="code" href="classstaticlib_1_1io_1_1shared__source.html#a7f6370c5d4e22c899bb0a41b0cb09967" title="Constructor.">shared_source</a>(<a class="code" href="classstaticlib_1_1io_1_1shared__source.html" title="Source wrapper that holds a &quot;std::shared_ptr&quot; to the underlying source.">shared_source</a>&amp;&amp; other) STATICLIB_NOEXCEPT :</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    src(std::move(other.src)) { }</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
+<div class="line"><a name="l00089"></a><span class="lineno"><a class="code" href="classstaticlib_1_1io_1_1shared__source.html#a03d79a903c262637ddda38d268adad17">   89</a></span>&#160;    <a class="code" href="classstaticlib_1_1io_1_1shared__source.html" title="Source wrapper that holds a &quot;std::shared_ptr&quot; to the underlying source.">shared_source</a>&amp; <a class="code" href="classstaticlib_1_1io_1_1shared__source.html#a03d79a903c262637ddda38d268adad17" title="Move assignment operator.">operator=</a>(<a class="code" href="classstaticlib_1_1io_1_1shared__source.html" title="Source wrapper that holds a &quot;std::shared_ptr&quot; to the underlying source.">shared_source</a>&amp;&amp; other) STATICLIB_NOEXCEPT {</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        src = std::move(other.src);</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    }</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
+<div class="line"><a name="l00100"></a><span class="lineno"><a class="code" href="classstaticlib_1_1io_1_1shared__source.html#aca4df257fc08bd1a32eac010d26c15ca">  100</a></span>&#160;    std::streamsize <a class="code" href="classstaticlib_1_1io_1_1shared__source.html#aca4df257fc08bd1a32eac010d26c15ca" title="Read implementation delegated to the underlying source.">read</a>(<a class="code" href="classstaticlib_1_1io_1_1span.html" title="Non-owning range of elements in of contiguous memory.">span&lt;char&gt;</a> <a class="code" href="classstaticlib_1_1io_1_1span.html" title="Non-owning range of elements in of contiguous memory.">span</a>) {</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <span class="keywordflow">return</span> src-&gt;read(span);</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    }</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    </div>
+<div class="line"><a name="l00109"></a><span class="lineno"><a class="code" href="classstaticlib_1_1io_1_1shared__source.html#aa350156469ffbeb7477cc33cbaf501e6">  109</a></span>&#160;    Source&amp; <a class="code" href="classstaticlib_1_1io_1_1shared__source.html#aa350156469ffbeb7477cc33cbaf501e6" title="Underlying source accessor.">get_source</a>() {</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <span class="keywordflow">return</span> *src;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    }</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;};</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> Source&gt;</div>
+<div class="line"><a name="l00122"></a><span class="lineno"><a class="code" href="namespacestaticlib_1_1io.html#a34ecd93768554fa5730f925550508679">  122</a></span>&#160;<a class="code" href="classstaticlib_1_1io_1_1shared__source.html" title="Source wrapper that holds a &quot;std::shared_ptr&quot; to the underlying source.">shared_source&lt;Source&gt;</a> <a class="code" href="namespacestaticlib_1_1io.html#a34ecd93768554fa5730f925550508679" title="Factory function for creating shared sources.">make_shared_source</a>(std::shared_ptr&lt;Source&gt; source) {</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classstaticlib_1_1io_1_1shared__source.html" title="Source wrapper that holds a &quot;std::shared_ptr&quot; to the underlying source.">shared_source&lt;Source&gt;</a>(std::move(source));</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;}</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">/* STATICLIB_IO_SHARED_SOURCE_HPP */</span><span class="preprocessor"></span></div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;} <span class="comment">// namespace</span></div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;}</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">/* STATICLIB_IO_SHARED_SOURCE_HPP */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Dec 13 2015 15:00:54 for staticlib_io by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Apr 8 2017 19:05:34 for staticlib_io by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

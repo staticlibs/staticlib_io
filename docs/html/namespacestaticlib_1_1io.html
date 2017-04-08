@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">staticlib_io
-   &#160;<span id="projectnumber">1.1.4</span>
+   &#160;<span id="projectnumber">1.2.1</span>
    </div>
   </td>
  </tr>
@@ -114,16 +114,28 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Source wrapper that counts the number of bytes read through it.  <a href="classstaticlib_1_1io_1_1counting__source.html#details">More...</a><br/></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstaticlib_1_1io_1_1flushable__sink.html">flushable_sink</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sink wrapper that implements no-op flush.  <a href="classstaticlib_1_1io_1_1flushable__sink.html#details">More...</a><br/></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstaticlib_1_1io_1_1io__exception.html">io_exception</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Module specific exception.  <a href="classstaticlib_1_1io_1_1io__exception.html#details">More...</a><br/></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstaticlib_1_1io_1_1limited__source.html">limited_source</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Source wrapper that limits the number of bytes read through it and throws "io_exception" on threshold exceed.  <a href="classstaticlib_1_1io_1_1limited__source.html#details">More...</a><br/></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstaticlib_1_1io_1_1null__sink.html">null_sink</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sink implementation with no-op write method.  <a href="classstaticlib_1_1io_1_1null__sink.html#details">More...</a><br/></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstaticlib_1_1io_1_1reference__sink.html">reference_sink</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sink wrapper that holds a "std::reference_wrapper" to the underlying sink.  <a href="classstaticlib_1_1io_1_1reference__sink.html#details">More...</a><br/></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstaticlib_1_1io_1_1reference__source.html">reference_source</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Source wrapper that holds a "std::reference_wrapper" to the underlying source.  <a href="classstaticlib_1_1io_1_1reference__source.html#details">More...</a><br/></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstaticlib_1_1io_1_1replacer__source.html">replacer_source</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Source wrapper that replaces specified substrings in the input.  <a href="classstaticlib_1_1io_1_1replacer__source.html#details">More...</a><br/></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstaticlib_1_1io_1_1shared__sink.html">shared_sink</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sink wrapper that holds a "std::shared_ptr" to the underlying sink.  <a href="classstaticlib_1_1io_1_1shared__sink.html#details">More...</a><br/></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstaticlib_1_1io_1_1shared__source.html">shared_source</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Source wrapper that holds a "std::shared_ptr" to the underlying source.  <a href="classstaticlib_1_1io_1_1shared__source.html#details">More...</a><br/></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstaticlib_1_1io_1_1source__istream.html">source_istream</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper template that wraps an arbitrary source into owning stream instance.  <a href="classstaticlib_1_1io_1_1source__istream.html#details">More...</a><br/></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstaticlib_1_1io_1_1bad__span__access__exception.html">bad_span_access_exception</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Span-specific exception.  <a href="classstaticlib_1_1io_1_1bad__span__access__exception.html#details">More...</a><br/></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstaticlib_1_1io_1_1span.html">span</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-owning range of elements in of contiguous memory.  <a href="classstaticlib_1_1io_1_1span.html#details">More...</a><br/></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstaticlib_1_1io_1_1streambuf__sink.html">streambuf_sink</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sink implementation that wraps a pointer to the "std::streambuf".  <a href="classstaticlib_1_1io_1_1streambuf__sink.html#details">More...</a><br/></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstaticlib_1_1io_1_1streambuf__source.html">streambuf_source</a></td></tr>
@@ -143,58 +155,141 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a099bd521e9f05f52c4c983f3ecfc0ec9"><td class="memTemplParams" colspan="2">template&lt;typename Sink &gt; </td></tr>
-<tr class="memitem:a099bd521e9f05f52c4c983f3ecfc0ec9"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classstaticlib_1_1io_1_1buffered__sink.html">buffered_sink</a>&lt; Sink &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a099bd521e9f05f52c4c983f3ecfc0ec9">make_buffered_sink</a> (Sink &amp;&amp;sink)</td></tr>
-<tr class="memdesc:a099bd521e9f05f52c4c983f3ecfc0ec9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory function for creating buffered sinks.  <a href="#a099bd521e9f05f52c4c983f3ecfc0ec9"></a><br/></td></tr>
-<tr class="memitem:a65131dac4a9b5ef0c9be2497e88488d7"><td class="memTemplParams" colspan="2">template&lt;typename Source &gt; </td></tr>
-<tr class="memitem:a65131dac4a9b5ef0c9be2497e88488d7"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classstaticlib_1_1io_1_1buffered__source.html">buffered_source</a>&lt; Source &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a65131dac4a9b5ef0c9be2497e88488d7">make_buffered_source</a> (Source &amp;&amp;source)</td></tr>
-<tr class="memdesc:a65131dac4a9b5ef0c9be2497e88488d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory function for creating buffered sources.  <a href="#a65131dac4a9b5ef0c9be2497e88488d7"></a><br/></td></tr>
-<tr class="memitem:a94c40c4337905441940c2a68e4d153b9"><td class="memTemplParams" colspan="2">template&lt;typename Source , typename Sink &gt; </td></tr>
-<tr class="memitem:a94c40c4337905441940c2a68e4d153b9"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classstaticlib_1_1io_1_1copying__source.html">copying_source</a>&lt; Source, Sink &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a94c40c4337905441940c2a68e4d153b9">make_copying_source</a> (Source &amp;&amp;source, Sink &amp;&amp;sink)</td></tr>
-<tr class="memdesc:a94c40c4337905441940c2a68e4d153b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory function for creating copying sources.  <a href="#a94c40c4337905441940c2a68e4d153b9"></a><br/></td></tr>
-<tr class="memitem:a2843c14147d95b16d6fa08752e525250"><td class="memTemplParams" colspan="2">template&lt;typename Sink &gt; </td></tr>
-<tr class="memitem:a2843c14147d95b16d6fa08752e525250"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classstaticlib_1_1io_1_1counting__sink.html">counting_sink</a>&lt; Sink &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a2843c14147d95b16d6fa08752e525250">make_counting_sink</a> (Sink &amp;&amp;sink)</td></tr>
-<tr class="memdesc:a2843c14147d95b16d6fa08752e525250"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory function for creating counting sinks.  <a href="#a2843c14147d95b16d6fa08752e525250"></a><br/></td></tr>
-<tr class="memitem:a2bad9d62c8c2c7a8886dd26455545abb"><td class="memTemplParams" colspan="2">template&lt;typename Source &gt; </td></tr>
-<tr class="memitem:a2bad9d62c8c2c7a8886dd26455545abb"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classstaticlib_1_1io_1_1counting__source.html">counting_source</a>&lt; Source &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a2bad9d62c8c2c7a8886dd26455545abb">make_counting_source</a> (Source &amp;&amp;source)</td></tr>
-<tr class="memdesc:a2bad9d62c8c2c7a8886dd26455545abb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory function for creating counting sources.  <a href="#a2bad9d62c8c2c7a8886dd26455545abb"></a><br/></td></tr>
-<tr class="memitem:a79b12690b78400e8a04ff6aad664c535"><td class="memTemplParams" colspan="2">template&lt;typename NonFlushableSink &gt; </td></tr>
-<tr class="memitem:a79b12690b78400e8a04ff6aad664c535"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classstaticlib_1_1io_1_1flushable__sink.html">flushable_sink</a>&lt; NonFlushableSink &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a79b12690b78400e8a04ff6aad664c535">make_flushable_sink</a> (NonFlushableSink &amp;&amp;sink)</td></tr>
-<tr class="memdesc:a79b12690b78400e8a04ff6aad664c535"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory function for creating flushable sinks.  <a href="#a79b12690b78400e8a04ff6aad664c535"></a><br/></td></tr>
-<tr class="memitem:a44bdcf140077608b867bf1e1e4a3634f"><td class="memTemplParams" colspan="2">template&lt;typename Sink , typename IntType &gt; </td></tr>
-<tr class="memitem:a44bdcf140077608b867bf1e1e4a3634f"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a44bdcf140077608b867bf1e1e4a3634f">write_all</a> (Sink &amp;sink, const char *buf, IntType buflen)</td></tr>
-<tr class="memdesc:a44bdcf140077608b867bf1e1e4a3634f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes buffer contents to the specified Sink ensuring that the specified number of bytes are written to Sink (making multiple write calls to Sink if needed).  <a href="#a44bdcf140077608b867bf1e1e4a3634f"></a><br/></td></tr>
-<tr class="memitem:a7fc69b43c692fedc395b889cd5ee1dc2"><td class="memTemplParams" colspan="2">template&lt;typename Sink &gt; </td></tr>
-<tr class="memitem:a7fc69b43c692fedc395b889cd5ee1dc2"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a7fc69b43c692fedc395b889cd5ee1dc2">write_all</a> (Sink &amp;sink, const std::string &amp;str)</td></tr>
-<tr class="memdesc:a7fc69b43c692fedc395b889cd5ee1dc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes string contents to the specified Sink ensuring that the specified number of bytes are written to Sink (making multiple write calls to Sink if needed).  <a href="#a7fc69b43c692fedc395b889cd5ee1dc2"></a><br/></td></tr>
-<tr class="memitem:af8657e8dc8169ed15de04331fe301c1d"><td class="memTemplParams" colspan="2">template&lt;typename Source , typename IntType &gt; </td></tr>
-<tr class="memitem:af8657e8dc8169ed15de04331fe301c1d"><td class="memTemplItemLeft" align="right" valign="top">size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#af8657e8dc8169ed15de04331fe301c1d">read_all</a> (Source &amp;src, char *buf, IntType buflen)</td></tr>
-<tr class="memdesc:af8657e8dc8169ed15de04331fe301c1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads specified number of bytes from the Source into the buffer.  <a href="#af8657e8dc8169ed15de04331fe301c1d"></a><br/></td></tr>
-<tr class="memitem:a34c9647990cfa8f3293f489e7c2c418a"><td class="memTemplParams" colspan="2">template&lt;typename Source , typename IntType &gt; </td></tr>
-<tr class="memitem:a34c9647990cfa8f3293f489e7c2c418a"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a34c9647990cfa8f3293f489e7c2c418a">read_exact</a> (Source &amp;src, char *buf, IntType buflen)</td></tr>
-<tr class="memdesc:a34c9647990cfa8f3293f489e7c2c418a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads specified number of bytes from the Source into the buffer.  <a href="#a34c9647990cfa8f3293f489e7c2c418a"></a><br/></td></tr>
-<tr class="memitem:a43e8da18e35533ccfc4d62807302ac6c"><td class="memTemplParams" colspan="2">template&lt;typename Source , typename Sink , typename IntType &gt; </td></tr>
-<tr class="memitem:a43e8da18e35533ccfc4d62807302ac6c"><td class="memTemplItemLeft" align="right" valign="top">size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a43e8da18e35533ccfc4d62807302ac6c">copy_all</a> (Source &amp;src, Sink &amp;sink, char *buf, IntType buflen)</td></tr>
-<tr class="memdesc:a43e8da18e35533ccfc4d62807302ac6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies data from Source to Sink using specified buffer until source will be exhausted.  <a href="#a43e8da18e35533ccfc4d62807302ac6c"></a><br/></td></tr>
-<tr class="memitem:a9b0bcd5080245af93efa2c9d8e5e2d51"><td class="memTemplParams" colspan="2">template&lt;typename Source , typename IntTypeLen , typename IntTypeSkip &gt; </td></tr>
-<tr class="memitem:a9b0bcd5080245af93efa2c9d8e5e2d51"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a9b0bcd5080245af93efa2c9d8e5e2d51">skip</a> (Source &amp;src, char *buf, IntTypeLen buflen, IntTypeSkip to_skip)</td></tr>
-<tr class="memdesc:a9b0bcd5080245af93efa2c9d8e5e2d51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Skips specified number of bytes reading data repeatedly from specified source into specified buffer.  <a href="#a9b0bcd5080245af93efa2c9d8e5e2d51"></a><br/></td></tr>
+<tr class="memitem:aa5a499a47ace7f09252572d11df1875a"><td class="memTemplParams" colspan="2">template&lt;typename Sink , class  = typename std::enable_if&lt;!std::is_lvalue_reference&lt;Sink&gt;::value&gt;::type&gt; </td></tr>
+<tr class="memitem:aa5a499a47ace7f09252572d11df1875a"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classstaticlib_1_1io_1_1buffered__sink.html">buffered_sink</a>&lt; Sink &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#aa5a499a47ace7f09252572d11df1875a">make_buffered_sink</a> (Sink &amp;&amp;sink)</td></tr>
+<tr class="memdesc:aa5a499a47ace7f09252572d11df1875a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory function for creating buffered sinks, created sink wrapper will own specified sink.  <a href="#aa5a499a47ace7f09252572d11df1875a"></a><br/></td></tr>
+<tr class="memitem:ae50534e31439398f36ca3c6ece158cb6"><td class="memTemplParams" colspan="2">template&lt;typename Sink &gt; </td></tr>
+<tr class="memitem:ae50534e31439398f36ca3c6ece158cb6"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classstaticlib_1_1io_1_1buffered__sink.html">buffered_sink</a>&lt; <a class="el" href="classstaticlib_1_1io_1_1reference__sink.html">reference_sink</a><br class="typebreak"/>
+&lt; Sink &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#ae50534e31439398f36ca3c6ece158cb6">make_buffered_sink</a> (Sink &amp;sink)</td></tr>
+<tr class="memdesc:ae50534e31439398f36ca3c6ece158cb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory function for creating buffered sinks, created sink wrapper will NOT own specified sink.  <a href="#ae50534e31439398f36ca3c6ece158cb6"></a><br/></td></tr>
+<tr class="memitem:abf751d83e9eea3ea717c49e0f91be785"><td class="memTemplParams" colspan="2">template&lt;typename Source , class  = typename std::enable_if&lt;!std::is_lvalue_reference&lt;Source&gt;::value&gt;::type&gt; </td></tr>
+<tr class="memitem:abf751d83e9eea3ea717c49e0f91be785"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classstaticlib_1_1io_1_1buffered__source.html">buffered_source</a>&lt; Source &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#abf751d83e9eea3ea717c49e0f91be785">make_buffered_source</a> (Source &amp;&amp;source)</td></tr>
+<tr class="memdesc:abf751d83e9eea3ea717c49e0f91be785"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory function for creating buffered sources, created source wrapper will own specified source.  <a href="#abf751d83e9eea3ea717c49e0f91be785"></a><br/></td></tr>
+<tr class="memitem:a94643bd4a718809fed36b1da4fec7757"><td class="memTemplParams" colspan="2">template&lt;typename Source &gt; </td></tr>
+<tr class="memitem:a94643bd4a718809fed36b1da4fec7757"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classstaticlib_1_1io_1_1buffered__source.html">buffered_source</a><br class="typebreak"/>
+&lt; <a class="el" href="classstaticlib_1_1io_1_1reference__source.html">reference_source</a>&lt; Source &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a94643bd4a718809fed36b1da4fec7757">make_buffered_source</a> (Source &amp;source)</td></tr>
+<tr class="memdesc:a94643bd4a718809fed36b1da4fec7757"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory function for creating buffered sources, created source wrapper will NOT own specified source.  <a href="#a94643bd4a718809fed36b1da4fec7757"></a><br/></td></tr>
+<tr class="memitem:a4fdd2d2346794cf2bcb13115479c80d6"><td class="memTemplParams" colspan="2">template&lt;typename Source , typename Sink , class  = typename std::enable_if&lt;!std::is_lvalue_reference&lt;Source&gt;::value&gt;::type, class  = typename std::enable_if&lt;!std::is_lvalue_reference&lt;Sink&gt;::value&gt;::type&gt; </td></tr>
+<tr class="memitem:a4fdd2d2346794cf2bcb13115479c80d6"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classstaticlib_1_1io_1_1copying__source.html">copying_source</a>&lt; Source, Sink &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a4fdd2d2346794cf2bcb13115479c80d6">make_copying_source</a> (Source &amp;&amp;source, Sink &amp;&amp;sink)</td></tr>
+<tr class="memdesc:a4fdd2d2346794cf2bcb13115479c80d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory function for creating copying sources, created source wrapper will own specified source and sink.  <a href="#a4fdd2d2346794cf2bcb13115479c80d6"></a><br/></td></tr>
+<tr class="memitem:aa01d48a4ee2a5b0c6d662d2b5e9e28c7"><td class="memTemplParams" colspan="2">template&lt;typename Source , typename Sink &gt; </td></tr>
+<tr class="memitem:aa01d48a4ee2a5b0c6d662d2b5e9e28c7"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classstaticlib_1_1io_1_1copying__source.html">copying_source</a><br class="typebreak"/>
+&lt; <a class="el" href="classstaticlib_1_1io_1_1reference__source.html">reference_source</a>&lt; Source &gt;<br class="typebreak"/>
+, <a class="el" href="classstaticlib_1_1io_1_1reference__sink.html">reference_sink</a>&lt; Sink &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#aa01d48a4ee2a5b0c6d662d2b5e9e28c7">make_copying_source</a> (Source &amp;source, Sink &amp;sink)</td></tr>
+<tr class="memdesc:aa01d48a4ee2a5b0c6d662d2b5e9e28c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory function for creating copying sources, created source wrapper will NOT own specified source and sink.  <a href="#aa01d48a4ee2a5b0c6d662d2b5e9e28c7"></a><br/></td></tr>
+<tr class="memitem:ac3720543e7295b0455ae3577bfca0ab3"><td class="memTemplParams" colspan="2">template&lt;typename Sink , class  = typename std::enable_if&lt;!std::is_lvalue_reference&lt;Sink&gt;::value&gt;::type&gt; </td></tr>
+<tr class="memitem:ac3720543e7295b0455ae3577bfca0ab3"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classstaticlib_1_1io_1_1counting__sink.html">counting_sink</a>&lt; Sink &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#ac3720543e7295b0455ae3577bfca0ab3">make_counting_sink</a> (Sink &amp;&amp;sink)</td></tr>
+<tr class="memdesc:ac3720543e7295b0455ae3577bfca0ab3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory function for creating counting sinks, created sink wrapper will own specified sink.  <a href="#ac3720543e7295b0455ae3577bfca0ab3"></a><br/></td></tr>
+<tr class="memitem:a9f2d1ffa967dee8fef4934feb813c656"><td class="memTemplParams" colspan="2">template&lt;typename Sink &gt; </td></tr>
+<tr class="memitem:a9f2d1ffa967dee8fef4934feb813c656"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classstaticlib_1_1io_1_1counting__sink.html">counting_sink</a>&lt; <a class="el" href="classstaticlib_1_1io_1_1reference__sink.html">reference_sink</a><br class="typebreak"/>
+&lt; Sink &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a9f2d1ffa967dee8fef4934feb813c656">make_counting_sink</a> (Sink &amp;sink)</td></tr>
+<tr class="memdesc:a9f2d1ffa967dee8fef4934feb813c656"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory function for creating counting sinks, created sink wrapper will NOT own specified sink.  <a href="#a9f2d1ffa967dee8fef4934feb813c656"></a><br/></td></tr>
+<tr class="memitem:a5df1e795fd25ac95b3ef204166c29d84"><td class="memTemplParams" colspan="2">template&lt;typename Source , class  = typename std::enable_if&lt;!std::is_lvalue_reference&lt;Source&gt;::value&gt;::type&gt; </td></tr>
+<tr class="memitem:a5df1e795fd25ac95b3ef204166c29d84"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classstaticlib_1_1io_1_1counting__source.html">counting_source</a>&lt; Source &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a5df1e795fd25ac95b3ef204166c29d84">make_counting_source</a> (Source &amp;&amp;source)</td></tr>
+<tr class="memdesc:a5df1e795fd25ac95b3ef204166c29d84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory function for creating counting sources, created source wrapper will own specified source.  <a href="#a5df1e795fd25ac95b3ef204166c29d84"></a><br/></td></tr>
+<tr class="memitem:ae2096939a20986852e20c03b57b4b0d4"><td class="memTemplParams" colspan="2">template&lt;typename Source &gt; </td></tr>
+<tr class="memitem:ae2096939a20986852e20c03b57b4b0d4"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classstaticlib_1_1io_1_1counting__source.html">counting_source</a><br class="typebreak"/>
+&lt; <a class="el" href="classstaticlib_1_1io_1_1reference__source.html">reference_source</a>&lt; Source &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#ae2096939a20986852e20c03b57b4b0d4">make_counting_source</a> (Source &amp;source)</td></tr>
+<tr class="memdesc:ae2096939a20986852e20c03b57b4b0d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory function for creating counting sources, created source wrapper will NOT own specified source.  <a href="#ae2096939a20986852e20c03b57b4b0d4"></a><br/></td></tr>
+<tr class="memitem:a0146bd0c334544bdc9463669f17e2f69"><td class="memTemplParams" colspan="2">template&lt;typename NonFlushableSink , class  = typename std::enable_if&lt;!std::is_lvalue_reference&lt;NonFlushableSink&gt;::value&gt;::type&gt; </td></tr>
+<tr class="memitem:a0146bd0c334544bdc9463669f17e2f69"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classstaticlib_1_1io_1_1flushable__sink.html">flushable_sink</a>&lt; NonFlushableSink &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a0146bd0c334544bdc9463669f17e2f69">make_flushable_sink</a> (NonFlushableSink &amp;&amp;sink)</td></tr>
+<tr class="memdesc:a0146bd0c334544bdc9463669f17e2f69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory function for creating flushable sinks, created sink wrapper will own specified sink.  <a href="#a0146bd0c334544bdc9463669f17e2f69"></a><br/></td></tr>
+<tr class="memitem:a7bf26849c19f88ac4751e496ad5e044f"><td class="memTemplParams" colspan="2">template&lt;typename NonFlushableSink &gt; </td></tr>
+<tr class="memitem:a7bf26849c19f88ac4751e496ad5e044f"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classstaticlib_1_1io_1_1flushable__sink.html">flushable_sink</a>&lt; <a class="el" href="classstaticlib_1_1io_1_1reference__sink.html">reference_sink</a><br class="typebreak"/>
+&lt; NonFlushableSink &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a7bf26849c19f88ac4751e496ad5e044f">make_flushable_sink</a> (NonFlushableSink &amp;sink)</td></tr>
+<tr class="memdesc:a7bf26849c19f88ac4751e496ad5e044f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory function for creating flushable sinks, created sink wrapper will NOT own specified sink.  <a href="#a7bf26849c19f88ac4751e496ad5e044f"></a><br/></td></tr>
+<tr class="memitem:a1de35cbc5664f914bb7183cf4c1fc2d5"><td class="memTemplParams" colspan="2">template&lt;typename Source , class  = typename std::enable_if&lt;!std::is_lvalue_reference&lt;Source&gt;::value&gt;::type&gt; </td></tr>
+<tr class="memitem:a1de35cbc5664f914bb7183cf4c1fc2d5"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classstaticlib_1_1io_1_1limited__source.html">limited_source</a>&lt; Source &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a1de35cbc5664f914bb7183cf4c1fc2d5">make_limited_source</a> (Source &amp;&amp;source, size_t limit_bytes)</td></tr>
+<tr class="memdesc:a1de35cbc5664f914bb7183cf4c1fc2d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory function for creating limited sources, created source wrapper will own specified source.  <a href="#a1de35cbc5664f914bb7183cf4c1fc2d5"></a><br/></td></tr>
+<tr class="memitem:afbd8038a44f431e66e6cd3a43dd778d1"><td class="memTemplParams" colspan="2">template&lt;typename Source &gt; </td></tr>
+<tr class="memitem:afbd8038a44f431e66e6cd3a43dd778d1"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classstaticlib_1_1io_1_1limited__source.html">limited_source</a><br class="typebreak"/>
+&lt; <a class="el" href="classstaticlib_1_1io_1_1reference__source.html">reference_source</a>&lt; Source &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#afbd8038a44f431e66e6cd3a43dd778d1">make_limited_source</a> (Source &amp;source, size_t limit_bytes)</td></tr>
+<tr class="memdesc:afbd8038a44f431e66e6cd3a43dd778d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory function for creating limited sources, created source wrapper will NOT own specified source.  <a href="#afbd8038a44f431e66e6cd3a43dd778d1"></a><br/></td></tr>
+<tr class="memitem:a58297eb0226b50473448f974b177375e"><td class="memTemplParams" colspan="2">template&lt;typename Sink &gt; </td></tr>
+<tr class="memitem:a58297eb0226b50473448f974b177375e"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a58297eb0226b50473448f974b177375e">write_all</a> (Sink &amp;sink, <a class="el" href="classstaticlib_1_1io_1_1span.html">span</a>&lt; const char &gt; <a class="el" href="classstaticlib_1_1io_1_1span.html">span</a>)</td></tr>
+<tr class="memdesc:a58297eb0226b50473448f974b177375e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes buffer contents to the specified Sink ensuring that the specified number of bytes are written to Sink (making multiple write calls to Sink if needed).  <a href="#a58297eb0226b50473448f974b177375e"></a><br/></td></tr>
+<tr class="memitem:a30ab70a2bb98f44583933566bbda8cbd"><td class="memTemplParams" colspan="2">template&lt;typename Source &gt; </td></tr>
+<tr class="memitem:a30ab70a2bb98f44583933566bbda8cbd"><td class="memTemplItemLeft" align="right" valign="top">size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a30ab70a2bb98f44583933566bbda8cbd">read_all</a> (Source &amp;src, <a class="el" href="classstaticlib_1_1io_1_1span.html">span</a>&lt; char &gt; <a class="el" href="classstaticlib_1_1io_1_1span.html">span</a>)</td></tr>
+<tr class="memdesc:a30ab70a2bb98f44583933566bbda8cbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads specified number of bytes from the Source into the buffer.  <a href="#a30ab70a2bb98f44583933566bbda8cbd"></a><br/></td></tr>
+<tr class="memitem:aa8155c0d7968037e8f161b331f4bb41c"><td class="memTemplParams" colspan="2">template&lt;typename Source &gt; </td></tr>
+<tr class="memitem:aa8155c0d7968037e8f161b331f4bb41c"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#aa8155c0d7968037e8f161b331f4bb41c">read_exact</a> (Source &amp;src, <a class="el" href="classstaticlib_1_1io_1_1span.html">span</a>&lt; char &gt; <a class="el" href="classstaticlib_1_1io_1_1span.html">span</a>)</td></tr>
+<tr class="memdesc:aa8155c0d7968037e8f161b331f4bb41c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads specified number of bytes from the Source into the buffer.  <a href="#aa8155c0d7968037e8f161b331f4bb41c"></a><br/></td></tr>
+<tr class="memitem:a4ee96998d8d079f3d0207780851e0323"><td class="memTemplParams" colspan="2">template&lt;typename Source , typename Sink &gt; </td></tr>
+<tr class="memitem:a4ee96998d8d079f3d0207780851e0323"><td class="memTemplItemLeft" align="right" valign="top">size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a4ee96998d8d079f3d0207780851e0323">copy_all</a> (Source &amp;src, Sink &amp;sink, <a class="el" href="classstaticlib_1_1io_1_1span.html">span</a>&lt; char &gt; <a class="el" href="classstaticlib_1_1io_1_1span.html">span</a>)</td></tr>
+<tr class="memdesc:a4ee96998d8d079f3d0207780851e0323"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies data from Source to Sink using specified buffer until source will be exhausted.  <a href="#a4ee96998d8d079f3d0207780851e0323"></a><br/></td></tr>
+<tr class="memitem:a00e02162a0bc82480417c23047897a97"><td class="memTemplParams" colspan="2">template&lt;typename Source , typename Sink , uint16_t BufferSize = 4096&gt; </td></tr>
+<tr class="memitem:a00e02162a0bc82480417c23047897a97"><td class="memTemplItemLeft" align="right" valign="top">size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a00e02162a0bc82480417c23047897a97">copy_all</a> (Source &amp;src, Sink &amp;sink)</td></tr>
+<tr class="memdesc:a00e02162a0bc82480417c23047897a97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies data from Source to Sink using on-stack array buffer until source will be exhausted.  <a href="#a00e02162a0bc82480417c23047897a97"></a><br/></td></tr>
+<tr class="memitem:a081c368d37ae2c31fb5a00fed21508c5"><td class="memTemplParams" colspan="2">template&lt;typename Source , typename IntTypeSkip &gt; </td></tr>
+<tr class="memitem:a081c368d37ae2c31fb5a00fed21508c5"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a081c368d37ae2c31fb5a00fed21508c5">skip</a> (Source &amp;src, <a class="el" href="classstaticlib_1_1io_1_1span.html">span</a>&lt; char &gt; <a class="el" href="classstaticlib_1_1io_1_1span.html">span</a>, IntTypeSkip to_skip)</td></tr>
+<tr class="memdesc:a081c368d37ae2c31fb5a00fed21508c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Skips specified number of bytes reading data repeatedly from specified source into specified buffer.  <a href="#a081c368d37ae2c31fb5a00fed21508c5"></a><br/></td></tr>
 <tr class="memitem:ab5af60f54f2811cf8c5a813d86f2885f"><td class="memTemplParams" colspan="2">template&lt;typename Sink &gt; </td></tr>
 <tr class="memitem:ab5af60f54f2811cf8c5a813d86f2885f"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classstaticlib_1_1io_1_1reference__sink.html">reference_sink</a>&lt; Sink &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#ab5af60f54f2811cf8c5a813d86f2885f">make_reference_sink</a> (Sink &amp;sink)</td></tr>
 <tr class="memdesc:ab5af60f54f2811cf8c5a813d86f2885f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory function for creating reference sinks.  <a href="#ab5af60f54f2811cf8c5a813d86f2885f"></a><br/></td></tr>
 <tr class="memitem:a21acc0691c03d0181781281ded55117a"><td class="memTemplParams" colspan="2">template&lt;typename Source &gt; </td></tr>
 <tr class="memitem:a21acc0691c03d0181781281ded55117a"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classstaticlib_1_1io_1_1reference__source.html">reference_source</a>&lt; Source &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a21acc0691c03d0181781281ded55117a">make_reference_source</a> (Source &amp;source)</td></tr>
 <tr class="memdesc:a21acc0691c03d0181781281ded55117a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory function for creating reference sources.  <a href="#a21acc0691c03d0181781281ded55117a"></a><br/></td></tr>
+<tr class="memitem:ad45d47fce3041c9e65f1b289cb8bf6e6"><td class="memTemplParams" colspan="2">template&lt;typename Source , class  = typename std::enable_if&lt;!std::is_lvalue_reference&lt;Source&gt;::value&gt;::type&gt; </td></tr>
+<tr class="memitem:ad45d47fce3041c9e65f1b289cb8bf6e6"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classstaticlib_1_1io_1_1replacer__source.html">replacer_source</a>&lt; Source &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#ad45d47fce3041c9e65f1b289cb8bf6e6">make_replacer_source</a> (Source &amp;&amp;source, std::map&lt; std::string, std::string &gt; values, std::function&lt; void(const std::string &amp;)&gt; on_error)</td></tr>
+<tr class="memdesc:ad45d47fce3041c9e65f1b289cb8bf6e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory function for creating replacer sources, created source wrapper will own specified source.  <a href="#ad45d47fce3041c9e65f1b289cb8bf6e6"></a><br/></td></tr>
+<tr class="memitem:ae409416fb6ef09b7ca75cb004d95c389"><td class="memTemplParams" colspan="2">template&lt;typename Source &gt; </td></tr>
+<tr class="memitem:ae409416fb6ef09b7ca75cb004d95c389"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classstaticlib_1_1io_1_1replacer__source.html">replacer_source</a><br class="typebreak"/>
+&lt; <a class="el" href="classstaticlib_1_1io_1_1reference__source.html">reference_source</a>&lt; Source &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#ae409416fb6ef09b7ca75cb004d95c389">make_replacer_source</a> (Source &amp;source, std::map&lt; std::string, std::string &gt; values, std::function&lt; void(const std::string &amp;)&gt; on_error)</td></tr>
+<tr class="memdesc:ae409416fb6ef09b7ca75cb004d95c389"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory function for creating replacer sources, created source wrapper will NOT own specified source.  <a href="#ae409416fb6ef09b7ca75cb004d95c389"></a><br/></td></tr>
 <tr class="memitem:a192a4c0e6421e7e6a6e361a9cca21d84"><td class="memTemplParams" colspan="2">template&lt;typename Sink &gt; </td></tr>
 <tr class="memitem:a192a4c0e6421e7e6a6e361a9cca21d84"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classstaticlib_1_1io_1_1shared__sink.html">shared_sink</a>&lt; Sink &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a192a4c0e6421e7e6a6e361a9cca21d84">make_shared_sink</a> (std::shared_ptr&lt; Sink &gt; sink)</td></tr>
 <tr class="memdesc:a192a4c0e6421e7e6a6e361a9cca21d84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory function for creating shared sinks.  <a href="#a192a4c0e6421e7e6a6e361a9cca21d84"></a><br/></td></tr>
 <tr class="memitem:a34ecd93768554fa5730f925550508679"><td class="memTemplParams" colspan="2">template&lt;typename Source &gt; </td></tr>
 <tr class="memitem:a34ecd93768554fa5730f925550508679"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classstaticlib_1_1io_1_1shared__source.html">shared_source</a>&lt; Source &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a34ecd93768554fa5730f925550508679">make_shared_source</a> (std::shared_ptr&lt; Source &gt; source)</td></tr>
 <tr class="memdesc:a34ecd93768554fa5730f925550508679"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory function for creating shared sources.  <a href="#a34ecd93768554fa5730f925550508679"></a><br/></td></tr>
-<tr class="memitem:a61793ee16059e78be8789048caff2b50"><td class="memTemplParams" colspan="2">template&lt;typename Source &gt; </td></tr>
-<tr class="memitem:a61793ee16059e78be8789048caff2b50"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classstaticlib_1_1io_1_1unbuffered__istreambuf.html">unbuffered_istreambuf</a>&lt; Source &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a61793ee16059e78be8789048caff2b50">make_unbuffered_istreambuf</a> (Source &amp;&amp;source)</td></tr>
-<tr class="memitem:a958898a68012adce7dcce612f49cf069"><td class="memTemplParams" colspan="2">template&lt;typename Sink &gt; </td></tr>
-<tr class="memitem:a958898a68012adce7dcce612f49cf069"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classstaticlib_1_1io_1_1unbuffered__ostreambuf.html">unbuffered_ostreambuf</a>&lt; Sink &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a958898a68012adce7dcce612f49cf069">make_unbuffered_ostreambuf</a> (Sink &amp;&amp;sink)</td></tr>
+<tr class="memitem:a582f02789c08d4977789659a654f6ba7"><td class="memTemplParams" colspan="2">template&lt;typename Source , class  = typename std::enable_if&lt;!std::is_lvalue_reference&lt;Source&gt;::value&gt;::type&gt; </td></tr>
+<tr class="memitem:a582f02789c08d4977789659a654f6ba7"><td class="memTemplItemLeft" align="right" valign="top">std::unique_ptr&lt; std::istream &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a582f02789c08d4977789659a654f6ba7">make_source_istream_ptr</a> (Source &amp;&amp;source)</td></tr>
+<tr class="memdesc:a582f02789c08d4977789659a654f6ba7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory function for creating source istream unique pointers, created source wrapper will own specified source.  <a href="#a582f02789c08d4977789659a654f6ba7"></a><br/></td></tr>
+<tr class="memitem:a191faea7568d657e7fb84924c2c6db35"><td class="memTemplParams" colspan="2">template&lt;typename Source &gt; </td></tr>
+<tr class="memitem:a191faea7568d657e7fb84924c2c6db35"><td class="memTemplItemLeft" align="right" valign="top">std::unique_ptr&lt; std::istream &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a191faea7568d657e7fb84924c2c6db35">make_source_istream_ptr</a> (Source &amp;source)</td></tr>
+<tr class="memdesc:a191faea7568d657e7fb84924c2c6db35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory function for creating source istream unique pointers, created source wrapper will NOT own specified source.  <a href="#a191faea7568d657e7fb84924c2c6db35"></a><br/></td></tr>
+<tr class="memitem:ae7f68b522141e1836455c21d37727354"><td class="memTemplParams" colspan="2">template&lt;typename T , typename IntType &gt; </td></tr>
+<tr class="memitem:ae7f68b522141e1836455c21d37727354"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classstaticlib_1_1io_1_1span.html">span</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#ae7f68b522141e1836455c21d37727354">make_span</a> (T *buffer, IntType length)</td></tr>
+<tr class="memdesc:ae7f68b522141e1836455c21d37727354"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function, creates span instance.  <a href="#ae7f68b522141e1836455c21d37727354"></a><br/></td></tr>
+<tr class="memitem:a9b5ffc090786b3a84134a2b8daa9131e"><td class="memTemplParams" colspan="2">template&lt;typename T , size_t Length&gt; </td></tr>
+<tr class="memitem:a9b5ffc090786b3a84134a2b8daa9131e"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classstaticlib_1_1io_1_1span.html">span</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a9b5ffc090786b3a84134a2b8daa9131e">make_span</a> (std::array&lt; T, Length &gt; &amp;buffer)</td></tr>
+<tr class="memdesc:a9b5ffc090786b3a84134a2b8daa9131e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function, creates span instance from array.  <a href="#a9b5ffc090786b3a84134a2b8daa9131e"></a><br/></td></tr>
+<tr class="memitem:ab1f01b57efececd9b111228e1f9cefd1"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ab1f01b57efececd9b111228e1f9cefd1"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classstaticlib_1_1io_1_1span.html">span</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#ab1f01b57efececd9b111228e1f9cefd1">make_span</a> (std::vector&lt; T &gt; &amp;buffer)</td></tr>
+<tr class="memdesc:ab1f01b57efececd9b111228e1f9cefd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function, creates span instance from vector.  <a href="#ab1f01b57efececd9b111228e1f9cefd1"></a><br/></td></tr>
+<tr class="memitem:a41dc29b06513c7f4d446c6b29b0ac0ba"><td class="memTemplParams" colspan="2">template&lt;typename Source , class  = typename std::enable_if&lt;!std::is_lvalue_reference&lt;Source&gt;::value&gt;::type&gt; </td></tr>
+<tr class="memitem:a41dc29b06513c7f4d446c6b29b0ac0ba"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classstaticlib_1_1io_1_1unbuffered__istreambuf.html">unbuffered_istreambuf</a>&lt; Source &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a41dc29b06513c7f4d446c6b29b0ac0ba">make_unbuffered_istreambuf</a> (Source &amp;&amp;source)</td></tr>
+<tr class="memdesc:a41dc29b06513c7f4d446c6b29b0ac0ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory function for creating <a class="el" href="classstaticlib_1_1io_1_1unbuffered__istreambuf.html" title="Unbuffered implementation of input streambuf, wraps Source reference (in terms of Boost...">unbuffered_istreambuf</a> sources, created source wrapper will own specified source.  <a href="#a41dc29b06513c7f4d446c6b29b0ac0ba"></a><br/></td></tr>
+<tr class="memitem:a469e52449f10f0a65729d53e40a72ea5"><td class="memTemplParams" colspan="2">template&lt;typename Source , class  = typename std::enable_if&lt;!std::is_lvalue_reference&lt;Source&gt;::value&gt;::type&gt; </td></tr>
+<tr class="memitem:a469e52449f10f0a65729d53e40a72ea5"><td class="memTemplItemLeft" align="right" valign="top">std::unique_ptr<br class="typebreak"/>
+&lt; <a class="el" href="classstaticlib_1_1io_1_1unbuffered__istreambuf.html">unbuffered_istreambuf</a><br class="typebreak"/>
+&lt; Source &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a469e52449f10f0a65729d53e40a72ea5">make_unbuffered_istreambuf_ptr</a> (Source &amp;&amp;source)</td></tr>
+<tr class="memdesc:a469e52449f10f0a65729d53e40a72ea5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory function for creating <a class="el" href="classstaticlib_1_1io_1_1unbuffered__istreambuf.html" title="Unbuffered implementation of input streambuf, wraps Source reference (in terms of Boost...">unbuffered_istreambuf</a> sources, created source wrapper will own specified source.  <a href="#a469e52449f10f0a65729d53e40a72ea5"></a><br/></td></tr>
+<tr class="memitem:a9bbd95f9bbc3667280e27ed4d6f79974"><td class="memTemplParams" colspan="2">template&lt;typename Source &gt; </td></tr>
+<tr class="memitem:a9bbd95f9bbc3667280e27ed4d6f79974"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classstaticlib_1_1io_1_1unbuffered__istreambuf.html">unbuffered_istreambuf</a><br class="typebreak"/>
+&lt; <a class="el" href="classstaticlib_1_1io_1_1reference__source.html">reference_source</a>&lt; Source &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a9bbd95f9bbc3667280e27ed4d6f79974">make_unbuffered_istreambuf</a> (Source &amp;source)</td></tr>
+<tr class="memdesc:a9bbd95f9bbc3667280e27ed4d6f79974"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory function for creating <a class="el" href="classstaticlib_1_1io_1_1unbuffered__istreambuf.html" title="Unbuffered implementation of input streambuf, wraps Source reference (in terms of Boost...">unbuffered_istreambuf</a> sources, created source wrapper will NOT own specified source.  <a href="#a9bbd95f9bbc3667280e27ed4d6f79974"></a><br/></td></tr>
+<tr class="memitem:a46a0873a696ffc9f22f23b2eb1d597e5"><td class="memTemplParams" colspan="2">template&lt;typename Source &gt; </td></tr>
+<tr class="memitem:a46a0873a696ffc9f22f23b2eb1d597e5"><td class="memTemplItemLeft" align="right" valign="top">std::unique_ptr<br class="typebreak"/>
+&lt; <a class="el" href="classstaticlib_1_1io_1_1unbuffered__istreambuf.html">unbuffered_istreambuf</a><br class="typebreak"/>
+&lt; <a class="el" href="classstaticlib_1_1io_1_1reference__source.html">reference_source</a>&lt; Source &gt; &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a46a0873a696ffc9f22f23b2eb1d597e5">make_unbuffered_istreambuf_ptr</a> (Source &amp;source)</td></tr>
+<tr class="memdesc:a46a0873a696ffc9f22f23b2eb1d597e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory function for creating <a class="el" href="classstaticlib_1_1io_1_1unbuffered__istreambuf.html" title="Unbuffered implementation of input streambuf, wraps Source reference (in terms of Boost...">unbuffered_istreambuf</a> sources, created source wrapper will NOT own specified source.  <a href="#a46a0873a696ffc9f22f23b2eb1d597e5"></a><br/></td></tr>
+<tr class="memitem:a9ecd8e6ec3f35fc961f7832f88cc9da3"><td class="memTemplParams" colspan="2">template&lt;typename Sink , class  = typename std::enable_if&lt;!std::is_lvalue_reference&lt;Sink&gt;::value&gt;::type&gt; </td></tr>
+<tr class="memitem:a9ecd8e6ec3f35fc961f7832f88cc9da3"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classstaticlib_1_1io_1_1unbuffered__ostreambuf.html">unbuffered_ostreambuf</a>&lt; Sink &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a9ecd8e6ec3f35fc961f7832f88cc9da3">make_unbuffered_ostreambuf</a> (Sink &amp;&amp;sink)</td></tr>
+<tr class="memdesc:a9ecd8e6ec3f35fc961f7832f88cc9da3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory function for creating <a class="el" href="classstaticlib_1_1io_1_1unbuffered__ostreambuf.html" title="Unbuffered implementation of output streambuf, wraps Sink reference (in terms of Boost.Iostreams).">unbuffered_ostreambuf</a> sinks, created sink wrapper will own specified sink.  <a href="#a9ecd8e6ec3f35fc961f7832f88cc9da3"></a><br/></td></tr>
+<tr class="memitem:ac19397690e814c290443a7a421554d60"><td class="memTemplParams" colspan="2">template&lt;typename Sink , class  = typename std::enable_if&lt;!std::is_lvalue_reference&lt;Sink&gt;::value&gt;::type&gt; </td></tr>
+<tr class="memitem:ac19397690e814c290443a7a421554d60"><td class="memTemplItemLeft" align="right" valign="top">std::unique_ptr<br class="typebreak"/>
+&lt; <a class="el" href="classstaticlib_1_1io_1_1unbuffered__ostreambuf.html">unbuffered_ostreambuf</a>&lt; Sink &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#ac19397690e814c290443a7a421554d60">make_unbuffered_ostreambuf_ptr</a> (Sink &amp;&amp;sink)</td></tr>
+<tr class="memdesc:ac19397690e814c290443a7a421554d60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory function for creating <a class="el" href="classstaticlib_1_1io_1_1unbuffered__ostreambuf.html" title="Unbuffered implementation of output streambuf, wraps Sink reference (in terms of Boost.Iostreams).">unbuffered_ostreambuf</a> sinks, created sink wrapper will own specified sink.  <a href="#ac19397690e814c290443a7a421554d60"></a><br/></td></tr>
+<tr class="memitem:a91dee8b6e4b9a8b941aff585388beb1f"><td class="memTemplParams" colspan="2">template&lt;typename Sink &gt; </td></tr>
+<tr class="memitem:a91dee8b6e4b9a8b941aff585388beb1f"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classstaticlib_1_1io_1_1unbuffered__ostreambuf.html">unbuffered_ostreambuf</a><br class="typebreak"/>
+&lt; <a class="el" href="classstaticlib_1_1io_1_1reference__sink.html">reference_sink</a>&lt; Sink &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a91dee8b6e4b9a8b941aff585388beb1f">make_unbuffered_ostreambuf</a> (Sink &amp;sink)</td></tr>
+<tr class="memdesc:a91dee8b6e4b9a8b941aff585388beb1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory function for creating <a class="el" href="classstaticlib_1_1io_1_1unbuffered__ostreambuf.html" title="Unbuffered implementation of output streambuf, wraps Sink reference (in terms of Boost.Iostreams).">unbuffered_ostreambuf</a> sinks, created sink wrapper will NOT own specified sink.  <a href="#a91dee8b6e4b9a8b941aff585388beb1f"></a><br/></td></tr>
+<tr class="memitem:af0238e1f4111a4beb25def3926c878fb"><td class="memTemplParams" colspan="2">template&lt;typename Sink &gt; </td></tr>
+<tr class="memitem:af0238e1f4111a4beb25def3926c878fb"><td class="memTemplItemLeft" align="right" valign="top">std::unique_ptr<br class="typebreak"/>
+&lt; <a class="el" href="classstaticlib_1_1io_1_1unbuffered__ostreambuf.html">unbuffered_ostreambuf</a><br class="typebreak"/>
+&lt; <a class="el" href="classstaticlib_1_1io_1_1reference__sink.html">reference_sink</a>&lt; Sink &gt; &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#af0238e1f4111a4beb25def3926c878fb">make_unbuffered_ostreambuf_ptr</a> (Sink &amp;sink)</td></tr>
+<tr class="memdesc:af0238e1f4111a4beb25def3926c878fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory function for creating <a class="el" href="classstaticlib_1_1io_1_1unbuffered__ostreambuf.html" title="Unbuffered implementation of output streambuf, wraps Sink reference (in terms of Boost.Iostreams).">unbuffered_ostreambuf</a> sinks, created sink wrapper will NOT own specified sink.  <a href="#af0238e1f4111a4beb25def3926c878fb"></a><br/></td></tr>
 <tr class="memitem:a48d0a6d2daec14d84a232ba2c293cacd"><td class="memTemplParams" colspan="2">template&lt;typename Sink &gt; </td></tr>
 <tr class="memitem:a48d0a6d2daec14d84a232ba2c293cacd"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classstaticlib_1_1io_1_1unique__sink.html">unique_sink</a>&lt; Sink &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a48d0a6d2daec14d84a232ba2c293cacd">make_unique_sink</a> (Sink *sink)</td></tr>
 <tr class="memdesc:a48d0a6d2daec14d84a232ba2c293cacd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory function for creating unique sinks.  <a href="#a48d0a6d2daec14d84a232ba2c293cacd"></a><br/></td></tr>
@@ -203,11 +298,11 @@ Functions</h2></td></tr>
 <tr class="memdesc:a3dda42e0c66d15907b929c3c57b07cef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory function for creating unique sources.  <a href="#a3dda42e0c66d15907b929c3c57b07cef"></a><br/></td></tr>
 </table>
 <h2>Function Documentation</h2>
-<a class="anchor" id="a43e8da18e35533ccfc4d62807302ac6c"></a>
+<a class="anchor" id="a4ee96998d8d079f3d0207780851e0323"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Source , typename Sink , typename IntType &gt; </div>
+template&lt;typename Source , typename Sink &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">size_t staticlib::io::copy_all </td>
@@ -224,14 +319,8 @@ template&lt;typename Source , typename Sink , typename IntType &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>buf</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">IntType&#160;</td>
-          <td class="paramname"><em>buflen</em>&#160;</td>
+          <td class="paramtype">span&lt; char &gt;&#160;</td>
+          <td class="paramname"><em>span</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -246,8 +335,7 @@ template&lt;typename Source , typename Sink , typename IntType &gt; </div>
   <table class="params">
     <tr><td class="paramname">src</td><td>iostreams source </td></tr>
     <tr><td class="paramname">sink</td><td>iostreams sink </td></tr>
-    <tr><td class="paramname">buf</td><td>dest buffer </td></tr>
-    <tr><td class="paramname">buflen</td><td>number of bytes to read from source </td></tr>
+    <tr><td class="paramname">span</td><td>buffer span </td></tr>
   </table>
   </dd>
 </dl>
@@ -255,11 +343,49 @@ template&lt;typename Source , typename Sink , typename IntType &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a099bd521e9f05f52c4c983f3ecfc0ec9"></a>
+<a class="anchor" id="a00e02162a0bc82480417c23047897a97"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Sink &gt; </div>
+template&lt;typename Source , typename Sink , uint16_t BufferSize = 4096&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t staticlib::io::copy_all </td>
+          <td>(</td>
+          <td class="paramtype">Source &amp;&#160;</td>
+          <td class="paramname"><em>src</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Sink &amp;&#160;</td>
+          <td class="paramname"><em>sink</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Copies data from Source to Sink using on-stack array buffer until source will be exhausted. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">src</td><td>iostreams source </td></tr>
+    <tr><td class="paramname">sink</td><td>iostreams sink </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>number of bytes copied </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aa5a499a47ace7f09252572d11df1875a"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Sink , class  = typename std::enable_if&lt;!std::is_lvalue_reference&lt;Sink&gt;::value&gt;::type&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classstaticlib_1_1io_1_1buffered__sink.html">buffered_sink</a>&lt;Sink&gt; staticlib::io::make_buffered_sink </td>
@@ -271,7 +397,7 @@ template&lt;typename Sink &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Factory function for creating buffered sinks. </p>
+<p>Factory function for creating buffered sinks, created sink wrapper will own specified sink. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">sink</td><td>destination sink </td></tr>
@@ -282,11 +408,38 @@ template&lt;typename Sink &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a65131dac4a9b5ef0c9be2497e88488d7"></a>
+<a class="anchor" id="ae50534e31439398f36ca3c6ece158cb6"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Source &gt; </div>
+template&lt;typename Sink &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classstaticlib_1_1io_1_1buffered__sink.html">buffered_sink</a>&lt;<a class="el" href="classstaticlib_1_1io_1_1reference__sink.html">reference_sink</a>&lt;Sink&gt; &gt; staticlib::io::make_buffered_sink </td>
+          <td>(</td>
+          <td class="paramtype">Sink &amp;&#160;</td>
+          <td class="paramname"><em>sink</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Factory function for creating buffered sinks, created sink wrapper will NOT own specified sink. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sink</td><td>destination sink </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>buffered sink </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="abf751d83e9eea3ea717c49e0f91be785"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Source , class  = typename std::enable_if&lt;!std::is_lvalue_reference&lt;Source&gt;::value&gt;::type&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classstaticlib_1_1io_1_1buffered__source.html">buffered_source</a>&lt;Source&gt; staticlib::io::make_buffered_source </td>
@@ -298,7 +451,7 @@ template&lt;typename Source &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Factory function for creating buffered sources. </p>
+<p>Factory function for creating buffered sources, created source wrapper will own specified source. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">source</td><td>input source </td></tr>
@@ -309,11 +462,38 @@ template&lt;typename Source &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a94c40c4337905441940c2a68e4d153b9"></a>
+<a class="anchor" id="a94643bd4a718809fed36b1da4fec7757"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Source , typename Sink &gt; </div>
+template&lt;typename Source &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classstaticlib_1_1io_1_1buffered__source.html">buffered_source</a>&lt;<a class="el" href="classstaticlib_1_1io_1_1reference__source.html">reference_source</a>&lt;Source&gt; &gt; staticlib::io::make_buffered_source </td>
+          <td>(</td>
+          <td class="paramtype">Source &amp;&#160;</td>
+          <td class="paramname"><em>source</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Factory function for creating buffered sources, created source wrapper will NOT own specified source. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">source</td><td>input source </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>buffered source </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a4fdd2d2346794cf2bcb13115479c80d6"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Source , typename Sink , class  = typename std::enable_if&lt;!std::is_lvalue_reference&lt;Source&gt;::value&gt;::type, class  = typename std::enable_if&lt;!std::is_lvalue_reference&lt;Sink&gt;::value&gt;::type&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classstaticlib_1_1io_1_1copying__source.html">copying_source</a>&lt;Source, Sink&gt; staticlib::io::make_copying_source </td>
@@ -335,7 +515,7 @@ template&lt;typename Source , typename Sink &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Factory function for creating copying sources. </p>
+<p>Factory function for creating copying sources, created source wrapper will own specified source and sink. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">source</td><td>input source </td></tr>
@@ -347,11 +527,49 @@ template&lt;typename Source , typename Sink &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a2843c14147d95b16d6fa08752e525250"></a>
+<a class="anchor" id="aa01d48a4ee2a5b0c6d662d2b5e9e28c7"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Sink &gt; </div>
+template&lt;typename Source , typename Sink &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classstaticlib_1_1io_1_1copying__source.html">copying_source</a>&lt;<a class="el" href="classstaticlib_1_1io_1_1reference__source.html">reference_source</a>&lt;Source&gt;, <a class="el" href="classstaticlib_1_1io_1_1reference__sink.html">reference_sink</a>&lt;Sink&gt; &gt; staticlib::io::make_copying_source </td>
+          <td>(</td>
+          <td class="paramtype">Source &amp;&#160;</td>
+          <td class="paramname"><em>source</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Sink &amp;&#160;</td>
+          <td class="paramname"><em>sink</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Factory function for creating copying sources, created source wrapper will NOT own specified source and sink. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">source</td><td>input source </td></tr>
+    <tr><td class="paramname">sink</td><td>copy sink </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>copying source </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ac3720543e7295b0455ae3577bfca0ab3"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Sink , class  = typename std::enable_if&lt;!std::is_lvalue_reference&lt;Sink&gt;::value&gt;::type&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classstaticlib_1_1io_1_1counting__sink.html">counting_sink</a>&lt;Sink&gt; staticlib::io::make_counting_sink </td>
@@ -363,7 +581,7 @@ template&lt;typename Sink &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Factory function for creating counting sinks. </p>
+<p>Factory function for creating counting sinks, created sink wrapper will own specified sink. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">sink</td><td>destination sink </td></tr>
@@ -374,11 +592,38 @@ template&lt;typename Sink &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a2bad9d62c8c2c7a8886dd26455545abb"></a>
+<a class="anchor" id="a9f2d1ffa967dee8fef4934feb813c656"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Source &gt; </div>
+template&lt;typename Sink &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classstaticlib_1_1io_1_1counting__sink.html">counting_sink</a>&lt;<a class="el" href="classstaticlib_1_1io_1_1reference__sink.html">reference_sink</a>&lt;Sink&gt; &gt; staticlib::io::make_counting_sink </td>
+          <td>(</td>
+          <td class="paramtype">Sink &amp;&#160;</td>
+          <td class="paramname"><em>sink</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Factory function for creating counting sinks, created sink wrapper will NOT own specified sink. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sink</td><td>destination sink </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>counting sink </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a5df1e795fd25ac95b3ef204166c29d84"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Source , class  = typename std::enable_if&lt;!std::is_lvalue_reference&lt;Source&gt;::value&gt;::type&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classstaticlib_1_1io_1_1counting__source.html">counting_source</a>&lt;Source&gt; staticlib::io::make_counting_source </td>
@@ -390,7 +635,7 @@ template&lt;typename Source &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Factory function for creating counting sources. </p>
+<p>Factory function for creating counting sources, created source wrapper will own specified source. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">source</td><td>input source </td></tr>
@@ -401,11 +646,38 @@ template&lt;typename Source &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a79b12690b78400e8a04ff6aad664c535"></a>
+<a class="anchor" id="ae2096939a20986852e20c03b57b4b0d4"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename NonFlushableSink &gt; </div>
+template&lt;typename Source &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classstaticlib_1_1io_1_1counting__source.html">counting_source</a>&lt;<a class="el" href="classstaticlib_1_1io_1_1reference__source.html">reference_source</a>&lt;Source&gt; &gt; staticlib::io::make_counting_source </td>
+          <td>(</td>
+          <td class="paramtype">Source &amp;&#160;</td>
+          <td class="paramname"><em>source</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Factory function for creating counting sources, created source wrapper will NOT own specified source. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">source</td><td>input source </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>counting source </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a0146bd0c334544bdc9463669f17e2f69"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename NonFlushableSink , class  = typename std::enable_if&lt;!std::is_lvalue_reference&lt;NonFlushableSink&gt;::value&gt;::type&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classstaticlib_1_1io_1_1flushable__sink.html">flushable_sink</a>&lt;NonFlushableSink&gt; staticlib::io::make_flushable_sink </td>
@@ -417,7 +689,7 @@ template&lt;typename NonFlushableSink &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Factory function for creating flushable sinks. </p>
+<p>Factory function for creating flushable sinks, created sink wrapper will own specified sink. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">sink</td><td>destination sink </td></tr>
@@ -425,6 +697,109 @@ template&lt;typename NonFlushableSink &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>flushable sink </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a7bf26849c19f88ac4751e496ad5e044f"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename NonFlushableSink &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classstaticlib_1_1io_1_1flushable__sink.html">flushable_sink</a>&lt;<a class="el" href="classstaticlib_1_1io_1_1reference__sink.html">reference_sink</a>&lt;NonFlushableSink&gt; &gt; staticlib::io::make_flushable_sink </td>
+          <td>(</td>
+          <td class="paramtype">NonFlushableSink &amp;&#160;</td>
+          <td class="paramname"><em>sink</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Factory function for creating flushable sinks, created sink wrapper will NOT own specified sink. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sink</td><td>destination sink </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>flushable sink </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a1de35cbc5664f914bb7183cf4c1fc2d5"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Source , class  = typename std::enable_if&lt;!std::is_lvalue_reference&lt;Source&gt;::value&gt;::type&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classstaticlib_1_1io_1_1limited__source.html">limited_source</a>&lt;Source&gt; staticlib::io::make_limited_source </td>
+          <td>(</td>
+          <td class="paramtype">Source &amp;&amp;&#160;</td>
+          <td class="paramname"><em>source</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>limit_bytes</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Factory function for creating limited sources, created source wrapper will own specified source. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">source</td><td>input source </td></tr>
+    <tr><td class="paramname">limit_bytes</td><td>max number of bytes allowed to be read from this source </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>limited source </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="afbd8038a44f431e66e6cd3a43dd778d1"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Source &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classstaticlib_1_1io_1_1limited__source.html">limited_source</a>&lt;<a class="el" href="classstaticlib_1_1io_1_1reference__source.html">reference_source</a>&lt;Source&gt; &gt; staticlib::io::make_limited_source </td>
+          <td>(</td>
+          <td class="paramtype">Source &amp;&#160;</td>
+          <td class="paramname"><em>source</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>limit_bytes</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Factory function for creating limited sources, created source wrapper will NOT own specified source. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">source</td><td>input source </td></tr>
+    <tr><td class="paramname">limit_bytes</td><td>max number of bytes allowed to be read from this source </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>limited source </dd></dl>
 
 </div>
 </div>
@@ -482,6 +857,92 @@ template&lt;typename Source &gt; </div>
 
 </div>
 </div>
+<a class="anchor" id="ad45d47fce3041c9e65f1b289cb8bf6e6"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Source , class  = typename std::enable_if&lt;!std::is_lvalue_reference&lt;Source&gt;::value&gt;::type&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classstaticlib_1_1io_1_1replacer__source.html">replacer_source</a>&lt;Source&gt; staticlib::io::make_replacer_source </td>
+          <td>(</td>
+          <td class="paramtype">Source &amp;&amp;&#160;</td>
+          <td class="paramname"><em>source</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::map&lt; std::string, std::string &gt;&#160;</td>
+          <td class="paramname"><em>values</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::function&lt; void(const std::string &amp;)&gt;&#160;</td>
+          <td class="paramname"><em>on_error</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Factory function for creating replacer sources, created source wrapper will own specified source. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">source</td><td>input source </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>replacer source </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ae409416fb6ef09b7ca75cb004d95c389"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Source &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classstaticlib_1_1io_1_1replacer__source.html">replacer_source</a>&lt;<a class="el" href="classstaticlib_1_1io_1_1reference__source.html">reference_source</a>&lt;Source&gt; &gt; staticlib::io::make_replacer_source </td>
+          <td>(</td>
+          <td class="paramtype">Source &amp;&#160;</td>
+          <td class="paramname"><em>source</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::map&lt; std::string, std::string &gt;&#160;</td>
+          <td class="paramname"><em>values</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::function&lt; void(const std::string &amp;)&gt;&#160;</td>
+          <td class="paramname"><em>on_error</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Factory function for creating replacer sources, created source wrapper will NOT own specified source. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">source</td><td>input source </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>replacer source </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a192a4c0e6421e7e6a6e361a9cca21d84"></a>
 <div class="memitem">
 <div class="memproto">
@@ -536,11 +997,157 @@ template&lt;typename Source &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a61793ee16059e78be8789048caff2b50"></a>
+<a class="anchor" id="a582f02789c08d4977789659a654f6ba7"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Source , class  = typename std::enable_if&lt;!std::is_lvalue_reference&lt;Source&gt;::value&gt;::type&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt;std::istream&gt; staticlib::io::make_source_istream_ptr </td>
+          <td>(</td>
+          <td class="paramtype">Source &amp;&amp;&#160;</td>
+          <td class="paramname"><em>source</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Factory function for creating source istream unique pointers, created source wrapper will own specified source. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">source</td><td>input source </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>source istream pointer </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a191faea7568d657e7fb84924c2c6db35"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename Source &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt;std::istream&gt; staticlib::io::make_source_istream_ptr </td>
+          <td>(</td>
+          <td class="paramtype">Source &amp;&#160;</td>
+          <td class="paramname"><em>source</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Factory function for creating source istream unique pointers, created source wrapper will NOT own specified source. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">source</td><td>input source </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>source istream pointer </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ae7f68b522141e1836455c21d37727354"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename IntType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classstaticlib_1_1io_1_1span.html">span</a>&lt;T&gt; staticlib::io::make_span </td>
+          <td>(</td>
+          <td class="paramtype">T *&#160;</td>
+          <td class="paramname"><em>buffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">IntType&#160;</td>
+          <td class="paramname"><em>length</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Helper function, creates span instance. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buffer</td><td>span start pointer </td></tr>
+    <tr><td class="paramname">length</td><td>number of elements </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>span instance </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a9b5ffc090786b3a84134a2b8daa9131e"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , size_t Length&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classstaticlib_1_1io_1_1span.html">span</a>&lt;T&gt; staticlib::io::make_span </td>
+          <td>(</td>
+          <td class="paramtype">std::array&lt; T, Length &gt; &amp;&#160;</td>
+          <td class="paramname"><em>buffer</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Helper function, creates span instance from array. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buffer</td><td>array </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>span instance </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ab1f01b57efececd9b111228e1f9cefd1"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classstaticlib_1_1io_1_1span.html">span</a>&lt;T&gt; staticlib::io::make_span </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>buffer</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Helper function, creates span instance from vector. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buffer</td><td>vector </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>span instance </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a41dc29b06513c7f4d446c6b29b0ac0ba"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Source , class  = typename std::enable_if&lt;!std::is_lvalue_reference&lt;Source&gt;::value&gt;::type&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classstaticlib_1_1io_1_1unbuffered__istreambuf.html">unbuffered_istreambuf</a>&lt;Source&gt; staticlib::io::make_unbuffered_istreambuf </td>
@@ -552,13 +1159,103 @@ template&lt;typename Source &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Factory function for creating <a class="el" href="classstaticlib_1_1io_1_1unbuffered__istreambuf.html" title="Unbuffered implementation of input streambuf, wraps Source reference (in terms of Boost...">unbuffered_istreambuf</a> sources, created source wrapper will own specified source. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">source</td><td>input source </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classstaticlib_1_1io_1_1unbuffered__istreambuf.html" title="Unbuffered implementation of input streambuf, wraps Source reference (in terms of Boost...">unbuffered_istreambuf</a> source </dd></dl>
+
 </div>
 </div>
-<a class="anchor" id="a958898a68012adce7dcce612f49cf069"></a>
+<a class="anchor" id="a9bbd95f9bbc3667280e27ed4d6f79974"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Sink &gt; </div>
+template&lt;typename Source &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classstaticlib_1_1io_1_1unbuffered__istreambuf.html">unbuffered_istreambuf</a>&lt;<a class="el" href="classstaticlib_1_1io_1_1reference__source.html">reference_source</a>&lt;Source&gt; &gt; staticlib::io::make_unbuffered_istreambuf </td>
+          <td>(</td>
+          <td class="paramtype">Source &amp;&#160;</td>
+          <td class="paramname"><em>source</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Factory function for creating <a class="el" href="classstaticlib_1_1io_1_1unbuffered__istreambuf.html" title="Unbuffered implementation of input streambuf, wraps Source reference (in terms of Boost...">unbuffered_istreambuf</a> sources, created source wrapper will NOT own specified source. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">source</td><td>input source </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classstaticlib_1_1io_1_1unbuffered__istreambuf.html" title="Unbuffered implementation of input streambuf, wraps Source reference (in terms of Boost...">unbuffered_istreambuf</a> source </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a469e52449f10f0a65729d53e40a72ea5"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Source , class  = typename std::enable_if&lt;!std::is_lvalue_reference&lt;Source&gt;::value&gt;::type&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt;<a class="el" href="classstaticlib_1_1io_1_1unbuffered__istreambuf.html">unbuffered_istreambuf</a>&lt;Source&gt; &gt; staticlib::io::make_unbuffered_istreambuf_ptr </td>
+          <td>(</td>
+          <td class="paramtype">Source &amp;&amp;&#160;</td>
+          <td class="paramname"><em>source</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Factory function for creating <a class="el" href="classstaticlib_1_1io_1_1unbuffered__istreambuf.html" title="Unbuffered implementation of input streambuf, wraps Source reference (in terms of Boost...">unbuffered_istreambuf</a> sources, created source wrapper will own specified source. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">source</td><td>input source </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classstaticlib_1_1io_1_1unbuffered__istreambuf.html" title="Unbuffered implementation of input streambuf, wraps Source reference (in terms of Boost...">unbuffered_istreambuf</a> source </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a46a0873a696ffc9f22f23b2eb1d597e5"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Source &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt;<a class="el" href="classstaticlib_1_1io_1_1unbuffered__istreambuf.html">unbuffered_istreambuf</a>&lt;<a class="el" href="classstaticlib_1_1io_1_1reference__source.html">reference_source</a>&lt;Source&gt; &gt; &gt; staticlib::io::make_unbuffered_istreambuf_ptr </td>
+          <td>(</td>
+          <td class="paramtype">Source &amp;&#160;</td>
+          <td class="paramname"><em>source</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Factory function for creating <a class="el" href="classstaticlib_1_1io_1_1unbuffered__istreambuf.html" title="Unbuffered implementation of input streambuf, wraps Source reference (in terms of Boost...">unbuffered_istreambuf</a> sources, created source wrapper will NOT own specified source. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">source</td><td>input source </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classstaticlib_1_1io_1_1unbuffered__istreambuf.html" title="Unbuffered implementation of input streambuf, wraps Source reference (in terms of Boost...">unbuffered_istreambuf</a> source </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a9ecd8e6ec3f35fc961f7832f88cc9da3"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Sink , class  = typename std::enable_if&lt;!std::is_lvalue_reference&lt;Sink&gt;::value&gt;::type&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classstaticlib_1_1io_1_1unbuffered__ostreambuf.html">unbuffered_ostreambuf</a>&lt;Sink&gt; staticlib::io::make_unbuffered_ostreambuf </td>
@@ -569,6 +1266,96 @@ template&lt;typename Sink &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Factory function for creating <a class="el" href="classstaticlib_1_1io_1_1unbuffered__ostreambuf.html" title="Unbuffered implementation of output streambuf, wraps Sink reference (in terms of Boost.Iostreams).">unbuffered_ostreambuf</a> sinks, created sink wrapper will own specified sink. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sink</td><td>destination sink </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classstaticlib_1_1io_1_1unbuffered__ostreambuf.html" title="Unbuffered implementation of output streambuf, wraps Sink reference (in terms of Boost.Iostreams).">unbuffered_ostreambuf</a> sink </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a91dee8b6e4b9a8b941aff585388beb1f"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Sink &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classstaticlib_1_1io_1_1unbuffered__ostreambuf.html">unbuffered_ostreambuf</a>&lt;<a class="el" href="classstaticlib_1_1io_1_1reference__sink.html">reference_sink</a>&lt;Sink&gt; &gt; staticlib::io::make_unbuffered_ostreambuf </td>
+          <td>(</td>
+          <td class="paramtype">Sink &amp;&#160;</td>
+          <td class="paramname"><em>sink</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Factory function for creating <a class="el" href="classstaticlib_1_1io_1_1unbuffered__ostreambuf.html" title="Unbuffered implementation of output streambuf, wraps Sink reference (in terms of Boost.Iostreams).">unbuffered_ostreambuf</a> sinks, created sink wrapper will NOT own specified sink. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sink</td><td>destination sink </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classstaticlib_1_1io_1_1unbuffered__ostreambuf.html" title="Unbuffered implementation of output streambuf, wraps Sink reference (in terms of Boost.Iostreams).">unbuffered_ostreambuf</a> sink </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ac19397690e814c290443a7a421554d60"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Sink , class  = typename std::enable_if&lt;!std::is_lvalue_reference&lt;Sink&gt;::value&gt;::type&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt;<a class="el" href="classstaticlib_1_1io_1_1unbuffered__ostreambuf.html">unbuffered_ostreambuf</a>&lt;Sink&gt; &gt; staticlib::io::make_unbuffered_ostreambuf_ptr </td>
+          <td>(</td>
+          <td class="paramtype">Sink &amp;&amp;&#160;</td>
+          <td class="paramname"><em>sink</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Factory function for creating <a class="el" href="classstaticlib_1_1io_1_1unbuffered__ostreambuf.html" title="Unbuffered implementation of output streambuf, wraps Sink reference (in terms of Boost.Iostreams).">unbuffered_ostreambuf</a> sinks, created sink wrapper will own specified sink. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sink</td><td>destination sink </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classstaticlib_1_1io_1_1unbuffered__ostreambuf.html" title="Unbuffered implementation of output streambuf, wraps Sink reference (in terms of Boost.Iostreams).">unbuffered_ostreambuf</a> sink </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="af0238e1f4111a4beb25def3926c878fb"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Sink &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt;<a class="el" href="classstaticlib_1_1io_1_1unbuffered__ostreambuf.html">unbuffered_ostreambuf</a>&lt;<a class="el" href="classstaticlib_1_1io_1_1reference__sink.html">reference_sink</a>&lt;Sink&gt; &gt; &gt; staticlib::io::make_unbuffered_ostreambuf_ptr </td>
+          <td>(</td>
+          <td class="paramtype">Sink &amp;&#160;</td>
+          <td class="paramname"><em>sink</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Factory function for creating <a class="el" href="classstaticlib_1_1io_1_1unbuffered__ostreambuf.html" title="Unbuffered implementation of output streambuf, wraps Sink reference (in terms of Boost.Iostreams).">unbuffered_ostreambuf</a> sinks, created sink wrapper will NOT own specified sink. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sink</td><td>destination sink </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classstaticlib_1_1io_1_1unbuffered__ostreambuf.html" title="Unbuffered implementation of output streambuf, wraps Sink reference (in terms of Boost.Iostreams).">unbuffered_ostreambuf</a> sink </dd></dl>
 
 </div>
 </div>
@@ -626,11 +1413,11 @@ template&lt;typename Source &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="af8657e8dc8169ed15de04331fe301c1d"></a>
+<a class="anchor" id="a30ab70a2bb98f44583933566bbda8cbd"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Source , typename IntType &gt; </div>
+template&lt;typename Source &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">size_t staticlib::io::read_all </td>
@@ -641,14 +1428,8 @@ template&lt;typename Source , typename IntType &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>buf</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">IntType&#160;</td>
-          <td class="paramname"><em>buflen</em>&#160;</td>
+          <td class="paramtype">span&lt; char &gt;&#160;</td>
+          <td class="paramname"><em>span</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -663,8 +1444,7 @@ template&lt;typename Source , typename IntType &gt; </div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">src</td><td>iostreams source </td></tr>
-    <tr><td class="paramname">buf</td><td>dest buffer </td></tr>
-    <tr><td class="paramname">buflen</td><td>number of bytes to read from source </td></tr>
+    <tr><td class="paramname">span</td><td>buffer span </td></tr>
   </table>
   </dd>
 </dl>
@@ -672,11 +1452,11 @@ template&lt;typename Source , typename IntType &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a34c9647990cfa8f3293f489e7c2c418a"></a>
+<a class="anchor" id="aa8155c0d7968037e8f161b331f4bb41c"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Source , typename IntType &gt; </div>
+template&lt;typename Source &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">void staticlib::io::read_exact </td>
@@ -687,14 +1467,8 @@ template&lt;typename Source , typename IntType &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>buf</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">IntType&#160;</td>
-          <td class="paramname"><em>buflen</em>&#160;</td>
+          <td class="paramtype">span&lt; char &gt;&#160;</td>
+          <td class="paramname"><em>span</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -709,19 +1483,18 @@ template&lt;typename Source , typename IntType &gt; </div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">src</td><td>iostreams source </td></tr>
-    <tr><td class="paramname">buf</td><td>dest buffer </td></tr>
-    <tr><td class="paramname">buflen</td><td>number of bytes to read from source </td></tr>
+    <tr><td class="paramname">span</td><td>buffer span </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a class="anchor" id="a9b0bcd5080245af93efa2c9d8e5e2d51"></a>
+<a class="anchor" id="a081c368d37ae2c31fb5a00fed21508c5"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Source , typename IntTypeLen , typename IntTypeSkip &gt; </div>
+template&lt;typename Source , typename IntTypeSkip &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">void staticlib::io::skip </td>
@@ -732,14 +1505,8 @@ template&lt;typename Source , typename IntTypeLen , typename IntTypeSkip &gt; </
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>buf</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">IntTypeLen&#160;</td>
-          <td class="paramname"><em>buflen</em>, </td>
+          <td class="paramtype">span&lt; char &gt;&#160;</td>
+          <td class="paramname"><em>span</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -759,8 +1526,7 @@ template&lt;typename Source , typename IntTypeLen , typename IntTypeSkip &gt; </
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">src</td><td>input source </td></tr>
-    <tr><td class="paramname">buf</td><td>buffer for temporary data </td></tr>
-    <tr><td class="paramname">buflen</td><td>buffer length </td></tr>
+    <tr><td class="paramname">span</td><td>buffer span </td></tr>
     <tr><td class="paramname">to_skip</td><td>number of bytes to skip </td></tr>
   </table>
   </dd>
@@ -768,51 +1534,7 @@ template&lt;typename Source , typename IntTypeLen , typename IntTypeSkip &gt; </
 
 </div>
 </div>
-<a class="anchor" id="a44bdcf140077608b867bf1e1e4a3634f"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Sink , typename IntType &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void staticlib::io::write_all </td>
-          <td>(</td>
-          <td class="paramtype">Sink &amp;&#160;</td>
-          <td class="paramname"><em>sink</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>buf</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">IntType&#160;</td>
-          <td class="paramname"><em>buflen</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Writes buffer contents to the specified Sink ensuring that the specified number of bytes are written to Sink (making multiple write calls to Sink if needed). </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">sink</td><td>iostreams sink </td></tr>
-    <tr><td class="paramname">buf</td><td>data buffer </td></tr>
-    <tr><td class="paramname">buflen</td><td>data buffer length </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="a7fc69b43c692fedc395b889cd5ee1dc2"></a>
+<a class="anchor" id="a58297eb0226b50473448f974b177375e"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -827,8 +1549,8 @@ template&lt;typename Sink &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>str</em>&#160;</td>
+          <td class="paramtype">span&lt; const char &gt;&#160;</td>
+          <td class="paramname"><em>span</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -838,11 +1560,11 @@ template&lt;typename Sink &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Writes string contents to the specified Sink ensuring that the specified number of bytes are written to Sink (making multiple write calls to Sink if needed). </p>
+<p>Writes buffer contents to the specified Sink ensuring that the specified number of bytes are written to Sink (making multiple write calls to Sink if needed). </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">sink</td><td>iostreams sink </td></tr>
-    <tr><td class="paramname">str</td><td>data string </td></tr>
+    <tr><td class="paramname">span</td><td>buffer span </td></tr>
   </table>
   </dd>
 </dl>
@@ -852,7 +1574,7 @@ template&lt;typename Sink &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Dec 13 2015 15:00:54 for staticlib_io by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Apr 8 2017 19:05:34 for staticlib_io by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

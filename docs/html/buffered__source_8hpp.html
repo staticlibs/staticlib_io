@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">staticlib_io
-   &#160;<span id="projectnumber">1.1.4</span>
+   &#160;<span id="projectnumber">1.2.1</span>
    </div>
   </td>
  </tr>
@@ -92,10 +92,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">buffered_source.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;array&gt;</code><br/>
+<div class="textblock"><code>#include &lt;cstring&gt;</code><br/>
+<code>#include &lt;array&gt;</code><br/>
 <code>#include &lt;ios&gt;</code><br/>
 <code>#include &lt;utility&gt;</code><br/>
-<code>#include &lt;cstring&gt;</code><br/>
+<code>#include &quot;staticlib/config.hpp&quot;</code><br/>
+<code>#include &quot;<a class="el" href="io__exception_8hpp_source.html">staticlib/io/io_exception.hpp</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="reference__source_8hpp_source.html">staticlib/io/reference_source.hpp</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="span_8hpp_source.html">staticlib/io/span.hpp</a>&quot;</code><br/>
 </div>
 <p><a href="buffered__source_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -111,14 +115,18 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a65131dac4a9b5ef0c9be2497e88488d7"><td class="memTemplParams" colspan="2">template&lt;typename Source &gt; </td></tr>
-<tr class="memitem:a65131dac4a9b5ef0c9be2497e88488d7"><td class="memTemplItemLeft" align="right" valign="top">buffered_source&lt; Source &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a65131dac4a9b5ef0c9be2497e88488d7">staticlib::io::make_buffered_source</a> (Source &amp;&amp;source)</td></tr>
-<tr class="memdesc:a65131dac4a9b5ef0c9be2497e88488d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory function for creating buffered sources.  <a href="#a65131dac4a9b5ef0c9be2497e88488d7"></a><br/></td></tr>
+<tr class="memitem:abf751d83e9eea3ea717c49e0f91be785"><td class="memTemplParams" colspan="2">template&lt;typename Source , class  = typename std::enable_if&lt;!std::is_lvalue_reference&lt;Source&gt;::value&gt;::type&gt; </td></tr>
+<tr class="memitem:abf751d83e9eea3ea717c49e0f91be785"><td class="memTemplItemLeft" align="right" valign="top">buffered_source&lt; Source &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#abf751d83e9eea3ea717c49e0f91be785">staticlib::io::make_buffered_source</a> (Source &amp;&amp;source)</td></tr>
+<tr class="memdesc:abf751d83e9eea3ea717c49e0f91be785"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory function for creating buffered sources, created source wrapper will own specified source.  <a href="#abf751d83e9eea3ea717c49e0f91be785"></a><br/></td></tr>
+<tr class="memitem:a94643bd4a718809fed36b1da4fec7757"><td class="memTemplParams" colspan="2">template&lt;typename Source &gt; </td></tr>
+<tr class="memitem:a94643bd4a718809fed36b1da4fec7757"><td class="memTemplItemLeft" align="right" valign="top">buffered_source<br class="typebreak"/>
+&lt; reference_source&lt; Source &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a94643bd4a718809fed36b1da4fec7757">staticlib::io::make_buffered_source</a> (Source &amp;source)</td></tr>
+<tr class="memdesc:a94643bd4a718809fed36b1da4fec7757"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory function for creating buffered sources, created source wrapper will NOT own specified source.  <a href="#a94643bd4a718809fed36b1da4fec7757"></a><br/></td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Dec 13 2015 15:00:54 for staticlib_io by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Apr 8 2017 19:05:34 for staticlib_io by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>
