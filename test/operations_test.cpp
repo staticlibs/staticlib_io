@@ -115,6 +115,10 @@ void test_skip() {
     slassert('c' == buf[0]);
 }
 
+void test_replace() {
+    slassert("42bar43" == sl::io::str_replace("42{{foo}}43", {{"foo", "bar"}}));
+}
+
 int main() {
     try {
         test_write_not_all();
@@ -126,6 +130,7 @@ int main() {
         test_copy();
         test_copy_stackbuf();
         test_skip();
+        test_replace();
     } catch (const std::exception& e) {
         std::cout << e.what() << std::endl;
         return 1;

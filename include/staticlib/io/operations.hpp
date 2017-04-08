@@ -35,6 +35,9 @@
 
 #include "staticlib/io/io_exception.hpp"
 #include "staticlib/io/span.hpp"
+#include "staticlib/io/replacer_source.hpp"
+#include "staticlib/io/string_sink.hpp"
+#include "staticlib/io/string_source.hpp"
 
 namespace staticlib {
 namespace io {
@@ -161,6 +164,22 @@ void skip(Source& src, span<char> span, IntTypeSkip to_skip) {
         io::read_exact(src, {span.data(), chunklen});
         uskip -= chunklen;
     }
+}
+
+/**
+ * Replaces "{{placeholders}}" with specified values in specified string
+ * 
+ * @param input template string
+ * @param values "key->value" mapping
+ * @return string with replaced values
+ */
+std::string str_replace(const std::string& input, std::map<std::string, std::string> values) {
+    auto src = make_replacer_source(string_source(input), std::move(values), [](const std::string& err) {
+        throw io_exception(err);
+    });
+    auto sink = string_sink();
+    copy_all(src, sink);
+    return sink.get_string();
 }
 
 } // namespace
