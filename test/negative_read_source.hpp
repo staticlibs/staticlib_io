@@ -28,7 +28,7 @@ class negative_read_source {
 public:
     negative_read_source() { }
 
-    std::streamsize read(staticlib::config::span<char>) {
+    std::streamsize read(sl::io::span<char>) {
         return -2;
     }
 };

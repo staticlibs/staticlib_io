@@ -29,13 +29,11 @@
 #include <ios>
 #include <utility>
 
-#include "staticlib/config/is_integer.hpp"
-#include "staticlib/config/noexcept.hpp"
-#include "staticlib/config/span.hpp"
-#include "staticlib/config/tracemsg.hpp"
+#include "staticlib/config.hpp"
 
 #include "staticlib/io/io_exception.hpp"
 #include "staticlib/io/reference_source.hpp"
+#include "staticlib/io/span.hpp"
 
 namespace staticlib {
 namespace io {
@@ -132,7 +130,7 @@ public:
      * @param span buffer span
      * @return number of bytes processed
      */
-    std::streamsize read(staticlib::config::span<char> span) {
+    std::streamsize read(span<char> span) {
         namespace sc = staticlib::config;
         size_t ulen = span.size();
         // return from buffer
@@ -144,7 +142,7 @@ public:
         }
         // copy all data already available
         size_t uhead = avail;
-        if (!sc::is_streamsize(uhead)) {
+        if (!sl::support::is_streamsize(uhead)) {
             uhead = static_cast<size_t> (std::numeric_limits<std::streamsize>::max());
         }
         if (uhead > 0) {
@@ -166,7 +164,7 @@ public:
             // copy tail from buffer
             size_t to_read_req = ulen - uhead;
             size_t to_read = to_read_req <= avail ? to_read_req : avail;
-            if (!sc::is_streamsize(to_read + uhead)) {
+            if (!sl::support::is_streamsize(to_read + uhead)) {
                 to_read = static_cast<size_t> (std::numeric_limits<std::streamsize>::max()) - uhead;
             }
             std::memcpy(span.data() + uhead, buffer.data(), to_read);
@@ -204,13 +202,13 @@ private:
             size_t result = 0;
             while (result < length) {
                 size_t ulen = length - result;
-                if (!sc::is_streamsize(ulen)) {
+                if (!sl::support::is_streamsize(ulen)) {
                     ulen = static_cast<size_t> (std::numeric_limits<std::streamsize>::max());
                 }
                 std::streamsize amt = src.read({buf + offset + result, static_cast<std::streamsize> (ulen)});
                 if (std::char_traits<char>::eof() != amt) {
-                    if (!sc::is_sizet(amt)) throw io_exception(TRACEMSG(
-                            "Invalid result returned by underlying 'read' operation: [" + sc::to_string(amt) + "]"));
+                    if (!sl::support::is_sizet(amt)) throw io_exception(TRACEMSG(
+                            "Invalid result returned by underlying 'read' operation: [" + sl::support::to_string(amt) + "]"));
                     result += static_cast<size_t> (amt);
                 } else {
                     exhausted = true;

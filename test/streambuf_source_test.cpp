@@ -29,11 +29,9 @@
 
 #include "staticlib/config/assert.hpp"
 
-namespace io = staticlib::io;
-
 void test_read() {
     std::istringstream stream{"foo"};
-    io::streambuf_source src{stream.rdbuf()};
+    sl::io::streambuf_source src{stream.rdbuf()};
     std::string dest{};
     dest.resize(3);
     auto read = src.read({std::addressof(dest.front()), 3});

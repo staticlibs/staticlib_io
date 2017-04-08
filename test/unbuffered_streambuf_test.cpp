@@ -32,11 +32,9 @@
 #include "two_bytes_at_once_source.hpp"
 #include "two_bytes_at_once_sink.hpp"
 
-namespace io = staticlib::io;
-
 void test_unbuffered_source() {
     two_bytes_at_once_source src{"abc"};
-    auto istreambuf = io::make_unbuffered_istreambuf(std::move(src));
+    auto istreambuf = sl::io::make_unbuffered_istreambuf(std::move(src));
     std::istream stream{std::addressof(istreambuf)};
     // pass it somewhere through std api
     std::array<char, 3> buf;
@@ -48,7 +46,7 @@ void test_unbuffered_source() {
 
 void test_unbuffered_source_lvalue() {
     two_bytes_at_once_source src{"abc"};
-    auto istreambuf = io::make_unbuffered_istreambuf(src);
+    auto istreambuf = sl::io::make_unbuffered_istreambuf(src);
     std::istream stream{std::addressof(istreambuf)};
     // pass it somewhere through std api
     std::array<char, 3> buf;
@@ -60,7 +58,7 @@ void test_unbuffered_source_lvalue() {
 
 void test_unbuffered_sink() {
     two_bytes_at_once_sink sink{};
-    auto ostreambuf = io::make_unbuffered_ostreambuf(std::move(sink));
+    auto ostreambuf = sl::io::make_unbuffered_ostreambuf(std::move(sink));
     std::ostream stream{std::addressof(ostreambuf)};
     // pass it somewhere through std api
     auto written = stream.rdbuf()->sputn("abc", 3);
@@ -70,7 +68,7 @@ void test_unbuffered_sink() {
 
 void test_unbuffered_sink_lvalue() {
     two_bytes_at_once_sink sink{};
-    auto ostreambuf = io::make_unbuffered_ostreambuf(sink);
+    auto ostreambuf = sl::io::make_unbuffered_ostreambuf(sink);
     std::ostream stream{std::addressof(ostreambuf)};
     // pass it somewhere through std api
     auto written = stream.rdbuf()->sputn("abc", 3);

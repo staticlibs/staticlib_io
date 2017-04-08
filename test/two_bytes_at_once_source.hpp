@@ -44,7 +44,7 @@ public:
         return *this;
     }
 
-    std::streamsize read(staticlib::config::span<char> span) {
+    std::streamsize read(sl::io::span<char> span) {
         char* s = span.data();
         std::streamsize n = span.size_signed();
         if (ind >= data.size()) return std::char_traits<char>::eof();

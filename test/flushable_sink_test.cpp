@@ -32,11 +32,9 @@
 
 #include "non_flushable_sink.hpp"
 
-namespace io = staticlib::io;
-
 void test_flushable() {
-    auto sink = io::make_flushable_sink(non_flushable_sink{});
-    io::counting_sink<io::flushable_sink<non_flushable_sink>>wrapped{std::move(sink)};
+    auto sink = sl::io::make_flushable_sink(non_flushable_sink{});
+    sl::io::counting_sink<sl::io::flushable_sink<non_flushable_sink>>wrapped{std::move(sink)};
     auto written = wrapped.write({"foo", 3});
     slassert(3 == written);
     slassert(3 == wrapped.get_count());
@@ -45,7 +43,7 @@ void test_flushable() {
 
 void test_lvalue() {
     non_flushable_sink dest{};
-    auto sink = io::make_flushable_sink(dest);
+    auto sink = sl::io::make_flushable_sink(dest);
     (void) sink;
 }
 

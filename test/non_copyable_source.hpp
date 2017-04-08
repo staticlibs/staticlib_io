@@ -38,7 +38,7 @@ public:
 
     non_copyable_source& operator=(non_copyable_source&&) = delete;
 
-    std::streamsize read(staticlib::config::span<char> span) {
+    std::streamsize read(sl::io::span<char> span) {
         count += span.size();
         return span.size_signed();
     }

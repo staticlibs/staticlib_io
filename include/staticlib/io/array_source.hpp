@@ -28,10 +28,10 @@
 #include <cstring>
 #include <ios>
 
-#include "staticlib/config/noexcept.hpp"
-#include "staticlib/config/span.hpp"
+#include "staticlib/config.hpp"
 
 #include "staticlib/io/io_exception.hpp"
+#include "staticlib/io/span.hpp"
 
 namespace staticlib {
 namespace io {
@@ -124,7 +124,7 @@ public:
      * @param span buffer span
      * @return number of bytes processed
      */
-    std::streamsize read(staticlib::config::span<char> span) {
+    std::streamsize read(span<char> span) {
         size_t ulen = span.size();
         size_t avail = src_buf_len - idx;
         if (avail > 0) {

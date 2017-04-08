@@ -30,11 +30,9 @@
 
 #include "test_utils.hpp"
 
-namespace io = staticlib::io;
-
 void test_read() {
     std::array<char, 3> arr = {{'b', 'a', 'r'}};
-    io::array_source src(arr.data(), arr.size());
+    sl::io::array_source src(arr.data(), arr.size());
     std::array<char, 4> out;
     auto res = src.read(out);
     slassert(3 == res);

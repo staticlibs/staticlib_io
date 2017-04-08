@@ -30,10 +30,8 @@
 
 #include "test_utils.hpp"
 
-namespace io = staticlib::io;
-
 void test_write() {
-    io::string_sink sink{};
+    sl::io::string_sink sink{};
     auto res = sink.write({"bar", 3});
     slassert(3 == res);
     slassert(sink.get_string() == "bar");

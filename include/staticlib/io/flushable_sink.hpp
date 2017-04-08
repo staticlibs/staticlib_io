@@ -26,10 +26,10 @@
 
 #include <ios>
 
-#include "staticlib/config/noexcept.hpp"
-#include "staticlib/config/span.hpp"
+#include "staticlib/config.hpp"
 
 #include "staticlib/io/reference_sink.hpp"
+#include "staticlib/io/span.hpp"
 
 namespace staticlib {
 namespace io {
@@ -94,7 +94,7 @@ public:
      * @param span buffer span
      * @return number of bytes processed
      */
-    std::streamsize write(staticlib::config::span<const char> span) {
+    std::streamsize write(span<const char> span) {
         return sink.write(span);
     }
 

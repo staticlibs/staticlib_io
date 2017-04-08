@@ -30,11 +30,9 @@
 
 #include "test_utils.hpp"
 
-namespace io = staticlib::io;
-
 void test_read() {
     std::string st{"bar"};
-    io::string_source src{std::move(st)};
+    sl::io::string_source src{std::move(st)};
     std::array<char, 4> out;
     auto res = src.read(out);
     slassert(3 == res);

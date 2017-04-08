@@ -32,10 +32,8 @@
 #include "two_bytes_at_once_source.hpp"
 #include "two_bytes_at_once_sink.hpp"
 
-namespace io = staticlib::io;
-
 void test_copy() {
-    auto src = io::make_copying_source(two_bytes_at_once_source{"42"}, two_bytes_at_once_sink{});
+    auto src = sl::io::make_copying_source(two_bytes_at_once_source{"42"}, two_bytes_at_once_sink{});
     std::string dest{};
     dest.resize(2);
     auto read = src.read(dest);
@@ -47,7 +45,7 @@ void test_copy() {
 }
 
 void test_omit_tail() {
-    auto src = io::make_copying_source(two_bytes_at_once_source{"42foo"}, two_bytes_at_once_sink{});
+    auto src = sl::io::make_copying_source(two_bytes_at_once_source{"42foo"}, two_bytes_at_once_sink{});
     std::string dest{};
     dest.resize(2);
     auto read = src.read(dest);
@@ -61,7 +59,7 @@ void test_omit_tail() {
 void test_lvalue() {
     two_bytes_at_once_source s1{"42foo"};
     two_bytes_at_once_sink s2{};
-    auto src = io::make_copying_source(s1, s2);
+    auto src = sl::io::make_copying_source(s1, s2);
     (void) src;
 }
 

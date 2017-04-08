@@ -43,7 +43,7 @@ public:
         return *this;
     }
 
-    std::streamsize write(staticlib::config::span<const char> span) {
+    std::streamsize write(sl::io::span<const char> span) {
         count += span.size();
         return span.size_signed();
     }

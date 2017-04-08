@@ -32,8 +32,6 @@
 #include "two_bytes_at_once_source.hpp"
 #include "two_bytes_at_once_sink.hpp"
 
-namespace io = staticlib::io;
-
 void test_write_not_all() {
     two_bytes_at_once_sink sink{};
     auto written = sink.write({"abc", 3});
@@ -44,7 +42,7 @@ void test_write_not_all() {
 
 void test_write_all_buffer() {
     two_bytes_at_once_sink sink{};
-    io::write_all(sink, {"abc", 3});
+    sl::io::write_all(sink, {"abc", 3});
     slassert(3 == sink.get_data().length());
     slassert("abc" == sink.get_data());
 }
@@ -52,7 +50,7 @@ void test_write_all_buffer() {
 void test_write_all_str() {
     two_bytes_at_once_sink sink{};
     std::string data{"abc"};
-    io::write_all(sink, data);
+    sl::io::write_all(sink, data);
     slassert(3 == sink.get_data().length());
     slassert("abc" == sink.get_data());
 }
@@ -70,7 +68,7 @@ void test_read_not_all() {
 void test_read_all() {
     two_bytes_at_once_source src{"abc"};
     std::array<char, 4> buf;
-    auto read = io::read_all(src, {buf.data(), 3});
+    auto read = sl::io::read_all(src, {buf.data(), 3});
     slassert(3 == read);
     std::string res{buf.data(), read};
     slassert(3 == res.length());
@@ -82,8 +80,8 @@ void test_read_exact() {
     std::array<char, 5> buf;
     bool thrown = false;
     try {
-        io::read_exact(src, {buf.data(), 4});
-    } catch (const io::io_exception&) {
+        sl::io::read_exact(src, {buf.data(), 4});
+    } catch (const sl::io::io_exception&) {
         thrown = true;
     }
     slassert(thrown);
@@ -93,7 +91,7 @@ void test_copy() {
     two_bytes_at_once_sink sink{};
     two_bytes_at_once_source src{"abc"};
     std::array<char, 2> buf;
-    auto copied = io::copy_all(src, sink, buf);
+    auto copied = sl::io::copy_all(src, sink, buf);
     slassert(3 == copied);
     slassert(3 == sink.get_data().length());
     slassert("abc" == sink.get_data());
@@ -102,7 +100,7 @@ void test_copy() {
 void test_copy_stackbuf() {
     two_bytes_at_once_sink sink{};
     two_bytes_at_once_source src{"abc"};
-    auto copied = io::copy_all(src, sink);
+    auto copied = sl::io::copy_all(src, sink);
     slassert(3 == copied);
     slassert(3 == sink.get_data().length());
     slassert("abc" == sink.get_data());
@@ -111,7 +109,7 @@ void test_copy_stackbuf() {
 void test_skip() {
     two_bytes_at_once_source src{"abc"};
     std::array<char, 1> buf;
-    io::skip(src, {buf.data(), 1}, 2);
+    sl::io::skip(src, {buf.data(), 1}, 2);
     auto read = src.read({buf.data(), 1});
     slassert(1 == read);
     slassert('c' == buf[0]);

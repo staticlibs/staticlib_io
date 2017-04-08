@@ -31,10 +31,8 @@
 
 #include "two_bytes_at_once_source.hpp"
 
-namespace io = staticlib::io;
-
 void test_count() {
-    auto src = io::make_counting_source(two_bytes_at_once_source{"42"});
+    auto src = sl::io::make_counting_source(two_bytes_at_once_source{"42"});
     std::array<char, 2> arr;
     auto read = src.read(arr);
     slassert(2 == read);
@@ -43,7 +41,7 @@ void test_count() {
 
 void test_count_overflow() {
     two_bytes_at_once_source delegate{"foo42"};
-    auto src = io::make_counting_source(delegate);
+    auto src = sl::io::make_counting_source(delegate);
     std::array<char, 5> arr;
     auto read = src.read(arr);
     slassert(2 == read);

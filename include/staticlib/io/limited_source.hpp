@@ -26,14 +26,12 @@
 
 #include <ios>
 
-#include "staticlib/config/is_integer.hpp"
-#include "staticlib/config/noexcept.hpp"
-#include "staticlib/config/span.hpp"
-#include "staticlib/config/tracemsg.hpp"
+#include "staticlib/config.hpp"
 
 #include "staticlib/io/io_exception.hpp"
 #include "staticlib/io/counting_source.hpp"
 #include "staticlib/io/reference_source.hpp"
+#include "staticlib/io/span.hpp"
 
 namespace staticlib {
 namespace io {
@@ -112,18 +110,18 @@ public:
      * @param span buffer span
      * @return number of bytes processed
      */
-    std::streamsize read(staticlib::config::span<char> span) {
+    std::streamsize read(span<char> span) {
         namespace sc = staticlib::config;
         size_t ulen = span.size();
         if (ulen > limit_bytes) throw io_exception(TRACEMSG(
                 "Read limit threshold exceeded, " + 
-                " limit: [" + sc::to_string(limit_bytes) + "]," +
-                " requested length: [" + sc::to_string(ulen) + "]"));
+                " limit: [" + sl::support::to_string(limit_bytes) + "]," +
+                " requested length: [" + sl::support::to_string(ulen) + "]"));
         if (src.get_count() > limit_bytes - ulen) throw io_exception(TRACEMSG(
                 "Read limit threshold exceeded, " +
-                " already read: [" + sc::to_string(src.get_count()) + "]" +
-                " limit: [" + sc::to_string(limit_bytes) + "]," +
-                " requested length: [" + sc::to_string(ulen) + "]"));
+                " already read: [" + sl::support::to_string(src.get_count()) + "]" +
+                " limit: [" + sl::support::to_string(limit_bytes) + "]," +
+                " requested length: [" + sl::support::to_string(ulen) + "]"));
         return src.read(span);
     }
 

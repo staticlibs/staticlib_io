@@ -27,8 +27,9 @@
 #include <ios>
 #include <streambuf>
 
-#include "staticlib/config/noexcept.hpp"
-#include "staticlib/config/span.hpp"
+#include "staticlib/config.hpp"
+
+#include "staticlib/io/span.hpp"
 
 namespace staticlib {
 namespace io {
@@ -95,7 +96,7 @@ public:
      * @param span buffer span
      * @return number of bytes processed
      */    
-    std::streamsize read(staticlib::config::span<char> span) {
+    std::streamsize read(span<char> span) {
         std::streamsize res = streambuf->sgetn(span.data(), span.size_signed());
         if (res > 0) {
             return res;

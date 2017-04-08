@@ -31,13 +31,12 @@
 #include <string>
 #include <vector>
 
-#include "staticlib/config/noexcept.hpp"
-#include "staticlib/config/span.hpp"
-#include "staticlib/config/tracemsg.hpp"
+#include "staticlib/config.hpp"
 
 #include "staticlib/io/io_exception.hpp"
 #include "staticlib/io/buffered_source.hpp"
 #include "staticlib/io/reference_source.hpp"
+#include "staticlib/io/span.hpp"
 
 namespace staticlib {
 namespace io {
@@ -191,7 +190,7 @@ public:
      * @param span buffer span
      * @return number of bytes processed
      */
-    std::streamsize read(staticlib::config::span<char> span) {
+    std::streamsize read(span<char> span) {
         size_t ulen = span.size();
         // return from buffer
         std::streamsize read_buffered = copy_buffered(span.data(), ulen);

@@ -32,11 +32,9 @@
 
 #include "non_copyable_source.hpp"
 
-namespace io = staticlib::io;
-
 void test_movable() {
-    io::unique_source<non_copyable_source> source{new non_copyable_source{}};
-    io::counting_source<io::unique_source<non_copyable_source>> wrapped{std::move(source)};
+    sl::io::unique_source<non_copyable_source> source{new non_copyable_source{}};
+    sl::io::counting_source<sl::io::unique_source<non_copyable_source>> wrapped{std::move(source)};
     std::array<char, 3> buf;
     auto read = wrapped.read(buf);
     slassert(3 == read);

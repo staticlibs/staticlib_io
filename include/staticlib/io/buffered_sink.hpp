@@ -29,13 +29,11 @@
 #include <ios>
 #include <utility>
 
-#include "staticlib/config/is_integer.hpp"
-#include "staticlib/config/noexcept.hpp"
-#include "staticlib/config/span.hpp"
-#include "staticlib/config/tracemsg.hpp"
+#include "staticlib/config.hpp"
 
 #include "staticlib/io/io_exception.hpp"
 #include "staticlib/io/reference_sink.hpp"
+#include "staticlib/io/span.hpp"
 
 namespace staticlib {
 namespace io {
@@ -135,7 +133,7 @@ public:
      * @param span buffer span
      * @return number of bytes processed
      */
-    std::streamsize write(staticlib::config::span<const char> span) {
+    std::streamsize write(span<const char> span) {
         size_t ulen = span.size();
         if (ulen >= buffer.size()) {
             write_to_sink(buffer.data(), pos);
@@ -203,12 +201,12 @@ private:
         size_t result = 0;
         while (result < length) {
             size_t ulen = length - result;
-            if (!sc::is_streamsize(ulen)) {
+            if (!sl::support::is_streamsize(ulen)) {
                 ulen = static_cast<size_t> (std::numeric_limits<std::streamsize>::max());
             }
             std::streamsize amt = sink.write({buf + result, static_cast<std::streamsize>(ulen)});
-            if (!sc::is_sizet(amt)) throw io_exception(TRACEMSG(
-                    "Invalid result returned by underlying 'write' operation: [" + sc::to_string(amt) + "]"));
+            if (!sl::support::is_sizet(amt)) throw io_exception(TRACEMSG(
+                    "Invalid result returned by underlying 'write' operation: [" + sl::support::to_string(amt) + "]"));
             result += static_cast<size_t> (amt);
         }
     }

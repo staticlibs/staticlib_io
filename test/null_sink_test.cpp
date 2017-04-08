@@ -27,10 +27,8 @@
 
 #include "staticlib/config/assert.hpp"
 
-namespace io = staticlib::io;
-
 void test_write_and_flush() {
-    io::null_sink sink{};
+    sl::io::null_sink sink{};
     auto written = sink.write({"foo", 3});
     slassert(3 == written);
     sink.flush();

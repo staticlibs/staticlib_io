@@ -29,12 +29,10 @@
 #include <cstdint>
 #include <cstring>
 
-#include "staticlib/config/is_integer.hpp"
-#include "staticlib/config/noexcept.hpp"
-#include "staticlib/config/span.hpp"
-#include "staticlib/config/tracemsg.hpp"
+#include "staticlib/config.hpp"
 
 #include "staticlib/io/io_exception.hpp"
+#include "staticlib/io/span.hpp"
 
 namespace staticlib {
 namespace io {
@@ -136,7 +134,7 @@ public:
      * @param span buffer span
      * @return number of bytes processed
      */
-    std::streamsize read(staticlib::config::span<char> span) {
+    std::streamsize read(span<char> span) {
         namespace sc = staticlib::config;
         size_t ulen = span.size();
         size_t avail = str_len - idx;

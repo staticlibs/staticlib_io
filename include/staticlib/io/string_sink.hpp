@@ -29,12 +29,10 @@
 #include <ios>
 #include <string>
 
-#include "staticlib/config/is_integer.hpp"
-#include "staticlib/config/noexcept.hpp"
-#include "staticlib/config/span.hpp"
-#include "staticlib/config/tracemsg.hpp"
+#include "staticlib/config.hpp"
 
 #include "staticlib/io/io_exception.hpp"
+#include "staticlib/io/span.hpp"
 
 namespace staticlib {
 namespace io {
@@ -102,12 +100,12 @@ public:
      * @param span buffer span
      * @return number of bytes processed
      */
-    std::streamsize write(staticlib::config::span<const char> span) {
+    std::streamsize write(span<const char> span) {
         namespace sc = staticlib::config;
         size_t ulen = span.size();
         size_t size = str.size();
-        if (!sc::is_streamsize(size)) throw io_exception(TRACEMSG(
-                "Target string size limit exceeded, length: [" + sc::to_string(str.size()) + "]"));
+        if (!sl::support::is_streamsize(size)) throw io_exception(TRACEMSG(
+                "Target string size limit exceeded, length: [" + sl::support::to_string(str.size()) + "]"));
         str.resize(size + ulen);
         std::memcpy(std::addressof(str.front()) + size, span.data(), ulen);
         return static_cast<std::streamsize> (ulen);

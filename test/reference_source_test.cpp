@@ -32,12 +32,10 @@
 
 #include "non_copyable_source.hpp"
 
-namespace io = staticlib::io;
-
 void test_ref() {
     non_copyable_source nc_src{};
-    auto source = io::make_reference_source(nc_src);
-    auto wrapped = io::make_counting_source(std::move(source));
+    auto source = sl::io::make_reference_source(nc_src);
+    auto wrapped = sl::io::make_counting_source(std::move(source));
     std::array<char, 3> buf;
     auto read = wrapped.read(buf);
     slassert(3 == read);

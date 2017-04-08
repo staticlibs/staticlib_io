@@ -26,11 +26,10 @@
 
 #include <ios>
 
-#include "staticlib/config/is_integer.hpp"
-#include "staticlib/config/noexcept.hpp"
-#include "staticlib/config/span.hpp"
+#include "staticlib/config.hpp"
 
 #include "staticlib/io/reference_source.hpp"
+#include "staticlib/io/span.hpp"
 
 namespace staticlib {
 namespace io {
@@ -104,10 +103,10 @@ public:
      * @param span buffer span
      * @return number of bytes processed
      */
-    std::streamsize read(staticlib::config::span<char> span) {
+    std::streamsize read(span<char> span) {
         namespace sc = staticlib::config;
         std::streamsize res = src.read(span);
-        if (sc::is_sizet(res)) {
+        if (sl::support::is_sizet(res)) {
             count += static_cast<size_t>(res);
         }
         return res;

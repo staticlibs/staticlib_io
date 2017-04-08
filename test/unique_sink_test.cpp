@@ -31,11 +31,9 @@
 
 #include "non_copyable_sink.hpp"
 
-namespace io = staticlib::io;
-
 void test_movable() {
-    io::unique_sink<non_copyable_sink> sink{new non_copyable_sink{}};
-    io::counting_sink<io::unique_sink<non_copyable_sink>> wrapped{std::move(sink)};    
+    sl::io::unique_sink<non_copyable_sink> sink{new non_copyable_sink{}};
+    sl::io::counting_sink<sl::io::unique_sink<non_copyable_sink>> wrapped{std::move(sink)};    
     auto written = wrapped.write({"foo", 3});
     slassert(3 == written);
     slassert(3 == wrapped.get_count());

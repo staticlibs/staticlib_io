@@ -39,7 +39,7 @@ public:
 
     non_copyable_sink& operator=(non_copyable_sink&&) = delete;
 
-    std::streamsize write(staticlib::config::span<const char> span) {
+    std::streamsize write(sl::io::span<const char> span) {
         count += span.size();
         return span.size_signed();
     }

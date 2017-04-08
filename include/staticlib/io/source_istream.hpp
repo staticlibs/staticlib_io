@@ -30,6 +30,7 @@
 
 #include "staticlib/io/unbuffered_streambuf.hpp"
 #include "staticlib/io/reference_source.hpp"
+#include "staticlib/io/span.hpp"
 
 namespace staticlib {
 namespace io {
