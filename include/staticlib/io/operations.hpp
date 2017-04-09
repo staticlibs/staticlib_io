@@ -173,7 +173,7 @@ void skip(Source& src, span<char> span, IntTypeSkip to_skip) {
  * @param values "key->value" mapping
  * @return string with replaced values
  */
-std::string str_replace(const std::string& input, std::map<std::string, std::string> values) {
+inline std::string str_replace(const std::string& input, std::map<std::string, std::string> values) {
     auto src = make_replacer_source(string_source(input), std::move(values), [](const std::string& err) {
         throw io_exception(err);
     });
