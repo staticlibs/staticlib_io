@@ -29,6 +29,8 @@
 
 #include "staticlib/config/assert.hpp"
 
+#include "staticlib/io/string_source.hpp"
+
 #include "negative_read_source.hpp"
 #include "two_bytes_at_once_source.hpp"
 #include "test_utils.hpp"
@@ -75,6 +77,25 @@ void test_throw() {
     }));
 }
 
+void test_read_line() {
+    auto src = sl::io::make_buffered_source(sl::io::string_source("foo\nbar\nbaz"));
+    slassert("foo" == src.read_line());
+    slassert("bar" == src.read_line());
+    slassert("baz" == src.read_line());
+}
+
+void test_read_line_multi() {
+    auto src = sl::io::make_buffered_source(sl::io::string_source("foo\r\nbar42\r\nbaz1"));
+    slassert("foo" == src.read_line("\r\n"));
+    slassert("bar42" == src.read_line("\r\n"));
+    slassert("baz1" == src.read_line("\r\n"));
+}
+
+void test_read_line_threshold() { 
+    auto src = sl::io::make_buffered_source(sl::io::string_source("foo"));
+    slassert("fo" == src.read_line("", 2));
+}
+
 int main() {
     try {
         test_buffered();
@@ -82,6 +103,9 @@ int main() {
         test_make_rvalue();
         test_make_lvalue();
         test_throw();
+        test_read_line();
+        test_read_line_multi();
+        test_read_line_threshold();
     } catch (const std::exception& e) {
         std::cout << e.what() << std::endl;
         return 1;

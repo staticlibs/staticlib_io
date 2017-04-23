@@ -27,6 +27,7 @@
 #include <cstring>
 #include <array>
 #include <ios>
+#include <string>
 #include <utility>
 
 #include "staticlib/config.hpp"
@@ -174,6 +175,39 @@ public:
             return static_cast<std::streamsize>(to_read + uhead);
         }
         return head == 0 ? std::char_traits<char>::eof() : head;
+    }
+    
+    /**
+     * Reads underlying source until specified line ending is met
+     * or length threshold exceeded.
+     * 
+     * @param ending line ending
+     * @param max_length length threshold
+     * @return line
+     */
+    std::string read_line(const std::string& ending = "\n", size_t max_length = (1<<16)) {
+        std::string line;
+        char ch;
+        while(line.length() < max_length && 1 == read({std::addressof(ch), 1})) {
+            line.push_back(ch);
+            if (ending.length() > 0 && ch == ending.back() && line.length() >= ending.length()) {
+                bool matched = true;
+                size_t sdiff = line.length() - ending.length();
+                for (int i = static_cast<int>(ending.length()) - 2; i >= 0; i--) {
+                    if (ending[i] != line[sdiff + i]) {
+                        matched = false;
+                        break;
+                    }
+                }
+                if (matched) {
+                    for (size_t i = 0; i < ending.length(); i++) {
+                        line.pop_back();
+                    }
+                    break;
+                }
+            }
+        }
+        return line;
     }
     
     /**
