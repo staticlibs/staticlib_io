@@ -64,6 +64,24 @@ public:
     array_source(const char* src_buf, size_t src_buf_len) :
     src_buf(src_buf),
     src_buf_len(src_buf_len) { }
+
+    /**
+     * Constructor
+     * 
+     * @param src_buf source span
+     */
+    array_source(span<const char> src_buf) :
+    src_buf(src_buf.data()),
+    src_buf_len(src_buf.size()) { }
+
+    /**
+     * Constructor
+     * 
+     * @param src_buf source span
+     */
+    array_source(span<char> src_buf) :
+    src_buf(src_buf.data()),
+    src_buf_len(src_buf.size()) { }
     
     /**
      * Copy constructor
