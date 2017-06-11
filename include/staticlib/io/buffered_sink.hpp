@@ -197,7 +197,6 @@ public:
 
 private:
     void write_to_sink(const char* buf, size_t length) {
-        namespace sc = staticlib::config;
         size_t result = 0;
         while (result < length) {
             size_t ulen = length - result;

@@ -104,7 +104,6 @@ public:
      * @return number of bytes processed
      */
     std::streamsize write(span<const char> span) {
-        namespace sc = staticlib::config;
         std::streamsize res = sink.write(span);
         if (sl::support::is_sizet(res)) {
             count += static_cast<size_t>(res);

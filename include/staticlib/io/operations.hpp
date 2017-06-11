@@ -52,7 +52,6 @@ namespace io {
  */
 template<typename Sink>
 void write_all(Sink& sink, span<const char> span) {
-    namespace sc = staticlib::config;
     size_t ulen = span.size();
     size_t result = 0;
     while (result < ulen) {
@@ -73,7 +72,6 @@ void write_all(Sink& sink, span<const char> span) {
  */
 template<typename Source>
 size_t read_all(Source& src, span<char> span) {
-    namespace sc = staticlib::config;
     size_t ulen = span.size();
     size_t result = 0;
     while (result < ulen) {
@@ -96,7 +94,6 @@ size_t read_all(Source& src, span<char> span) {
  */
 template<typename Source>
 void read_exact(Source& src, span<char> span) {
-    namespace sc = staticlib::config;
     size_t res = read_all(src, span);
     if (res != span.size()) throw io_exception(TRACEMSG(
             "Read amount: [" + sl::support::to_string(res) + "]" +
@@ -154,7 +151,6 @@ size_t copy_all(Source& src, Sink& sink) {
  */
 template<typename Source, typename IntTypeSkip>
 void skip(Source& src, span<char> span, IntTypeSkip to_skip) {
-    namespace sc = staticlib::config;
     if (!(sl::support::is_sizet(to_skip) && sl::support::is_streamsize(to_skip))) throw io_exception(TRACEMSG(
             "Invalid 'skip' parameter specified, to_skip: [" + sl::support::to_string(to_skip) + "]"));
     size_t ulen = span.size();

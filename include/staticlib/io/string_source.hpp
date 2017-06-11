@@ -135,7 +135,6 @@ public:
      * @return number of bytes processed
      */
     std::streamsize read(span<char> span) {
-        namespace sc = staticlib::config;
         size_t ulen = span.size();
         size_t avail = str_len - idx;
         if (avail > 0) {            

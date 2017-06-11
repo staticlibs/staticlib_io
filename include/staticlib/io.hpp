@@ -26,6 +26,7 @@
 
 #include "staticlib/config.hpp"
 
+#include "staticlib/io/array_sink.hpp"
 #include "staticlib/io/array_source.hpp"
 #include "staticlib/io/buffered_sink.hpp"
 #include "staticlib/io/buffered_source.hpp"

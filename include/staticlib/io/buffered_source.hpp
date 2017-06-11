@@ -132,7 +132,6 @@ public:
      * @return number of bytes processed
      */
     std::streamsize read(span<char> span) {
-        namespace sc = staticlib::config;
         size_t ulen = span.size();
         // return from buffer
         if (ulen <= avail) {
@@ -231,7 +230,6 @@ public:
 private:
     // repeatable source read logic
     size_t read_into_buffer(char* buf, size_t offset, size_t length) {
-        namespace sc = staticlib::config;
         if (!exhausted) {
             size_t result = 0;
             while (result < length) {

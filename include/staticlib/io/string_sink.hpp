@@ -101,7 +101,6 @@ public:
      * @return number of bytes processed
      */
     std::streamsize write(span<const char> span) {
-        namespace sc = staticlib::config;
         size_t ulen = span.size();
         size_t size = str.size();
         if (!sl::support::is_streamsize(size)) throw io_exception(TRACEMSG(

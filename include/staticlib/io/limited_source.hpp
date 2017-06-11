@@ -111,7 +111,6 @@ public:
      * @return number of bytes processed
      */
     std::streamsize read(span<char> span) {
-        namespace sc = staticlib::config;
         size_t ulen = span.size();
         if (ulen > limit_bytes) throw io_exception(TRACEMSG(
                 "Read limit threshold exceeded, " + 
