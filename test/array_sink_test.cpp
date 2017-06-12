@@ -29,7 +29,7 @@
 #include "staticlib/config/assert.hpp"
 
 void test_sink() {
-    auto sink = sl::io::array_sink();
+    auto sink = sl::io::make_array_sink();
     sink.write({"42"});
     sink.write({"foo"});
     sink.write({"1"});
