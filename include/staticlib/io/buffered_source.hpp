@@ -178,11 +178,12 @@ public:
     
     /**
      * Reads underlying source until specified line ending is met
-     * or length threshold exceeded.
+     * or length threshold exceeded. Lines consisting solely of
+     * line endings will be ignored.
      * 
      * @param ending line ending
      * @param max_length length threshold
-     * @return line
+     * @return line without endline separator or empty string on EOF
      */
     std::string read_line(const std::string& ending = "\n", size_t max_length = (1<<16)) {
         std::string line;
@@ -202,7 +203,9 @@ public:
                     for (size_t i = 0; i < ending.length(); i++) {
                         line.pop_back();
                     }
-                    break;
+                    if (line.length() > 0) {
+                        break;
+                    }
                 }
             }
         }

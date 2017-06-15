@@ -78,7 +78,7 @@ void test_throw() {
 }
 
 void test_read_line() {
-    auto src = sl::io::make_buffered_source(sl::io::string_source("foo\nbar\nbaz"));
+    auto src = sl::io::make_buffered_source(sl::io::string_source("foo\nbar\n\n\nbaz"));
     slassert("foo" == src.read_line());
     slassert("bar" == src.read_line());
     slassert("baz" == src.read_line());
