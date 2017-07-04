@@ -40,7 +40,7 @@ namespace io {
 namespace detail_array_sink {
 
 inline char* default_alloc(int size_bytes) {
-    if (!size_bytes > 0) {
+    if (size_bytes <= 0) {
         return nullptr;
     }
     return reinterpret_cast<char*> (std::malloc(static_cast<size_t> (size_bytes)));
@@ -175,8 +175,8 @@ public:
      */
     std::streamsize write(span<const char> span) {
         while (bufsize + span.size() > capacity) {
-            capacity = capacity * grow_coef;
-            char* nbuf = alloc_fun(capacity + 1);
+            capacity = static_cast<size_t>(static_cast<float>(capacity) * grow_coef);
+            char* nbuf = alloc_fun(static_cast<int>(capacity + 1));
             if (nullptr == nbuf) throw io_exception(TRACEMSG(
                     "Alloc error for capacity: [" + sl::support::to_string(capacity) + "]"));
             std::memcpy(nbuf, buf, bufsize);
