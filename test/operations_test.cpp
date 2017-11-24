@@ -119,6 +119,19 @@ void test_replace() {
     slassert("42bar43" == sl::io::str_replace("42{{foo}}43", {{"foo", "bar"}}));
 }
 
+void test_copy_hex() {
+    // hello in russian
+    std::string plain = "\xd0\xbf\xd1\x80\xd0\xb8\xd0\xb2\xd0\xb5\xd1\x82";
+    auto plain_src = sl::io::string_source(plain);
+    auto hex_sink = sl::io::string_sink();
+    auto count_to = sl::io::copy_to_hex(plain_src, hex_sink);
+    auto hex_src = sl::io::string_source(hex_sink.get_string());
+    auto plain_sink = sl::io::string_sink();
+    auto count_from = sl::io::copy_from_hex(hex_src, plain_sink);
+    slassert(count_to == count_from);
+    slassert(plain == plain_sink.get_string());
+}
+
 int main() {
     try {
         test_write_not_all();
@@ -131,6 +144,7 @@ int main() {
         test_copy_stackbuf();
         test_skip();
         test_replace();
+        test_copy_hex();
     } catch (const std::exception& e) {
         std::cout << e.what() << std::endl;
         return 1;

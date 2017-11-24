@@ -25,6 +25,8 @@
 #define	STATICLIB_IO_OPERATIONS_HPP
 
 #include <cstdint>
+#include <cstdlib>
+#include <cerrno>
 #include <algorithm>
 #include <array>
 #include <ios>
@@ -41,6 +43,12 @@
 
 namespace staticlib {
 namespace io {
+
+namespace operations_detail {
+
+const std::array<char, 16> symbols = {{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'}};
+
+} // namespace
 
 /**
  * Writes buffer contents to the specified Sink ensuring that 
@@ -176,6 +184,66 @@ inline std::string str_replace(const std::string& input, std::map<std::string, s
     auto sink = string_sink();
     copy_all(src, sink);
     return sink.get_string();
+}
+
+/**
+ * Reads bytes from specified source one by one,
+ * converts them to HEX and writes to specified sink.
+ * 
+ * @param src source with plain data
+ * @param sink sink for HEX data
+ * @return number of bytes converted to HEX
+ */
+template<typename Source, typename Sink>
+size_t copy_to_hex(Source& src, Sink& sink) {
+    char ch = '\0';
+    auto hbuf = std::array<char, 2>();
+    hbuf[0] = '\0';
+    hbuf[1] = '\0';
+    size_t count = 0;
+    while(1 == read_all(src, {std::addressof(ch), 1})) {
+        // http://stackoverflow.com/a/18025541/314015
+        unsigned char uch = static_cast<unsigned char>(ch);
+        hbuf[0] = operations_detail::symbols[static_cast<size_t>(uch >> 4)];
+        hbuf[1] = operations_detail::symbols[static_cast<size_t>(uch & 0x0f)];
+        sl::io::write_all(sink, {hbuf.data(), hbuf.size()});
+        count += 1;
+    }
+    return count;
+}
+
+/**
+ * Reads HEX pairs from specified source,
+ * parses them into byte representation and
+ * writes to specified sink.
+ * 
+ * @param src source with HEX data
+ * @param sink sink for plain data
+ * @return number of bytes converted from HEX
+ */
+template<typename Source, typename Sink>
+size_t copy_from_hex(Source& src, Sink& sink) {
+    std::array<char, 3> hbuf;
+    hbuf[0] = '\0';
+    hbuf[1] = '\0';
+    hbuf[2] = '\0';
+    size_t count = 0;
+    size_t read = 0;
+    while (2 == (read = read_all(src, {hbuf.data(), 2}))) {
+        char* end = nullptr;
+        errno = 0;
+        char byte = static_cast<char> (strtol(hbuf.data(), std::addressof(end), 16));
+        if (errno == ERANGE || end != hbuf.data() + 2) {
+            throw io_exception(TRACEMSG("Error parsing byte from HEX-pair: [" + std::string(hbuf.data(), 2) + "]"));
+        }
+        sink.write({std::addressof(byte), 1});
+        count += 1;
+    }
+    if (0 != read) {
+        throw io_exception(TRACEMSG("Invalid non-even number of bytes available in HEX source," +
+                " tail size: [" + sl::support::to_string(read) +"]"));
+    }
+    return count;
 }
 
 } // namespace
