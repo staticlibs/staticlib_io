@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">staticlib_io
-   &#160;<span id="projectnumber">1.2.1</span>
+   &#160;<span id="projectnumber">1.2.2</span>
    </div>
   </td>
  </tr>
@@ -72,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -114,6 +114,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a8f2ae8fa45ce2defaa059e2c0c75beb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment operator.  <a href="#a8f2ae8fa45ce2defaa059e2c0c75beb6"></a><br/></td></tr>
 <tr class="memitem:a960a76c0cdfa4401ea688a40b8ea33f8"><td class="memItemLeft" align="right" valign="top">std::streamsize&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstaticlib_1_1io_1_1buffered__source.html#a960a76c0cdfa4401ea688a40b8ea33f8">read</a> (<a class="el" href="classstaticlib_1_1io_1_1span.html">span</a>&lt; char &gt; <a class="el" href="classstaticlib_1_1io_1_1span.html">span</a>)</td></tr>
 <tr class="memdesc:a960a76c0cdfa4401ea688a40b8ea33f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Buffered read implementation.  <a href="#a960a76c0cdfa4401ea688a40b8ea33f8"></a><br/></td></tr>
+<tr class="memitem:a282ef9ad391042046dd6f363f0d08dd1"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstaticlib_1_1io_1_1buffered__source.html#a282ef9ad391042046dd6f363f0d08dd1">read_line</a> (const std::string &amp;ending=&quot;\n&quot;, size_t max_length=(1&lt;&lt; 16))</td></tr>
+<tr class="memdesc:a282ef9ad391042046dd6f363f0d08dd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads underlying source until specified line ending is met or length threshold exceeded.  <a href="#a282ef9ad391042046dd6f363f0d08dd1"></a><br/></td></tr>
 <tr class="memitem:af4b9387dff9973f7785dcd47362caab2"><td class="memItemLeft" align="right" valign="top">Source &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstaticlib_1_1io_1_1buffered__source.html#af4b9387dff9973f7785dcd47362caab2">get_source</a> ()</td></tr>
 <tr class="memdesc:af4b9387dff9973f7785dcd47362caab2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Underlying source accessor.  <a href="#af4b9387dff9973f7785dcd47362caab2"></a><br/></td></tr>
 <tr class="memitem:a9729702c35113c02cd67b3a4145896d7"><td class="memItemLeft" align="right" valign="top">std::array&lt; char, buf_size &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstaticlib_1_1io_1_1buffered__source.html#a9729702c35113c02cd67b3a4145896d7">get_buffer</a> ()</td></tr>
@@ -373,13 +375,60 @@ template&lt;typename Source, std::size_t buf_size = 4096&gt; </div>
 
 </div>
 </div>
+<a class="anchor" id="a282ef9ad391042046dd6f363f0d08dd1"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Source, std::size_t buf_size = 4096&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string <a class="el" href="classstaticlib_1_1io_1_1buffered__source.html">staticlib::io::buffered_source</a>&lt; Source, buf_size &gt;::read_line </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>ending</em> = <code>&quot;\n&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>max_length</em> = <code>(1&lt;&lt;16)</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reads underlying source until specified line ending is met or length threshold exceeded. </p>
+<p>Lines consisting solely of line endings will be ignored.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ending</td><td>line ending </td></tr>
+    <tr><td class="paramname">max_length</td><td>length threshold </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>line without endline separator or empty string on EOF </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>staticlib/io/<a class="el" href="buffered__source_8hpp_source.html">buffered_source.hpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Apr 8 2017 19:05:34 for staticlib_io by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Dec 23 2017 14:58:14 for staticlib_io by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

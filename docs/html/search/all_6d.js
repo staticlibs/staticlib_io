@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['make_5farray_5fsink',['make_array_sink',['../namespacestaticlib_1_1io.html#a170551f8baa8c5bf9cf5c7cca6a9c7b7',1,'staticlib::io::make_array_sink(AllocFun alloc_fun, FreeFun free_fun, size_t initial_capacity=15)'],['../namespacestaticlib_1_1io.html#a5cfdbde00ec80806550f0c50751db44c',1,'staticlib::io::make_array_sink(size_t initial_capacity=15)']]],
   ['make_5fbuffered_5fsink',['make_buffered_sink',['../namespacestaticlib_1_1io.html#aa5a499a47ace7f09252572d11df1875a',1,'staticlib::io::make_buffered_sink(Sink &amp;&amp;sink)'],['../namespacestaticlib_1_1io.html#ae50534e31439398f36ca3c6ece158cb6',1,'staticlib::io::make_buffered_sink(Sink &amp;sink)']]],
   ['make_5fbuffered_5fsource',['make_buffered_source',['../namespacestaticlib_1_1io.html#abf751d83e9eea3ea717c49e0f91be785',1,'staticlib::io::make_buffered_source(Source &amp;&amp;source)'],['../namespacestaticlib_1_1io.html#a94643bd4a718809fed36b1da4fec7757',1,'staticlib::io::make_buffered_source(Source &amp;source)']]],
   ['make_5fcopying_5fsource',['make_copying_source',['../namespacestaticlib_1_1io.html#a4fdd2d2346794cf2bcb13115479c80d6',1,'staticlib::io::make_copying_source(Source &amp;&amp;source, Sink &amp;&amp;sink)'],['../namespacestaticlib_1_1io.html#aa01d48a4ee2a5b0c6d662d2b5e9e28c7',1,'staticlib::io::make_copying_source(Source &amp;source, Sink &amp;sink)']]],

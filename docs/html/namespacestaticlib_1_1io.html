@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">staticlib_io
-   &#160;<span id="projectnumber">1.2.1</span>
+   &#160;<span id="projectnumber">1.2.2</span>
    </div>
   </td>
  </tr>
@@ -70,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -97,9 +97,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <tr class="heading"><td colspan="2"><h2><a name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespacestaticlib_1_1io_1_1detail"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io_1_1detail.html">detail</a></td></tr>
+<tr class="memitem:namespacestaticlib_1_1io_1_1detail__array__sink"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io_1_1detail__array__sink.html">detail_array_sink</a></td></tr>
+<tr class="memitem:namespacestaticlib_1_1io_1_1operations__detail"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io_1_1operations__detail.html">operations_detail</a></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="nested-classes"></a>
 Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstaticlib_1_1io_1_1array__sink.html">array_sink</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Growing heap array, that can release underlying buffer.  <a href="classstaticlib_1_1io_1_1array__sink.html#details">More...</a><br/></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstaticlib_1_1io_1_1array__source.html">array_source</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Source implementation that reads data from the specified char buffer.  <a href="classstaticlib_1_1io_1_1array__source.html#details">More...</a><br/></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstaticlib_1_1io_1_1buffered__sink.html">buffered_sink</a></td></tr>
@@ -155,6 +159,12 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a170551f8baa8c5bf9cf5c7cca6a9c7b7"><td class="memTemplParams" colspan="2">template&lt;typename AllocFun , typename FreeFun &gt; </td></tr>
+<tr class="memitem:a170551f8baa8c5bf9cf5c7cca6a9c7b7"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classstaticlib_1_1io_1_1array__sink.html">array_sink</a>&lt; AllocFun, FreeFun &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a170551f8baa8c5bf9cf5c7cca6a9c7b7">make_array_sink</a> (AllocFun alloc_fun, FreeFun free_fun, size_t initial_capacity=15)</td></tr>
+<tr class="memdesc:a170551f8baa8c5bf9cf5c7cca6a9c7b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory function for creating <a class="el" href="classstaticlib_1_1io_1_1array__sink.html" title="Growing heap array, that can release underlying buffer.">array_sink</a>, uses "std::malloc" and "std::free".  <a href="#a170551f8baa8c5bf9cf5c7cca6a9c7b7"></a><br/></td></tr>
+<tr class="memitem:a5cfdbde00ec80806550f0c50751db44c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classstaticlib_1_1io_1_1array__sink.html">array_sink</a>&lt; char *(*)(int), <br class="typebreak"/>
+void(*)(char *)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a5cfdbde00ec80806550f0c50751db44c">make_array_sink</a> (size_t initial_capacity=15)</td></tr>
+<tr class="memdesc:a5cfdbde00ec80806550f0c50751db44c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory function for creating <a class="el" href="classstaticlib_1_1io_1_1array__sink.html" title="Growing heap array, that can release underlying buffer.">array_sink</a>, uses "std::malloc" and "std::free".  <a href="#a5cfdbde00ec80806550f0c50751db44c"></a><br/></td></tr>
 <tr class="memitem:aa5a499a47ace7f09252572d11df1875a"><td class="memTemplParams" colspan="2">template&lt;typename Sink , class  = typename std::enable_if&lt;!std::is_lvalue_reference&lt;Sink&gt;::value&gt;::type&gt; </td></tr>
 <tr class="memitem:aa5a499a47ace7f09252572d11df1875a"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classstaticlib_1_1io_1_1buffered__sink.html">buffered_sink</a>&lt; Sink &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#aa5a499a47ace7f09252572d11df1875a">make_buffered_sink</a> (Sink &amp;&amp;sink)</td></tr>
 <tr class="memdesc:aa5a499a47ace7f09252572d11df1875a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory function for creating buffered sinks, created sink wrapper will own specified sink.  <a href="#aa5a499a47ace7f09252572d11df1875a"></a><br/></td></tr>
@@ -223,6 +233,14 @@ Functions</h2></td></tr>
 <tr class="memitem:a081c368d37ae2c31fb5a00fed21508c5"><td class="memTemplParams" colspan="2">template&lt;typename Source , typename IntTypeSkip &gt; </td></tr>
 <tr class="memitem:a081c368d37ae2c31fb5a00fed21508c5"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a081c368d37ae2c31fb5a00fed21508c5">skip</a> (Source &amp;src, <a class="el" href="classstaticlib_1_1io_1_1span.html">span</a>&lt; char &gt; <a class="el" href="classstaticlib_1_1io_1_1span.html">span</a>, IntTypeSkip to_skip)</td></tr>
 <tr class="memdesc:a081c368d37ae2c31fb5a00fed21508c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Skips specified number of bytes reading data repeatedly from specified source into specified buffer.  <a href="#a081c368d37ae2c31fb5a00fed21508c5"></a><br/></td></tr>
+<tr class="memitem:a84b744878bd356130bf4a363a2fb6555"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a84b744878bd356130bf4a363a2fb6555">str_replace</a> (const std::string &amp;input, std::map&lt; std::string, std::string &gt; values)</td></tr>
+<tr class="memdesc:a84b744878bd356130bf4a363a2fb6555"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replaces "{{placeholders}}" with specified values in specified string.  <a href="#a84b744878bd356130bf4a363a2fb6555"></a><br/></td></tr>
+<tr class="memitem:abce5757532f2e22b611eea9228425fe0"><td class="memTemplParams" colspan="2">template&lt;typename Source , typename Sink &gt; </td></tr>
+<tr class="memitem:abce5757532f2e22b611eea9228425fe0"><td class="memTemplItemLeft" align="right" valign="top">size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#abce5757532f2e22b611eea9228425fe0">copy_to_hex</a> (Source &amp;src, Sink &amp;sink)</td></tr>
+<tr class="memdesc:abce5757532f2e22b611eea9228425fe0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads bytes from specified source one by one, converts them to HEX and writes to specified sink.  <a href="#abce5757532f2e22b611eea9228425fe0"></a><br/></td></tr>
+<tr class="memitem:aa33857de991cfe2191683bca523d2a68"><td class="memTemplParams" colspan="2">template&lt;typename Source , typename Sink &gt; </td></tr>
+<tr class="memitem:aa33857de991cfe2191683bca523d2a68"><td class="memTemplItemLeft" align="right" valign="top">size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#aa33857de991cfe2191683bca523d2a68">copy_from_hex</a> (Source &amp;src, Sink &amp;sink)</td></tr>
+<tr class="memdesc:aa33857de991cfe2191683bca523d2a68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads HEX pairs from specified source, parses them into byte representation and writes to specified sink.  <a href="#aa33857de991cfe2191683bca523d2a68"></a><br/></td></tr>
 <tr class="memitem:ab5af60f54f2811cf8c5a813d86f2885f"><td class="memTemplParams" colspan="2">template&lt;typename Sink &gt; </td></tr>
 <tr class="memitem:ab5af60f54f2811cf8c5a813d86f2885f"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classstaticlib_1_1io_1_1reference__sink.html">reference_sink</a>&lt; Sink &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#ab5af60f54f2811cf8c5a813d86f2885f">make_reference_sink</a> (Sink &amp;sink)</td></tr>
 <tr class="memdesc:ab5af60f54f2811cf8c5a813d86f2885f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory function for creating reference sinks.  <a href="#ab5af60f54f2811cf8c5a813d86f2885f"></a><br/></td></tr>
@@ -378,6 +396,160 @@ template&lt;typename Source , typename Sink , uint16_t BufferSize = 4096&gt; </d
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>number of bytes copied </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aa33857de991cfe2191683bca523d2a68"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Source , typename Sink &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t staticlib::io::copy_from_hex </td>
+          <td>(</td>
+          <td class="paramtype">Source &amp;&#160;</td>
+          <td class="paramname"><em>src</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Sink &amp;&#160;</td>
+          <td class="paramname"><em>sink</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Reads HEX pairs from specified source, parses them into byte representation and writes to specified sink. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">src</td><td>source with HEX data </td></tr>
+    <tr><td class="paramname">sink</td><td>sink for plain data </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>number of bytes converted from HEX </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="abce5757532f2e22b611eea9228425fe0"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Source , typename Sink &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t staticlib::io::copy_to_hex </td>
+          <td>(</td>
+          <td class="paramtype">Source &amp;&#160;</td>
+          <td class="paramname"><em>src</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Sink &amp;&#160;</td>
+          <td class="paramname"><em>sink</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Reads bytes from specified source one by one, converts them to HEX and writes to specified sink. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">src</td><td>source with plain data </td></tr>
+    <tr><td class="paramname">sink</td><td>sink for HEX data </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>number of bytes converted to HEX </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a170551f8baa8c5bf9cf5c7cca6a9c7b7"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename AllocFun , typename FreeFun &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classstaticlib_1_1io_1_1array__sink.html">array_sink</a>&lt;AllocFun, FreeFun&gt; staticlib::io::make_array_sink </td>
+          <td>(</td>
+          <td class="paramtype">AllocFun&#160;</td>
+          <td class="paramname"><em>alloc_fun</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FreeFun&#160;</td>
+          <td class="paramname"><em>free_fun</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>initial_capacity</em> = <code>15</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Factory function for creating <a class="el" href="classstaticlib_1_1io_1_1array__sink.html" title="Growing heap array, that can release underlying buffer.">array_sink</a>, uses "std::malloc" and "std::free". </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">alloc_fun</td><td>allocator function </td></tr>
+    <tr><td class="paramname">free_fun</td><td>deallocator function </td></tr>
+    <tr><td class="paramname">initial_capacity</td><td>initial buffer capacity to allocate </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classstaticlib_1_1io_1_1array__sink.html" title="Growing heap array, that can release underlying buffer.">array_sink</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a5cfdbde00ec80806550f0c50751db44c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classstaticlib_1_1io_1_1array__sink.html">array_sink</a>&lt;char*(*)(int), void(*)(char*)&gt; staticlib::io::make_array_sink </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>initial_capacity</em> = <code>15</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Factory function for creating <a class="el" href="classstaticlib_1_1io_1_1array__sink.html" title="Growing heap array, that can release underlying buffer.">array_sink</a>, uses "std::malloc" and "std::free". </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">initial_capacity</td><td>initial buffer capacity to allocate </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classstaticlib_1_1io_1_1array__sink.html" title="Growing heap array, that can release underlying buffer.">array_sink</a> </dd></dl>
 
 </div>
 </div>
@@ -1534,6 +1706,50 @@ template&lt;typename Source , typename IntTypeSkip &gt; </div>
 
 </div>
 </div>
+<a class="anchor" id="a84b744878bd356130bf4a363a2fb6555"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string staticlib::io::str_replace </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>input</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::map&lt; std::string, std::string &gt;&#160;</td>
+          <td class="paramname"><em>values</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Replaces "{{placeholders}}" with specified values in specified string. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>template string </td></tr>
+    <tr><td class="paramname">values</td><td>"key-&gt;value" mapping </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>string with replaced values </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a58297eb0226b50473448f974b177375e"></a>
 <div class="memitem">
 <div class="memproto">
@@ -1574,7 +1790,7 @@ template&lt;typename Sink &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Apr 8 2017 19:05:34 for staticlib_io by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Dec 23 2017 14:58:14 for staticlib_io by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

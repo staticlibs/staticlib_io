@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">staticlib_io
-   &#160;<span id="projectnumber">1.2.1</span>
+   &#160;<span id="projectnumber">1.2.2</span>
    </div>
   </td>
  </tr>
@@ -100,7 +100,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -114,16 +114,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <h3><a class="anchor" id="index_f"></a>- f -</h3><ul>
 <li>flush()
-: <a class="el" href="classstaticlib_1_1io_1_1buffered__sink.html#a6dfbff8035680e0166f0f614438c7409">staticlib::io::buffered_sink&lt; Sink, buf_size &gt;</a>
-, <a class="el" href="classstaticlib_1_1io_1_1copying__source.html#a8875261e1ccdfe30edaa10a292ccec82">staticlib::io::copying_source&lt; Source, Sink &gt;</a>
-, <a class="el" href="classstaticlib_1_1io_1_1flushable__sink.html#a1986b1623bda83f83e2012733319e0b2">staticlib::io::flushable_sink&lt; NonFlushableSink &gt;</a>
-, <a class="el" href="classstaticlib_1_1io_1_1streambuf__sink.html#aca3ea1f45cdaa35cdf7f1c07ab22c21c">staticlib::io::streambuf_sink</a>
+: <a class="el" href="classstaticlib_1_1io_1_1array__sink.html#af606df177f8e4d1af2468eb816137559">staticlib::io::array_sink&lt; AllocFun, FreeFun &gt;</a>
+, <a class="el" href="classstaticlib_1_1io_1_1buffered__sink.html#a6dfbff8035680e0166f0f614438c7409">staticlib::io::buffered_sink&lt; Sink, buf_size &gt;</a>
+, <a class="el" href="classstaticlib_1_1io_1_1counting__sink.html#a9660e676d1fa705fd228a65d32898041">staticlib::io::counting_sink&lt; Sink &gt;</a>
+, <a class="el" href="classstaticlib_1_1io_1_1shared__sink.html#a0997f057e62f7926dc920f8d5c537bae">staticlib::io::shared_sink&lt; Sink &gt;</a>
 , <a class="el" href="classstaticlib_1_1io_1_1unique__sink.html#adb6e94a98ca0aa9379a8e3fb413176e0">staticlib::io::unique_sink&lt; Sink &gt;</a>
 , <a class="el" href="classstaticlib_1_1io_1_1string__sink.html#a7ca8a514dc30258264870d9535260879">staticlib::io::string_sink</a>
-, <a class="el" href="classstaticlib_1_1io_1_1null__sink.html#ad774b2c4cf7bee893bb22c95d8534318">staticlib::io::null_sink</a>
-, <a class="el" href="classstaticlib_1_1io_1_1shared__sink.html#a0997f057e62f7926dc920f8d5c537bae">staticlib::io::shared_sink&lt; Sink &gt;</a>
+, <a class="el" href="classstaticlib_1_1io_1_1streambuf__sink.html#aca3ea1f45cdaa35cdf7f1c07ab22c21c">staticlib::io::streambuf_sink</a>
+, <a class="el" href="classstaticlib_1_1io_1_1flushable__sink.html#a1986b1623bda83f83e2012733319e0b2">staticlib::io::flushable_sink&lt; NonFlushableSink &gt;</a>
 , <a class="el" href="classstaticlib_1_1io_1_1reference__sink.html#ad9bbad3b6ce1577a3c2ac50bf3a73116">staticlib::io::reference_sink&lt; Sink &gt;</a>
-, <a class="el" href="classstaticlib_1_1io_1_1counting__sink.html#a9660e676d1fa705fd228a65d32898041">staticlib::io::counting_sink&lt; Sink &gt;</a>
+, <a class="el" href="classstaticlib_1_1io_1_1null__sink.html#ad774b2c4cf7bee893bb22c95d8534318">staticlib::io::null_sink</a>
+, <a class="el" href="classstaticlib_1_1io_1_1copying__source.html#a8875261e1ccdfe30edaa10a292ccec82">staticlib::io::copying_source&lt; Source, Sink &gt;</a>
 </li>
 <li>flushable_sink()
 : <a class="el" href="classstaticlib_1_1io_1_1flushable__sink.html#ab62b776c55532b458e6300ecda08fc7f">staticlib::io::flushable_sink&lt; NonFlushableSink &gt;</a>
@@ -132,7 +133,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Apr 8 2017 19:05:34 for staticlib_io by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Dec 23 2017 14:58:14 for staticlib_io by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>
