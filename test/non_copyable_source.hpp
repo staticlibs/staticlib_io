@@ -22,7 +22,7 @@
  */
 
 #ifndef STATICLIB_IO_TEST_NON_COPYABLE_SOURCE_HPP
-#define	STATICLIB_IO_TEST_NON_COPYABLE_SOURCE_HPP
+#define STATICLIB_IO_TEST_NON_COPYABLE_SOURCE_HPP
 
 class non_copyable_source {
     size_t count = 0;
@@ -49,5 +49,5 @@ public:
 
 };
 
-#endif	/* STATICLIB_IO_TEST_NON_COPYABLE_SOURCE_HPP */
+#endif /* STATICLIB_IO_TEST_NON_COPYABLE_SOURCE_HPP */
 

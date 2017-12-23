@@ -22,7 +22,7 @@
  */
 
 #ifndef STATICLIB_IO_ARRAY_SINK_HPP
-#define	STATICLIB_IO_ARRAY_SINK_HPP
+#define STATICLIB_IO_ARRAY_SINK_HPP
 
 #include <cstdlib>
 #include <cstring>
@@ -56,7 +56,7 @@ inline void default_free(char* buffer) {
  * Growing heap array, that can release underlying buffer
  */
 template<typename AllocFun, typename FreeFun>
-class array_sink {       
+class array_sink {
     
     /**
      * Allocator function, expected signature "std::function<char*(int)>"
@@ -277,5 +277,5 @@ inline array_sink<char*(*)(int), void(*)(char*)> make_array_sink(size_t initial_
 } // namespace
 }
 
-#endif	/* STATICLIB_IO_ARRAY_SINK_HPP */
+#endif /* STATICLIB_IO_ARRAY_SINK_HPP */
 

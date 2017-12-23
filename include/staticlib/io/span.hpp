@@ -22,7 +22,7 @@
  */
 
 #ifndef STATICLIB_SUPPORT_SPAN_HPP
-#define	STATICLIB_SUPPORT_SPAN_HPP
+#define STATICLIB_SUPPORT_SPAN_HPP
 
 #include <cstdint>
 #include <array>
@@ -278,5 +278,5 @@ span<T> make_span(std::vector<T>& buffer) {
 } // namespace
 }
 
-#endif	/* STATICLIB_SUPPORT_SPAN_HPP */
+#endif /* STATICLIB_SUPPORT_SPAN_HPP */
 

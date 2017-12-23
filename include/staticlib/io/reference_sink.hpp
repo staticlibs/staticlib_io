@@ -22,7 +22,7 @@
  */
 
 #ifndef STATICLIB_IO_REFERENCE_SINK_HPP
-#define	STATICLIB_IO_REFERENCE_SINK_HPP
+#define STATICLIB_IO_REFERENCE_SINK_HPP
 
 #include <ios>
 #include <functional>
@@ -136,5 +136,5 @@ reference_sink<Sink> make_reference_sink(Sink& sink) {
 } // namespace
 }
 
-#endif	/* STATICLIB_IO_REFERENCE_SINK_HPP */
+#endif /* STATICLIB_IO_REFERENCE_SINK_HPP */
 

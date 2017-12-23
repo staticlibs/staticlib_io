@@ -22,7 +22,7 @@
  */
 
 #ifndef STATICLIB_IO_STRING_SOURCE_HPP
-#define	STATICLIB_IO_STRING_SOURCE_HPP
+#define STATICLIB_IO_STRING_SOURCE_HPP
 
 #include <ios>
 #include <string>
@@ -53,7 +53,7 @@ class string_source {
      * String length to read
      */
     size_t str_len;
-    
+
 public:
     /**
      * Constructor
@@ -72,7 +72,7 @@ public:
      */
     string_source(const std::string& str) :
     string_source(std::string(str.data(), str.length())) { }
-    
+
     /**
      * Constructor
      * 
@@ -84,7 +84,7 @@ public:
     str(std::move(str)),
     idx(from),
     str_len(to) { }
-    
+
     /**
      * Deleted copy constructor
      * 
@@ -112,7 +112,7 @@ public:
         other.idx = 0;
         other.str_len = 0;
     }
-    
+
     /**
      * Move assignment operator
      * 
@@ -144,7 +144,7 @@ public:
             return static_cast<std::streamsize> (len);
         } else return std::char_traits<char>::eof();        
     }
-    
+
     /**
      * Underlying string accessor
      * 
@@ -153,11 +153,11 @@ public:
     std::string& get_string() {
         return str;
     }
-    
+
 };
 
 } // namespace
 }
 
-#endif	/* STATICLIB_IO_STRING_SOURCE_HPP */
+#endif /* STATICLIB_IO_STRING_SOURCE_HPP */
 

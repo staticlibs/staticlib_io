@@ -22,7 +22,7 @@
  */
 
 #ifndef STATICLIB_IO_REFERENCE_SOURCE_HPP
-#define	STATICLIB_IO_REFERENCE_SOURCE_HPP
+#define STATICLIB_IO_REFERENCE_SOURCE_HPP
 
 #include <ios>
 #include <functional>
@@ -128,5 +128,5 @@ reference_source<Source> make_reference_source(Source& source) {
 }
 
 
-#endif	/* STATICLIB_IO_REFERENCE_SOURCE_HPP */
+#endif /* STATICLIB_IO_REFERENCE_SOURCE_HPP */
 

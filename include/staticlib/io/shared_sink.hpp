@@ -22,7 +22,7 @@
  */
 
 #ifndef STATICLIB_IO_SHARED_SINK_HPP
-#define	STATICLIB_IO_SHARED_SINK_HPP
+#define STATICLIB_IO_SHARED_SINK_HPP
 
 #include <ios>
 #include <memory>
@@ -135,5 +135,5 @@ shared_sink<Sink> make_shared_sink(std::shared_ptr<Sink> sink) {
 } // namespace
 }
 
-#endif	/* STATICLIB_IO_SHARED_SINK_HPP */
+#endif /* STATICLIB_IO_SHARED_SINK_HPP */
 

@@ -22,7 +22,7 @@
  */
 
 #ifndef STATICLIB_IO_IO_EXCEPTION_HPP
-#define	STATICLIB_IO_IO_EXCEPTION_HPP
+#define STATICLIB_IO_IO_EXCEPTION_HPP
 
 #include "staticlib/support.hpp"
 
@@ -54,5 +54,5 @@ public:
 }
 } //namespace
 
-#endif	/* STATICLIB_IO_IO_EXCEPTION_HPP */
+#endif /* STATICLIB_IO_IO_EXCEPTION_HPP */
 

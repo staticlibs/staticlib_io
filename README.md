@@ -1,6 +1,9 @@
 Staticlibs IO library
 =====================
 
+[![travis](https://travis-ci.org/staticlibs/staticlib_io.svg?branch=master)](https://travis-ci.org/staticlibs/staticlib_io)
+[![appveyor](https://ci.appveyor.com/api/projects/status/github/staticlibs/staticlib_io?svg=true)](https://ci.appveyor.com/project/staticlibs/staticlib-io)
+
 This project is a part of [Staticlibs](http://staticlibs.net/).
 
 This project implements stream-like operations on the arbitrary `Source` and `Sink` template implementations.
@@ -57,6 +60,10 @@ This project is released under the [Apache License 2.0](http://www.apache.org/li
 
 Changelog
 ---------
+
+**2017-12-22**
+ * version 1.2.2
+ * vs2017 support
 
 **2017-04-08**
 

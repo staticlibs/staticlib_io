@@ -22,7 +22,7 @@
  */
 
 #ifndef STATICLIB_IO_FLUSHABLE_SINK_HPP
-#define	STATICLIB_IO_FLUSHABLE_SINK_HPP
+#define STATICLIB_IO_FLUSHABLE_SINK_HPP
 
 #include <ios>
 
@@ -146,5 +146,5 @@ flushable_sink<reference_sink<NonFlushableSink>> make_flushable_sink(NonFlushabl
 } // namespace
 }
 
-#endif	/* STATICLIB_IO_FLUSHABLE_SINK_HPP */
+#endif /* STATICLIB_IO_FLUSHABLE_SINK_HPP */
 

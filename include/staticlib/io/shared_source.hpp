@@ -22,7 +22,7 @@
  */
 
 #ifndef STATICLIB_IO_SHARED_SOURCE_HPP
-#define	STATICLIB_IO_SHARED_SOURCE_HPP
+#define STATICLIB_IO_SHARED_SOURCE_HPP
 
 #include <ios>
 #include <memory>
@@ -126,5 +126,5 @@ shared_source<Source> make_shared_source(std::shared_ptr<Source> source) {
 } // namespace
 }
 
-#endif	/* STATICLIB_IO_SHARED_SOURCE_HPP */
+#endif /* STATICLIB_IO_SHARED_SOURCE_HPP */
 

@@ -22,7 +22,7 @@
  */
 
 #ifndef STATICLIB_IO_STRING_SINK_HPP
-#define	STATICLIB_IO_STRING_SINK_HPP
+#define STATICLIB_IO_STRING_SINK_HPP
 
 #include <cstdint>
 #include <cstring>
@@ -109,7 +109,7 @@ public:
         std::memcpy(std::addressof(str.front()) + size, span.data(), ulen);
         return static_cast<std::streamsize> (ulen);
     }
-    
+
     /**
      * Underlying string accessor
      * 
@@ -118,7 +118,7 @@ public:
     std::string& get_string() {
         return str;
     }
-    
+
     /**
      * No-op flush implementation
      * 
@@ -128,12 +128,12 @@ public:
         // no-op
         return 0;
     }
-    
+
 };
 
 } // namespace
 }
 
 
-#endif	/* STATICLIB_IO_STRING_SINK_HPP */
+#endif /* STATICLIB_IO_STRING_SINK_HPP */
 

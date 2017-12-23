@@ -22,7 +22,7 @@
  */
 
 #ifndef STATICLIB_IO_BUFFERED_SOURCE_HPP
-#define	STATICLIB_IO_BUFFERED_SOURCE_HPP
+#define STATICLIB_IO_BUFFERED_SOURCE_HPP
 
 #include <cstring>
 #include <array>
@@ -175,7 +175,7 @@ public:
         }
         return head == 0 ? std::char_traits<char>::eof() : head;
     }
-    
+
     /**
      * Reads underlying source until specified line ending is met
      * or length threshold exceeded. Lines consisting solely of
@@ -211,7 +211,7 @@ public:
         }
         return line;
     }
-    
+
     /**
      * Underlying source accessor
      * 
@@ -220,7 +220,7 @@ public:
     Source& get_source() {
         return src;
     }
-    
+
     /**
      * Buffer accessor
      * 
@@ -229,7 +229,7 @@ public:
     std::array<char, buf_size>& get_buffer() {
         return buffer;
     }
-    
+
 private:
     // repeatable source read logic
     size_t read_into_buffer(char* buf, size_t offset, size_t length) {
@@ -284,5 +284,5 @@ buffered_source<reference_source<Source>> make_buffered_source(Source& source) {
 } // namespace
 }
 
-#endif	/* STATICLIB_IO_BUFFERED_SOURCE_HPP */
+#endif /* STATICLIB_IO_BUFFERED_SOURCE_HPP */
 

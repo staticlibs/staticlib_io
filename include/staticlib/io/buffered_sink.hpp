@@ -22,7 +22,7 @@
  */
 
 #ifndef STATICLIB_IO_BUFFERED_SINK_HPP
-#define	STATICLIB_IO_BUFFERED_SINK_HPP
+#define STATICLIB_IO_BUFFERED_SINK_HPP
 
 #include <cstring>
 #include <array>
@@ -81,7 +81,7 @@ public:
             // ignore
         }
     }
-    
+
     /**
      * Deleted copy constructor
      * 
@@ -176,7 +176,7 @@ public:
         flushed += sink.flush();
         return flushed;
     }
-    
+
     /**
      * Underlying sink accessor
      * 
@@ -240,5 +240,5 @@ buffered_sink<reference_sink<Sink>> make_buffered_sink(Sink& sink) {
 } // namespace
 }
 
-#endif	/* STATICLIB_IO_BUFFERED_SINK_HPP */
+#endif /* STATICLIB_IO_BUFFERED_SINK_HPP */
 

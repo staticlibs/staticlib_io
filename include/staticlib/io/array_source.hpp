@@ -22,7 +22,7 @@
  */
 
 #ifndef STATICLIB_IO_ARRAY_SOURCE_HPP
-#define	STATICLIB_IO_ARRAY_SOURCE_HPP
+#define STATICLIB_IO_ARRAY_SOURCE_HPP
 
 #include <cstdint>
 #include <cstring>
@@ -82,7 +82,7 @@ public:
     array_source(span<char> src_buf) :
     src_buf(src_buf.data()),
     src_buf_len(src_buf.size()) { }
-    
+
     /**
      * Copy constructor
      * 
@@ -92,7 +92,7 @@ public:
     src_buf(other.src_buf),
     src_buf_len(other.src_buf_len),
     idx(other.idx) { }
-    
+ 
     /**
      * Copy assignment operator
      * 
@@ -135,7 +135,7 @@ public:
         other.idx = 0;
         return *this;
     }
-    
+
     /**
      * Buffered read implementation
      * 
@@ -152,7 +152,7 @@ public:
             return static_cast<std::streamsize>(len);
         } else return std::char_traits<char>::eof();
     }
-    
+
     /**
      * Source buffer accessor
      * 
@@ -167,5 +167,5 @@ public:
 } // namespace
 }
 
-#endif	/* STATICLIB_IO_ARRAY_SOURCE_HPP */
+#endif /* STATICLIB_IO_ARRAY_SOURCE_HPP */
 

@@ -22,7 +22,7 @@
  */
 
 #ifndef STATICLIB_IO_TEST_TEST_UTILS_HPP
-#define	STATICLIB_IO_TEST_TEST_UTILS_HPP
+#define STATICLIB_IO_TEST_TEST_UTILS_HPP
 
 #include <functional>
 
@@ -39,5 +39,5 @@ bool throws_exc(std::function<void() > fun) {
     return false;
 }
 
-#endif	/* STATICLIB_IO_TEST_TEST_UTILS_HPP */
+#endif /* STATICLIB_IO_TEST_TEST_UTILS_HPP */
 

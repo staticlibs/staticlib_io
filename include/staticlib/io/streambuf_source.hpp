@@ -22,7 +22,7 @@
  */
 
 #ifndef STATICLIB_IO_STREAMBUF_SOURCE_HPP
-#define	STATICLIB_IO_STREAMBUF_SOURCE_HPP
+#define STATICLIB_IO_STREAMBUF_SOURCE_HPP
 
 #include <ios>
 #include <streambuf>
@@ -42,7 +42,7 @@ class streambuf_source {
      * Input streambuf
      */
     std::streambuf* streambuf;
-    
+
 public:
     /**
      * Constructor
@@ -72,7 +72,7 @@ public:
      * Move constructor
      * 
      * @param other other instance
-     */    
+     */
     streambuf_source(streambuf_source&& other) STATICLIB_NOEXCEPT :
     streambuf(other.streambuf) {
         other.streambuf = nullptr;
@@ -113,5 +113,5 @@ public:
 } // namespace
 }
 
-#endif	/* STATICLIB_IO_STREAMBUF_SOURCE_HPP */
+#endif /* STATICLIB_IO_STREAMBUF_SOURCE_HPP */
 

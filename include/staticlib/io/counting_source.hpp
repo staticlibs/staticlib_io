@@ -22,7 +22,7 @@
  */
 
 #ifndef STATICLIB_IO_COUNTING_SOURCE_HPP
-#define	STATICLIB_IO_COUNTING_SOURCE_HPP
+#define STATICLIB_IO_COUNTING_SOURCE_HPP
 
 #include <ios>
 
@@ -47,7 +47,7 @@ class counting_source {
      * Number of bytes read
      */
     size_t count = 0;
-    
+
 public:
     /**
      * Constructor,
@@ -159,5 +159,5 @@ counting_source<reference_source<Source>> make_counting_source(Source& source) {
 } // namespace
 }
 
-#endif	/* STATICLIB_IO_COUNTING_SOURCE_HPP */
+#endif /* STATICLIB_IO_COUNTING_SOURCE_HPP */
 

@@ -22,7 +22,7 @@
  */
 
 #ifndef STATICLIB_IO_COPYING_SOURCE_HPP
-#define	STATICLIB_IO_COPYING_SOURCE_HPP
+#define STATICLIB_IO_COPYING_SOURCE_HPP
 
 #include <ios>
 #include <utility>
@@ -177,5 +177,5 @@ make_copying_source(Source& source, Sink& sink) {
 } // namespace
 }
 
-#endif	/* STATICLIB_IO_COPYING_SOURCE_HPP */
+#endif /* STATICLIB_IO_COPYING_SOURCE_HPP */
 

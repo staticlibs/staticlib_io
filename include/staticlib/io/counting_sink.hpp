@@ -22,7 +22,7 @@
  */
 
 #ifndef STATICLIB_IO_COUNTING_SINK_HPP
-#define	STATICLIB_IO_COUNTING_SINK_HPP
+#define STATICLIB_IO_COUNTING_SINK_HPP
 
 #include <ios>
 
@@ -168,5 +168,5 @@ counting_sink<reference_sink<Sink>> make_counting_sink(Sink& sink) {
 } // namespace
 }
 
-#endif	/* STATICLIB_IO_COUNTING_SINK_HPP */
+#endif /* STATICLIB_IO_COUNTING_SINK_HPP */
 

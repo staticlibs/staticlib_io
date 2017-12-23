@@ -22,7 +22,7 @@
  */
 
 #ifndef STATICLIB_IO_NULL_SINK_HPP
-#define	STATICLIB_IO_NULL_SINK_HPP
+#define STATICLIB_IO_NULL_SINK_HPP
 
 #include <ios>
 
@@ -103,5 +103,5 @@ public:
 } // namespace
 }
 
-#endif	/* STATICLIB_IO_NULL_SINK_HPP */
+#endif /* STATICLIB_IO_NULL_SINK_HPP */
 

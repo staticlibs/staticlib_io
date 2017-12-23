@@ -22,7 +22,7 @@
  */
 
 #ifndef STATICLIB_IO_TEST_NON_FLUSHABLE_SINK_HPP
-#define	STATICLIB_IO_TEST_NON_FLUSHABLE_SINK_HPP
+#define STATICLIB_IO_TEST_NON_FLUSHABLE_SINK_HPP
 
 class non_flushable_sink {
     size_t count = 0;
@@ -54,5 +54,5 @@ public:
 
 };
 
-#endif	/* STATICLIB_IO_TEST_NON_FLUSHABLE_SINK_HPP */
+#endif /* STATICLIB_IO_TEST_NON_FLUSHABLE_SINK_HPP */
 

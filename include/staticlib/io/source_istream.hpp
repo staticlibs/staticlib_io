@@ -22,7 +22,7 @@
  */
 
 #ifndef STATICLIB_IO_SOURCE_ISTREAM_HPP
-#define	STATICLIB_IO_SOURCE_ISTREAM_HPP
+#define STATICLIB_IO_SOURCE_ISTREAM_HPP
 
 #include <ios>
 #include <istream>
@@ -118,5 +118,5 @@ std::unique_ptr<std::istream> make_source_istream_ptr(Source& source) {
 } // namespace
 }
 
-#endif	/* STATICLIB_IO_SOURCE_ISTREAM_HPP */
+#endif /* STATICLIB_IO_SOURCE_ISTREAM_HPP */
 

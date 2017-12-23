@@ -22,7 +22,7 @@
  */
 
 #ifndef STATICLIB_IO_REPLACER_SOURCE_HPP
-#define	STATICLIB_IO_REPLACER_SOURCE_HPP
+#define STATICLIB_IO_REPLACER_SOURCE_HPP
 
 #include <cstring>
 #include <functional>
@@ -50,7 +50,7 @@ class replacer_source {
     enum class State {
         PREFIX, PLACEHOLDER, MOVED_FROM
     };
-    
+
     /**
      * Input source
      */
@@ -303,7 +303,7 @@ private:
             ind_postfix = 0;
         }
     } 
-    
+
     std::streamsize copy_buffered(char* buf, size_t ulen) {
         size_t avail = buffer.size() - pos;
         if (avail > 0) {
@@ -314,7 +314,7 @@ private:
         }
         return 0;
     }
-    
+
 };
 
 /**
@@ -347,5 +347,5 @@ replacer_source<reference_source<Source>> make_replacer_source(Source& source, s
 } // namespace
 }
 
-#endif	/* STATICLIB_IO_REPLACER_SOURCE_HPP */
+#endif /* STATICLIB_IO_REPLACER_SOURCE_HPP */
 

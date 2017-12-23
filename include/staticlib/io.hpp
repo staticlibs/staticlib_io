@@ -22,7 +22,7 @@
  */
 
 #ifndef STATICLIB_IO_HPP
-#define	STATICLIB_IO_HPP
+#define STATICLIB_IO_HPP
 
 #include "staticlib/config.hpp"
 
@@ -52,5 +52,5 @@
 #include "staticlib/io/unique_sink.hpp"
 #include "staticlib/io/unique_source.hpp"
 
-#endif	/* STATICLIB_IO_HPP */
+#endif /* STATICLIB_IO_HPP */
 

@@ -22,7 +22,7 @@
  */
 
 #ifndef STATICLIB_IO_STREAMBUF_SINK_HPP
-#define	STATICLIB_IO_STREAMBUF_SINK_HPP
+#define STATICLIB_IO_STREAMBUF_SINK_HPP
 
 #include <ios>
 #include <streambuf>
@@ -114,5 +114,5 @@ public:
 }
 
 
-#endif	/* STATICLIB_IO_STREAMBUF_SINK_HPP */
+#endif /* STATICLIB_IO_STREAMBUF_SINK_HPP */
 

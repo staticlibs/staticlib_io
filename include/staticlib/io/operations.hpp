@@ -22,7 +22,7 @@
  */
 
 #ifndef STATICLIB_IO_OPERATIONS_HPP
-#define	STATICLIB_IO_OPERATIONS_HPP
+#define STATICLIB_IO_OPERATIONS_HPP
 
 #include <cstdint>
 #include <cstdlib>
@@ -249,5 +249,5 @@ size_t copy_from_hex(Source& src, Sink& sink) {
 } // namespace
 }
 
-#endif	/* STATICLIB_IO_OPERATIONS_HPP */
+#endif /* STATICLIB_IO_OPERATIONS_HPP */
 

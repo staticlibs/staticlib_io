@@ -22,7 +22,7 @@
  */
 
 #ifndef STATICLIB_IO_UNIQUE_SOURCE_HPP
-#define	STATICLIB_IO_UNIQUE_SOURCE_HPP
+#define STATICLIB_IO_UNIQUE_SOURCE_HPP
 
 #include <ios>
 #include <memory>
@@ -43,8 +43,8 @@ class unique_source {
      * Input source
      */
     std::unique_ptr<Source> src;
-    
-public:    
+
+public:
     /**
      * Constructor
      * 
@@ -122,5 +122,5 @@ unique_source<Source> make_unique_source(Source* source) {
 } // namespace
 }
 
-#endif	/* STATICLIB_IO_UNIQUE_SOURCE_HPP */
+#endif /* STATICLIB_IO_UNIQUE_SOURCE_HPP */
 

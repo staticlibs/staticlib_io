@@ -22,7 +22,7 @@
  */
 
 #ifndef STATICLIB_IO_UNIQUE_SINK_HPP
-#define	STATICLIB_IO_UNIQUE_SINK_HPP
+#define STATICLIB_IO_UNIQUE_SINK_HPP
 
 #include <ios>
 #include <memory>
@@ -131,5 +131,5 @@ unique_sink<Sink> make_unique_sink(Sink* sink) {
 } // namespace
 }
 
-#endif	/* STATICLIB_IO_UNIQUE_SINK_HPP */
+#endif /* STATICLIB_IO_UNIQUE_SINK_HPP */
 

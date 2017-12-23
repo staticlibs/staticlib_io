@@ -22,7 +22,7 @@
  */
 
 #ifndef STATICLIB_IO_LIMITED_SOURCE_HPP
-#define	STATICLIB_IO_LIMITED_SOURCE_HPP
+#define STATICLIB_IO_LIMITED_SOURCE_HPP
 
 #include <ios>
 
@@ -46,7 +46,7 @@ class limited_source {
      * Input source
      */
     staticlib::io::counting_source<Source> src;
-    
+
     /**
      * Limit in bytes
      */
@@ -174,5 +174,5 @@ limited_source<reference_source<Source>> make_limited_source(Source& source, siz
 } // namespace
 }
 
-#endif	/* STATICLIB_IO_LIMITED_SOURCE_HPP */
+#endif /* STATICLIB_IO_LIMITED_SOURCE_HPP */
 

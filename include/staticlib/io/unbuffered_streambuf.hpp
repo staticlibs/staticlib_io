@@ -22,7 +22,7 @@
  */
 
 #ifndef STATICLIB_IO_UNBUFFERED_STREAMBUF_HPP
-#define	STATICLIB_IO_UNBUFFERED_STREAMBUF_HPP
+#define STATICLIB_IO_UNBUFFERED_STREAMBUF_HPP
 
 #include <ios>
 #include <memory>
@@ -279,7 +279,7 @@ public:
      */
     explicit unbuffered_ostreambuf(Sink&& sink) : 
     sink(std::move(sink)) { }
-    
+
     /**
      * Deleted copy constructor
      */
@@ -381,5 +381,5 @@ std::unique_ptr<unbuffered_ostreambuf<reference_sink<Sink>>> make_unbuffered_ost
 } // namespace
 }
 
-#endif	/* STATICLIB_IO_UNBUFFERED_STREAMBUF_HPP */
+#endif /* STATICLIB_IO_UNBUFFERED_STREAMBUF_HPP */
 

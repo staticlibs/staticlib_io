@@ -22,7 +22,7 @@
  */
 
 #ifndef STATICLIB_IO_TEST_TWO_BYTES_AT_ONCE_SINK_HPP
-#define	STATICLIB_IO_TEST_TWO_BYTES_AT_ONCE_SINK_HPP
+#define STATICLIB_IO_TEST_TWO_BYTES_AT_ONCE_SINK_HPP
 
 class two_bytes_at_once_sink {
     std::string data;
@@ -62,5 +62,5 @@ public:
     }
 };
 
-#endif	/* STATICLIB_IO_TEST_TWO_BYTES_AT_ONCE_SINK_HPP */
+#endif /* STATICLIB_IO_TEST_TWO_BYTES_AT_ONCE_SINK_HPP */
 
