@@ -92,7 +92,7 @@ public:
                 throw bad_span_access_exception(std::string() + "Invalid 'length' span parameter specified," +
                         " length: [" + sl::support::to_string(length) + "]");
             }
-        } else {
+        } else if (0 != length) {
             throw bad_span_access_exception(std::string() + "Invalid 'null' data pointer specified to span," +
                     " length: [" + sl::support::to_string(length) + "]");
         }
@@ -105,7 +105,7 @@ public:
      */
     template<typename Convertible, size_t Length>
     span(std::array<Convertible, Length>& buffer) :
-    span(buffer.data(), buffer.size()) { }
+    span(buffer.size() > 0 ? buffer.data() : nullptr, buffer.size()) { }
 
     /**
      * Constructor from vector
@@ -113,7 +113,7 @@ public:
      * @param buffer vector of type T
      */
     span(std::vector<T>& buffer) :
-    span(buffer.data(), buffer.size()) { }
+    span(buffer.size() > 0 ? buffer.data() : nullptr, buffer.size()) { }
 
     /**
      * Constructor from vector
@@ -122,7 +122,7 @@ public:
      */
     template<typename Convertible>
     span(std::vector<Convertible>& buffer) :
-    span(buffer.data(), buffer.size()) { }
+    span(buffer.size() > 0 ? buffer.data() : nullptr, buffer.size()) { }
 
     /**
      * Constructor from string, for `char` and `const char`spans only
@@ -130,7 +130,7 @@ public:
      * @param buffer string
      */
     span(std::string& buffer) :
-    span(std::addressof(buffer.front()), buffer.length()) { }
+    span(buffer.length() > 0 ? std::addressof(buffer.front()) : nullptr, buffer.length()) { }
 
     /**
      * Constructor from string, for `const char`spans only
@@ -138,7 +138,7 @@ public:
      * @param buffer string
      */
     span(const std::string& buffer) :
-    span(buffer.data(), buffer.length()) { }
+    span(buffer.length() > 0 ? buffer.data() : nullptr, buffer.length()) { }
 
     /**
      * Copy constructor
@@ -200,7 +200,7 @@ public:
      * @return span size
      */
     size_t size() const STATICLIB_NOEXCEPT {
-        return last_ptr - first_ptr;
+        return nullptr == first_ptr ? 0 : last_ptr - first_ptr;
     }
 
     /**
@@ -209,7 +209,7 @@ public:
      * @return span size as signed
      */
     std::streamsize size_signed() const STATICLIB_NOEXCEPT {
-        return static_cast<std::streamsize>(last_ptr - first_ptr);
+        return static_cast<std::streamsize>(size());
     }
 
     /**
@@ -218,7 +218,7 @@ public:
      * @return size in bytes
      */
     size_t size_bytes() const STATICLIB_NOEXCEPT {
-        return (last_ptr - first_ptr) * sizeof (T);
+        return (size()) * sizeof(T);
     }
 
     /**
