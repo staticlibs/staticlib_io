@@ -86,7 +86,7 @@ public:
     first_ptr(buffer),
     last_ptr(buffer) {
         if (nullptr != buffer) {
-            if (sl::support::is_sizet(length) && sl::support::is_streamsize(length)) {
+            if (/* todo: enableme length > 0 && */ sl::support::is_sizet(length) && sl::support::is_streamsize(length)) {
                 last_ptr += static_cast<size_t> (length);
             } else {
                 throw bad_span_access_exception(std::string() + "Invalid 'length' span parameter specified," +
@@ -157,6 +157,7 @@ public:
     span<T>& operator=(const span<T>& other) {
         first_ptr = other.first_ptr;
         last_ptr = other.last_ptr;
+        return *this;
     }
 
     /**
