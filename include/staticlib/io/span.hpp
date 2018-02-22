@@ -86,7 +86,8 @@ public:
     first_ptr(buffer),
     last_ptr(buffer) {
         if (nullptr != buffer) {
-            if (/* todo: enableme length > 0 && */ sl::support::is_sizet(length) && sl::support::is_streamsize(length)) {
+            // note: zero-length span is allowed
+            if (/* length > 0 && */ sl::support::is_sizet(length) && sl::support::is_streamsize(length)) {
                 last_ptr += static_cast<size_t> (length);
             } else {
                 throw bad_span_access_exception(std::string() + "Invalid 'length' span parameter specified," +
@@ -196,6 +197,24 @@ public:
     }
 
     /**
+     * Emptiness check
+     * 
+     * @return true, if this span empty, false otherwise
+     */
+    bool is_empty() const STATICLIB_NOEXCEPT {
+        return empty();
+    }
+
+    /**
+     * NULL check
+     * 
+     * @return true, if this span contains NULL buffer, false otherwise
+     */
+    bool is_null() const STATICLIB_NOEXCEPT {
+        return nullptr == first_ptr;
+    }
+
+    /**
      * Size accessor
      * 
      * @return span size
@@ -211,6 +230,15 @@ public:
      */
     std::streamsize size_signed() const STATICLIB_NOEXCEPT {
         return static_cast<std::streamsize>(size());
+    }
+
+    /**
+     * Size accessor
+     * 
+     * @return span size as int
+     */
+    int size_int() const STATICLIB_NOEXCEPT {
+        return static_cast<int>(size());
     }
 
     /**
