@@ -61,7 +61,13 @@ This project is released under the [Apache License 2.0](http://www.apache.org/li
 Changelog
 ---------
 
+**2018-02-22**
+
+ * version 1.2.3
+ * allow empty state for span
+
 **2017-12-22**
+
  * version 1.2.2
  * vs2017 support
 
