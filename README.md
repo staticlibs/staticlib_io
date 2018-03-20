@@ -61,6 +61,11 @@ This project is released under the [Apache License 2.0](http://www.apache.org/li
 Changelog
 ---------
 
+**2018-03-20**
+
+ * version 1.2.4
+ * more hex utils
+
 **2018-02-22**
 
  * version 1.2.3
