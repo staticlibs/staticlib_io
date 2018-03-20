@@ -34,6 +34,7 @@
 #include "staticlib/io/counting_sink.hpp"
 #include "staticlib/io/counting_source.hpp"
 #include "staticlib/io/flushable_sink.hpp"
+#include "staticlib/io/hex.hpp"
 #include "staticlib/io/io_exception.hpp"
 #include "staticlib/io/null_sink.hpp"
 #include "staticlib/io/operations.hpp"
