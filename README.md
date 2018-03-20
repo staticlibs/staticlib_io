@@ -63,7 +63,7 @@ Changelog
 
 **2018-03-20**
 
- * version 1.2.4
+ * version 1.2.5
  * more hex utils
 
 **2018-02-22**

@@ -39,15 +39,46 @@ void test_copy_hex() {
     slassert(plain == plain_sink.get_string());
 }
 
+void test_string_to_hex() {
+    slassert("666f6f" == sl::io::string_to_hex("foo"));
+    slassert("" == sl::io::string_to_hex(""));
+}
+
+void test_string_from_hex() {
+    slassert("foo" == sl::io::string_from_hex("666f6f"));
+    slassert("" == sl::io::string_from_hex(""));
+}
+
 void test_format_hex_and_plain() {
-    auto formatted = sl::io::format_hex_and_plain("024e4f00002e002e");
+    auto hex = std::string("024e4f00002e002e");
+    auto plain = sl::io::string_from_hex(hex);
+    auto formatted = sl::io::format_hex_and_plain(hex, plain);
     slassert("02 4e 4f 00 00 2e 00 2e [ NO  . .]" == formatted);
+    slassert("" == sl::io::format_hex_and_plain("", ""));
+}
+
+void test_format_hex() {
+    auto formatted = sl::io::format_hex("024e4f00002e002e");
+    slassert("02 4e 4f 00 00 2e 00 2e [ NO  . .]" == formatted);
+    slassert("" == sl::io::format_hex(""));
+}
+
+void test_format_plain_as_hex() {
+    auto hex = std::string("024e4f00002e002e");
+    auto plain = sl::io::string_from_hex(hex);
+    auto formatted = sl::io::format_plain_as_hex(plain);
+    slassert("02 4e 4f 00 00 2e 00 2e [ NO  . .]" == formatted);
+    slassert("" == sl::io::format_plain_as_hex(""));
 }
 
 int main() {
     try {
         test_copy_hex();
+        test_string_to_hex();
+        test_string_from_hex();
         test_format_hex_and_plain();
+        test_format_hex();
+        test_format_plain_as_hex();
     } catch (const std::exception& e) {
         std::cout << e.what() << std::endl;
         return 1;
