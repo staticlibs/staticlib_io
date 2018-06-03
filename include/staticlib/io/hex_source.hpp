@@ -25,6 +25,7 @@
 #define STATICLIB_IO_HEX_SOURCE_HPP
 
 #include <cerrno>
+#include <cstdlib>
 #include <array>
 #include <ios>
 
