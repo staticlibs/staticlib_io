@@ -24,6 +24,7 @@
 #ifndef STATICLIB_IO_HEX_SOURCE_HPP
 #define STATICLIB_IO_HEX_SOURCE_HPP
 
+#include <cerrno>
 #include <array>
 #include <ios>
 
