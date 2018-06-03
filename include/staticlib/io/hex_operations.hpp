@@ -15,7 +15,7 @@
  */
 
 /* 
- * File:   hex.hpp
+ * File:   hex_operations.hpp
  * Author: alex
  *
  * Created on March 20, 2018, 5:15 PM
@@ -30,37 +30,13 @@
 #include <string>
 
 #include "staticlib/io/array_source.hpp"
+#include "staticlib/io/hex_sink.hpp"
+#include "staticlib/io/hex_source.hpp"
 #include "staticlib/io/operations.hpp"
 #include "staticlib/io/string_sink.hpp"
 
 namespace staticlib {
 namespace io {
-
-/**
- * Reads bytes from specified source one by one,
- * converts them to HEX and writes to specified sink.
- * 
- * @param src source with plain data
- * @param sink sink for HEX data
- * @return number of bytes converted to HEX
- */
-template<typename Source, typename Sink>
-size_t copy_to_hex(Source& src, Sink& sink) {
-    char ch = '\0';
-    auto hbuf = std::array<char, 2>();
-    hbuf[0] = '\0';
-    hbuf[1] = '\0';
-    size_t count = 0;
-    while(1 == read_all(src, {std::addressof(ch), 1})) {
-        // http://stackoverflow.com/a/18025541/314015
-        unsigned char uch = static_cast<unsigned char>(ch);
-        hbuf[0] = operations_detail::symbols[static_cast<size_t>(uch >> 4)];
-        hbuf[1] = operations_detail::symbols[static_cast<size_t>(uch & 0x0f)];
-        sl::io::write_all(sink, {hbuf.data(), hbuf.size()});
-        count += 1;
-    }
-    return count;
-}
 
 /**
  * Encodes the specified string as a hexadecimal string
@@ -72,42 +48,9 @@ inline std::string string_to_hex(const std::string& plain) {
     if (plain.empty()) return std::string();
     auto src = array_source(plain.c_str(), plain.length());
     auto sink = string_sink();
-    copy_to_hex(src, sink);
+    auto hsink = make_hex_sink(sink);
+    copy_all(src, hsink);
     return std::move(sink.get_string());
-}
-
-/**
- * Reads HEX pairs from specified source,
- * parses them into byte representation and
- * writes to specified sink.
- * 
- * @param src source with HEX data
- * @param sink sink for plain data
- * @return number of bytes converted from HEX
- */
-template<typename Source, typename Sink>
-size_t copy_from_hex(Source& src, Sink& sink) {
-    std::array<char, 3> hbuf;
-    hbuf[0] = '\0';
-    hbuf[1] = '\0';
-    hbuf[2] = '\0';
-    size_t count = 0;
-    size_t read = 0;
-    while (2 == (read = read_all(src, {hbuf.data(), 2}))) {
-        char* end = nullptr;
-        errno = 0;
-        char byte = static_cast<char> (strtol(hbuf.data(), std::addressof(end), 16));
-        if (errno == ERANGE || end != hbuf.data() + 2) {
-            throw io_exception(TRACEMSG("Error parsing byte from HEX-pair: [" + std::string(hbuf.data(), 2) + "]"));
-        }
-        sink.write({std::addressof(byte), 1});
-        count += 1;
-    }
-    if (0 != read) {
-        throw io_exception(TRACEMSG("Invalid non-even number of bytes available in HEX source," +
-                " tail size: [" + sl::support::to_string(read) +"]"));
-    }
-    return count;
 }
 
 /**
@@ -118,9 +61,9 @@ size_t copy_from_hex(Source& src, Sink& sink) {
  */
 inline std::string string_from_hex(const std::string& hexstr) {
     if (hexstr.empty()) return std::string();
-    auto src = array_source(hexstr.c_str(), hexstr.length());
+    auto src = make_hex_source(array_source(hexstr.c_str(), hexstr.length()));
     auto sink = string_sink();
-    copy_from_hex(src, sink);
+    copy_all(src, sink);
     return std::move(sink.get_string());
 }
 

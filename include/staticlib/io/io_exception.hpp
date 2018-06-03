@@ -26,8 +26,6 @@
 
 #include "staticlib/support.hpp"
 
-#include "staticlib/io/span.hpp"
-
 namespace staticlib {
 namespace io {
 

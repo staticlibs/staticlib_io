@@ -20,24 +20,11 @@
  *
  * Created on March 20, 2018, 5:18 PM
  */
-#include "staticlib/io/hex.hpp"
+#include "staticlib/io/hex_operations.hpp"
 
 #include <iostream>
 
 #include "staticlib/config/assert.hpp"
-
-void test_copy_hex() {
-    // hello in russian
-    std::string plain = "\xd0\xbf\xd1\x80\xd0\xb8\xd0\xb2\xd0\xb5\xd1\x82";
-    auto plain_src = sl::io::string_source(plain);
-    auto hex_sink = sl::io::string_sink();
-    auto count_to = sl::io::copy_to_hex(plain_src, hex_sink);
-    auto hex_src = sl::io::string_source(hex_sink.get_string());
-    auto plain_sink = sl::io::string_sink();
-    auto count_from = sl::io::copy_from_hex(hex_src, plain_sink);
-    slassert(count_to == count_from);
-    slassert(plain == plain_sink.get_string());
-}
 
 void test_string_to_hex() {
     slassert("666f6f" == sl::io::string_to_hex("foo"));
@@ -73,7 +60,6 @@ void test_format_plain_as_hex() {
 
 int main() {
     try {
-        test_copy_hex();
         test_string_to_hex();
         test_string_from_hex();
         test_format_hex_and_plain();

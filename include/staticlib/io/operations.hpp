@@ -44,12 +44,6 @@
 namespace staticlib {
 namespace io {
 
-namespace operations_detail {
-
-const std::array<char, 16> symbols = {{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'}};
-
-} // namespace
-
 /**
  * Writes buffer contents to the specified Sink ensuring that 
  * the specified number of bytes are written to Sink 
