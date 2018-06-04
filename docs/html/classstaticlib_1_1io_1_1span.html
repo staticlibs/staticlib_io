@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">staticlib_io
-   &#160;<span id="projectnumber">1.2.2</span>
+   &#160;<span id="projectnumber">1.2.6</span>
    </div>
   </td>
  </tr>
@@ -127,10 +127,16 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a18cad7a438a1938ec670210ee8e3b053"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data accessor.  <a href="#a18cad7a438a1938ec670210ee8e3b053"></a><br/></td></tr>
 <tr class="memitem:a8dc09b49abbb35d50e4125db62dabb16"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstaticlib_1_1io_1_1span.html#a8dc09b49abbb35d50e4125db62dabb16">empty</a> () const STATICLIB_NOEXCEPT</td></tr>
 <tr class="memdesc:a8dc09b49abbb35d50e4125db62dabb16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Emptiness check.  <a href="#a8dc09b49abbb35d50e4125db62dabb16"></a><br/></td></tr>
+<tr class="memitem:a0becdaa88e1e62e6fe10803e1310ecea"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstaticlib_1_1io_1_1span.html#a0becdaa88e1e62e6fe10803e1310ecea">is_empty</a> () const STATICLIB_NOEXCEPT</td></tr>
+<tr class="memdesc:a0becdaa88e1e62e6fe10803e1310ecea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Emptiness check.  <a href="#a0becdaa88e1e62e6fe10803e1310ecea"></a><br/></td></tr>
+<tr class="memitem:ac565143b5ede860e4d4dfa03d64c358d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstaticlib_1_1io_1_1span.html#ac565143b5ede860e4d4dfa03d64c358d">is_null</a> () const STATICLIB_NOEXCEPT</td></tr>
+<tr class="memdesc:ac565143b5ede860e4d4dfa03d64c358d"><td class="mdescLeft">&#160;</td><td class="mdescRight">NULL check.  <a href="#ac565143b5ede860e4d4dfa03d64c358d"></a><br/></td></tr>
 <tr class="memitem:addfb1741a8636bd225554b5dc4762176"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstaticlib_1_1io_1_1span.html#addfb1741a8636bd225554b5dc4762176">size</a> () const STATICLIB_NOEXCEPT</td></tr>
 <tr class="memdesc:addfb1741a8636bd225554b5dc4762176"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size accessor.  <a href="#addfb1741a8636bd225554b5dc4762176"></a><br/></td></tr>
 <tr class="memitem:a85d9b05c082ddffa463567c6325a5ebb"><td class="memItemLeft" align="right" valign="top">std::streamsize&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstaticlib_1_1io_1_1span.html#a85d9b05c082ddffa463567c6325a5ebb">size_signed</a> () const STATICLIB_NOEXCEPT</td></tr>
 <tr class="memdesc:a85d9b05c082ddffa463567c6325a5ebb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size accessor.  <a href="#a85d9b05c082ddffa463567c6325a5ebb"></a><br/></td></tr>
+<tr class="memitem:aba8e3f22b555e6ed87da1a219c937566"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstaticlib_1_1io_1_1span.html#aba8e3f22b555e6ed87da1a219c937566">size_int</a> () const STATICLIB_NOEXCEPT</td></tr>
+<tr class="memdesc:aba8e3f22b555e6ed87da1a219c937566"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size accessor.  <a href="#aba8e3f22b555e6ed87da1a219c937566"></a><br/></td></tr>
 <tr class="memitem:ac0ac8e3b17c050ab8bad533ac3ee901a"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstaticlib_1_1io_1_1span.html#ac0ac8e3b17c050ab8bad533ac3ee901a">size_bytes</a> () const STATICLIB_NOEXCEPT</td></tr>
 <tr class="memdesc:ac0ac8e3b17c050ab8bad533ac3ee901a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size in bytes accessor.  <a href="#ac0ac8e3b17c050ab8bad533ac3ee901a"></a><br/></td></tr>
 <tr class="memitem:acfd76fabff610ce97dc6be755f45d25e"><td class="memItemLeft" align="right" valign="top">T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstaticlib_1_1io_1_1span.html#acfd76fabff610ce97dc6be755f45d25e">begin</a> () const STATICLIB_NOEXCEPT</td></tr>
@@ -518,6 +524,62 @@ template&lt;typename T&gt; </div>
 
 </div>
 </div>
+<a class="anchor" id="a0becdaa88e1e62e6fe10803e1310ecea"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classstaticlib_1_1io_1_1span.html">staticlib::io::span</a>&lt; T &gt;::is_empty </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Emptiness check. </p>
+<dl class="section return"><dt>Returns</dt><dd>true, if this span empty, false otherwise </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ac565143b5ede860e4d4dfa03d64c358d"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classstaticlib_1_1io_1_1span.html">staticlib::io::span</a>&lt; T &gt;::is_null </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>NULL check. </p>
+<dl class="section return"><dt>Returns</dt><dd>true, if this span contains NULL buffer, false otherwise </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="ac81cede72869b0206db99c56ef3ae688"></a>
 <div class="memitem">
 <div class="memproto">
@@ -649,6 +711,34 @@ template&lt;typename T&gt; </div>
 
 </div>
 </div>
+<a class="anchor" id="aba8e3f22b555e6ed87da1a219c937566"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classstaticlib_1_1io_1_1span.html">staticlib::io::span</a>&lt; T &gt;::size_int </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Size accessor. </p>
+<dl class="section return"><dt>Returns</dt><dd>span size as int </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a85d9b05c082ddffa463567c6325a5ebb"></a>
 <div class="memitem">
 <div class="memproto">
@@ -683,7 +773,7 @@ template&lt;typename T&gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Dec 23 2017 14:58:14 for staticlib_io by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jun 4 2018 23:44:46 for staticlib_io by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

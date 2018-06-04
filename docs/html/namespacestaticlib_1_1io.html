@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">staticlib_io
-   &#160;<span id="projectnumber">1.2.2</span>
+   &#160;<span id="projectnumber">1.2.6</span>
    </div>
   </td>
  </tr>
@@ -98,7 +98,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 Namespaces</h2></td></tr>
 <tr class="memitem:namespacestaticlib_1_1io_1_1detail"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io_1_1detail.html">detail</a></td></tr>
 <tr class="memitem:namespacestaticlib_1_1io_1_1detail__array__sink"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io_1_1detail__array__sink.html">detail_array_sink</a></td></tr>
-<tr class="memitem:namespacestaticlib_1_1io_1_1operations__detail"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io_1_1operations__detail.html">operations_detail</a></td></tr>
+<tr class="memitem:namespacestaticlib_1_1io_1_1hex__sink__detail"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io_1_1hex__sink__detail.html">hex_sink_detail</a></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="nested-classes"></a>
 Classes</h2></td></tr>
@@ -118,6 +118,10 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Source wrapper that counts the number of bytes read through it.  <a href="classstaticlib_1_1io_1_1counting__source.html#details">More...</a><br/></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstaticlib_1_1io_1_1flushable__sink.html">flushable_sink</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sink wrapper that implements no-op flush.  <a href="classstaticlib_1_1io_1_1flushable__sink.html#details">More...</a><br/></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstaticlib_1_1io_1_1hex__sink.html">hex_sink</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sink wrapper that encodes data into Hexadecimal.  <a href="classstaticlib_1_1io_1_1hex__sink.html#details">More...</a><br/></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstaticlib_1_1io_1_1hex__source.html">hex_source</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Source wrapper that decodes data from Hexadecimal.  <a href="classstaticlib_1_1io_1_1hex__source.html#details">More...</a><br/></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstaticlib_1_1io_1_1io__exception.html">io_exception</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Module specific exception.  <a href="classstaticlib_1_1io_1_1io__exception.html#details">More...</a><br/></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstaticlib_1_1io_1_1limited__source.html">limited_source</a></td></tr>
@@ -208,6 +212,29 @@ void(*)(char *)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class=
 <tr class="memitem:a7bf26849c19f88ac4751e496ad5e044f"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classstaticlib_1_1io_1_1flushable__sink.html">flushable_sink</a>&lt; <a class="el" href="classstaticlib_1_1io_1_1reference__sink.html">reference_sink</a><br class="typebreak"/>
 &lt; NonFlushableSink &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a7bf26849c19f88ac4751e496ad5e044f">make_flushable_sink</a> (NonFlushableSink &amp;sink)</td></tr>
 <tr class="memdesc:a7bf26849c19f88ac4751e496ad5e044f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory function for creating flushable sinks, created sink wrapper will NOT own specified sink.  <a href="#a7bf26849c19f88ac4751e496ad5e044f"></a><br/></td></tr>
+<tr class="memitem:ad308057d8596f334f3b4aa9cb7fc72d3"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#ad308057d8596f334f3b4aa9cb7fc72d3">string_to_hex</a> (const std::string &amp;plain)</td></tr>
+<tr class="memdesc:ad308057d8596f334f3b4aa9cb7fc72d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encodes the specified string as a hexadecimal string.  <a href="#ad308057d8596f334f3b4aa9cb7fc72d3"></a><br/></td></tr>
+<tr class="memitem:a753b04d2b02d28523eb3ca4f191422af"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a753b04d2b02d28523eb3ca4f191422af">string_from_hex</a> (const std::string &amp;hexstr)</td></tr>
+<tr class="memdesc:a753b04d2b02d28523eb3ca4f191422af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decodes the specified hexadecimal string.  <a href="#a753b04d2b02d28523eb3ca4f191422af"></a><br/></td></tr>
+<tr class="memitem:a69e808c73d3c5395fd1aa3e5cc3d7437"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a69e808c73d3c5395fd1aa3e5cc3d7437">format_hex_and_plain</a> (const std::string &amp;hexstr, const std::string &amp;plain)</td></tr>
+<tr class="memdesc:a69e808c73d3c5395fd1aa3e5cc3d7437"><td class="mdescLeft">&#160;</td><td class="mdescRight">Format hex and plain strings as a hex+plain string.  <a href="#a69e808c73d3c5395fd1aa3e5cc3d7437"></a><br/></td></tr>
+<tr class="memitem:a05928a156673ef33d8bee765231d26b3"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a05928a156673ef33d8bee765231d26b3">format_hex</a> (const std::string &amp;hexstr)</td></tr>
+<tr class="memdesc:a05928a156673ef33d8bee765231d26b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Format hex-string as a hex+plain string.  <a href="#a05928a156673ef33d8bee765231d26b3"></a><br/></td></tr>
+<tr class="memitem:a555c81cf1f1c15c2db931e18ebba034c"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a555c81cf1f1c15c2db931e18ebba034c">format_plain_as_hex</a> (const std::string &amp;plain)</td></tr>
+<tr class="memdesc:a555c81cf1f1c15c2db931e18ebba034c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Format plain string as a hex+plain string.  <a href="#a555c81cf1f1c15c2db931e18ebba034c"></a><br/></td></tr>
+<tr class="memitem:a8c9babea4783e6751002d9a2a0465e85"><td class="memTemplParams" colspan="2">template&lt;typename Sink , class  = typename std::enable_if&lt;!std::is_lvalue_reference&lt;Sink&gt;::value&gt;::type&gt; </td></tr>
+<tr class="memitem:a8c9babea4783e6751002d9a2a0465e85"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classstaticlib_1_1io_1_1hex__sink.html">hex_sink</a>&lt; Sink &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a8c9babea4783e6751002d9a2a0465e85">make_hex_sink</a> (Sink &amp;&amp;sink)</td></tr>
+<tr class="memdesc:a8c9babea4783e6751002d9a2a0465e85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory function for creating hex sinks, created sink wrapper will own specified sink.  <a href="#a8c9babea4783e6751002d9a2a0465e85"></a><br/></td></tr>
+<tr class="memitem:aad94776533514d370f94559d4375205d"><td class="memTemplParams" colspan="2">template&lt;typename Sink &gt; </td></tr>
+<tr class="memitem:aad94776533514d370f94559d4375205d"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classstaticlib_1_1io_1_1hex__sink.html">hex_sink</a>&lt; <a class="el" href="classstaticlib_1_1io_1_1reference__sink.html">reference_sink</a>&lt; Sink &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#aad94776533514d370f94559d4375205d">make_hex_sink</a> (Sink &amp;sink)</td></tr>
+<tr class="memdesc:aad94776533514d370f94559d4375205d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory function for creating hex sinks, created sink wrapper will NOT own specified sink.  <a href="#aad94776533514d370f94559d4375205d"></a><br/></td></tr>
+<tr class="memitem:a7e70fbba9a110c9a8fb856f718189552"><td class="memTemplParams" colspan="2">template&lt;typename Source , class  = typename std::enable_if&lt;!std::is_lvalue_reference&lt;Source&gt;::value&gt;::type&gt; </td></tr>
+<tr class="memitem:a7e70fbba9a110c9a8fb856f718189552"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classstaticlib_1_1io_1_1hex__source.html">hex_source</a>&lt; Source &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a7e70fbba9a110c9a8fb856f718189552">make_hex_source</a> (Source &amp;&amp;source)</td></tr>
+<tr class="memdesc:a7e70fbba9a110c9a8fb856f718189552"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory function for creating hex sources, created source wrapper will own specified source.  <a href="#a7e70fbba9a110c9a8fb856f718189552"></a><br/></td></tr>
+<tr class="memitem:aa59673130f85435985fc18976f9bc62c"><td class="memTemplParams" colspan="2">template&lt;typename Source &gt; </td></tr>
+<tr class="memitem:aa59673130f85435985fc18976f9bc62c"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classstaticlib_1_1io_1_1hex__source.html">hex_source</a>&lt; <a class="el" href="classstaticlib_1_1io_1_1reference__source.html">reference_source</a><br class="typebreak"/>
+&lt; Source &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#aa59673130f85435985fc18976f9bc62c">make_hex_source</a> (Source &amp;source)</td></tr>
+<tr class="memdesc:aa59673130f85435985fc18976f9bc62c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory function for creating hex sources, created source wrapper will NOT own specified source.  <a href="#aa59673130f85435985fc18976f9bc62c"></a><br/></td></tr>
 <tr class="memitem:a1de35cbc5664f914bb7183cf4c1fc2d5"><td class="memTemplParams" colspan="2">template&lt;typename Source , class  = typename std::enable_if&lt;!std::is_lvalue_reference&lt;Source&gt;::value&gt;::type&gt; </td></tr>
 <tr class="memitem:a1de35cbc5664f914bb7183cf4c1fc2d5"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classstaticlib_1_1io_1_1limited__source.html">limited_source</a>&lt; Source &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a1de35cbc5664f914bb7183cf4c1fc2d5">make_limited_source</a> (Source &amp;&amp;source, size_t limit_bytes)</td></tr>
 <tr class="memdesc:a1de35cbc5664f914bb7183cf4c1fc2d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory function for creating limited sources, created source wrapper will own specified source.  <a href="#a1de35cbc5664f914bb7183cf4c1fc2d5"></a><br/></td></tr>
@@ -235,12 +262,6 @@ void(*)(char *)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class=
 <tr class="memdesc:a081c368d37ae2c31fb5a00fed21508c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Skips specified number of bytes reading data repeatedly from specified source into specified buffer.  <a href="#a081c368d37ae2c31fb5a00fed21508c5"></a><br/></td></tr>
 <tr class="memitem:a84b744878bd356130bf4a363a2fb6555"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a84b744878bd356130bf4a363a2fb6555">str_replace</a> (const std::string &amp;input, std::map&lt; std::string, std::string &gt; values)</td></tr>
 <tr class="memdesc:a84b744878bd356130bf4a363a2fb6555"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replaces "{{placeholders}}" with specified values in specified string.  <a href="#a84b744878bd356130bf4a363a2fb6555"></a><br/></td></tr>
-<tr class="memitem:abce5757532f2e22b611eea9228425fe0"><td class="memTemplParams" colspan="2">template&lt;typename Source , typename Sink &gt; </td></tr>
-<tr class="memitem:abce5757532f2e22b611eea9228425fe0"><td class="memTemplItemLeft" align="right" valign="top">size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#abce5757532f2e22b611eea9228425fe0">copy_to_hex</a> (Source &amp;src, Sink &amp;sink)</td></tr>
-<tr class="memdesc:abce5757532f2e22b611eea9228425fe0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads bytes from specified source one by one, converts them to HEX and writes to specified sink.  <a href="#abce5757532f2e22b611eea9228425fe0"></a><br/></td></tr>
-<tr class="memitem:aa33857de991cfe2191683bca523d2a68"><td class="memTemplParams" colspan="2">template&lt;typename Source , typename Sink &gt; </td></tr>
-<tr class="memitem:aa33857de991cfe2191683bca523d2a68"><td class="memTemplItemLeft" align="right" valign="top">size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#aa33857de991cfe2191683bca523d2a68">copy_from_hex</a> (Source &amp;src, Sink &amp;sink)</td></tr>
-<tr class="memdesc:aa33857de991cfe2191683bca523d2a68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads HEX pairs from specified source, parses them into byte representation and writes to specified sink.  <a href="#aa33857de991cfe2191683bca523d2a68"></a><br/></td></tr>
 <tr class="memitem:ab5af60f54f2811cf8c5a813d86f2885f"><td class="memTemplParams" colspan="2">template&lt;typename Sink &gt; </td></tr>
 <tr class="memitem:ab5af60f54f2811cf8c5a813d86f2885f"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classstaticlib_1_1io_1_1reference__sink.html">reference_sink</a>&lt; Sink &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#ab5af60f54f2811cf8c5a813d86f2885f">make_reference_sink</a> (Sink &amp;sink)</td></tr>
 <tr class="memdesc:ab5af60f54f2811cf8c5a813d86f2885f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory function for creating reference sinks.  <a href="#ab5af60f54f2811cf8c5a813d86f2885f"></a><br/></td></tr>
@@ -399,23 +420,59 @@ template&lt;typename Source , typename Sink , uint16_t BufferSize = 4096&gt; </d
 
 </div>
 </div>
-<a class="anchor" id="aa33857de991cfe2191683bca523d2a68"></a>
+<a class="anchor" id="a05928a156673ef33d8bee765231d26b3"></a>
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename Source , typename Sink &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">size_t staticlib::io::copy_from_hex </td>
+          <td class="memname">std::string staticlib::io::format_hex </td>
           <td>(</td>
-          <td class="paramtype">Source &amp;&#160;</td>
-          <td class="paramname"><em>src</em>, </td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>hexstr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Format hex-string as a hex+plain string. </p>
+<p>Formats specified hex-string as a <code>hex [plain]</code> string. Non-printable characters in plain string are replaced with spaces.</p>
+<p>Intended to be used for logging.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">hexstr</td><td>string in hexadecimal encoding </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>formatted string </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a69e808c73d3c5395fd1aa3e5cc3d7437"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string staticlib::io::format_hex_and_plain </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>hexstr</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Sink &amp;&#160;</td>
-          <td class="paramname"><em>sink</em>&#160;</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>plain</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -423,55 +480,59 @@ template&lt;typename Source , typename Sink &gt; </div>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Reads HEX pairs from specified source, parses them into byte representation and writes to specified sink. </p>
+<p>Format hex and plain strings as a hex+plain string. </p>
+<p>Formats specified hex-string as a <code>hex [plain]</code> string. Non-printable characters in plain string are replaced with spaces.</p>
+<p>Intended to be used for logging.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">src</td><td>source with HEX data </td></tr>
-    <tr><td class="paramname">sink</td><td>sink for plain data </td></tr>
+    <tr><td class="paramname">hexstr</td><td>string in hexadecimal encoding </td></tr>
+    <tr><td class="paramname">plain</td><td>plain string </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>number of bytes converted from HEX </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>formatted string </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="abce5757532f2e22b611eea9228425fe0"></a>
+<a class="anchor" id="a555c81cf1f1c15c2db931e18ebba034c"></a>
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename Source , typename Sink &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">size_t staticlib::io::copy_to_hex </td>
+          <td class="memname">std::string staticlib::io::format_plain_as_hex </td>
           <td>(</td>
-          <td class="paramtype">Source &amp;&#160;</td>
-          <td class="paramname"><em>src</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>plain</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">Sink &amp;&#160;</td>
-          <td class="paramname"><em>sink</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Reads bytes from specified source one by one, converts them to HEX and writes to specified sink. </p>
+<p>Format plain string as a hex+plain string. </p>
+<p>Formats specified hex-string as a <code>hex [plain]</code> string. Non-printable characters in plain string are replaced with spaces.</p>
+<p>Intended to be used for logging.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">src</td><td>source with plain data </td></tr>
-    <tr><td class="paramname">sink</td><td>sink for HEX data </td></tr>
+    <tr><td class="paramname">plain</td><td>plain string </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>number of bytes converted to HEX </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>formatted string </dd></dl>
 
 </div>
 </div>
@@ -896,6 +957,114 @@ template&lt;typename NonFlushableSink &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>flushable sink </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a8c9babea4783e6751002d9a2a0465e85"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Sink , class  = typename std::enable_if&lt;!std::is_lvalue_reference&lt;Sink&gt;::value&gt;::type&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classstaticlib_1_1io_1_1hex__sink.html">hex_sink</a>&lt;Sink&gt; staticlib::io::make_hex_sink </td>
+          <td>(</td>
+          <td class="paramtype">Sink &amp;&amp;&#160;</td>
+          <td class="paramname"><em>sink</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Factory function for creating hex sinks, created sink wrapper will own specified sink. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sink</td><td>destination sink </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>counting sink </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aad94776533514d370f94559d4375205d"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Sink &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classstaticlib_1_1io_1_1hex__sink.html">hex_sink</a>&lt;<a class="el" href="classstaticlib_1_1io_1_1reference__sink.html">reference_sink</a>&lt;Sink&gt; &gt; staticlib::io::make_hex_sink </td>
+          <td>(</td>
+          <td class="paramtype">Sink &amp;&#160;</td>
+          <td class="paramname"><em>sink</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Factory function for creating hex sinks, created sink wrapper will NOT own specified sink. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sink</td><td>destination sink </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>counting sink </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a7e70fbba9a110c9a8fb856f718189552"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Source , class  = typename std::enable_if&lt;!std::is_lvalue_reference&lt;Source&gt;::value&gt;::type&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classstaticlib_1_1io_1_1hex__source.html">hex_source</a>&lt;Source&gt; staticlib::io::make_hex_source </td>
+          <td>(</td>
+          <td class="paramtype">Source &amp;&amp;&#160;</td>
+          <td class="paramname"><em>source</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Factory function for creating hex sources, created source wrapper will own specified source. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">source</td><td>input source </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>counting source </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aa59673130f85435985fc18976f9bc62c"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Source &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classstaticlib_1_1io_1_1hex__source.html">hex_source</a>&lt;<a class="el" href="classstaticlib_1_1io_1_1reference__source.html">reference_source</a>&lt;Source&gt; &gt; staticlib::io::make_hex_source </td>
+          <td>(</td>
+          <td class="paramtype">Source &amp;&#160;</td>
+          <td class="paramname"><em>source</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Factory function for creating hex sources, created source wrapper will NOT own specified source. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">source</td><td>input source </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>counting source </dd></dl>
 
 </div>
 </div>
@@ -1750,6 +1919,72 @@ template&lt;typename Source , typename IntTypeSkip &gt; </div>
 
 </div>
 </div>
+<a class="anchor" id="a753b04d2b02d28523eb3ca4f191422af"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string staticlib::io::string_from_hex </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>hexstr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Decodes the specified hexadecimal string. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">hexstr</td><td>hex string </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>plain string </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ad308057d8596f334f3b4aa9cb7fc72d3"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string staticlib::io::string_to_hex </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>plain</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Encodes the specified string as a hexadecimal string. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">plain</td><td>plain string </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>hex string </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a58297eb0226b50473448f974b177375e"></a>
 <div class="memitem">
 <div class="memproto">
@@ -1790,7 +2025,7 @@ template&lt;typename Sink &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Dec 23 2017 14:58:14 for staticlib_io by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jun 4 2018 23:44:46 for staticlib_io by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

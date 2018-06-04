@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">staticlib_io
-   &#160;<span id="projectnumber">1.2.2</span>
+   &#160;<span id="projectnumber">1.2.6</span>
    </div>
   </td>
  </tr>
@@ -237,8 +237,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;</div>
 <div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> Sink,</div>
 <div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;        <span class="keyword">class </span>= <span class="keyword">typename</span> std::enable_if&lt;!std::is_lvalue_reference&lt;Sink&gt;::value&gt;::type&gt;</div>
-<div class="line"><a name="l00224"></a><span class="lineno"><a class="code" href="namespacestaticlib_1_1io.html#aa5a499a47ace7f09252572d11df1875a">  224</a></span>&#160;<a class="code" href="classstaticlib_1_1io_1_1buffered__sink.html" title="Sink wrapper that buffers the output.">buffered_sink&lt;Sink&gt;</a> <a class="code" href="namespacestaticlib_1_1io.html#aa5a499a47ace7f09252572d11df1875a" title="Factory function for creating buffered sinks, created sink wrapper will own specified sink...">make_buffered_sink</a>(Sink&amp;&amp; sink) {</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classstaticlib_1_1io_1_1buffered__sink.html" title="Sink wrapper that buffers the output.">buffered_sink&lt;Sink&gt;</a>(std::move(sink));</div>
+<div class="line"><a name="l00224"></a><span class="lineno"><a class="code" href="namespacestaticlib_1_1io.html#aa5a499a47ace7f09252572d11df1875a">  224</a></span>&#160;<a class="code" href="classstaticlib_1_1io_1_1buffered__sink.html">buffered_sink&lt;Sink&gt;</a> <a class="code" href="namespacestaticlib_1_1io.html#aa5a499a47ace7f09252572d11df1875a" title="Factory function for creating buffered sinks, created sink wrapper will own specified sink...">make_buffered_sink</a>(Sink&amp;&amp; sink) {</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classstaticlib_1_1io_1_1buffered__sink.html">buffered_sink&lt;Sink&gt;</a>(std::move(sink));</div>
 <div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;}</div>
 <div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;</div>
 <div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> Sink&gt;</div>
@@ -254,7 +254,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Dec 23 2017 14:58:14 for staticlib_io by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jun 4 2018 23:44:46 for staticlib_io by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

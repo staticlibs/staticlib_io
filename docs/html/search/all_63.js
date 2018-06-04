@@ -1,8 +1,6 @@
 var searchData=
 [
   ['copy_5fall',['copy_all',['../namespacestaticlib_1_1io.html#a4ee96998d8d079f3d0207780851e0323',1,'staticlib::io::copy_all(Source &amp;src, Sink &amp;sink, span&lt; char &gt; span)'],['../namespacestaticlib_1_1io.html#a00e02162a0bc82480417c23047897a97',1,'staticlib::io::copy_all(Source &amp;src, Sink &amp;sink)']]],
-  ['copy_5ffrom_5fhex',['copy_from_hex',['../namespacestaticlib_1_1io.html#aa33857de991cfe2191683bca523d2a68',1,'staticlib::io']]],
-  ['copy_5fto_5fhex',['copy_to_hex',['../namespacestaticlib_1_1io.html#abce5757532f2e22b611eea9228425fe0',1,'staticlib::io']]],
   ['copying_5fsource',['copying_source',['../classstaticlib_1_1io_1_1copying__source.html',1,'staticlib::io']]],
   ['copying_5fsource',['copying_source',['../classstaticlib_1_1io_1_1copying__source.html#afc602504cebbeff900da983df04e56ed',1,'staticlib::io::copying_source::copying_source(Source &amp;&amp;src, Sink &amp;&amp;sink)'],['../classstaticlib_1_1io_1_1copying__source.html#a4640855c43e0cac7f27b3b87ef4a8b47',1,'staticlib::io::copying_source::copying_source(const copying_source &amp;)'],['../classstaticlib_1_1io_1_1copying__source.html#a127c1a7fa0a4f85cb956bf22cdb220a2',1,'staticlib::io::copying_source::copying_source(copying_source &amp;&amp;other) STATICLIB_NOEXCEPT']]],
   ['copying_5fsource_2ehpp',['copying_source.hpp',['../copying__source_8hpp.html',1,'']]],
