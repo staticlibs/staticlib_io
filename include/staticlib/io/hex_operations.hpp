@@ -48,8 +48,10 @@ inline std::string string_to_hex(const std::string& plain) {
     if (plain.empty()) return std::string();
     auto src = array_source(plain.c_str(), plain.length());
     auto sink = string_sink();
-    auto hsink = make_hex_sink(sink);
-    copy_all(src, hsink);
+    {
+        auto hsink = make_hex_sink(sink);
+        copy_all(src, hsink);
+    }
     return std::move(sink.get_string());
 }
 

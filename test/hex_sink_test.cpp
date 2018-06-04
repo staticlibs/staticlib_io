@@ -32,8 +32,11 @@ void test_sink() {
     // hello in russian
     auto src = sl::io::string_source("\xd0\xbf\xd1\x80\xd0\xb8\xd0\xb2\xd0\xb5\xd1\x82");
     auto dest_sink = sl::io::string_sink();
-    auto sink = sl::io::make_hex_sink(dest_sink);
-    sl::io::copy_all(src, sink);
+    {
+        auto sink = sl::io::make_hex_sink(dest_sink);
+        sl::io::copy_all(src, sink);
+//        sink.flush();
+    }
     slassert("d0bfd180d0b8d0b2d0b5d182" == dest_sink.get_string());
 }
 

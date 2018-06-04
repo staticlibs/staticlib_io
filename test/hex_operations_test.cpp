@@ -15,7 +15,7 @@
  */
 
 /* 
- * File:   hex_test.cpp
+ * File:   hex_operations_test.cpp
  * Author: alex
  *
  * Created on March 20, 2018, 5:18 PM

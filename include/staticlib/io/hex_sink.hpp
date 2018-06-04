@@ -28,6 +28,7 @@
 
 #include "staticlib/config.hpp"
 
+#include "staticlib/io/buffered_sink.hpp"
 #include "staticlib/io/reference_sink.hpp"
 #include "staticlib/io/operations.hpp"
 #include "staticlib/io/span.hpp"
@@ -42,15 +43,14 @@ const std::array<char, 16> symbols = {{'0', '1', '2', '3', '4', '5', '6', '7', '
 } // namespace
 
 /**
- * Sink wrapper that encodes data into Hexadecimal,
- * should be used in conjunction with buffered sink.
+ * Sink wrapper that encodes data into Hexadecimal
  */
 template<typename Sink>
 class hex_sink {
     /**
      * Destination sink
      */
-    Sink sink;
+    buffered_sink<Sink> sink;
     /**
      * Encode buffer
      */
@@ -64,7 +64,7 @@ public:
      * @param sink destination sink
      */
     explicit hex_sink(Sink&& sink) :
-    sink(std::move(sink)) {
+    sink(make_buffered_sink(std::move(sink))) {
         hbuf[0] = '\0';
         hbuf[1] = '\0';
     }
@@ -138,7 +138,7 @@ public:
      * @return underlying sink reference
      */
     Sink& get_sink() {
-        return sink;
+        return sink.get_sink();
     }
 
 };

@@ -31,6 +31,7 @@
 
 #include "staticlib/config.hpp"
 
+#include "staticlib/io/buffered_source.hpp"
 #include "staticlib/io/io_exception.hpp"
 #include "staticlib/io/reference_source.hpp"
 #include "staticlib/io/span.hpp"
@@ -39,15 +40,14 @@ namespace staticlib {
 namespace io {
 
 /**
- * Source wrapper that decodes data from Hexadecimal,
- * should be used in conjunction with buffered source.
+ * Source wrapper that decodes data from Hexadecimal
  */
 template<typename Source>
 class hex_source {
     /**
      * Input source
      */
-    Source src;
+    buffered_source<Source> src;
     /**
      * Decode buffer
      */
@@ -61,7 +61,7 @@ public:
      * @param src input source
      */
     explicit hex_source(Source&& src) :
-    src(std::move(src)) {
+    src(make_buffered_source(std::move(src))) {
         hbuf[0] = '\0';
         hbuf[1] = '\0';
         hbuf[2] = '\0';
@@ -142,7 +142,7 @@ public:
      * @return underlying source reference
      */
     Source& get_source() {
-        return src;
+        return src.get_source();
     }
     
 };
