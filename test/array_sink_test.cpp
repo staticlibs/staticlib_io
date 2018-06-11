@@ -30,9 +30,9 @@
 
 void test_sink() {
     auto sink = sl::io::make_array_sink();
-    sink.write({"42"});
-    sink.write({"foo"});
-    sink.write({"1"});
+    sink.write("42");
+    sink.write("foo");
+    sink.write("1");
     auto span = sink.release();
     slassert(6 == span.size());
     slassert('\0' ==  span.data()[span.size()]);

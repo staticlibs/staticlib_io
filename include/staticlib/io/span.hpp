@@ -46,7 +46,7 @@ public:
      * Default constructor
      */
     bad_span_access_exception() = default;
-    
+
     /**
      * Constructor with message
      * 
@@ -59,7 +59,7 @@ public:
 
 
 /**
- * Non-owning range of elements in of contiguous memory.
+ * Non-owning range of elements in contiguous memory.
  */
 template<typename T>
 class span {
@@ -142,6 +142,15 @@ public:
     span(buffer.length() > 0 ? buffer.data() : nullptr, buffer.length()) { }
 
     /**
+     * Constructor from string literal
+     * 
+     * @param buffer string literal
+     */
+    template<size_t Size>
+    span(const char (&buffer)[Size]) :
+    span(Size > 1 ? static_cast<const char*>(buffer) : nullptr, Size - 1) { }
+
+    /**
      * Copy constructor
      * 
      * @param other other span
@@ -149,7 +158,7 @@ public:
     span(const span<T>& other) :
     first_ptr(other.first_ptr),
     last_ptr(other.last_ptr) { }
-    
+
     /**
      * Copy assignment operator
      * 

@@ -111,7 +111,20 @@ void test_const() {
     vec.push_back('r');
     sl::io::span<const char> sp1(vec);
     (void) sp1;
-    
+}
+
+void test_literal() {
+    const char foo_literal[] = "foo";
+    auto foo_span = sl::io::span<const char>(foo_literal);
+    slassert(3 == foo_span.size());
+    slassert("foo" == std::string(foo_span.data(), foo_span.size()));
+}
+
+void test_conversion() {
+    auto from_string = sl::io::span<const char>(std::string("foo"));
+    (void) from_string;
+    auto from_char_array = sl::io::span<const char>("foo");
+    (void) from_char_array;
 }
 
 int main() {
@@ -120,6 +133,8 @@ int main() {
         test_throws();
         test_elems();
         test_const();
+        test_literal();
+//        test_conversion();
     } catch (const std::exception& e) {
         std::cout << e.what() << std::endl;
         return 1;
