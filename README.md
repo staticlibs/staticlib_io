@@ -61,6 +61,11 @@ This project is released under the [Apache License 2.0](http://www.apache.org/li
 Changelog
 ---------
 
+**2018-06-16**
+
+ * version 1.2.8
+ * `memory_sink` added
+
 **2018-06-12**
 
  * version 1.2.7
