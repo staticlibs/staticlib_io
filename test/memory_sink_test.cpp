@@ -48,7 +48,7 @@ void test_write() {
     try {
         char ch = 'a';
         sink.write({std::addressof(ch), 1});
-    } catch(const sl::io::io_exception& e) {
+    } catch(const sl::io::io_exception&) {
         thrown = true;
     }
     slassert(thrown);
