@@ -40,6 +40,7 @@
 #include "staticlib/io/io_exception.hpp"
 #include "staticlib/io/limited_source.hpp"
 #include "staticlib/io/memory_sink.hpp"
+#include "staticlib/io/multi_source.hpp"
 #include "staticlib/io/null_sink.hpp"
 #include "staticlib/io/operations.hpp"
 #include "staticlib/io/reference_sink.hpp"
