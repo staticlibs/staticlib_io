@@ -39,12 +39,14 @@ namespace staticlib {
 namespace io {
 
 /**
- * Encodes the specified string as a hexadecimal string
+ * Encodes the specified string as a hexadecimal string.
+ * 
+ * Alias for `string_to_hex` to work aroung OpenSSL macro clash
  * 
  * @param plain plain string
  * @return hex string
  */
-inline std::string string_to_hex(const std::string& plain) {
+inline std::string hex_from_string(const std::string& plain) {
     if (plain.empty()) return std::string();
     auto src = array_source(plain.c_str(), plain.length());
     auto sink = string_sink();
@@ -53,6 +55,16 @@ inline std::string string_to_hex(const std::string& plain) {
         copy_all(src, hsink);
     }
     return std::move(sink.get_string());
+}
+
+/**
+ * Encodes the specified string as a hexadecimal string
+ * 
+ * @param plain plain string
+ * @return hex string
+ */
+inline std::string string_to_hex(const std::string& plain) {
+    return hex_from_string(plain);
 }
 
 /**
