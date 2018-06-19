@@ -61,6 +61,11 @@ This project is released under the [Apache License 2.0](http://www.apache.org/li
 Changelog
 ---------
 
+**2018-06-19**
+
+ * version 1.2.9
+ * `multi_source` added
+
 **2018-06-16**
 
  * version 1.2.8
