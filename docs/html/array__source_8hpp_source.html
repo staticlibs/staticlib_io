@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">staticlib_io
-   &#160;<span id="projectnumber">1.2.6</span>
+   &#160;<span id="projectnumber">1.2.9</span>
    </div>
   </td>
  </tr>
@@ -136,11 +136,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    src_buf(src_buf),</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    src_buf_len(src_buf_len) { }</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
-<div class="line"><a name="l00073"></a><span class="lineno"><a class="code" href="classstaticlib_1_1io_1_1array__source.html#aea8900e6bfefb2ee4234a0fd61f914d5">   73</a></span>&#160;    <a class="code" href="classstaticlib_1_1io_1_1array__source.html#a901fc1159d57ca4f5ea5df149304ec07" title="Constructor.">array_source</a>(<a class="code" href="classstaticlib_1_1io_1_1span.html" title="Non-owning range of elements in of contiguous memory.">span&lt;const char&gt;</a> src_buf) :</div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="code" href="classstaticlib_1_1io_1_1array__source.html#aea8900e6bfefb2ee4234a0fd61f914d5">   73</a></span>&#160;    <a class="code" href="classstaticlib_1_1io_1_1array__source.html#a901fc1159d57ca4f5ea5df149304ec07" title="Constructor.">array_source</a>(<a class="code" href="classstaticlib_1_1io_1_1span.html" title="Non-owning range of elements in contiguous memory.">span&lt;const char&gt;</a> src_buf) :</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    src_buf(src_buf.data()),</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    src_buf_len(src_buf.size()) { }</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
-<div class="line"><a name="l00082"></a><span class="lineno"><a class="code" href="classstaticlib_1_1io_1_1array__source.html#a84e42c5199410de1dc431442f57e11c1">   82</a></span>&#160;    <a class="code" href="classstaticlib_1_1io_1_1array__source.html#a901fc1159d57ca4f5ea5df149304ec07" title="Constructor.">array_source</a>(<a class="code" href="classstaticlib_1_1io_1_1span.html" title="Non-owning range of elements in of contiguous memory.">span&lt;char&gt;</a> src_buf) :</div>
+<div class="line"><a name="l00082"></a><span class="lineno"><a class="code" href="classstaticlib_1_1io_1_1array__source.html#a84e42c5199410de1dc431442f57e11c1">   82</a></span>&#160;    <a class="code" href="classstaticlib_1_1io_1_1array__source.html#a901fc1159d57ca4f5ea5df149304ec07" title="Constructor.">array_source</a>(<a class="code" href="classstaticlib_1_1io_1_1span.html">span&lt;char&gt;</a> src_buf) :</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    src_buf(src_buf.data()),</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    src_buf_len(src_buf.size()) { }</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
@@ -175,7 +175,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    }</div>
 <div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;</div>
-<div class="line"><a name="l00145"></a><span class="lineno"><a class="code" href="classstaticlib_1_1io_1_1array__source.html#a3562df1a6d85a3e8df3701734e8dbee8">  145</a></span>&#160;    std::streamsize <a class="code" href="classstaticlib_1_1io_1_1array__source.html#a3562df1a6d85a3e8df3701734e8dbee8" title="Buffered read implementation.">read</a>(<a class="code" href="classstaticlib_1_1io_1_1span.html" title="Non-owning range of elements in of contiguous memory.">span&lt;char&gt;</a> <a class="code" href="classstaticlib_1_1io_1_1span.html" title="Non-owning range of elements in of contiguous memory.">span</a>) {</div>
+<div class="line"><a name="l00145"></a><span class="lineno"><a class="code" href="classstaticlib_1_1io_1_1array__source.html#a3562df1a6d85a3e8df3701734e8dbee8">  145</a></span>&#160;    std::streamsize <a class="code" href="classstaticlib_1_1io_1_1array__source.html#a3562df1a6d85a3e8df3701734e8dbee8" title="Buffered read implementation.">read</a>(<a class="code" href="classstaticlib_1_1io_1_1span.html">span&lt;char&gt;</a> <a class="code" href="classstaticlib_1_1io_1_1span.html" title="Non-owning range of elements in contiguous memory.">span</a>) {</div>
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;        <span class="keywordtype">size_t</span> ulen = span.<a class="code" href="classstaticlib_1_1io_1_1span.html#addfb1741a8636bd225554b5dc4762176" title="Size accessor.">size</a>();</div>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        <span class="keywordtype">size_t</span> avail = src_buf_len - idx;</div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        <span class="keywordflow">if</span> (avail &gt; 0) {</div>
@@ -200,7 +200,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jun 4 2018 23:44:46 for staticlib_io by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jun 19 2018 14:57:27 for staticlib_io by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

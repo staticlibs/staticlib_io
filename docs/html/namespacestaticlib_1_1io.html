@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">staticlib_io
-   &#160;<span id="projectnumber">1.2.6</span>
+   &#160;<span id="projectnumber">1.2.9</span>
    </div>
   </td>
  </tr>
@@ -126,6 +126,10 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Module specific exception.  <a href="classstaticlib_1_1io_1_1io__exception.html#details">More...</a><br/></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstaticlib_1_1io_1_1limited__source.html">limited_source</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Source wrapper that limits the number of bytes read through it and throws "io_exception" on threshold exceed.  <a href="classstaticlib_1_1io_1_1limited__source.html#details">More...</a><br/></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstaticlib_1_1io_1_1memory__sink.html">memory_sink</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sink implementation that writes into fixed-size memory area.  <a href="classstaticlib_1_1io_1_1memory__sink.html#details">More...</a><br/></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstaticlib_1_1io_1_1multi__source.html">multi_source</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Source wrapper that contains a range of sources to read data from.  <a href="classstaticlib_1_1io_1_1multi__source.html#details">More...</a><br/></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstaticlib_1_1io_1_1null__sink.html">null_sink</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sink implementation with no-op write method.  <a href="classstaticlib_1_1io_1_1null__sink.html#details">More...</a><br/></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstaticlib_1_1io_1_1reference__sink.html">reference_sink</a></td></tr>
@@ -143,7 +147,7 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstaticlib_1_1io_1_1bad__span__access__exception.html">bad_span_access_exception</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Span-specific exception.  <a href="classstaticlib_1_1io_1_1bad__span__access__exception.html#details">More...</a><br/></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstaticlib_1_1io_1_1span.html">span</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-owning range of elements in of contiguous memory.  <a href="classstaticlib_1_1io_1_1span.html#details">More...</a><br/></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-owning range of elements in contiguous memory.  <a href="classstaticlib_1_1io_1_1span.html#details">More...</a><br/></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstaticlib_1_1io_1_1streambuf__sink.html">streambuf_sink</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sink implementation that wraps a pointer to the "std::streambuf".  <a href="classstaticlib_1_1io_1_1streambuf__sink.html#details">More...</a><br/></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstaticlib_1_1io_1_1streambuf__source.html">streambuf_source</a></td></tr>
@@ -242,6 +246,14 @@ void(*)(char *)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class=
 <tr class="memitem:afbd8038a44f431e66e6cd3a43dd778d1"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classstaticlib_1_1io_1_1limited__source.html">limited_source</a><br class="typebreak"/>
 &lt; <a class="el" href="classstaticlib_1_1io_1_1reference__source.html">reference_source</a>&lt; Source &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#afbd8038a44f431e66e6cd3a43dd778d1">make_limited_source</a> (Source &amp;source, size_t limit_bytes)</td></tr>
 <tr class="memdesc:afbd8038a44f431e66e6cd3a43dd778d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory function for creating limited sources, created source wrapper will NOT own specified source.  <a href="#afbd8038a44f431e66e6cd3a43dd778d1"></a><br/></td></tr>
+<tr class="memitem:a1274a6cc7c2d8e88e24e57c571017bab"><td class="memTemplParams" colspan="2">template&lt;typename Range , class  = typename std::enable_if&lt;!std::is_lvalue_reference&lt;Range&gt;::value&gt;::type&gt; </td></tr>
+<tr class="memitem:a1274a6cc7c2d8e88e24e57c571017bab"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classstaticlib_1_1io_1_1multi__source.html">multi_source</a>&lt; Range &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a1274a6cc7c2d8e88e24e57c571017bab">make_multi_source</a> (Range &amp;&amp;range)</td></tr>
+<tr class="memdesc:a1274a6cc7c2d8e88e24e57c571017bab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory function for creating multi sources, created source wrapper will own specified sources.  <a href="#a1274a6cc7c2d8e88e24e57c571017bab"></a><br/></td></tr>
+<tr class="memitem:a0b350102432221caba0d7903b9ddf08f"><td class="memTemplParams" colspan="2">template&lt;typename Range &gt; </td></tr>
+<tr class="memitem:a0b350102432221caba0d7903b9ddf08f"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classstaticlib_1_1io_1_1multi__source.html">multi_source</a>&lt; std::vector<br class="typebreak"/>
+&lt; <a class="el" href="classstaticlib_1_1io_1_1reference__source.html">reference_source</a>&lt; typename <br class="typebreak"/>
+Range::value_type &gt; &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a0b350102432221caba0d7903b9ddf08f">make_multi_source</a> (Range &amp;range)</td></tr>
+<tr class="memdesc:a0b350102432221caba0d7903b9ddf08f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory function for creating multi sources, created source wrapper will NOT own specified sources.  <a href="#a0b350102432221caba0d7903b9ddf08f"></a><br/></td></tr>
 <tr class="memitem:a58297eb0226b50473448f974b177375e"><td class="memTemplParams" colspan="2">template&lt;typename Sink &gt; </td></tr>
 <tr class="memitem:a58297eb0226b50473448f974b177375e"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a58297eb0226b50473448f974b177375e">write_all</a> (Sink &amp;sink, <a class="el" href="classstaticlib_1_1io_1_1span.html">span</a>&lt; const char &gt; <a class="el" href="classstaticlib_1_1io_1_1span.html">span</a>)</td></tr>
 <tr class="memdesc:a58297eb0226b50473448f974b177375e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes buffer contents to the specified Sink ensuring that the specified number of bytes are written to Sink (making multiple write calls to Sink if needed).  <a href="#a58297eb0226b50473448f974b177375e"></a><br/></td></tr>
@@ -1144,6 +1156,60 @@ template&lt;typename Source &gt; </div>
 
 </div>
 </div>
+<a class="anchor" id="a1274a6cc7c2d8e88e24e57c571017bab"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Range , class  = typename std::enable_if&lt;!std::is_lvalue_reference&lt;Range&gt;::value&gt;::type&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classstaticlib_1_1io_1_1multi__source.html">multi_source</a>&lt;Range&gt; staticlib::io::make_multi_source </td>
+          <td>(</td>
+          <td class="paramtype">Range &amp;&amp;&#160;</td>
+          <td class="paramname"><em>range</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Factory function for creating multi sources, created source wrapper will own specified sources. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">range</td><td>input sources </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>multi source </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a0b350102432221caba0d7903b9ddf08f"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Range &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classstaticlib_1_1io_1_1multi__source.html">multi_source</a>&lt;std::vector&lt;<a class="el" href="classstaticlib_1_1io_1_1reference__source.html">reference_source</a>&lt;typename Range::value_type&gt; &gt; &gt; staticlib::io::make_multi_source </td>
+          <td>(</td>
+          <td class="paramtype">Range &amp;&#160;</td>
+          <td class="paramname"><em>range</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Factory function for creating multi sources, created source wrapper will NOT own specified sources. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">range</td><td>input sources </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>multi source </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="ab5af60f54f2811cf8c5a813d86f2885f"></a>
 <div class="memitem">
 <div class="memproto">
@@ -2025,7 +2091,7 @@ template&lt;typename Sink &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jun 4 2018 23:44:46 for staticlib_io by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jun 19 2018 14:57:27 for staticlib_io by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

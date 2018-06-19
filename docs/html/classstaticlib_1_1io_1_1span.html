@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">staticlib_io
-   &#160;<span id="projectnumber">1.2.6</span>
+   &#160;<span id="projectnumber">1.2.9</span>
    </div>
   </td>
  </tr>
@@ -95,7 +95,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
-<p>Non-owning range of elements in of contiguous memory.  
+<p>Non-owning range of elements in contiguous memory.  
  <a href="classstaticlib_1_1io_1_1span.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="span_8hpp_source.html">staticlib/io/span.hpp</a>&gt;</code></p>
@@ -117,6 +117,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a3ba0424ecc16f3e54f571261d329ee3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor from string, for <code>char</code> and <code>const char</code>spans only.  <a href="#a3ba0424ecc16f3e54f571261d329ee3a"></a><br/></td></tr>
 <tr class="memitem:a3017a90d4b369c20ce6b40bd3d504175"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstaticlib_1_1io_1_1span.html#a3017a90d4b369c20ce6b40bd3d504175">span</a> (const std::string &amp;buffer)</td></tr>
 <tr class="memdesc:a3017a90d4b369c20ce6b40bd3d504175"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor from string, for <code>const char</code>spans only.  <a href="#a3017a90d4b369c20ce6b40bd3d504175"></a><br/></td></tr>
+<tr class="memitem:aec64f909ec4f1eae2fd1f705d751a1be"><td class="memTemplParams" colspan="2">template&lt;size_t Size&gt; </td></tr>
+<tr class="memitem:aec64f909ec4f1eae2fd1f705d751a1be"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classstaticlib_1_1io_1_1span.html#aec64f909ec4f1eae2fd1f705d751a1be">span</a> (const char(&amp;buffer)[Size])</td></tr>
+<tr class="memdesc:aec64f909ec4f1eae2fd1f705d751a1be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor from string literal.  <a href="#aec64f909ec4f1eae2fd1f705d751a1be"></a><br/></td></tr>
 <tr class="memitem:ab0eab0090ed5afe0ad7d2935d647f746"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstaticlib_1_1io_1_1span.html#ab0eab0090ed5afe0ad7d2935d647f746">span</a> (const <a class="el" href="classstaticlib_1_1io_1_1span.html">span</a>&lt; T &gt; &amp;other)</td></tr>
 <tr class="memdesc:ab0eab0090ed5afe0ad7d2935d647f746"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor.  <a href="#ab0eab0090ed5afe0ad7d2935d647f746"></a><br/></td></tr>
 <tr class="memitem:ac81cede72869b0206db99c56ef3ae688"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classstaticlib_1_1io_1_1span.html">span</a>&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstaticlib_1_1io_1_1span.html#ac81cede72869b0206db99c56ef3ae688">operator=</a> (const <a class="el" href="classstaticlib_1_1io_1_1span.html">span</a>&lt; T &gt; &amp;other)</td></tr>
@@ -148,7 +151,7 @@ Public Member Functions</h2></td></tr>
 <div class="textblock"><h3>template&lt;typename T&gt;<br/>
 class staticlib::io::span&lt; T &gt;</h3>
 
-<p>Non-owning range of elements in of contiguous memory. </p>
+<p>Non-owning range of elements in contiguous memory. </p>
 </div><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a1c4f60502680e6a062d02104068ae2d2"></a>
 <div class="memitem">
@@ -371,6 +374,42 @@ template&lt;typename T&gt; </div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">buffer</td><td>string </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="aec64f909ec4f1eae2fd1f705d751a1be"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+<div class="memtemplate">
+template&lt;size_t Size&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classstaticlib_1_1io_1_1span.html">staticlib::io::span</a>&lt; T &gt;::<a class="el" href="classstaticlib_1_1io_1_1span.html">span</a> </td>
+          <td>(</td>
+          <td class="paramtype">const char(&amp;)&#160;</td>
+          <td class="paramname"><em>buffer</em>[Size]</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructor from string literal. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buffer</td><td>string literal </td></tr>
   </table>
   </dd>
 </dl>
@@ -773,7 +812,7 @@ template&lt;typename T&gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jun 4 2018 23:44:46 for staticlib_io by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jun 19 2018 14:57:28 for staticlib_io by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">staticlib_io
-   &#160;<span id="projectnumber">1.2.6</span>
+   &#160;<span id="projectnumber">1.2.9</span>
    </div>
   </td>
  </tr>
@@ -204,7 +204,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        }</div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    }</div>
 <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    </div>
-<div class="line"><a name="l00176"></a><span class="lineno"><a class="code" href="classstaticlib_1_1io_1_1array__sink.html#a7a0a9b75ca4ddb3218dc6919ba85ae17">  176</a></span>&#160;    std::streamsize <a class="code" href="classstaticlib_1_1io_1_1array__sink.html#a7a0a9b75ca4ddb3218dc6919ba85ae17" title="Write implementation.">write</a>(<a class="code" href="classstaticlib_1_1io_1_1span.html" title="Non-owning range of elements in of contiguous memory.">span&lt;const char&gt;</a> <a class="code" href="classstaticlib_1_1io_1_1span.html" title="Non-owning range of elements in of contiguous memory.">span</a>) {</div>
+<div class="line"><a name="l00176"></a><span class="lineno"><a class="code" href="classstaticlib_1_1io_1_1array__sink.html#a7a0a9b75ca4ddb3218dc6919ba85ae17">  176</a></span>&#160;    std::streamsize <a class="code" href="classstaticlib_1_1io_1_1array__sink.html#a7a0a9b75ca4ddb3218dc6919ba85ae17" title="Write implementation.">write</a>(<a class="code" href="classstaticlib_1_1io_1_1span.html" title="Non-owning range of elements in contiguous memory.">span&lt;const char&gt;</a> <a class="code" href="classstaticlib_1_1io_1_1span.html" title="Non-owning range of elements in contiguous memory.">span</a>) {</div>
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;        <span class="keywordflow">while</span> (bufsize + span.<a class="code" href="classstaticlib_1_1io_1_1span.html#addfb1741a8636bd225554b5dc4762176" title="Size accessor.">size</a>() &gt; capacity) {</div>
 <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;            capacity = <span class="keyword">static_cast&lt;</span><span class="keywordtype">size_t</span><span class="keyword">&gt;</span>(<span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(capacity) * grow_coef);</div>
 <div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;            <span class="keywordtype">char</span>* nbuf = alloc_fun(static_cast&lt;int&gt;(capacity + 1));</div>
@@ -224,7 +224,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;        <span class="keywordflow">return</span> 0;</div>
 <div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    }</div>
 <div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    </div>
-<div class="line"><a name="l00209"></a><span class="lineno"><a class="code" href="classstaticlib_1_1io_1_1array__sink.html#a54542951f8f6121af56571b79429e894">  209</a></span>&#160;    <a class="code" href="classstaticlib_1_1io_1_1span.html" title="Non-owning range of elements in of contiguous memory.">span&lt;char&gt;</a> <a class="code" href="classstaticlib_1_1io_1_1array__sink.html#a54542951f8f6121af56571b79429e894" title="Releases underlying buffer and returns it inside the span.">release</a>() {</div>
+<div class="line"><a name="l00209"></a><span class="lineno"><a class="code" href="classstaticlib_1_1io_1_1array__sink.html#a54542951f8f6121af56571b79429e894">  209</a></span>&#160;    <a class="code" href="classstaticlib_1_1io_1_1span.html">span&lt;char&gt;</a> <a class="code" href="classstaticlib_1_1io_1_1array__sink.html#a54542951f8f6121af56571b79429e894" title="Releases underlying buffer and returns it inside the span.">release</a>() {</div>
 <div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;        <span class="keywordflow">if</span> (<span class="keyword">nullptr</span> != buf) {</div>
 <div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;            buf[bufsize] = <span class="charliteral">&#39;\0&#39;</span>;</div>
 <div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;            <span class="keyword">auto</span> res = <a class="code" href="namespacestaticlib_1_1io.html#ae7f68b522141e1836455c21d37727354" title="Helper function, creates span instance.">make_span</a>(buf, bufsize);</div>
@@ -269,7 +269,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jun 4 2018 23:44:46 for staticlib_io by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jun 19 2018 14:57:27 for staticlib_io by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

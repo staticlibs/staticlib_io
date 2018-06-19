@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">staticlib_io
-   &#160;<span id="projectnumber">1.2.6</span>
+   &#160;<span id="projectnumber">1.2.9</span>
    </div>
   </td>
  </tr>
@@ -219,7 +219,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    }</div>
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;</div>
-<div class="line"><a name="l00193"></a><span class="lineno"><a class="code" href="classstaticlib_1_1io_1_1replacer__source.html#ab2ac211f5191815306ea26782895be68">  193</a></span>&#160;    std::streamsize <a class="code" href="classstaticlib_1_1io_1_1replacer__source.html#ab2ac211f5191815306ea26782895be68" title="Replacing read implementation.">read</a>(<a class="code" href="classstaticlib_1_1io_1_1span.html" title="Non-owning range of elements in of contiguous memory.">span&lt;char&gt;</a> <a class="code" href="classstaticlib_1_1io_1_1span.html" title="Non-owning range of elements in of contiguous memory.">span</a>) {</div>
+<div class="line"><a name="l00193"></a><span class="lineno"><a class="code" href="classstaticlib_1_1io_1_1replacer__source.html#ab2ac211f5191815306ea26782895be68">  193</a></span>&#160;    std::streamsize <a class="code" href="classstaticlib_1_1io_1_1replacer__source.html#ab2ac211f5191815306ea26782895be68" title="Replacing read implementation.">read</a>(<a class="code" href="classstaticlib_1_1io_1_1span.html">span&lt;char&gt;</a> <a class="code" href="classstaticlib_1_1io_1_1span.html" title="Non-owning range of elements in contiguous memory.">span</a>) {</div>
 <div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;        <span class="keywordtype">size_t</span> ulen = span.<a class="code" href="classstaticlib_1_1io_1_1span.html#addfb1741a8636bd225554b5dc4762176" title="Size accessor.">size</a>();</div>
 <div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;        <span class="comment">// return from buffer</span></div>
 <div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        std::streamsize read_buffered = copy_buffered(span.<a class="code" href="classstaticlib_1_1io_1_1span.html#a18cad7a438a1938ec670210ee8e3b053" title="Data accessor.">data</a>(), ulen);</div>
@@ -255,7 +255,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;            }</div>
 <div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;        }</div>
 <div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;        <span class="comment">// return if any</span></div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;        std::streamsize read_prepared = copy_buffered(<a class="code" href="classstaticlib_1_1io_1_1span.html" title="Non-owning range of elements in of contiguous memory.">span</a>.<a class="code" href="classstaticlib_1_1io_1_1span.html#a18cad7a438a1938ec670210ee8e3b053" title="Data accessor.">data</a>(), ulen);</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;        std::streamsize read_prepared = copy_buffered(<a class="code" href="classstaticlib_1_1io_1_1span.html" title="Non-owning range of elements in contiguous memory.">span</a>.<a class="code" href="classstaticlib_1_1io_1_1span.html#a18cad7a438a1938ec670210ee8e3b053" title="Data accessor.">data</a>(), ulen);</div>
 <div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;        <span class="keywordflow">if</span> (read_prepared &gt; 0) {</div>
 <div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;            <span class="keywordflow">return</span> read_prepared;</div>
 <div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;        } </div>
@@ -357,7 +357,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jun 4 2018 23:44:46 for staticlib_io by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jun 19 2018 14:57:27 for staticlib_io by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>
