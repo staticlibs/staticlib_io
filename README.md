@@ -61,6 +61,11 @@ This project is released under the [Apache License 2.0](http://www.apache.org/li
 Changelog
 ---------
 
+**2018-06-20**
+
+ * version 1.2.10
+ * add alias for `sl::io::string_to_hex` to work around a clash with a macro in newer OpenSSL
+
 **2018-06-19**
 
  * version 1.2.9
