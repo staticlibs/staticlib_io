@@ -110,18 +110,15 @@ public:
      * @param span buffer span
      * @return number of bytes processed
      */
-    std::streamsize read(span<char> span) {
-        size_t ulen = span.size();
-        if (ulen > limit_bytes) throw io_exception(TRACEMSG(
-                "Read limit threshold exceeded, " + 
-                " limit: [" + sl::support::to_string(limit_bytes) + "]," +
-                " requested length: [" + sl::support::to_string(ulen) + "]"));
-        if (src.get_count() > limit_bytes - ulen) throw io_exception(TRACEMSG(
-                "Read limit threshold exceeded, " +
-                " already read: [" + sl::support::to_string(src.get_count()) + "]" +
-                " limit: [" + sl::support::to_string(limit_bytes) + "]," +
-                " requested length: [" + sl::support::to_string(ulen) + "]"));
-        return src.read(span);
+    std::streamsize read(span<char> origin_span) {
+        if (src.get_count() < limit_bytes) {
+            size_t ulen = origin_span.size();
+            auto remaining_bytes = limit_bytes - src.get_count();
+            auto read_length = (ulen < remaining_bytes) ? ulen : remaining_bytes;
+            return src.read(span<char> {origin_span.data(), static_cast<uint32_t>(read_length)});
+        } else {
+            return std::char_traits<char>::eof();
+        }
     }
 
     /**
