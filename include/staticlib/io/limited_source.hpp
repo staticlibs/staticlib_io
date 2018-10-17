@@ -38,7 +38,7 @@ namespace io {
 
 /**
  * Source wrapper that limits the number of bytes read through it
- * and throws "io_exception" on threshold exceed
+ * and returns EOF on threshold exceed
  */
 template<typename Source>
 class limited_source {

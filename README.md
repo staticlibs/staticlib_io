@@ -61,6 +61,12 @@ This project is released under the [Apache License 2.0](http://www.apache.org/li
 Changelog
 ---------
 
+**2018-10-17**
+
+ * version 1.2.11
+ * Changed limited source behaviour. `sl::io::limited_source` limits the number of bytes
+ * read through it and returns EOF on threshold exceed
+
 **2018-06-20**
 
  * version 1.2.10
