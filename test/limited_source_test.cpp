@@ -44,10 +44,10 @@ void test_limit() {
     slassert(std::char_traits<char>::eof() == src.read({arr.data(), 1}));
     slassert(3 == src.get_count());
 
-    auto second_try_src = sl::io::make_limited_source(two_bytes_at_once_source{"bar1"}, 3);
-    std::array<char, 4> second_array;
-    slassert(3 == second_try_src.read(second_array));
-    slassert(std::char_traits<char>::eof() == second_try_src.read({arr.data(), 1}));
+    auto one_byte_src = sl::io::make_limited_source(two_bytes_at_once_source{"bar1"}, 1);
+    auto readed = one_byte_src.read({arr.data(), 2});
+    slassert(1 == readed);
+    slassert(std::char_traits<char>::eof() == one_byte_src.read({arr.data(), 1}));
 }
 
 int main() {
