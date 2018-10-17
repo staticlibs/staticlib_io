@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">staticlib_io
-   &#160;<span id="projectnumber">1.2.9</span>
+   &#160;<span id="projectnumber">1.2.11</span>
    </div>
   </td>
  </tr>
@@ -125,7 +125,7 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstaticlib_1_1io_1_1io__exception.html">io_exception</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Module specific exception.  <a href="classstaticlib_1_1io_1_1io__exception.html#details">More...</a><br/></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstaticlib_1_1io_1_1limited__source.html">limited_source</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Source wrapper that limits the number of bytes read through it and throws "io_exception" on threshold exceed.  <a href="classstaticlib_1_1io_1_1limited__source.html#details">More...</a><br/></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Source wrapper that limits the number of bytes read through it and returns EOF on threshold exceed.  <a href="classstaticlib_1_1io_1_1limited__source.html#details">More...</a><br/></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstaticlib_1_1io_1_1memory__sink.html">memory_sink</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sink implementation that writes into fixed-size memory area.  <a href="classstaticlib_1_1io_1_1memory__sink.html#details">More...</a><br/></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstaticlib_1_1io_1_1multi__source.html">multi_source</a></td></tr>
@@ -216,6 +216,8 @@ void(*)(char *)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class=
 <tr class="memitem:a7bf26849c19f88ac4751e496ad5e044f"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classstaticlib_1_1io_1_1flushable__sink.html">flushable_sink</a>&lt; <a class="el" href="classstaticlib_1_1io_1_1reference__sink.html">reference_sink</a><br class="typebreak"/>
 &lt; NonFlushableSink &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a7bf26849c19f88ac4751e496ad5e044f">make_flushable_sink</a> (NonFlushableSink &amp;sink)</td></tr>
 <tr class="memdesc:a7bf26849c19f88ac4751e496ad5e044f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory function for creating flushable sinks, created sink wrapper will NOT own specified sink.  <a href="#a7bf26849c19f88ac4751e496ad5e044f"></a><br/></td></tr>
+<tr class="memitem:a260966ef378d6002d138aff9f1ddd688"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a260966ef378d6002d138aff9f1ddd688">hex_from_string</a> (const std::string &amp;plain)</td></tr>
+<tr class="memdesc:a260966ef378d6002d138aff9f1ddd688"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encodes the specified string as a hexadecimal string.  <a href="#a260966ef378d6002d138aff9f1ddd688"></a><br/></td></tr>
 <tr class="memitem:ad308057d8596f334f3b4aa9cb7fc72d3"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#ad308057d8596f334f3b4aa9cb7fc72d3">string_to_hex</a> (const std::string &amp;plain)</td></tr>
 <tr class="memdesc:ad308057d8596f334f3b4aa9cb7fc72d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encodes the specified string as a hexadecimal string.  <a href="#ad308057d8596f334f3b4aa9cb7fc72d3"></a><br/></td></tr>
 <tr class="memitem:a753b04d2b02d28523eb3ca4f191422af"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestaticlib_1_1io.html#a753b04d2b02d28523eb3ca4f191422af">string_from_hex</a> (const std::string &amp;hexstr)</td></tr>
@@ -545,6 +547,40 @@ template&lt;typename Source , typename Sink , uint16_t BufferSize = 4096&gt; </d
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>formatted string </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a260966ef378d6002d138aff9f1ddd688"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string staticlib::io::hex_from_string </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>plain</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Encodes the specified string as a hexadecimal string. </p>
+<p>Alias for <code>string_to_hex</code> to work aroung OpenSSL macro clash</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">plain</td><td>plain string </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>hex string </dd></dl>
 
 </div>
 </div>
@@ -2091,7 +2127,7 @@ template&lt;typename Sink &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jun 19 2018 14:57:27 for staticlib_io by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Oct 17 2018 23:09:43 for staticlib_io by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>
