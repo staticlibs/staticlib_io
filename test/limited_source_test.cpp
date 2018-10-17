@@ -39,9 +39,15 @@ void test_limit() {
     slassert(throws_exc([&src] { src.read({nullptr, 4}); }));
     slassert(2 == read);
     slassert(2 == src.get_count());
-    slassert(throws_exc([&src] { src.read({nullptr, 2}); }));
-    slassert(!throws_exc([&src, &arr] { src.read({arr.data(), 1}); }));
-    slassert(throws_exc([&src, &arr] { src.read({arr.data(), 1}); }));
+    slassert(1 == src.read({arr.data(), 2}));
+    slassert(std::char_traits<char>::eof() == src.read({arr.data(), 2}));
+    slassert(std::char_traits<char>::eof() == src.read({arr.data(), 1}));
+    slassert(3 == src.get_count());
+
+    auto one_byte_src = sl::io::make_limited_source(two_bytes_at_once_source{"bar1"}, 1);
+    auto readed = one_byte_src.read({arr.data(), 2});
+    slassert(1 == readed);
+    slassert(std::char_traits<char>::eof() == one_byte_src.read({arr.data(), 1}));
 }
 
 int main() {
